@@ -151,7 +151,7 @@ fetchAgent?: Agent
      /** opciones para axios */
      options: AxiosRequestConfig<any>
      /**
-      * obtener un mensaje de su tienda
+      * obtener un mensaje de su store
       * implemente esto para que los mensajes que no se enviaron (resuelva el problema "este mensaje puede tardar un tiempo") se puedan volver a intentar
       * */
      getMessage: (key: proto.IMessageKey) => Promise<proto.IMessage | undefined>
@@ -196,18 +196,18 @@ conn.ev.on ('creds.update', saveCreds)
 
 WW_WebSocket_Conection ahora activa el evento `connection.update` para informarle que algo se ha actualizado en la conexión. Estos datos tienen la siguiente estructura:
 ``` ts
-escriba Estado de conexión = {
+type ConnectionState = {
 /** la conexión ahora está abierta, conectándose o cerrada */
-conexión: WAConnectionState
+connection: WAConnectionState
 /** el error que provocó el cierre de la conexión */
-última desconexión?: {
+lastDisconnect?: {
 error: Error
-fecha: fecha
+date: Date
 }
 /** es este un nuevo inicio de sesión */
 isNewLogin?: booleano
 /** el código QR actual */
-qr?: cadena
+qr?: string
 /** el dispositivo recibió todas las notificaciones pendientes mientras estaba fuera de línea */
 ¿Notificaciones pendientes recibidas?: booleano
 }
@@ -224,20 +224,158 @@ Los eventos se escriben como se menciona aquí:
 
 ``` ts
 
-tipo de exportación WW_WebSocket_ConectionEventMap = {
+export type WW_WebSocket_ConectionEventMap = {
      /** el estado de la conexión ha sido actualizado -- WS cerrado, abierto, conectando, etc. */
-'conexión.actualización': Parcial<ConnectionState>
+'connection.update': Partial<ConnectionState>
      /** credenciales actualizadas -- algunos metadatos, claves o algo */
-     'creds.update': Parcial<AuthenticationCreds>
+     'creds.update': Partial<AuthenticationCreds>
      /** sincronización del historial, todo se ordena cronológicamente a la inversa */
-     'historial de mensajes.set': {
-         charlas: Charla[]
-         contactos: Contacto[]
-         mensajes: WAMessage[]
-         esLatest: booleano
-     }
+     'messaging-history.set': {
+        chats: Chat[]
+        contacts: Contact[]
+        messages: WAMessage[]
+        isLatest: boolean
+    }
      /** conversaciones alteradas */
      'chats.upsert': Chat[]
      /** actualizar los chats dados */
-     'chats.update': Parcial<Chat>[]
+     'chats.update': Partial<Chat>[]
+     /** eliminar chats con ID dado */
+     'chats.delete': string[]
+     /** presencia de contacto en un chat actualizado */
+    'presence.update': { id: string, presences: { [participant: string]: PresenceData } }
+
+    'contacts.upsert': Contact[]
+    'contacts.update': Partial<Contact>[]
+
+    'messages.delete': { keys: WAMessageKey[] } | { jid: string, all: true }
+    'messages.update': WAMessageUpdate[]
+    'messages.media-update': { key: WAMessageKey, media?: { ciphertext: Uint8Array, iv: Uint8Array }, error?: Boom }[]
      /**
+      * añadir/actualizar los mensajes dados. Si se recibieron mientras la conexión estaba en línea,
+      * la actualización tendrá tipo: "notificar"
+      * */
+     'messages.upsert': { messages: WAMessage[], type: MessageUpsertType }
+     /** se reaccionó al mensaje. Si se eliminó la reacción, entonces "reaction.text" será false */
+     'messages.reaction': { key: WAMessageKey, reaction: proto.IReaction }[]
+
+     'mensaje-recibo.update': MessageUserReceiptUpdate[]
+
+     'groups.upsert': GroupMetadata[]
+     'groups.update': Partial<GroupMetadata>[]
+     /** aplicar una acción a los participantes de un grupo */
+     'group-participants.update': { id: string, participantes: string[], action: ParticipantAction }
+
+     'blocklist.set': { blocklist: string[] }
+    'blocklist.update': { blocklist: string[], type: 'add' | 'remove' }
+     /** Reciba una actualización de una llamada, incluso cuándo se recibió, rechazó o aceptó la llamada */
+     'call': WACallEvent[]
+}
+```
+
+Puedes escuchar estos eventos así:
+``` ts
+
+const sock = makeWASocket()
+sock.ev.on('messages.upsert', ({ messages }) => {
+    console.log('got messages', messages)
+})
+
+```
+
+## Implementación de un almacén de datos
+
+WW_WebSocket_Conection no viene con un almacenamiento de facto para chats, contactos o mensajes. Sin embargo, se ha proporcionado una implementación sencilla en memoria. La store escucha actualizaciones de chat, mensajes nuevos, actualizaciones de mensajes, etc., para tener siempre una versión actualizada de los datos.
+
+Se puede utilizar de la siguiente manera:
+
+``` ts
+import makeWASocket, { makeInMemoryStore } from '@ReyEndymion/WW_WebSocket_Conection'
+// la store mantiene los datos de la conexión WA en memoria
+// se puede escribir en un archivo y leer de él
+const almacenar = hacerAlmacénDeMemoria({ })
+// se puede leer desde un archivo
+store.readFromFile('./baileys_store.json')
+// guarda el estado en un archivo cada 10s
+establecerIntervalo(() => {
+     store.writeToFile('./WW_WebSocket_Conection_store.json')
+}, 10_000)
+
+const calcetín = hacerWASocket({ })
+// escuchará desde este socket
+// la store puede escuchar desde un nuevo socket una vez que el socket actual supera su vida útil
+store.bind(sock.ev)
+
+sock.ev.on('chats.set', () => {
+     // puede usar "store.chats" como quiera, incluso después de que el socket se apague
+     // "chats" => una instancia KeyedDB
+    console.log('got chats', store.chats.all())
+})
+
+sock.ev.on('contacts.set', () => {
+    console.log('got contacts', Object.values(store.contacts))
+})
+
+```
+
+La store también proporciona algunas funciones simples como `loadMessages` que utilizan la store para acelerar la recuperación de datos.
+
+**Nota:** Recomiendo encarecidamente crear su propio almacén de datos, especialmente para las conexiones de MD, ya que almacenar todo el historial de chat de alguien en la memoria es una terrible pérdida de RAM.
+
+## Enviando mensajes
+
+**Envía todo tipo de mensajes con una sola función:**
+
+### Mensajes no multimedia
+
+``` ts
+import { MessageType, MessageOptions, Mimetype } from '@ReyEndymion/WW_WebSocket_Conection'
+
+const id = 'abcd@s.whatsapp.net' // el ID de WhatsApp
+// enviar un mensaje de texto simple!
+const sentMsg = await sock.sendMessage(id, { text: 'oh hola' })
+// enviar un mensaje de respuesta
+const sentMsg = await sock.sendMessage(id, { text: 'oh hola' }, { citado: mensaje })
+// enviar un mensaje de menciones
+const sentMsg = await sock.sendMessage(id, { text: '@12345678901', menciones: ['12345678901@s.whatsapp.net'] })
+// enviar una ubicación!
+const sentMsg = await sock.sendMessage(
+     identificación,
+     { ubicación: { grados Latitud: 24.121231, grados Longitud: 55.1121221 } }
+)
+// enviar un contacto!
+const vcard = 'BEGIN:VCARD\n' // metadatos de la tarjeta de contacto
+             + 'VERSIÓN:3.0\n'
+             + 'FN:Jeff Singh\n' // nombre completo
+             + 'ORG:Ashoka Uni;\n' // la organización del contacto
+             + 'TEL;type=CELL;type=VOICE;waid=911234567890:+91 12345 67890\n' // ID de WhatsApp + número de teléfono
+             + 'FIN:VCARD'
+const sentMsg = await sock.sendMessage(
+     identificación,
+     {
+         contactos: {
+             displayName: 'Jeff',
+             contactos: [{ vcard }]
+         }
+     }
+)
+
+// enviar un mensaje de botones!
+const buttons = [
+  {buttonId: 'id1', buttonText: {displayText: 'Button 1'}, type: 1},
+  {buttonId: 'id2', buttonText: {displayText: 'Button 2'}, type: 1},
+  {buttonId: 'id3', buttonText: {displayText: 'Button 3'}, type: 1}
+]
+
+const buttonMessage = {
+    text: "Hi it's button message",
+    footer: 'Hello World',
+    buttons: buttons,
+    headerType: 1
+}
+
+const sendMsg = await sock.sendMessage(id, buttonMessage)
+
+// enviar un mensaje de plantilla!
+const templateButtons = [
+     {índice: 1, urlButton

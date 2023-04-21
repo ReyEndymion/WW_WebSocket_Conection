@@ -707,11 +707,11 @@ await sock.sendMessage(
 
 ## Varios
 
-- Para verificar si una identificación dada está en WhatsApp
+- Para verificar si una identificación dada está en W
      ``` ts
-     const id = '123456'
-     const [result] = esperar calcetín.onWhatsApp(id)
-     if (result.exists) console.log (`${id} existe en WhatsApp, como jid: ${result.jid}`)
+    const id = '123456'
+    const [result] = await sock.onWhatsApp(id)
+    if (result.exists) console.log (`${id} exists on WhatsApp, as jid: ${result.jid}`)
      ```
 - Para consultar el historial de chat en un grupo o con alguien
      TODO, si es posible
@@ -727,7 +727,7 @@ await sock.sendMessage(
      ```
 - Para cambiar su nombre de perfil
      ``` ts
-     const name = 'My name'
+     const name = 'Mi nombre'
     await sock.updateProfileName(name)
      ```
 - Para obtener la imagen de visualización de alguna persona/grupo
@@ -883,6 +883,6 @@ Algunos ejemplos:
 
 ### Nota
 
-  Esta biblioteca fue originalmente un proyecto de [@adiwajshing] para **CS-2362 en la Universidad de Ashoka** y de ninguna manera está afiliada a W. Úselo a su propia discreción. No envíe spam a la gente con esto.
+  Esta biblioteca fue originalmente un proyecto de [@adiwajshing](https://github.com/adiwajshing) para **CS-2362 en la Universidad de Ashoka** y de ninguna manera está afiliada a W. Úselo a su propia discreción. No envíe spam a la gente con esto.
 
   Además, este repositorio ahora tiene licencia GPL 3 ya que usa [libsignal-node](https://git.questbook.io/backend/service-coderunner/-/merge_requests/1)

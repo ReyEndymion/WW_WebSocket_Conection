@@ -6,6 +6,9 @@
 
   Gracias a [@pokearaujo](https://github.com/pokearaujo/multidevice) por escribir sus observaciones sobre el funcionamiento de W Multi-Device. Además, gracias a [@Sigalor](https://github.com/sigalor/whatsapp-web-reveng) por escribir sus observaciones sobre el funcionamiento de W.W. y gracias a [@Rhymen](https://github.com/Rhymen/go-whatsapp/) para la implementación de __go__.
   y sobre todo a [@adiwajshing](https://github.com/adiwajshing) por la idea, aunque le hubiera ido mejor formando una empresa y apoyarse en la ley antimonopolios de EE.UU
+  
+ ## Por favor lee
+El repositorio original tuvo que ser eliminado por el autor original - ahora continuamos con el desarrollo en este repositorio [aquí](https://github.com/WhiskeySockets/Baileys). Este es el único repositorio oficial y es mantenido por la comunidad. Aqui solo se hace su version al español :).
 
   WW_WebSocket_Conection es de tipo seguro, extensible y fácil de usar. Si necesita más funciones que las provistas, es muy fácil escribir una extensión. Más sobre esto [aquí](#WritingCustomFunctionality).
  

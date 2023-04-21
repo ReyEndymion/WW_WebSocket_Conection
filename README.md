@@ -190,7 +190,7 @@ const conn = makeWASocket({autorización: estado})
 conn.ev.on ('creds.update', saveCreds)
 ```
 
-**Nota:** Cuando se recibe/envía un mensaje, debido a sesiones de señal que necesitan actualización, las claves de autenticación (`authState.keys`) se actualizarán. Siempre que eso suceda, debe guardar las claves actualizadas (se llama `authState.keys.set()`). No hacerlo evitará que sus mensajes lleguen al destinatario y causará otras consecuencias inawaitdas. La función `useMultiFileAuthState` automáticamente se ocupa de eso, pero para cualquier otra implementación seria, deberá tener mucho cuidado con la administración del estado clave.
+**Nota:** Cuando se recibe/envía un mensaje, debido a sesiones de señal que necesitan actualización, las claves de autenticación (`authState.keys`) se actualizarán. Siempre que eso suceda, debe guardar las claves actualizadas (se llama `authState.keys.set()`). No hacerlo evitará que sus mensajes lleguen al destinatario y causará otras consecuencias inesperadas. La función `useMultiFileAuthState` automáticamente se ocupa de eso, pero para cualquier otra implementación seria, deberá tener mucho cuidado con la administración del estado clave.
 
 ## Escuchar actualizaciones de conexión
 

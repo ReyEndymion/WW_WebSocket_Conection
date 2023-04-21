@@ -301,7 +301,7 @@ establecerIntervalo(() => {
      store.writeToFile('./WW_WebSocket_Conection_store.json')
 }, 10_000)
 
-const calcetín = hacerWASocket({ })
+const sock = makeWASocket({ })
 // escuchará desde este socket
 // la store puede escuchar desde un nuevo socket una vez que el socket actual supera su vida útil
 store.bind(sock.ev)

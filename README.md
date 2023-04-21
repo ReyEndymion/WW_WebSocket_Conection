@@ -91,7 +91,7 @@ Puede configurar la conexión pasando un objeto `SocketConfig`.
 
 Toda la estructura `SocketConfig` se menciona aquí con valores predeterminados:
 ``` ts
-tipo SocketConfig = {
+type SocketConfig = {
      /** la URL de WS para conectarse a WA */
      waWebSocketUrl: string | URL
      /** La conexión falla si el socket expira en este intervalo */
@@ -105,9 +105,9 @@ agent?: Agent
      /** registrador pino */
 registrador: registrador
      /** versión con la que conectarse */
-     versión: Versión WA
+    version: WAVersion
      /** anula la configuración del navegador */
-navegador: WABbrowserDescripción
+	browser: WABrowserDescription
 /** agente utilizado para solicitudes de obtención -- carga/descarga de medios */
 fetchAgent?: Agent
      /** si el QR debe estar impreso en la terminal */
@@ -123,7 +123,7 @@ fetchAgent?: Agent
      /** tiempo de await para la generación del siguiente QR en ms */
      qrTimeout?: number;
      /** proporcionar un objeto de estado de autenticación para mantener el estado de autenticación */
-     autenticación: estado de autenticación
+    auth: AuthenticationState
      /** administrar el procesamiento del historial con este control; por defecto sincronizará todo */
      shouldSyncHistoryMessage: (msg: proto.Message.IHistorySyncNotification) => boolean
      /** opciones de capacidad de transacción para SignalKeyStore */

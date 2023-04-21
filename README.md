@@ -9,7 +9,7 @@
 
   WW_WebSocket_Conection es de tipo seguro, extensible y fácil de usar. Si necesita más funciones que las provistas, es muy fácil escribir una extensión. Más sobre esto [aquí](#WritingCustomFunctionality).
  
-  Si está interesado en crear un bot de W, puede consultar [WInfoBot](https://github.com/adiwajshing/WInfoBot) y un bot real creado con él, [Messcat](https://github. com/ashokatechmin/Messcat).
+  Si está interesado en crear un bot de W, puede consultar [WInfoBot](https://github.com/adiwajshing/WhatsappInfoBot) y un bot real creado con él, [Messcat](https://github.com/ashokatechmin/Messcat).
 
   **Lea los documentos [aquí](https://ReyEndymion.github.io/WW_WebSocket_Conection)**
   **Únete a Discord [aquí](https://discord.gg/WeJM5FP9GG)**

@@ -5,7 +5,7 @@
   WW_WebSocket_Conection admite la interacción con las versiones web y multidispositivo de W.
 
   Gracias a [@pokearaujo](https://github.com/pokearaujo/multidevice) por escribir sus observaciones sobre el funcionamiento de W Multi-Device. Además, gracias a [@Sigalor](https://github.com/sigalor/whatsapp-web-reveng) por escribir sus observaciones sobre el funcionamiento de W.W. y gracias a [@Rhymen](https://github.com/Rhymen/go-whatsapp/) para la implementación de __go__.
-  y sobre todo a [@adiwajshing] por la idea, aunque le hubiera ido mejor formando una empresa y apoyarse en la ley antimonopolios de EE.UU
+  y sobre todo a [@adiwajshing](https://github.com/adiwajshing) por la idea, aunque le hubiera ido mejor formando una empresa y apoyarse en la ley antimonopolios de EE.UU
 
   WW_WebSocket_Conection es de tipo seguro, extensible y fácil de usar. Si necesita más funciones que las provistas, es muy fácil escribir una extensión. Más sobre esto [aquí](#WritingCustomFunctionality).
  

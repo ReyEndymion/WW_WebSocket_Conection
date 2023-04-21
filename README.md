@@ -293,7 +293,7 @@ Se puede utilizar de la siguiente manera:
 import makeWASocket, { makeInMemoryStore } from '@ReyEndymion/WW_WebSocket_Conection'
 // la store mantiene los datos de la conexión WA en memoria
 // se puede escribir en un archivo y leer de él
-const almacenar = hacerAlmacénDeMemoria({ })
+const store = makeInMemoryStore({ })
 // se puede leer desde un archivo
 store.readFromFile('./WW_WebSocket_Conection_store.json')
 // guarda el estado en un archivo cada 10s
@@ -549,7 +549,7 @@ await sock.sendMessage('1234@s.W.net', { forward: msg }) // ¡WA reenvía el men
 ## Lectura de mensajes
 
 Un conjunto de claves de mensaje debe marcarse explícitamente como leído ahora.
-En dispositivos múltiples, no puede marcar una lectura de "chat" completa como si fuera con Baileys Web.
+En dispositivos múltiples, no puede marcar una lectura de "chat" completa como si fuera con WW_WebSocket_Conection Web.
 Esto significa que debe realizar un seguimiento de los mensajes no leídos.
 
 ``` ts
@@ -581,7 +581,7 @@ type WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'pau
 
 La presencia expira después de unos 10 segundos.
 
-**Nota:** En la versión multidispositivo de W, si un cliente de escritorio está activo, WA no envía notificaciones automáticas al dispositivo. Si desea recibir dichas notificaciones, marque su cliente de Baileys fuera de línea usando `sock.sendPresenceUpdate('unavailable')`
+**Nota:** En la versión multidispositivo de W, si un cliente de escritorio está activo, WA no envía notificaciones automáticas al dispositivo. Si desea recibir dichas notificaciones, marque su cliente de WW_WebSocket_Conection fuera de línea usando `sock.sendPresenceUpdate('unavailable')`
 
 ## Descarga de mensajes multimedia
 
@@ -604,7 +604,7 @@ sock.ev.on('messages.upsert', async ({ messages }) => {
              { },
              {
                  logger,
-                 // pasa esto para que baileys pueda solicitar una recarga de medios
+                 // pasa esto para que WW_WebSocket_Conection pueda solicitar una recarga de medios
                  // que ha sido borrado
                  reuploadRequest: sock.updateMediaMessage
              }
@@ -849,7 +849,7 @@ Por supuesto, reemplace ``` xyz ``` con una ID real.
      ```
 
 ## Escritura de funcionalidad personalizada
-Baileys está escrito con la funcionalidad personalizada en mente. En lugar de bifurcar el proyecto y reescribir las partes internas, simplemente puede escribir sus propias extensiones.
+WW_WebSocket_Conection está escrito con la funcionalidad personalizada en mente. En lugar de bifurcar el proyecto y reescribir las partes internas, simplemente puede escribir sus propias extensiones.
 
 Primero, habilite el registro de mensajes no manejados de WhatsApp configurando:
 ``` ts

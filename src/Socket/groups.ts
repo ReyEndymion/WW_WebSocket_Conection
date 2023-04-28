@@ -143,9 +143,9 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 			return result?.attrs.jid
 		},
 		/**
-		 * accept a GroupInviteMessage
-		 * @param key the key of the invite message, or optionally only provide the jid of the person who sent the invite
-		 * @param inviteMessage the message to accept
+		 * Acepte un groupInviteMessage
+		 * @param key La clave del mensaje de invitación, o opcionalmente solo proporciona el JID de la persona que envió la invitación
+		 * @param inviteMessage El mensaje para aceptar
 		 */
 		groupAcceptInviteV4: ev.createBufferedFunction(async(key: string | WAMessageKey, inviteMessage: proto.Message.IGroupInviteMessage) => {
 			key = typeof key === 'string' ? { remoteJid: key } : key
@@ -158,10 +158,10 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 				}
 			}])
 
-			// if we have the full message key
-			// update the invite message to be expired
+			// Si tenemos la clave de mensaje completo
+			// Actualizar el mensaje de invitación para ser expirado
 			if(key.id) {
-				// create new invite message that is expired
+				// crear un nuevo mensaje de invitación que caduque
 				inviteMessage = proto.Message.GroupInviteMessage.fromObject(inviteMessage)
 				inviteMessage.inviteExpiration = 0
 				inviteMessage.inviteCode = ''
@@ -177,7 +177,7 @@ export const makeGroupsSocket = (config: SocketConfig) => {
 				])
 			}
 
-			// generate the group add message
+			// Generar el mensaje Agregar agregado
 			await upsertMessage(
 				{
 					key: {

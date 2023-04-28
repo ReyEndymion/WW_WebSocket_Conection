@@ -35,8 +35,8 @@ export const makeNoiseHandler = (
 	}
 
 	const decrypt = (ciphertext: Uint8Array) => {
-		// before the handshake is finished, we use the same counter
-		// after handshake, the counters are different
+		// Antes de que termine el apretón de manos, usamos el mismo contador
+		// Después del apretón de manos, los contadores son diferentes
 		const iv = generateIV(isFinished ? readCounter : writeCounter)
 		const result = aesDecryptGCM(ciphertext, decKey, iv, hash)
 
@@ -136,9 +136,9 @@ export const makeNoiseHandler = (
 			return frame
 		},
 		decodeFrame: (newData: Buffer | Uint8Array, onFrame: (buff: Uint8Array | BinaryNode) => void) => {
-			// the binary protocol uses its own framing mechanism
-			// on top of the WS frames
-			// so we get this data and separate out the frames
+			// El protocolo binario utiliza su propio mecanismo de encuadre
+// en la parte superior de los marcos WS
+// Entonces obtenemos estos datos y separamos los marcos
 			const getBytesSize = () => {
 				if(inBytes.length >= 3) {
 					return (inBytes.readUInt8() << 16) | inBytes.readUInt16BE(1)

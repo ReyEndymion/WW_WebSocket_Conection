@@ -6,22 +6,22 @@ export const makeMutex = () => {
 	return {
 		mutex<T>(code: () => Promise<T> | T): Promise<T> {
 			task = (async() => {
-				// wait for the previous task to complete
-				// if there is an error, we swallow so as to not block the queue
+				// Espere a que complete la tarea anterior
+// Si hay un error, nos tragamos para no bloquear la cola
 				try {
 					await task
 				} catch{ }
 
 				try {
-					// execute the current task
+					// Ejecutar la tarea actual
 					const result = await code()
 					return result
 				} finally {
 					clearTimeout(taskTimeout)
 				}
 			})()
-			// we replace the existing task, appending the new piece of execution to it
-			// so the next task will have to wait for this one to finish
+			// Reemplazamos la tarea existente, agregando la nueva obra de ejecución.
+// Entonces, la próxima tarea tendrá que esperar a que termine esta
 			return task
 		},
 	}

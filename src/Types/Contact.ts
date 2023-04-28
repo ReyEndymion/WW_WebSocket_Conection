@@ -1,18 +1,18 @@
 export interface Contact {
     id: string
-    /** name of the contact, you have saved on your WA */
+    /** Nombre del contacto, ha guardado en su WA */
     name?: string
-    /** name of the contact, the contact has set on their own on WA */
+    /** Nombre del contacto, el contacto se ha establecido por su cuenta en WA */
     notify?: string
-    /** I have no idea */
+    /** No tengo ni idea */
     verifiedName?: string
-    // Baileys Added
+    // Baileys agregó
     /**
-     * Url of the profile picture of the contact
+     * URL de la foto de perfil del contacto
      *
-     * 'changed' => if the profile picture has changed
-     * null => if the profile picture has not been set (default profile picture)
-     * any other string => url of the profile picture
+     * 'changed' => Si la foto de perfil ha cambiado
+     * null => Si la imagen de perfil no se ha configurado (imagen de perfil predeterminada)
+     * cualquier otro string => url de la foto de perfil
      */
     imgUrl?: string | null | 'changed'
     status?: string

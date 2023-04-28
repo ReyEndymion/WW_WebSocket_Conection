@@ -19,7 +19,7 @@ const getCompressedJpegThumbnail = async(
 export type URLGenerationOptions = {
 	thumbnailWidth: number
 	fetchOpts: {
-		/** Timeout in ms */
+		/** Tiempo de espera en MS */
 		timeout: number
 		proxyUrl?: string
 		headers?: AxiosRequestConfig<{}>['headers']
@@ -29,10 +29,10 @@ export type URLGenerationOptions = {
 }
 
 /**
- * Given a piece of text, checks for any URL present, generates link preview for the same and returns it
- * Return undefined if the fetch failed or no URL was found
- * @param text first matched URL in text
- * @returns the URL info required to generate link preview
+ * Dado un texto, verifica cualquier URL presente, genera una vista previa del enlace para el mismo y lo devuelve
+ * Devuelve indefinido si la búsqueda falló o no se encontró URL
+ * @param text Primer URL coincidente en el texto
+ * @returns La información de URL requerida para generar la vista previa del enlace
  */
 export const getUrlInfo = async(
 	text: string,

@@ -33,10 +33,10 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	let privacySettings: { [_: string]: string } | undefined
 	let needToFlushWithAppStateSync = false
 	let pendingAppStateSync = false
-	/** this mutex ensures that the notifications (receipts, messages etc.) are processed in order */
+	/** Este mutex asegura que las notificaciones (recibos, mensajes, etc.) se procesen en orden */
 	const processingMutex = makeMutex()
 
-	/** helper function to fetch the given app state sync key */
+	/** Función auxiliar para obtener la clave de sincronización de estado de la aplicación dada */
 	const getAppStateSyncKey = async(keyId: string) => {
 		const { [keyId]: key } = await authState.keys.get('app-state-sync-key', [keyId])
 		return key
@@ -61,7 +61,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		return privacySettings
 	}
 
-	/** helper function to run a generic IQ query */
+	/** Función auxiliar para ejecutar una consulta genérica de IQ */
 	const interactiveQuery = async(userNodes: BinaryNode[], queryNode: BinaryNode) => {
 		const result = await query({
 			tag: 'iq',
@@ -141,7 +141,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		}
 	}
 
-	/** update the profile picture for yourself or a group */
+	/** Actualice la foto de perfil para usted o un grupo */
 	const updateProfilePicture = async(jid: string, content: WAMediaUpload) => {
 		const { img } = await generateProfilePicture(content)
 		await query({
@@ -161,7 +161,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		})
 	}
 
-	/** update the profile status for yourself */
+	/** Actualice el estado del perfil para usted */
 	const updateProfileStatus = async(status: string) => {
 		await query({
 			tag: 'iq',
@@ -302,19 +302,18 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	}
 
 	const resyncAppState = ev.createBufferedFunction(async(collections: readonly WAPatchName[], isInitialSync: boolean) => {
-		// we use this to determine which events to fire
-		// otherwise when we resync from scratch -- all notifications will fire
+		// Usamos esto para determinar qué eventos disparar, de lo contrario, cuando resincremos desde cero, todas las notificaciones dispararán
 		const initialVersionMap: { [T in WAPatchName]?: number } = { }
 		const globalMutationMap: ChatMutationMap = { }
 
 		await authState.keys.transaction(
 			async() => {
 				const collectionsToHandle = new Set<string>(collections)
-				// in case something goes wrong -- ensure we don't enter a loop that cannot be exited from
+				// En caso de que algo salga mal, asegúrese de no ingresar a un bucle que no se pueda salir
 				const attemptsMap: { [T in WAPatchName]?: number } = { }
-				// keep executing till all collections are done
-				// sometimes a single patch request will not return all the patches (God knows why)
-				// so we fetch till they're all done (this is determined by the "has_more_patches" flag)
+				// Siga ejecutando hasta que se realicen todas las colecciones
+				// A veces, una solicitud de parche no devolverá todos los parches (Dios sabe por qué)
+				// Así que buscamos hasta que todos hayan terminado (esto está determinado por el indicador "Has_More_Patches")
 				while(collectionsToHandle.size) {
 					const states = { } as { [T in WAPatchName]: LTHashState }
 					const nodes: BinaryNode[] = []
@@ -340,7 +339,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 							attrs:  {
 								name,
 								version: state.version.toString(),
-								// return snapshot if being synced from scratch
+								// Devuelva la instantánea si se sincroniza desde cero
 								'return_snapshot': (!state.version).toString()
 							}
 						})
@@ -362,7 +361,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 						]
 					})
 
-					// extract from binary node
+					// Extracto del nodo binario
 					const decoded = await extractSyncdPatches(result, config?.options)
 					for(const key in decoded) {
 						const name = key as WAPatchName
@@ -384,7 +383,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 								await authState.keys.set({ 'app-state-sync-version': { [name]: newState } })
 							}
 
-							// only process if there are syncd patches
+							// solo proceso si hay parches sincronizados
 							if(patches.length) {
 								const { state: newState, mutationMap } = await decodePatches(
 									name,
@@ -407,12 +406,12 @@ export const makeChatsSocket = (config: SocketConfig) => {
 
 							if(hasMorePatches) {
 								logger.info(`${name} has more patches...`)
-							} else { // collection is done with sync
+							} else { // La colección se realiza con sincronización
 								collectionsToHandle.delete(name)
 							}
 						} catch(error) {
-							// if retry attempts overshoot
-							// or key not found
+							// Si vuelve a intentar los intentos de los intentos
+							// o llave no encontrada
 							const isIrrecoverableError = attemptsMap[name]! >= MAX_SYNC_ATTEMPTS
 								|| error.output?.statusCode === 404
 								|| error.name === 'TypeError'
@@ -421,11 +420,11 @@ export const makeChatsSocket = (config: SocketConfig) => {
 								`failed to sync state from version${isIrrecoverableError ? '' : ', removing and trying from scratch'}`
 							)
 							await authState.keys.set({ 'app-state-sync-version': { [name]: null } })
-							// increment number of retries
+							// Incremento número de reintentos
 							attemptsMap[name] = (attemptsMap[name] || 0) + 1
 
 							if(isIrrecoverableError) {
-								// stop retrying
+								// Deja de volver a intentar
 								collectionsToHandle.delete(name)
 							}
 						}
@@ -441,9 +440,9 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	})
 
 	/**
-     * fetch the profile picture of a user/group
-     * type = "preview" for a low res picture
-     * type = "image for the high res picture"
+     * Obtenga la foto de perfil de un usuario/grupo
+     * type = "preview" para una imagen de baja resolución
+     * type = "Imagen" para la imagen de alta resolución
      */
 	const profilePictureUrl = async(jid: string, type: 'preview' | 'image' = 'preview', timeoutMs?: number) => {
 		jid = jidNormalizedUser(jid)
@@ -497,8 +496,8 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	}
 
 	/**
-	 * @param toJid the jid to subscribe to
-	 * @param tcToken token for subscription, use if present
+	 * @param toJid el Jid para suscribirse a
+	 * @param tcToken Token para suscripción, use si está presente
 	 */
 	const presenceSubscribe = (toJid: string, tcToken?: Buffer) => (
 		sendNode({
@@ -640,7 +639,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		}
 	}
 
-	/** sending abt props may fix QR scan fail if server expects */
+	/** Enviar los accesorios de ABT puede arreglar el fallo de escaneo QR si el servidor espera */
 	const fetchAbt = async() => {
 		const abtNode = await query({
 			tag: 'iq',
@@ -666,7 +665,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		return props
 	}
 
-	/** sending non-abt props may fix QR scan fail if server expects */
+	/** El envío de accesorios que no son ABT pueden arreglar el fallo de escaneo QR si el servidor espera */
 	const fetchProps = async() => {
 		const resultNode = await query({
 			tag: 'iq',
@@ -693,9 +692,9 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	}
 
 	/**
-     * modify a chat -- mark unread, read etc.
-     * lastMessages must be sorted in reverse chronologically
-     * requires the last messages till the last message received; required for archive & unread
+     * Modificar un chat - Marca sin leer, leer, etc.
+     * Los últimos Mensajes deben clasificarse en reversa cronológicamente
+     * Requiere los últimos mensajes hasta que reciba el último mensaje;requerido para el archivo y no leído
     */
 	const chatModify = (mod: ChatModification, jid: string) => {
 		const patch = chatModificationToAppPatch(mod, jid)
@@ -703,8 +702,8 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	}
 
 	/**
-	 * queries need to be fired on connection open
-	 * help ensure parity with WA Web
+	 * Las consultas deben ser disparadas en la conexión abierta
+	 * Ayuda a garantizar la paridad con WA Web
 	 * */
 	const executeInitQueries = async() => {
 		await Promise.all([
@@ -726,7 +725,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 				ev.emit('contacts.update', [{ id: jid, notify: msg.pushName, verifiedName: msg.verifiedBizName! }])
 			}
 
-			// update our pushname too
+			// Actualizar nuestro nombre de empuje también
 			if(msg.key.fromMe && msg.pushName && authState.creds.me?.name !== msg.pushName) {
 				ev.emit('creds.update', { me: { ...authState.creds.me!, name: msg.pushName! } })
 			}
@@ -834,9 +833,9 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		}
 
 		if(receivedPendingNotifications) {
-			// if we don't have the app state key
-			// we keep buffering events until we finally have
-			// the key and can sync the messages
+			// Si no tenemos la clave de estado de la aplicación
+			// seguimos amortiguando los eventos hasta que finalmente tengamos
+			// la clave y puede sincronizar los mensajes
 			if(!authState.creds?.myAppStateKeyId) {
 				ev.buffer()
 				needToFlushWithAppStateSync = true

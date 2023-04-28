@@ -19,7 +19,7 @@ export const Browsers = {
 	ubuntu: browser => ['Ubuntu', browser, '20.0.04'] as [string, string, string],
 	macOS: browser => ['Mac OS', browser, '10.15.7'] as [string, string, string],
 	baileys: browser => ['Baileys', browser, '4.0.0'] as [string, string, string],
-	/** The appropriate browser based on your OS & release */
+	/** El navegador apropiado basado en su sistema operativo y liberación */
 	appropriate: browser => [ PLATFORM_MAP[platform()] || 'Ubuntu', browser, release() ] as [string, string, string]
 }
 
@@ -95,7 +95,7 @@ export const encodeBigEndian = (e: number, t = 4) => {
 
 export const toNumber = (t: Long | number | null | undefined): number => ((typeof t === 'object' && t) ? ('toNumber' in t ? t.toNumber() : (t as any).low) : t)
 
-/** unix timestamp of a date in seconds */
+/** Unix Timestamp de una fecha en segundos */
 export const unixTimestampSeconds = (date: Date = new Date()) => Math.floor(date.getTime() / 1000)
 
 export type DebouncedTimeout = ReturnType<typeof debouncedTimeout>
@@ -149,7 +149,7 @@ export async function promiseTimeout<T>(ms: number | undefined, promise: (resolv
 	}
 
 	const stack = new Error().stack
-	// Create a promise that rejects in <ms> milliseconds
+	// Crea una promesa que rechaza en <s ms> milisegundos
 	const { delay, cancel } = delayCancellable (ms)
 	const p = new Promise((resolve, reject) => {
 		delay
@@ -169,7 +169,7 @@ export async function promiseTimeout<T>(ms: number | undefined, promise: (resolv
 	return p as Promise<T>
 }
 
-// generate a random ID to attach to a message
+// Genere una ID aleatoria para adjuntar a un mensaje
 export const generateMessageID = () => 'BAE5' + randomBytes(6).toString('hex').toUpperCase()
 
 export function bindWaitForEvent<T extends keyof BaileysEventMap>(ev: BaileysEventEmitter, event: T) {
@@ -222,8 +222,8 @@ export const printQRIfNecessaryListener = (ev: BaileysEventEmitter, logger: Logg
 }
 
 /**
- * utility that fetches latest baileys version from the master branch.
- * Use to ensure your WA connection is always on the latest version
+ * utilidad que obtiene la última versión de Baileys de la rama maestra.
+ * Usar para asegurarse de que su conexión WA esté siempre en la última versión
  */
 export const fetchLatestBaileysVersion = async(options: AxiosRequestConfig<any> = { }) => {
 	const URL = 'https://raw.githubusercontent.com/adiwajshing/Baileys/master/src/Defaults/baileys-version.json'
@@ -249,8 +249,8 @@ export const fetchLatestBaileysVersion = async(options: AxiosRequestConfig<any> 
 }
 
 /**
- * A utility that fetches the latest web version of whatsapp.
- * Use to ensure your WA connection is always on the latest version
+ *Una utilidad que obtiene la última versión web de WhatsApp.
+ * Usar para asegurarse de que su conexión WA esté siempre en la última versión
  */
 export const fetchLatestWaWebVersion = async(options: AxiosRequestConfig<any>) => {
 	try {
@@ -275,7 +275,7 @@ export const fetchLatestWaWebVersion = async(options: AxiosRequestConfig<any>) =
 	}
 }
 
-/** unique message tag prefix for MD clients */
+/** prefijo de etiqueta de mensaje único para clientes MD */
 export const generateMdTagPrefix = () => {
 	const bytes = randomBytes(4)
 	return `${bytes.readUInt16BE()}.${bytes.readUInt16BE(2)}-`
@@ -287,8 +287,8 @@ const STATUS_MAP: { [_: string]: proto.WebMessageInfo.Status } = {
 	'read-self': proto.WebMessageInfo.Status.READ
 }
 /**
- * Given a type of receipt, returns what the new status of the message should be
- * @param type type from receipt
+ * Dado un tipo de recibo, devuelve lo que debe ser el nuevo estado del mensaje
+ * @param type Escriba desde el recibo
  */
 export const getStatusFromReceiptType = (type: string | undefined) => {
 	const status = STATUS_MAP[type!]
@@ -304,8 +304,8 @@ const CODE_MAP: { [_: string]: DisconnectReason } = {
 }
 
 /**
- * Stream errors generally provide a reason, map that to a baileys DisconnectReason
- * @param reason the string reason given, eg. "conflict"
+ * Los errores de la transmisión generalmente proporcionan una razón, asigna que a una disconnectroason de Baileys
+ * @param reason La razón de la cadena dada, por ejemplo. "conflict"
  */
 export const getErrorCodeFromStreamError = (node: BinaryNode) => {
 	const [reasonNode] = getAllBinaryNodeChildren(node)
@@ -363,7 +363,7 @@ export const getCodeFromWSError = (error: Error) => {
 	} else if(
 		(error as any).code?.startsWith('E')
 		|| error?.message?.includes('timed out')
-	) { // handle ETIMEOUT, ENOTFOUND etc
+	) { // manejar ETIMEOUT, ENOTFOUND etc
 		statusCode = 408
 	}
 
@@ -371,7 +371,7 @@ export const getCodeFromWSError = (error: Error) => {
 }
 
 /**
- * Is the given platform WA business
+ * Es la plataforma dada wa business
  * @param platform AuthenticationCreds.platform
  */
 export const isWABusinessPlatform = (platform: string) => {

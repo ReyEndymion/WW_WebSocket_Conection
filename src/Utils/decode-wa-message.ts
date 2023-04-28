@@ -10,8 +10,8 @@ const NO_MESSAGE_FOUND_ERROR_TEXT = 'Message absent from node'
 type MessageType = 'chat' | 'peer_broadcast' | 'other_broadcast' | 'group' | 'direct_peer_status' | 'other_status'
 
 /**
- * Decode the received node as a message.
- * @note this will only parse the message, not decrypt it
+ * Decodifique el nodo recibido como mensaje.
+ * @note Esto solo analizará el mensaje, no lo descifrará
  */
 export function decodeMessageNode(
 	stanza: BinaryNode,
@@ -176,7 +176,7 @@ export const decryptMessageNode = (
 				}
 			}
 
-			// if nothing was found to decrypt
+			// Si no se encontrara nada que descifra
 			if(!decryptables) {
 				fullMessage.messageStubType = proto.WebMessageInfo.StubType.CIPHERTEXT
 				fullMessage.messageStubParameters = [NO_MESSAGE_FOUND_ERROR_TEXT]

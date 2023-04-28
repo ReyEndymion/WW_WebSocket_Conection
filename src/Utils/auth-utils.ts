@@ -7,10 +7,10 @@ import { Curve, signedKeyPair } from './crypto'
 import { delay, generateRegistrationId } from './generics'
 
 /**
- * Adds caching capability to a SignalKeyStore
- * @param store the store to add caching to
- * @param logger to log trace events
- * @param _cache cache store to use
+ * Agrega la capacidad de almacenamiento en caché a una tienda de letreros
+ * @param store Para agregar almacenamiento en caché a la store
+ * @param logger Para registrar los eventos de rastreo
+ * @param _cache para usar la caché de store
  */
 export function makeCacheableSignalKeyStore(
 	store: SignalKeyStore,
@@ -75,19 +75,18 @@ export function makeCacheableSignalKeyStore(
 }
 
 /**
- * Adds DB like transaction capability (https://en.wikipedia.org/wiki/Database_transaction) to the SignalKeyStore,
- * this allows batch read & write operations & improves the performance of the lib
- * @param state the key store to apply this capability to
- * @param logger logger to log events
- * @returns SignalKeyStore with transaction capability
+ * Agrega DB como capacidad de transacción (https://en.wikipedia.org/wiki/Database_transaction) al almacén de claves de señal, * Esto permite operaciones de lectura y escritura de lotes y mejora el rendimiento del lib
+ * @param state la clave store para aplicar esta capacidad a
+ * @param logger Logger para registrar eventos
+ * @returns SignalKeyStore con capacidad de transacción
  */
 export const addTransactionCapability = (
 	state: SignalKeyStore,
 	logger: Logger,
 	{ maxCommitRetries, delayBetweenTriesMs }: TransactionCapabilityOptions
 ): SignalKeyStoreWithTransaction => {
-	// number of queries made to the DB during the transaction
-	// only there for logging purposes
+	// Número de consultas realizadas a la DB durante la transacción
+// Solo allí para fines de registro
 	let dbQueriesInTransaction = 0
 	let transactionCache: SignalDataSet = { }
 	let mutations: SignalDataSet = { }
@@ -101,7 +100,7 @@ export const addTransactionCapability = (
 				const idsRequiringFetch = dict
 					? ids.filter(item => typeof dict[item] === 'undefined')
 					: ids
-				// only fetch if there are any items to fetch
+				// Solo busca si hay algún elemento para buscar
 				if(idsRequiringFetch.length) {
 					dbQueriesInTransaction += 1
 					const result = await state.get(type, idsRequiringFetch)
@@ -151,12 +150,12 @@ export const addTransactionCapability = (
 
 			try {
 				result = await work()
-				// commit if this is the outermost transaction
+				// Comprometer si esta es la transacción más externa
 				if(transactionsInProgress === 1) {
 					if(Object.keys(mutations).length) {
 						logger.trace('committing transaction')
-						// retry mechanism to ensure we've some recovery
-						// in case a transaction fails in the first attempt
+						// Reintento de mecanismo para garantizar que tengamos cierta recuperación
+						// En caso de que una transacción falle en el primer intento
 						let tries = maxCommitRetries
 						while(tries) {
 							tries -= 1

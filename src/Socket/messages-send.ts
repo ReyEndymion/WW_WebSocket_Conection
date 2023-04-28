@@ -73,8 +73,8 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 	}
 
 	/**
-		 * generic send receipt function
-		 * used for receipts of phone call, read, delivery etc.
+		 * Función de recibo de envío genérico
+		 * utilizado para los recibos de llamadas telefónicas, lectura, entrega, etc.
 		 * */
 	const sendReceipt = async(jid: string, participant: string | undefined, messageIds: string[], type: MessageReceiptType) => {
 		const node: BinaryNode = {
@@ -120,7 +120,7 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 		await sendNode(node)
 	}
 
-	/** Correctly bulk send receipts to multiple chats, participants */
+	/** Correctamente a granel Enviar recibos a múltiples chats, participantes */
 	const sendReceipts = async(keys: WAMessageKey[], type: MessageReceiptType) => {
 		const recps = aggregateMessageKeysNotFromMe(keys)
 		for(const { jid, participant, messageIds } of recps) {
@@ -128,15 +128,15 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 		}
 	}
 
-	/** Bulk read messages. Keys can be from different chats & participants */
+	/** Mensajes de lectura a granel.Las teclas pueden ser de diferentes chats y participantes */
 	const readMessages = async(keys: WAMessageKey[]) => {
 		const privacySettings = await fetchPrivacySettings()
-		// based on privacy settings, we have to change the read type
+		// Según la configuración de privacidad, tenemos que cambiar el tipo de lectura
 		const readType = privacySettings.readreceipts === 'all' ? 'read' : 'read-self'
 		await sendReceipts(keys, readType)
  	}
 
-	/** Fetch all the devices we've to send a message to */
+	/** Obtenga todos los dispositivos que tenemos para enviar un mensaje a */
 	const getUSyncDevices = async(jids: string[], useCache: boolean, ignoreZeroDevices: boolean) => {
 		const deviceResults: JidWithDevice[] = []
 
@@ -326,9 +326,9 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 		}
 
 		if(participant) {
-			// when the retry request is not for a group
-			// only send to the specific device that asked for a retry
-			// otherwise the message is sent out to every device that should be a recipient
+			// Cuando la solicitud de reintento no es para un grupo
+			// solo envíe al dispositivo específico que solicitó un reintento
+			// de lo contrario, el mensaje se envía a cada dispositivo que debería ser un destinatario
 			if(!isGroup) {
 				additionalAttributes = { ...additionalAttributes, 'device_fanout': 'false' }
 			}
@@ -382,18 +382,18 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 					)
 
 					const senderKeyJids: string[] = []
-					// ensure a connection is established with every device
+					// Asegúrese de que se establezca una conexión con cada dispositivo
 					for(const { user, device } of devices) {
 						const jid = jidEncode(user, 's.whatsapp.net', device)
 						if(!senderKeyMap[jid] || !!participant) {
 							senderKeyJids.push(jid)
-							// store that this person has had the sender keys sent to them
+							// almacenar que esta persona ha enviado las llaves del remitente
 							senderKeyMap[jid] = true
 						}
 					}
 
-					// if there are some participants with whom the session has not been established
-					// if there are, we re-send the senderkey
+					// Si hay algunos participantes con los que no se ha establecido la sesión
+					// Si lo hay, volvemos a enviar el senderkey
 					if(senderKeyJids.length) {
 						logger.debug({ senderKeyJids }, 'sending new sender key')
 
@@ -477,9 +477,9 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 					},
 					content: binaryNodeContent
 				}
-				// if the participant to send to is explicitly specified (generally retry recp)
-				// ensure the message is only sent to that person
-				// if a retry receipt is sent to everyone -- it'll fail decryption for everyone else who received the msg
+				// Si el participante para enviar se especifica explícitamente (generalmente vuelve a intentar el recp)
+				// Asegúrese de que el mensaje solo se envíe a esa persona
+				// Si se envía un recibo de reintento a todos, descifrado de fallas para todos los que recibieron el MSG
 				if(participant) {
 					if(isJidGroup(destinationJid)) {
 						stanza.attrs.to = destinationJid
@@ -724,9 +724,9 @@ const getButtonArgs = (message: proto.IMessage): BinaryNode['attrs'] => {
 				)
 				const isDeleteMsg = 'delete' in content && !!content.delete
 				const additionalAttributes: BinaryNodeAttributes = { }
-				// required for delete
+				// requerido para eliminar
 				if(isDeleteMsg) {
-					// if the chat is a group, and I am not the author, then delete the message as an admin
+					// Si el chat es un grupo, y yo no soy el autor, entonces elimine el mensaje como administrador
 					if(isJidGroup(content.delete?.remoteJid as string) && !content.delete?.fromMe) {
 						additionalAttributes.edit = '8'
 					} else {

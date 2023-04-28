@@ -3,7 +3,7 @@ import type { AccountSettings } from './Auth'
 import type { BufferedEventData } from './Events'
 import type { MinimalMessage } from './Message'
 
-/** set of statuses visible to other people; see updatePresence() in WhatsAppWeb.Send */
+/** conjunto de estados visibles para otras personas; ver updatePresence() en WhatsAppWeb.Send */
 export type WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'
 
 export const ALL_WA_PATCH_NAMES = [
@@ -35,26 +35,26 @@ export type WAPatchCreate = {
 }
 
 export type Chat = proto.IConversation & {
-    /** unix timestamp of when the last message was received in the chat */
+    /** Unix TimeStamp de cuándo se recibió el último mensaje en el chat */
     lastMessageRecvTimestamp?: number
 }
 
 export type ChatUpdate = Partial<Chat & {
     /**
-     * if specified in the update,
-     * the EV buffer will check if the condition gets fulfilled before applying the update
-     * Right now, used to determine when to release an app state sync event
+     * Si se especifica en la actualización,
+     * El búfer EV verificará si la condición se cumple antes de aplicar la actualización
+     * En este momento, utilizado para determinar cuándo lanzar un evento de sincronización de estado de la aplicación
      *
-     * @returns true, if the update should be applied;
-     * false if it can be discarded;
-     * undefined if the condition is not yet fulfilled
+     * @returns Es true si la actualización se aplica;
+     * false si se puede descartar;
+     * undefined si la condición aún no se ha cumplido
      * */
     conditional: (bufferedData: BufferedEventData) => boolean | undefined
 }>
 
 /**
- * the last messages in a chat, sorted reverse-chronologically. That is, the latest message should be first in the chat
- * for MD modifications, the last message in the array (i.e. the earlist message) must be the last message recv in the chat
+ *Los últimos mensajes en un chat, ordenados reverso-cronológicamente.Es decir, el último mensaje debe ser el primero en el chat.
+ * Para las modificaciones de MD, el último mensaje en la matriz (es decir, el mensaje delantero) debe ser el último mensaje Recivido en el chat
  * */
 export type LastMessageList = MinimalMessage[] | proto.SyncActionValue.ISyncActionMessageRange
 
@@ -66,7 +66,7 @@ export type ChatModification =
     | { pushNameSetting: string }
     | { pin: boolean }
     | {
-        /** mute for duration, or provide timestamp of mute to remove*/
+        /**silenciar para la duración o proporcionar una marca de tiempo de silencio para eliminar*/
         mute: number | null
     }
     | {
@@ -86,9 +86,9 @@ export type ChatModification =
 
 export type InitialReceivedChatsState = {
     [jid: string]: {
-        /** the last message received from the other party */
+        /** el último mensaje recibido de la otra parte */
         lastMsgRecvTimestamp?: number
-        /** the absolute last message in the chat */
+        /** el último mensaje absoluto en el chat */
         lastMsgTimestamp: number
     }
 }

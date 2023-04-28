@@ -4,7 +4,7 @@ import * as libsignal from 'libsignal'
 import { KEY_BUNDLE_TYPE } from '../Defaults'
 import { KeyPair } from '../Types'
 
-/** prefix version byte to the pub keys, required for some curve crypto functions */
+/** Byte de versión de prefijo para las teclas de pub, requeridas para algunas funciones de criptográfico de curva */
 export const generateSignalPubKey = (pubKey: Uint8Array | Buffer) => (
 	pubKey.length === 33
 		? pubKey
@@ -16,7 +16,7 @@ export const Curve = {
 		const { pubKey, privKey } = libsignal.curve.generateKeyPair()
 		return {
 			private: Buffer.from(privKey),
-			// remove version byte
+			// eliminar la versión byte
 			public: Buffer.from((pubKey as Uint8Array).slice(1))
 		}
 	},
@@ -49,8 +49,8 @@ export const signedKeyPair = (identityKeyPair: KeyPair, keyId: number) => {
 const GCM_TAG_LENGTH = 128 >> 3
 
 /**
- * encrypt AES 256 GCM;
- * where the tag tag is suffixed to the ciphertext
+ * encriptar AES 256 GCM;
+ * Donde la etiqueta se sufre en el texto cifrado
  * */
 export function aesEncryptGCM(plaintext: Uint8Array, key: Uint8Array, iv: Uint8Array, additionalData: Uint8Array) {
 	const cipher = createCipheriv('aes-256-gcm', key, iv)
@@ -59,46 +59,46 @@ export function aesEncryptGCM(plaintext: Uint8Array, key: Uint8Array, iv: Uint8A
 }
 
 /**
- * decrypt AES 256 GCM;
- * where the auth tag is suffixed to the ciphertext
+ * descifrar AES 256 GCM;
+ * Donde la etiqueta de autenticación se sufre al texto cifrado
  * */
 export function aesDecryptGCM(ciphertext: Uint8Array, key: Uint8Array, iv: Uint8Array, additionalData: Uint8Array) {
 	const decipher = createDecipheriv('aes-256-gcm', key, iv)
-	// decrypt additional adata
+	// descifrar adata adicional
 	const enc = ciphertext.slice(0, ciphertext.length - GCM_TAG_LENGTH)
 	const tag = ciphertext.slice(ciphertext.length - GCM_TAG_LENGTH)
-	// set additional data
+	// Establecer datos adicionales
 	decipher.setAAD(additionalData)
 	decipher.setAuthTag(tag)
 
 	return Buffer.concat([ decipher.update(enc), decipher.final() ])
 }
 
-/** decrypt AES 256 CBC; where the IV is prefixed to the buffer */
+/** descifrar AES 256 CBC; donde el IV tiene prefijo al búfer */
 export function aesDecrypt(buffer: Buffer, key: Buffer) {
 	return aesDecryptWithIV(buffer.slice(16, buffer.length), key, buffer.slice(0, 16))
 }
 
-/** decrypt AES 256 CBC */
+/** descifrar AES 256 CBC */
 export function aesDecryptWithIV(buffer: Buffer, key: Buffer, IV: Buffer) {
 	const aes = createDecipheriv('aes-256-cbc', key, IV)
 	return Buffer.concat([aes.update(buffer), aes.final()])
 }
 
-// encrypt AES 256 CBC; where a random IV is prefixed to the buffer
+// encriptar AES 256 CBC; donde un IV aleatorio se prefijas al búfer
 export function aesEncrypt(buffer: Buffer | Uint8Array, key: Buffer) {
 	const IV = randomBytes(16)
 	const aes = createCipheriv('aes-256-cbc', key, IV)
 	return Buffer.concat([IV, aes.update(buffer), aes.final()]) // prefix IV to the buffer
 }
 
-// encrypt AES 256 CBC with a given IV
+// encriptar AES 256 CBC con un IV dado
 export function aesEncrypWithIV(buffer: Buffer, key: Buffer, IV: Buffer) {
 	const aes = createCipheriv('aes-256-cbc', key, IV)
-	return Buffer.concat([aes.update(buffer), aes.final()]) // prefix IV to the buffer
+	return Buffer.concat([aes.update(buffer), aes.final()]) // prefijo IV al búfer
 }
 
-// sign HMAC using SHA 256
+// firmar HMAC usando SHA 256
 export function hmacSign(buffer: Buffer | Uint8Array, key: Buffer | Uint8Array, variant: 'sha256' | 'sha512' = 'sha256') {
 	return createHmac(variant, key).update(buffer).digest()
 }
@@ -107,7 +107,7 @@ export function sha256(buffer: Buffer) {
 	return createHash('sha256').update(buffer).digest()
 }
 
-// HKDF key expansion
+// HKDF expansión clave
 export function hkdf(buffer: Uint8Array | Buffer, expandedLength: number, info: { salt?: Buffer, info?: string }) {
 	return HKDF(!Buffer.isBuffer(buffer) ? Buffer.from(buffer) : buffer, expandedLength, info)
 }

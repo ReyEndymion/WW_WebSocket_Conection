@@ -54,7 +54,7 @@ export const hkdfInfoKey = (type: MediaType) => {
 	return `WhatsApp ${hkdfInfo} Keys`
 }
 
-/** generates all the keys required to encrypt/decrypt & sign a media message */
+/** genera todas las claves necesarias para cifrar/descifrar y firmar un mensaje de medios */
 export function getMediaKeys(buffer: Uint8Array | string | null | undefined, mediaType: MediaType): MediaDecryptionKeyInfo {
 	if(!buffer) {
 		throw new Boom('Cannot derive from empty media key')
@@ -64,7 +64,7 @@ export function getMediaKeys(buffer: Uint8Array | string | null | undefined, med
 		buffer = Buffer.from(buffer.replace('data:;base64,', ''), 'base64')
 	}
 
-	// expand using HKDF to 112 bytes, also pass in the relevant app info
+	// Expandir el uso de HKDF a 112 bytes, también pase en la información de la aplicación relevante
 	const expandedMediaKey = hkdf(buffer, 112, { info: hkdfInfoKey(mediaType) })
 	return {
 		iv: expandedMediaKey.slice(0, 16),
@@ -73,7 +73,7 @@ export function getMediaKeys(buffer: Uint8Array | string | null | undefined, med
 	}
 }
 
-/** Extracts video thumb using FFMPEG */
+/** Extrae el pulgar de video usando FFMPEG */
 const extractVideoThumb = async(
 	path: string,
 	destPath: string,
@@ -179,7 +179,7 @@ export const generateProfilePicture = async(mediaUpload: WAMediaUpload) => {
 	}
 }
 
-/** gets the SHA256 of the given media message */
+/** Obtiene el SHA256 del mensaje de medios dado */
 export const mediaMessageSHA256B64 = (message: WAMessageContent) => {
 	const media = Object.values(message)[0] as WAGenericMediaMessage
 	return media?.fileSha256 && Buffer.from(media.fileSha256).toString ('base64')
@@ -237,7 +237,7 @@ export const getStream = async(item: WAMediaUpload, opts?: AxiosRequestConfig) =
 	return { stream: createReadStream(item.url), type: 'file' } as const
 }
 
-/** generates a thumbnail for a given media, if required */
+/** genera una miniatura para un medio determinado, si es necesario */
 export async function generateThumbnail(
 	file: string,
 	mediaType: 'video' | 'image',
@@ -371,7 +371,7 @@ export const encryptedStream = async(
 			didSaveToTmpPath
 		}
 	} catch(error) {
-		// destroy all streams with error
+		//destruir todas las transmisiones con error
 		encWriteStream.destroy()
 		writeStream?.destroy()
 		aes.destroy()
@@ -425,8 +425,8 @@ export const downloadContentFromMessage = (
 }
 
 /**
- * Decrypts and downloads an AES256-CBC encrypted file given the keys.
- * Assumes the SHA256 of the plaintext is appended to the end of the ciphertext
+ * Descifra y descarga un AES256-CBC Archivo cifrado dado las claves.
+ *Asume el SHA256 del texto sin formato se adjunta al final del texto cifrado
  * */
 export const downloadEncryptedContent = async(
 	downloadUrl: string,
@@ -436,7 +436,7 @@ export const downloadEncryptedContent = async(
 	let bytesFetched = 0
 	let startChunk = 0
 	let firstBlockIsIV = false
-	// if a start byte is specified -- then we need to fetch the previous chunk as that will form the IV
+	// Si se especifica un byte de inicio -- Entonces necesitamos buscar el fragmento anterior, ya que eso formará el IV
 	if(startByte) {
 		const chunk = toSmallestChunkSize(startByte || 0)
 		if(chunk) {
@@ -460,7 +460,7 @@ export const downloadEncryptedContent = async(
 		}
 	}
 
-	// download the message
+	// Descargar el mensaje
 	const fetched = await getHttpStream(
 		downloadUrl,
 		{
@@ -504,8 +504,8 @@ export const downloadEncryptedContent = async(
 				}
 
 				aes = Crypto.createDecipheriv('aes-256-cbc', cipherKey, ivValue)
-				// if an end byte that is not EOF is specified
-				// stop auto padding (PKCS7) -- otherwise throws an error for decryption
+				// Si un byte final no es EOF está especificado
+// Detenga el acolchado automático (PKCS7) -- De lo contrario, lanza un error para el descifrado
 				if(endByte) {
 					aes.setAutoPadding(false)
 				}
@@ -555,7 +555,7 @@ export const getWAUploadToServer = (
 ): WAMediaUploadFunction => {
 	return async(stream, { mediaType, fileEncSha256B64, timeoutMs }) => {
 		const { default: axios } = await import('axios')
-		// send a query JSON to obtain the url & auth token to upload our media
+		// Envíe una consulta JSON para obtener la URL y el token de autenticación para cargar nuestros medios
 		let uploadInfo = await refreshMediaConn(false)
 
 		let urls: { mediaUrl: string, directPath: string } | undefined
@@ -572,7 +572,7 @@ export const getWAUploadToServer = (
 		for(const { hostname, maxContentLengthBytes } of hosts) {
 			logger.debug(`uploading to "${hostname}"`)
 
-			const auth = encodeURIComponent(uploadInfo.auth) // the auth token
+			const auth = encodeURIComponent(uploadInfo.auth) // el token de autenticación
 			const url = `https://${hostname}${MEDIA_PATH_MAP[mediaType]}/${fileEncSha256B64}?auth=${auth}&token=${fileEncSha256B64}`
 			let result: any
 			try {
@@ -635,7 +635,7 @@ const getMediaRetryKey = (mediaKey: Buffer | Uint8Array) => {
 }
 
 /**
- * Generate a binary node that will request the phone to re-upload the media & return the newly uploaded URL
+ * Genere un nodo binario que solicitará al teléfono que vuelva a cargar los medios y devuelva la URL recién cargada
  */
 export const encryptMediaRetryRequest = (
 	key: proto.IMessageKey,
@@ -657,9 +657,9 @@ export const encryptMediaRetryRequest = (
 			type: 'server-error'
 		},
 		content: [
-			// this encrypt node is actually pretty useless
-			// the media is returned even without this node
-			// keeping it here to maintain parity with WA Web
+			// Este nodo en cifrado es realmente bastante inútil
+// Los medios se devuelven incluso sin este nodo
+// Mantenerlo aquí para mantener la paridad con WA Web
 			{
 				tag: 'encrypt',
 				attrs: { },

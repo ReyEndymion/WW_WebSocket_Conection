@@ -69,10 +69,10 @@ export const generateRegistrationNode = (
 	{ registrationId, signedPreKey, signedIdentityKey }: SignalCreds,
 	config: ClientPayloadConfig
 ) => {
-	// the app version needs to be md5 hashed
-	// and passed in
+	// la versión de la aplicación debe ser md5 hash
+// y pasó en
 	const appVersionBuf = createHash('md5')
-		.update(config.version.join('.')) // join as string
+		.update(config.version.join('.')) // unirse como cadena
 		.digest()
 	const browserVersion = config.browser[2].split('.')
 
@@ -129,7 +129,7 @@ export const configureSuccessfulPairing = (
 	const jid = deviceNode.attrs.jid
 
 	const { details, hmac } = proto.ADVSignedDeviceIdentityHMAC.decode(deviceIdentityNode.content as Buffer)
-	// check HMAC matches
+	//Verifique los partidos de HMAC
 	const advSign = hmacSign(details, Buffer.from(advSecretKey, 'base64'))
 	if(Buffer.compare(hmac, advSign) !== 0) {
 		throw new Boom('Invalid account signature')
@@ -137,13 +137,13 @@ export const configureSuccessfulPairing = (
 
 	const account = proto.ADVSignedDeviceIdentity.decode(details)
 	const { accountSignatureKey, accountSignature, details: deviceDetails } = account
-	// verify the device signature matches
+	// Verifique las coincidencias de firma del dispositivo
 	const accountMsg = Buffer.concat([ Buffer.from([6, 0]), deviceDetails, signedIdentityKey.public ])
 	if(!Curve.verify(accountSignatureKey, accountMsg, accountSignature)) {
 		throw new Boom('Failed to verify account signature')
 	}
 
-	// sign the details with our identity key
+	// Firme los detalles con nuestra clave de identidad
 	const deviceMsg = Buffer.concat([ Buffer.from([6, 1]), deviceDetails, signedIdentityKey.public, accountSignatureKey ])
 	account.deviceSignature = Curve.sign(signedIdentityKey.private, deviceMsg)
 
@@ -195,8 +195,8 @@ export const encodeSignedDeviceIdentity = (
 	includeSignatureKey: boolean
 ) => {
 	account = { ...account }
-	// set to null if we are not to include the signature key
-	// or if we are including the signature key but it is empty
+	// Establecer en NULL si no debemos incluir la clave de firma
+// o si incluimos la clave de firma pero está vacía
 	if(!includeSignatureKey || !account.accountSignatureKey?.length) {
 		account.accountSignatureKey = null
 	}

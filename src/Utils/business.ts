@@ -204,7 +204,7 @@ export const parseProductNode = (productNode: BinaryNode) => {
 }
 
 /**
- * Uploads images not already uploaded to WA's servers
+ * Sube imágenes que aún no están cargadas en los servidores de WA
  */
 export async function uploadingNecessaryImagesOfProduct<T extends ProductUpdate | ProductCreate>(product: T, waUploadToServer: WAMediaUploadFunction, timeoutMs = 30_000) {
 	product = {
@@ -215,7 +215,7 @@ export async function uploadingNecessaryImagesOfProduct<T extends ProductUpdate 
 }
 
 /**
- * Uploads images not already uploaded to WA's servers
+ * Sube imágenes que aún no están cargadas en los servidores de WA
  */
 export const uploadingNecessaryImages = async(
 	images: WAMediaUpload[],

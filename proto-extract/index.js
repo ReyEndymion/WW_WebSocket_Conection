@@ -43,8 +43,8 @@ async function findAppModules() {
 	const qrData = await request.get(bootstrapQRURL, ua)
 	const waVersion = qrData.match(/appVersion:"(\d\.\d+\.\d+)"/)[1]
 	console.log('Current version:', waVersion)
-	// This one list of types is so long that it's split into two JavaScript declarations.
-	// The module finder below can't handle it, so just patch it manually here.
+	// Esta lista de tipos es tan larga que se divide en dos declaraciones de JavaScript.
+	// El buscador de módulos a continuación no puede manejarlo, así que solo parche manualmente aquí.
 	const patchedQrData = qrData.replace('t.ActionLinkSpec=void 0,t.TemplateButtonSpec', 't.ActionLinkSpec=t.TemplateButtonSpec')
 	//const patchedQrData = qrData.replace("Spec=void 0,t.", "Spec=t.")
 	const qrModules = acorn.parse(patchedQrData).body[0].expression.arguments[0].elements[1].properties
@@ -73,18 +73,18 @@ async function findAppModules() {
 			//  return renames[name] ?? unnestName(name)
 		}
 	)
-	// The constructor IDs that can be used for enum types
+	// Los ID de constructor que se pueden usar para los tipos de enum
 	// const enumConstructorIDs = [76672, 54302]
 
 	const modules = await findAppModules()
 
-	// Sort modules so that whatsapp module id changes don't change the order in the output protobuf schema
+	// Módulos de clasificación para que los cambios de ID del módulo de WhatsApp no cambien el orden en el esquema de protección de salida de salida
 	// const modules = []
 	// for (const mod of wantedModules) {
 	//     modules.push(unsortedModules.find(node => node.key.value === mod))
 	// }
 
-	// find aliases of cross references between the wanted modules
+	// Encuentre alias de referencias cruzadas entre los módulos buscados
 	const modulesInfo = {}
 	const moduleIndentationMap = {}
 	modules.forEach(({ key, value }) => {
@@ -99,12 +99,12 @@ async function findAppModules() {
 		})
 	})
 
-	// find all identifiers and, for enums, their array of values
+	// Encuentre todos los identificadores y, para enums, su variedad de valores
 	for(const mod of modules) {
 		const modInfo = modulesInfo[mod.key.value]
 		const rename = makeRenameFunc(mod.key.value)
 
-		// all identifiers will be initialized to "void 0" (i.e. "undefined") at the start, so capture them here
+		// todosLosIdentificadoresSeInicializaránPara "void 0" (i.e. "undefined") Al principio, así que captélalos aquí
 		walk.ancestor(mod, {
 			UnaryExpression(node, anc) {
 				if(!modInfo.identifiers && node.operator === 'void') {
@@ -138,7 +138,7 @@ async function findAppModules() {
 			}
 		})
 		const enumAliases = {}
-		// enums are defined directly, and both enums and messages get a one-letter alias
+		// Los enums se definen directamente, y tanto enums como mensajes obtienen un alias de una letra
 		walk.simple(mod, {
 			VariableDeclarator(node) {
 				if(
@@ -166,12 +166,12 @@ async function findAppModules() {
 		})
 	}
 
-	// find the contents for all protobuf messages
+	// Encuentre el contenido para todos los mensajes de ProtoBuf
 	for(const mod of modules) {
 		const modInfo = modulesInfo[mod.key.value]
 		const rename = makeRenameFunc(mod.key.value)
 
-		// message specifications are stored in a "internalSpec" attribute of the respective identifier alias
+		// Las especificaciones del mensaje se almacenan en un atributo "internalspec" del alias identificador respectivo
 		walk.simple(mod, {
 			AssignmentExpression(node) {
 				if(node.left.type === 'MemberExpression' && node.left.property.name === 'internalSpec' && node.right.type === 'ObjectExpression') {
@@ -181,7 +181,7 @@ async function findAppModules() {
 						return
 					}
 
-					// partition spec properties by normal members and constraints (like "__oneofs__") which will be processed afterwards
+					// Propiedades de especificaciones de partición por miembros y limitaciones normales (like "__oneofs__") que se procesará después
 					const constraints = []
 					let members = []
 					for(const p of node.right.properties) {
@@ -195,7 +195,7 @@ async function findAppModules() {
 						const flags = []
 						const unwrapBinaryOr = n => (n.type === 'BinaryExpression' && n.operator === '|') ? [].concat(unwrapBinaryOr(n.left), unwrapBinaryOr(n.right)) : [n]
 
-						// find type and flags
+						// encontrar tipo y banderas
 						unwrapBinaryOr(elements[1]).forEach(m => {
 							if(m.type === 'MemberExpression' && m.object.type === 'MemberExpression') {
 								if(m.object.property.name === 'TYPES') {
@@ -206,7 +206,7 @@ async function findAppModules() {
 							}
 						})
 
-						// determine cross reference name from alias if this member has type "message" or "enum"
+						// Determine el nombre de referencia cruzada del alias si este miembro tiene el tipo de "mensaje" o "enum"
 						if(type === 'message' || type === 'enum') {
 							const currLoc = ` from member '${name}' of message '${targetIdent.name}'`
 							if(elements[2].type === 'Identifier') {
@@ -227,7 +227,7 @@ async function findAppModules() {
 						return { name, id: elements[0].value, type, flags }
 					})
 
-					// resolve constraints for members
+					// Resolver limitaciones para los miembros
 					constraints.forEach(c => {
 						if(c.key.name === '__oneofs__' && c.value.type === 'ObjectExpression') {
 							const newOneOfs = c.value.properties.map(p => ({
@@ -256,14 +256,14 @@ async function findAppModules() {
 		const modInfo = modulesInfo[mod.key.value]
 		const identifiers = Object.values(modInfo.identifiers)
 
-		// enum stringifying function
+		// Función de Stringifying enum
 		const stringifyEnum = (ident, overrideName = null) => [].concat(
 			[`enum ${overrideName || ident.displayName || ident.name} {`],
 			addPrefix(ident.enumValues.map(v => `${v.name} = ${v.id};`), spaceIndent),
 			['}']
 		)
 
-		// message specification member stringifying function
+		// Función Stringifying de miembro de la especificación de mensajes
 		const stringifyMessageSpecMember = (info, completeFlags, parentName = undefined) => {
 			if(info.type === '__oneof__') {
 				return [].concat(
@@ -298,7 +298,7 @@ async function findAppModules() {
 			}
 		}
 
-		// message specification stringifying function
+		// Función Stringifying de especificación de mensajes
 		const stringifyMessageSpec = (ident) => {
 			const members = moduleIndentationMap[ident.name]?.members
 			const result = []

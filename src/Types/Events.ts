@@ -9,24 +9,24 @@ import { MessageUpsertType, MessageUserReceiptUpdate, WAMessage, WAMessageKey, W
 import { ConnectionState } from './State'
 
 export type BaileysEventMap = {
-    /** connection state has been updated -- WS closed, opened, connecting etc. */
+    /** El estado de conexión se ha actualizado: WS cerrado, abierto, conectado, etc. */
 	'connection.update': Partial<ConnectionState>
-    /** credentials updated -- some metadata, keys or something */
+    /** Credenciales actualizadas: algunos metadatos, claves o algo */
     'creds.update': Partial<AuthenticationCreds>
-    /** set chats (history sync), everything is reverse chronologically sorted */
+    /** Establecer chats (History Sync), todo está revertido cronológicamente*/
     'messaging-history.set': {
         chats: Chat[]
         contacts: Contact[]
         messages: WAMessage[]
         isLatest: boolean
     }
-    /** upsert chats */
+    /** chats de upsert */
     'chats.upsert': Chat[]
-    /** update the given chats */
+    /** Actualizar los chats dados*/
     'chats.update': ChatUpdate[]
-    /** delete chats with given ID */
+    /** Eliminar chats con identificación dada */
     'chats.delete': string[]
-    /** presence of contact in a chat updated */
+    /** Presencia de contacto en un chat actualizado */
     'presence.update': { id: string, presences: { [participant: string]: PresenceData } }
 
     'contacts.upsert': Contact[]
@@ -36,11 +36,11 @@ export type BaileysEventMap = {
     'messages.update': WAMessageUpdate[]
     'messages.media-update': { key: WAMessageKey, media?: { ciphertext: Uint8Array, iv: Uint8Array }, error?: Boom }[]
     /**
-     * add/update the given messages. If they were received while the connection was online,
-     * the update will have type: "notify"
+     * add/update los mensajes dados.Si fueron recibidos mientras la conexión estaba en línea,
+     * La actualización tendrá type: "notify"
      *  */
     'messages.upsert': { messages: WAMessage[], type: MessageUpsertType }
-    /** message was reacted to. If reaction was removed -- then "reaction.text" will be falsey */
+    /** el mensaje fue reaccionado.Si la reacción fue removed -- entonces "reaction.text" será falsey */
     'messages.reaction': { key: WAMessageKey, reaction: proto.IReaction }[]
 
     'message-receipt.update': MessageUserReceiptUpdate[]
@@ -51,8 +51,8 @@ export type BaileysEventMap = {
     'group-participants.update': { id: string, participants: string[], action: ParticipantAction }
 
     'blocklist.set': { blocklist: string[] }
-    'blocklist.update': { blocklist: string[], type: 'add' | 'remove' }
-    /** Receive an update on a call, including when the call was received, rejected, accepted */
+    'blocklist.update': { blocklist: string[], type: 'add' | 'remove' | 'leave'}
+    /** Recibir una actualización de una llamada, incluso cuando se recibió, rechazó, aceptó la llamada*/
     'call': WACallEvent[]
 }
 

@@ -149,7 +149,7 @@ export const encodeSyncdPatch = async(
 	const valueMac = generateMac(operation, encValue, encKeyId, keyValue.valueMacKey)
 	const indexMac = hmacSign(indexBuffer, keyValue.indexKey)
 
-	// update LT hash
+	// Actualizar LT Hash
 	const generator = makeLtHashGenerator(state)
 	generator.mix({ indexMac, valueMac, operation })
 	Object.assign(state, generator.finish())
@@ -192,12 +192,12 @@ export const decodeSyncdMutations = async(
 	validateMacs: boolean
 ) => {
 	const ltGenerator = makeLtHashGenerator(initialState)
-	// indexKey used to HMAC sign record.index.blob
-	// valueEncryptionKey used to AES-256-CBC encrypt record.value.blob[0:-32]
-	// the remaining record.value.blob[0:-32] is the mac, it the HMAC sign of key.keyId + decoded proto data + length of bytes in keyId
+	// indexKey Solado para firmar HMAC record.index.blob
+	// valueEncryptionKey Se usa para encrypt AES-256-CBC record.value.blob[0:-32]
+	// el restanterecord.value.blob[0:-32] es la mac, es el signo HMAC de key.keyId + Datos de Proto decodificados + Longitud de bytes en Keyid
 	for(const msgMutation of msgMutations!) {
-		// if it's a syncdmutation, get the operation property
-		// otherwise, if it's only a record -- it'll be a SET mutation
+		// Si es una sincronización, obtenga la propiedad de operación
+// de lo contrario, si es solo un registro, será una mutación establecida
 		const operation = 'operation' in msgMutation ? msgMutation.operation : proto.SyncdMutation.SyncdOperation.SET
 		const record = ('record' in msgMutation && !!msgMutation.record) ? msgMutation.record : msgMutation as proto.ISyncdRecord
 
@@ -465,7 +465,7 @@ export const decodePatches = async(
 			}
 		}
 
-		// clear memory used up by the mutations
+		// Borrar memoria utilizada por las mutaciones
 		syncd.mutations = []
 	}
 
@@ -646,22 +646,22 @@ export const processSyncAction = (
 			]
 		)
 	} else if(action?.archiveChatAction || type === 'archive' || type === 'unarchive') {
-		// okay so we've to do some annoying computation here
-		// when we're initially syncing the app state
-		// there are a few cases we need to handle
-		// 1. if the account unarchiveChats setting is true
-		//   a. if the chat is archived, and no further messages have been received -- simple, keep archived
-		//   b. if the chat was archived, and the user received messages from the other person afterwards
-		//		then the chat should be marked unarchved --
-		//		we compare the timestamp of latest message from the other person to determine this
-		// 2. if the account unarchiveChats setting is false -- then it doesn't matter,
-		//	it'll always take an app state action to mark in unarchived -- which we'll get anyway
+		// está bien, así que tenemos que hacer un cálculo molesto aquí
+// Cuando inicialmente estamos sincronizando el estado de la aplicación
+// Hay algunos casos que necesitamos manejar
+// 1. Si la configuración de la cuenta Unarchivechats es verdadera
+//   a.Si el chat se archiva y no se han recibido más mensajes, simple, manténgase archivado
+//   b.Si el chat fue archivado y el usuario recibió mensajes de la otra persona después
+// Entonces el chat debe marcarse desanimado -
+// Comparamos la marca de tiempo del último mensaje de la otra persona para determinar esto
+// 2. Si la configuración de la cuenta Unarchivechats es falsa, entonces no importa,
+// Siempre tomará una acción de aplicación estatal para marcar en Unarchived, que obtendremos de todos modos
 		const archiveAction = action?.archiveChatAction
 		const isArchived = archiveAction
 			? archiveAction.archived
 		 	: type === 'archive'
-		// // basically we don't need to fire an "archive" update if the chat is being marked unarchvied
-		// // this only applies for the initial sync
+		// // Básicamente no necesitamos disparar una actualización de "archive" si el chat se está marcando sin ararqu.
+// // Esto solo se aplica para la sincronización inicial
 		// if(isInitialSync && !isArchived) {
 		// 	isArchived = false
 		// }
@@ -676,9 +676,9 @@ export const processSyncAction = (
 		}])
 	} else if(action?.markChatAsReadAction) {
 		const markReadAction = action.markChatAsReadAction
-		// basically we don't need to fire an "read" update if the chat is being marked as read
-		// because the chat is read by default
-		// this only applies for the initial sync
+		// Básicamente no necesitamos disparar un "read" Actualizado si el chat se está marcando como se lee
+// porque el chat se lee de forma predeterminada
+// Esto solo se aplica para la sincronización inicial
 		const isNullUpdate = isInitialSync && markReadAction.read
 
 		ev.emit('chats.update', [{

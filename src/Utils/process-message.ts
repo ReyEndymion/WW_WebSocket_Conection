@@ -29,13 +29,13 @@ const REAL_MSG_REQ_ME_STUB_TYPES = new Set([
 	WAMessageStubType.GROUP_PARTICIPANT_ADD
 ])
 
-/** Cleans a received message to further processing */
+/** Limpia un mensaje recibido para procesar posterior */
 export const cleanMessage = (message: proto.IWebMessageInfo, meId: string) => {
-	// ensure remoteJid and participant doesn't have device or agent in it
+	// Asegúrese de que RemoteJid y el participante no tengan dispositivo o agente en él
 	message.key.remoteJid = jidNormalizedUser(message.key.remoteJid!)
 	message.key.participant = message.key.participant ? jidNormalizedUser(message.key.participant!) : undefined
 	const content = normalizeMessageContent(message.message)
-	// if the message has a reaction, ensure fromMe & remoteJid are from our perspective
+	// Si el mensaje tiene una reacción, asegúrese de que FromMe & RemoteJid sean desde nuestra perspectiva
 	if(content?.reactionMessage) {
 		normaliseKey(content.reactionMessage.key!)
 	}
@@ -45,19 +45,19 @@ export const cleanMessage = (message: proto.IWebMessageInfo, meId: string) => {
 	}
 
 	function normaliseKey(msgKey: proto.IMessageKey) {
-		// if the reaction is from another user
-		// we've to correctly map the key to this user's perspective
+		// Si la reacción es de otro usuario
+// Tenemos que mapear correctamente la clave para la perspectiva de este usuario
 		if(!message.key.fromMe) {
-			// if the sender believed the message being reacted to is not from them
-			// we've to correct the key to be from them, or some other participant
+			// Si el remitente creía que el mensaje que reaccionó no es de ellos
+// Tenemos que corregir la clave para ser de ellos, o algún otro participante
 			msgKey.fromMe = !msgKey.fromMe
 				? areJidsSameUser(msgKey.participant || msgKey.remoteJid!, meId)
-				// if the message being reacted to, was from them
-				// fromMe automatically becomes false
+				// Si el mensaje que reaccionó fue de ellos
+// fromme se vuelve automáticamente falso
 				: false
-			// set the remoteJid to being the same as the chat the message came from
+			// Establezca el remoto para ser el mismo que el chat del que vino el mensaje
 			msgKey.remoteJid = message.key.remoteJid
-			// set participant of the message
+			// Establezca el participante del mensaje
 			msgKey.participant = msgKey.participant || message.key.participant
 		}
 	}
@@ -85,8 +85,8 @@ export const shouldIncrementChatUnread = (message: proto.IWebMessageInfo) => (
 )
 
 /**
- * Get the ID of the chat from the given key.
- * Typically -- that'll be the remoteJid, but for broadcasts, it'll be the participant
+ * Obtenga la identificación del chat desde la clave dada.
+ * Por lo general, ese será el remoto, pero para las transmisiones, será el participante
  */
 export const getChatId = ({ remoteJid, participant, fromMe }: proto.IMessageKey) => {
 	if(
@@ -101,21 +101,21 @@ export const getChatId = ({ remoteJid, participant, fromMe }: proto.IMessageKey)
 }
 
 type PollContext = {
-	/** normalised jid of the person that created the poll */
+	/** Jid normalizado de la persona que creó la encuesta */
 	pollCreatorJid: string
-	/** ID of the poll creation message */
+	/** ID del mensaje de creación de encuestas */
 	pollMsgId: string
-	/** poll creation message enc key */
+	/** Mensaje de creación de encuestas CLAVE ENC */
 	pollEncKey: Uint8Array
-	/** jid of the person that voted */
+	/** Jid de la persona que votó */
 	voterJid: string
 }
 
 /**
- * Decrypt a poll vote
- * @param vote encrypted vote
- * @param ctx additional info about the poll required for decryption
- * @returns list of SHA256 options
+ * Descifrar una votación de la encuesta
+ * @param vote voto encriptado
+ * @param ctx Información adicional sobre la encuesta requerida para el descifrado
+ * @returns lista de opción SHA256
  */
 export function decryptPollVote(
 	{ encPayload, encIv }: proto.Message.IPollEncValue,
@@ -168,7 +168,7 @@ const processMessage = async(
 
 	if(isRealMsg) {
 		chat.conversationTimestamp = toNumber(message.messageTimestamp)
-		// only increment unread count if not CIPHERTEXT and from another person
+		// solo un recuento incremento de leído si no es un cifrado y de otra persona
 		if(shouldIncrementChatUnread(message)) {
 			chat.unreadCount = (chat.unreadCount || 0) + 1
 		}
@@ -176,8 +176,8 @@ const processMessage = async(
 
 	const content = normalizeMessageContent(message.message)
 
-	// unarchive chat if it's a real message, or someone reacted to our message
-	// and we've the unarchive chats setting on
+	// Chat Unarchive si es un mensaje real, o alguien reaccionó a nuestro mensaje
+// y tenemos los chats desencadenantes en la configuración
 	if(
 		(isRealMsg || content?.reactionMessage?.key?.fromMe)
 		&& accountSettings?.unarchiveChats
@@ -292,7 +292,7 @@ const processMessage = async(
 		case WAMessageStubType.GROUP_PARTICIPANT_REMOVE:
 			participants = message.messageStubParameters || []
 			emitParticipantsUpdate('remove')
-			// mark the chat read only if you left the group
+			//Marque el chat solo lee si dejó el grupo
 			if(participantsIncludesMe()) {
 				chat.readOnly = true
 			}
@@ -336,7 +336,7 @@ const processMessage = async(
 		}
 	} else if(content?.pollUpdateMessage) {
 		const creationMsgKey = content.pollUpdateMessage.pollCreationMessageKey!
-		// we need to fetch the poll creation message to get the poll enc key
+		// Necesitamos obtener el mensaje de creación de encuestas para obtener la tecla encuestada
 		const pollMsg = await getMessage(creationMsgKey)
 		if(pollMsg) {
 			const meIdNormalised = jidNormalizedUser(meId)

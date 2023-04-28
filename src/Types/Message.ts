@@ -23,7 +23,7 @@ export import WAMessageStubType = proto.WebMessageInfo.StubType
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 export import WAMessageStatus = proto.WebMessageInfo.Status
 export type WAMediaUpload = Buffer | { url: URL | string } | { stream: Readable }
-/** Set of message types that are supported by the library */
+/** Conjunto de tipos de mensajes compatibles con la biblioteca */
 export type MessageType = keyof proto.Message
 
 export type DownloadableMessage = { mediaKey?: Uint8Array | null, directPath?: string | null, url?: string | null }
@@ -47,32 +47,32 @@ export interface WAUrlInfo {
     originalThumbnailUrl?: string
 }
 
-// types to generate WA messages
+// tipos para generar mensajes WA
 type Mentionable = {
-    /** list of jids that are mentioned in the accompanying text */
+    /** Lista de JID que se mencionan en el texto que lo acompaña */
     mentions?: string[]
 }
 type ViewOnce = {
     viewOnce?: boolean
 }
 type Buttonable = {
-    /** add buttons to the message  */
+    /** Agregar botones al mensaje  */
     buttons?: proto.Message.ButtonsMessage.IButton[]
 }
 type Templatable = {
-    /** add buttons to the message (conflicts with normal buttons)*/
+    /** Agregar botones al mensaje (conflictos con botones normales)*/
     templateButtons?: proto.IHydratedTemplateButton[]
 
     footer?: string
 }
 type Listable = {
-    /** Sections of the List */
+    /**Secciones de la lista */
     sections?: proto.Message.ListMessage.ISection[]
 
-    /** Title of a List Message only */
+    /** Título de un mensaje de lista solamente*/
     title?: string
 
-    /** Text of the bnutton on the list (required) */
+    /** Texto del Bnutton en la lista (requerido) */
     buttonText?: string
 }
 type WithDimensions = {
@@ -84,7 +84,7 @@ export type PollMessageOptions = {
     name: string
     selectableCount?: number
     values: string[]
-    /** 32 byte message secret to encrypt poll selections */
+    /** Mensaje Secreto 32 byte para encriptar Selecciones de encuestas */
     messageSecret?: Uint8Array
 }
 
@@ -103,9 +103,9 @@ export type AnyMediaMessageContent = (
     } & Mentionable & Buttonable & Templatable & WithDimensions)
     | {
         audio: WAMediaUpload
-        /** if set to true, will send as a `voice note` */
+        /** Si se establece en True, enviará como un `nota de voz` */
         ptt?: boolean
-        /** optionally tell the duration of the audio */
+        /** Opcionalmente, diga la duración del audio */
         seconds?: number
     }
     | ({
@@ -168,7 +168,7 @@ export type AnyMessageContent = AnyRegularMessageContent | {
 	forward: WAMessage
 	force?: boolean
 } | {
-    /** Delete your message or anyone's message in a group (admin required) */
+    /**Elimine su mensaje o el mensaje de cualquier persona en un grupo (requerido por el administrador) */
 	delete: WAMessageKey
 } | {
 	disappearingMessagesInChat: boolean | number
@@ -177,29 +177,29 @@ export type AnyMessageContent = AnyRegularMessageContent | {
 export type GroupMetadataParticipants = Pick<GroupMetadata, 'participants'>
 
 type MinimalRelayOptions = {
-    /** override the message ID with a custom provided string */
+    /**anular la ID del mensaje con una cadena personalizada proporcionada */
     messageId?: string
-    /** cached group metadata, use to prevent redundant requests to WA & speed up msg sending */
+    /** metadatos grupales en caché, uso para evitar solicitudes redundantes para WA y acelerar el envío de MSG*/
     cachedGroupMetadata?: (jid: string) => Promise<GroupMetadataParticipants | undefined>
 }
 
 export type MessageRelayOptions = MinimalRelayOptions & {
-    /** only send to a specific participant; used when a message decryption fails for a single user */
+    /** solo envíe a un participante específico;utilizado cuando un descifrado de un mensaje falla para un solo usuario */
     participant?: { jid: string, count: number }
-    /** additional attributes to add to the WA binary node */
+    /** Atributos adicionales para agregar al nodo binario WA*/
     additionalAttributes?: { [_: string]: string }
-    /** should we use the devices cache, or fetch afresh from the server; default assumed to be "true" */
+    /** ¿Deberíamos usar el caché de dispositivos o obtener de nuevo desde el servidor;predeterminado se supone que es "true" */
     useUserDevicesCache?: boolean
 }
 
 export type MiscMessageGenerationOptions = MinimalRelayOptions & {
-    /** optional, if you want to manually set the timestamp of the message */
+    /** Opcional, si desea establecer manualmente la marca de tiempo del mensaje*/
 	timestamp?: Date
-    /** the message you want to quote */
+    /** El mensaje que desea citar */
 	quoted?: WAMessage
-    /** disappearing messages settings */
+    /** Configuración de mensajes que desaparecen */
     ephemeralExpiration?: number | string
-    /** timeout for media upload to WA server */
+    /** Tiempo de espera para la carga de medios en el servidor WA */
     mediaUploadTimeoutMs?: number
 }
 export type MessageGenerationOptionsFromContent = MiscMessageGenerationOptions & {
@@ -212,7 +212,7 @@ export type MediaGenerationOptions = {
 	logger?: Logger
     mediaTypeOverride?: MediaType
     upload: WAMediaUploadFunction
-    /** cache media so it does not have to be uploaded again */
+    /** Medios para caché, por lo que no tiene que volver a cargarse */
     mediaCache?: CacheStore
 
     mediaUploadTimeoutMs?: number
@@ -225,9 +225,9 @@ export type MessageContentGenerationOptions = MediaGenerationOptions & {
 export type MessageGenerationOptions = MessageContentGenerationOptions & MessageGenerationOptionsFromContent
 
 /**
- * Type of message upsert
- * 1. notify => notify the user, this message was just received
- * 2. append => append the message to the chat history, no notification required
+ * Tipo de mensaje Upsert
+ * 1. notify => notify el usuario, este mensaje acaba de recibir
+ * 2. append => append El mensaje del historial de chat, no se requiere notificación
  */
 export type MessageUpsertType = 'append' | 'notify'
 

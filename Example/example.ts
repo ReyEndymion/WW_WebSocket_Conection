@@ -9,23 +9,23 @@ logger.level = 'trace'
 const useStore = !process.argv.includes('--no-store')
 const doReplies = !process.argv.includes('--no-reply')
 
-// external map to store retry counts of messages when decryption/encryption fails
-// keep this out of the socket itself, so as to prevent a message decryption/encryption loop across socket restarts
+// Mapa externo para almacenar recuentos de mensajes cuando falla el descifrado/cifrado
+// Mantenga esto fuera del zócalo en sí, para evitar un bucle de descifrado/cifrado de mensaje a través de los reinicio del socket
 const msgRetryCounterCache = new NodeCache()
 
-// the store maintains the data of the WA connection in memory
-// can be written out to a file & read from it
+// La tienda mantiene los datos de la conexión WA en la memoria
+// se puede escribir en un archivo y leerlo
 const store = useStore ? makeInMemoryStore({ logger }) : undefined
 store?.readFromFile('./baileys_store_multi.json')
-// save every 10s
+// Ahorre cada 10s
 setInterval(() => {
 	store?.writeToFile('./baileys_store_multi.json')
 }, 10_000)
 
-// start a connection
+// iniciar una conexión
 const startSock = async() => {
 	const { state, saveCreds } = await useMultiFileAuthState('baileys_auth_info')
-	// fetch latest version of WA Web
+	// Obtenga la última versión de WA Web
 	const { version, isLatest } = await fetchLatestBaileysVersion()
 	console.log(`using WA v${version.join('.')}, isLatest: ${isLatest}`)
 
@@ -35,15 +35,15 @@ const startSock = async() => {
 		printQRInTerminal: true,
 		auth: {
 			creds: state.creds,
-			/** caching makes the store faster to send/recv messages */
+			/** El almacenamiento en caché hace que la tienda sea más rápido para enviar/enviar mensajes */
 			keys: makeCacheableSignalKeyStore(state.keys, logger),
 		},
 		msgRetryCounterCache,
 		generateHighQualityLinkPreview: true,
-		// ignore all broadcast messages -- to receive the same
-		// comment the line below out
+		// Ignorar todos los mensajes de transmisión: recibir lo mismo
+		// Comenta la línea a continuación
 		// shouldIgnoreJid: jid => isJidBroadcast(jid),
-		// implement to handle retries & poll updates
+		// Implementar para manejar reintentos y actualizaciones de encuestas
 		getMessage,
 	})
 
@@ -61,18 +61,18 @@ const startSock = async() => {
 		await sock.sendMessage(jid, msg)
 	}
 
-	// the process function lets you process all events that just occurred
-	// efficiently in a batch
+	// La función de proceso le permite procesar todos los eventos que acaban de ocurrir
+	// eficientemente en un lote
 	sock.ev.process(
-		// events is a map for event name => event data
+		// Los eventos son un mapa para el nombre del evento => datos del evento
 		async(events) => {
-			// something about the connection changed
-			// maybe it closed, or we received all offline message or connection opened
+			// Algo sobre la conexión cambió
+			// Tal vez cerró, o recibimos todo el mensaje o conexión de conexión abierta
 			if(events['connection.update']) {
 				const update = events['connection.update']
 				const { connection, lastDisconnect } = update
 				if(connection === 'close') {
-					// reconnect if not logged out
+					// Vuelva a conectar si no se registra
 					if((lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut) {
 						startSock()
 					} else {
@@ -83,7 +83,7 @@ const startSock = async() => {
 				console.log('connection update', update)
 			}
 
-			// credentials updated -- save them
+			// Credenciales actualizadas: guárdelas
 			if(events['creds.update']) {
 				await saveCreds()
 			}
@@ -92,13 +92,13 @@ const startSock = async() => {
 				console.log('recv call event', events.call)
 			}
 
-			// history received
+			// Historia recibida
 			if(events['messaging-history.set']) {
 				const { chats, contacts, messages, isLatest } = events['messaging-history.set']
 				console.log(`recv ${chats.length} chats, ${contacts.length} contacts, ${messages.length} msgs (is latest: ${isLatest})`)
 			}
 
-			// received a new message
+			// Recibí un nuevo mensaje
 			if(events['messages.upsert']) {
 				const upsert = events['messages.upsert']
 				console.log('recv messages ', JSON.stringify(upsert, undefined, 2))
@@ -114,7 +114,7 @@ const startSock = async() => {
 				}
 			}
 
-			// messages updated like status delivered, message deleted etc.
+			// Mensajes actualizados como estado entregado, mensaje eliminado, etc.
 			if(events['messages.update']) {
 				console.log(
 					JSON.stringify(events['messages.update'], undefined, 2)
@@ -179,7 +179,7 @@ const startSock = async() => {
 			return msg?.message || undefined
 		}
 
-		// only if store is present
+		// Solo si la tienda está presente
 		return proto.Message.fromObject({})
 	}
 }

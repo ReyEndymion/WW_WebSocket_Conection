@@ -34,9 +34,9 @@ export type SignalCreds = {
 }
 
 export type AccountSettings = {
-    /** unarchive chats when a new message is received */
+    /** chats desencadenantes cuando se recibe un nuevo mensaje */
     unarchiveChats: boolean
-    /** the default mode to start new conversations with */
+    /** el modo predeterminado para iniciar nuevas conversaciones con */
     defaultDisappearingMode?: Pick<proto.IConversation, 'ephemeralExpiration' | 'ephemeralSettingTimestamp'>
 }
 
@@ -55,7 +55,7 @@ export type AuthenticationCreds = SignalCreds & {
     platform?: string
 
     processedHistoryMessages: MinimalMessage[]
-    /** number of times history & app state has been synced */
+    /** Número de veces que se ha sincronizado el historial y el estado de la aplicación */
     accountSyncCounter: number
     accountSettings: AccountSettings
 }
@@ -76,7 +76,7 @@ type Awaitable<T> = T | Promise<T>
 export type SignalKeyStore = {
     get<T extends keyof SignalDataTypeMap>(type: T, ids: string[]): Awaitable<{ [id: string]: SignalDataTypeMap[T] }>
     set(data: SignalDataSet): Awaitable<void>
-    /** clear all the data in the store */
+    /** borrar todos los datos en el store */
     clear?(): Awaitable<void>
 }
 

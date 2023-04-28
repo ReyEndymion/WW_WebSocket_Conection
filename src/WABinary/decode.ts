@@ -6,7 +6,7 @@ import type { BinaryNode, BinaryNodeCodingOptions } from './types'
 export const decompressingIfRequired = (buffer: Buffer) => {
 	if(2 & buffer.readUInt8()) {
 		buffer = inflateSync(buffer.slice(1))
-	} else { // nodes with no compression have a 0x00 prefix, we remove that
+	} else { // Los nodos sin compresión tienen un prefijo 0x00, lo eliminamos
 		buffer = buffer.slice(1)
 	}
 
@@ -218,7 +218,7 @@ export const decodeDecompressedBinaryNode = (
 		throw new Error('invalid node')
 	}
 
-	// read the attributes in
+	// Lea los atributos en
 	const attributesLength = (listSize - 1) >> 1
 	for(let i = 0; i < attributesLength; i++) {
 		const key = readString(readByte())

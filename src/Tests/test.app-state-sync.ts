@@ -64,8 +64,8 @@ describe('App State Sync Tests', () => {
 			expect(event.archive).toEqual(false)
 		}
 	})
-	// case when initial sync is on
-	// and unarchiveChats = true
+	// caso cuando la sincronización inicial está encendida
+	// y unarchiveChats = true
 	it('should not fire any archive event', () => {
 		const jid = randomJid()
 		const index = ['archive', jid]
@@ -145,8 +145,8 @@ describe('App State Sync Tests', () => {
 		}
 	})
 
-	// case when initial sync is on
-	// with unarchiveChats = true & unarchiveChats = false
+	// caso cuando la sincronización inicial está encendida
+	// con unarchiveChats = true & unarchiveChats = false
 	it('should fire archive=true events', () => {
 		const jid = randomJid()
 		const index = ['archive', jid]

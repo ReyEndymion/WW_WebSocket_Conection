@@ -38,9 +38,9 @@ export type ProductBase = {
 }
 
 export type ProductCreate = ProductBase & {
-	/** ISO country code for product origin. Set to undefined for no country */
+	/** Código de país ISO para el origen del producto.Establecido en indefinido para ningún país */
 	originCountryCode: string | undefined
-	/** images of the product */
+	/** Imágenes del producto*/
 	images: WAMediaUpload[]
 }
 
@@ -76,9 +76,9 @@ export type OrderDetails = {
 export type CatalogCursor = string
 
 export type GetCatalogOptions = {
-	/** cursor to start from */
+	/** cursor para comenzar desde */
 	cursor?: CatalogCursor
-	/** number of products to fetch */
+	/** Número de productos para buscar */
 	limit?: number
 
 	jid?: string

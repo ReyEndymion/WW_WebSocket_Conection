@@ -3,27 +3,27 @@ import { Contact } from './Contact'
 export type WAConnectionState = 'open' | 'connecting' | 'close'
 
 export type ConnectionState = {
-	/** connection is now open, connecting or closed */
+	/** La conexión ahora está abierta, conectando o cerrada */
 	connection: WAConnectionState
-	/** the error that caused the connection to close */
+	/** el error que hizo que la conexión se cerrara */
 	lastDisconnect?: {
 		error: Error | undefined
 		date: Date
 	}
-	/** is this a new login */
+	/** ¿Es este un nuevo inicio de sesión? */
 	isNewLogin?: boolean
-	/** the current QR code */
+	/** el código QR actual */
 	qr?: string
-	/** has the device received all pending notifications while it was offline */
+	/**¿Ha recibido el dispositivo todas las notificaciones pendientes mientras estaba fuera de línea? */
 	receivedPendingNotifications?: boolean
-	/** legacy connection options */
+	/** Opciones de conexión heredada */
 	legacy?: {
 		phoneConnected: boolean
 		user?: Contact
 	}
 	/**
-	 * if the client is shown as an active, online client.
-	 * If this is false, the primary phone and other devices will receive notifs
+	 * Si el cliente se muestra como un cliente activo en línea.
+* Si esto es false, El teléfono principal y otros dispositivos recibirán notificaciones
 	 * */
 	isOnline?: boolean
 }

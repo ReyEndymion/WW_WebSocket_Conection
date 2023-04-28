@@ -1,9 +1,9 @@
 import { hkdf } from './crypto'
 
 /**
- * LT Hash is a summation based hash algorithm that maintains the integrity of a piece of data
- * over a series of mutations. You can add/remove mutations and it'll return a hash equal to
- * if the same series of mutations was made sequentially.
+ * LT Hash es un algoritmo hash basado en suma que mantiene la integridad de un dato
+ * sobre una serie de mutaciones.Puede agregar/eliminar mutaciones y devolverá un hash igual a
+ * Si la misma serie de mutaciones se realizó secuencialmente.
  */
 
 const o = 128

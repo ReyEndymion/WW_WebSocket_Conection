@@ -12,103 +12,103 @@ export type WAVersion = [number, number, number]
 export type WABrowserDescription = [string, string, string]
 
 export type CacheStore = {
-    /** get a cached key and change the stats */
+    /** Obtenga una clave en caché y cambie las estadísticas */
     get<T>(key: string): T | undefined
-    /** set a key in the cache */
+    /** Establecer una llave en el caché */
     set<T>(key: string, value: T): void
-    /** delete a key from the cache */
+    /** Eliminar una llave del caché */
     del(key: string): void
-    /** flush all data */
+    /** Ajuste todos los datos */
     flushAll(): void
 }
 
 export type SocketConfig = {
-    /** the WS url to connect to WA */
+    /** la URL WS para conectarse a WA */
     waWebSocketUrl: string | URL
-    /** Fails the connection if the socket times out in this interval */
+    /** Falla la conexión si el socket se desprende en este intervalo */
     connectTimeoutMs: number
-    /** Default timeout for queries, undefined for no timeout */
+    /** Tiempo de espera predeterminado para consultas, indefinido sin tiempo de espera */
     defaultQueryTimeoutMs: number | undefined
-    /** ping-pong interval for WS connection */
+    /** intervalo de ping-pong para conexión WS */
     keepAliveIntervalMs: number
-    /** proxy agent */
+    /** agente proxy */
     agent?: Agent
-    /** pino logger */
+    /** maderero de pino*/
     logger: Logger
-    /** version to connect with */
+    /** versión para conectarse con */
     version: WAVersion
-    /** override browser config */
+    /** anular la configuración del navegador */
     browser: WABrowserDescription
-    /** agent used for fetch requests -- uploading/downloading media */
+    /**Agente utilizado para solicitar solicitudes -- uploading/downloading para los medios */
     fetchAgent?: Agent
-    /** should the QR be printed in the terminal */
+    /** Si el QR se imprime en la terminal */
     printQRInTerminal: boolean
-    /** should events be emitted for actions done by this socket connection */
+    /** ¿Deberían emitirse eventos para las acciones realizadas por esta conexión de socket? */
     emitOwnEvents: boolean
-    /** custom upload hosts to upload media to */
+    /** Hosts de carga personalizado para cargar medios a */
     customUploadHosts: MediaConnInfo['hosts']
-    /** time to wait between sending new retry requests */
+    /** Es hora de esperar entre enviar nuevas solicitudes de reintento */
     retryRequestDelayMs: number
-    /** time to wait for the generation of the next QR in ms */
+    /** Es hora de esperar la generación del próximo QR en MS */
     qrTimeout?: number
-    /** provide an auth state object to maintain the auth state */
+    /** Proporcione un objeto de estado de autenticación para mantener el estado de autores */
     auth: AuthenticationState
-    /** manage history processing with this control; by default will sync up everything */
+    /** Administrar el procesamiento del historial con este control;Por defecto sincronizará todo*/
     shouldSyncHistoryMessage: (msg: proto.Message.IHistorySyncNotification) => boolean
-    /** transaction capability options for SignalKeyStore */
+    /** Opciones de capacidad de transacción para SignalKeyStore */
     transactionOpts: TransactionCapabilityOptions
-    /** marks the client as online whenever the socket successfully connects */
+    /** marca al cliente como en línea cada vez que el socket se conecta correctamente */
     markOnlineOnConnect: boolean
 
-    /** provide a cache to store media, so does not have to be re-uploaded */
+    /** Proporcione un caché para almacenar medios, por lo que no tiene que volver a cargar */
     mediaCache?: CacheStore
     /**
-     * map to store the retry counts for failed messages;
-     * used to determine whether to retry a message or not */
+     * mapa para almacenar los recuentos de reintento para mensajes fallidos;
+     * utilizado para determinar si volver a intentar un mensaje o no */
     msgRetryCounterCache?: CacheStore
-    /** provide a cache to store a user's device list */
+    /** Proporcione un caché para almacenar la lista de dispositivos de un usuario */
     userDevicesCache?: CacheStore
-    /** cache to store call offers */
+    /** Ofertas de llamada para almacenar en caché para almacenar */
     callOfferCache?: CacheStore
-    /** width for link preview images */
+    /** Ancho para imágenes de vista previa de enlace */
     linkPreviewImageThumbnailWidth: number
-    /** Should Baileys ask the phone for full history, will be received async */
+    /** Si Baileys solicita al teléfono el historial completo, se recibirá async */
     syncFullHistory: boolean
-    /** Should baileys fire init queries automatically, default true */
+    /** Si baileys activa las consultas de inicio automáticamente, el valor predeterminado es true */
     fireInitQueries: boolean
     /**
-     * generate a high quality link preview,
-     * entails uploading the jpegThumbnail to WA
+     * generar una vista previa de enlaces de alta calidad,
+     * implica cargar el jpegThumbnail a WA
      * */
     generateHighQualityLinkPreview: boolean
 
     /**
-     * Returns if a jid should be ignored,
-     * no event for that jid will be triggered.
-     * Messages from that jid will also not be decrypted
+     * Devuelve si se ignora un JID,
+     * No se activará ningún evento para ese JID.
+     * Los mensajes de ese Jid tampoco se descifrarán
      * */
     shouldIgnoreJid: (jid: string) => boolean | undefined
 
     /**
-     * Optionally patch the message before sending out
+     * Opcionalmente parche el mensaje antes de enviar
      * */
     patchMessageBeforeSending: (
         msg: proto.IMessage,
         recipientJids: string[],
     ) => Promise<proto.IMessage> | proto.IMessage
 
-    /** verify app state MACs */
+    /** Verificar el estado de la aplicación en MACs */
     appStateMacVerification: {
         patch: boolean
         snapshot: boolean
     }
 
-    /** options for axios */
+    /** opciones para axios */
     options: AxiosRequestConfig<{}>
     /**
-     * fetch a message from your store
-     * implement this so that messages failed to send
-     * (solves the "this message can take a while" issue) can be retried
+     * Obtener un mensaje de su store
+     * Implementar esto para que los mensajes no pudieran enviar
+     * (resuelve el problema de "este mensaje puede llevar un tiempo")
      * */
     getMessage: (key: proto.IMessageKey) => Promise<proto.IMessage | undefined>
 

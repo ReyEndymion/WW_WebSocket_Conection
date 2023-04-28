@@ -35,15 +35,15 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 		uploadPreKeys,
 	} = sock
 
-	/** this mutex ensures that each retryRequest will wait for the previous one to finish */
+	/** Este mutex asegura que cada requisito de referencia espere que la anterior termine */
 	const retryMutex = makeMutex()
 
 	const msgRetryCache = config.msgRetryCounterCache || new NodeCache({
-		stdTTL: DEFAULT_CACHE_TTLS.MSG_RETRY, // 1 hour
+		stdTTL: DEFAULT_CACHE_TTLS.MSG_RETRY, // 1 hora
 		useClones: false
 	})
 	const callOfferCache = config.callOfferCache || new NodeCache({
-		stdTTL: DEFAULT_CACHE_TTLS.CALL_OFFER, // 5 mins
+		stdTTL: DEFAULT_CACHE_TTLS.CALL_OFFER, // 5 minutos
 		useClones: false
 	})
 
@@ -190,8 +190,8 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 			const identityNode = getBinaryNodeChild(node, 'identity')
 			if(identityNode) {
 				logger.info({ jid: from }, 'identity changed')
-				// not handling right now
-				// signal will override new identity anyway
+				// No manejar ahora mismo
+				// La señal anulará una nueva identidad de todos modos
 			} else {
 				logger.info({ node }, 'unknown encrypt notification')
 			}
@@ -238,8 +238,8 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 			const participants = getBinaryNodeChildren(child, 'participant').map(p => p.attrs.jid)
 			if(
 				participants.length === 1 &&
-					// if recv. "remove" message and sender removed themselves
-					// mark as left
+					//Si recibe El mensaje "remove" y el remitente se eliminaron
+					// Mark como a la izquierda
 					areJidsSameUser(participants[0], participant) &&
 					child.tag === 'remove'
 			) {
@@ -388,9 +388,9 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 		const msgs = await Promise.all(ids.map(id => getMessage({ ...key, id })))
 		const remoteJid = key.remoteJid!
 		const participant = key.participant || remoteJid
-		// if it's the primary jid sending the request
-		// just re-send the message to everyone
-		// prevents the first message decryption failure
+		// Si es el Jid principal que envía la solicitud
+		// Solo vuelve a enviar el mensaje a todos
+		// previene la falla del descifrado del primer mensaje
 		const sendToAll = !jidDecode(participant)?.device
 		await assertSessions([participant], true)
 
@@ -454,8 +454,8 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 					if(
 						typeof status !== 'undefined' &&
 						(
-							// basically, we only want to know when a message from us has been delivered to/read by the other person
-							// or another device of ours has read some messages
+							// Básicamente, solo queremos saber cuándo la otra persona ha entregado/leído un mensaje de nosotros.
+							// u otro dispositivo nuestro ha leído algunos mensajes
 							status > proto.WebMessageInfo.Status.DELIVERY_ACK ||
 							!isNodeFromMe
 						)
@@ -560,7 +560,7 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 			processingMutex.mutex(
 				async() => {
 					await decrypt()
-					// message failed to decrypt
+					//el mensaje no se descifra
 					if(msg.messageStubType === proto.WebMessageInfo.StubType.CIPHERTEXT) {
 						retryMutex.mutex(
 							async() => {
@@ -576,14 +576,14 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 							}
 						)
 					} else {
-						// no type in the receipt => message delivered
+						// Sin tipo en el recibo => Mensaje entregado
 						let type: MessageReceiptType = undefined
 						let participant = msg.key.participant
-						if(category === 'peer') { // special peer message
+						if(category === 'peer') { // Mensaje especial de pares
 							type = 'peer_msg'
-						} else if(msg.key.fromMe) { // message was sent by us from a different device
+						} else if(msg.key.fromMe) { // El mensaje fue enviado por nosotros desde un dispositivo diferente
 							type = 'sender'
-							// need to specially handle this case
+							// Necesito manejar especialmente este caso
 							if(isJidUser(msg.key.remoteJid!)) {
 								participant = author
 							}
@@ -593,7 +593,7 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 
 						await sendReceipt(msg.key.remoteJid!, participant!, [msg.key.id!], type)
 
-						// send ack for history message
+						// Enviar el mensaje ACK para el historial
 						const isAnyHistoryMsg = getHistoryMsg(msg.message!)
 						if(isAnyHistoryMsg) {
 							const jid = jidNormalizedUser(msg.key.remoteJid!)
@@ -633,13 +633,13 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 
 		const existingCall = callOfferCache.get<WACallEvent>(call.id)
 
-		// use existing call info to populate this event
+		// Use la información de llamada existente para completar este evento
 		if(existingCall) {
 			call.isVideo = existingCall.isVideo
 			call.isGroup = existingCall.isGroup
 		}
 
-		// delete data once call has ended
+		// Eliminar datos una vez que la llamada ha terminado
 		if(status === 'reject' || status === 'accept' || status === 'timeout') {
 			callOfferCache.del(call.id)
 		}
@@ -651,9 +651,9 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 
 	const handleBadAck = async({ attrs }: BinaryNode) => {
 		const key: WAMessageKey = { remoteJid: attrs.from, fromMe: true, id: attrs.id }
-		// current hypothesis is that if pash is sent in the ack
-		// it means -- the message hasn't reached all devices yet
-		// we'll retry sending the message here
+		// La hipótesis actual es que si se envía PASH en el ACK
+		// Significa: el mensaje aún no ha llegado a todos los dispositivos
+		// Volveremos a intentar enviar el mensaje aquí
 		if(attrs.phash) {
 			logger.info({ attrs }, 'received phash in ack, resending message...')
 			const msg = await getMessage(key)
@@ -664,8 +664,7 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 			}
 		}
 
-		// error in acknowledgement,
-		// device could not display the message
+		// Error en el reconocimiento, el dispositivo no pudo mostrar el mensaje
 		if(attrs.error) {
 			logger.warn({ attrs }, 'received error in ack')
 			ev.emit(
@@ -685,8 +684,7 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 		}
 	}
 
-	/// processes a node with the given function
-	/// and adds the task to the existing buffer if we're buffering events
+	///procesa un nodo con la función dada y agrega la tarea al búfer existente si estamos amortiguando eventos
 	const processNodeWithBuffer = async<T>(
 		node: BinaryNode,
 		identifier: string,
@@ -702,7 +700,7 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 		}
 	}
 
-	// recv a message
+	// recibir un mensaje
 	ws.on('CB:message', (node: BinaryNode) => {
 		processNodeWithBuffer(node, 'processing message', handleMessage)
 	})
@@ -725,7 +723,7 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 	})
 
 	ev.on('call', ([ call ]) => {
-		// missed call + group call notification message generation
+		// Llamada perdida + Generación de mensajes de notificación de llamadas de grupo
 		if(call.status === 'timeout' || (call.status === 'offer' && call.isGroup)) {
 			const msg: proto.IWebMessageInfo = {
 				key: {

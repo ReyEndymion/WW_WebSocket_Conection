@@ -61,10 +61,10 @@ export default (
 	}
 
 	/**
-	 * binds to a BaileysEventEmitter.
-	 * It listens to all events and constructs a state that you can query accurate data from.
-	 * Eg. can use the store to fetch chats, contacts, messages etc.
-	 * @param ev typically the event emitter from the socket connection
+	 * se une a un emitido de eventos de Baileys.
+	 * Escucha todos los eventos y construye un estado del que puede consultar datos precisos.
+	 * P.ej.puede usar store para obtener chats, contactos, mensajes, etc.
+	 * @param ev Por lo general, el emisor de eventos desde la conexión del socket
 	 */
 	const bind = (ev: BaileysEventEmitter) => {
 		ev.on('connection.update', update => {
@@ -269,7 +269,7 @@ export default (
 		state,
 		presences,
 		bind,
-		/** loads messages from the store, if not found -- uses the legacy connection */
+		/** Carga mensajes de la store, si no se encuentra: utiliza la conexión heredada*/
 		loadMessages: async(jid: string, count: number, cursor: WAMessageCursor) => {
 			const list = assertMessageList(jid)
 			const mode = !cursor || 'before' in cursor ? 'before' : 'after'
@@ -287,7 +287,7 @@ export default (
 
 				const diff = count - messages.length
 				if(diff < 0) {
-					messages = messages.slice(-count) // get the last X messages
+					messages = messages.slice(-count) // Obtenga los últimos x mensajes
 				}
 			} else {
 				messages = []
@@ -340,12 +340,12 @@ export default (
 		toJSON,
 		fromJSON,
 		writeToFile: (path: string) => {
-			// require fs here so that in case "fs" is not available -- the app does not crash
+			// requiere FS aquí para que en caso de que "FS" no esté disponible, la aplicación no se bloquea
 			const { writeFileSync } = require('fs')
 			writeFileSync(path, JSON.stringify(toJSON()))
 		},
 		readFromFile: (path: string) => {
-			// require fs here so that in case "fs" is not available -- the app does not crash
+			//requiere fs aquí para que en caso de que "fs" no esté disponible, la aplicación no se bloquea
 			const { readFileSync, existsSync } = require('fs')
 			if(existsSync(path)) {
 				logger.debug({ path }, 'reading from file')

@@ -24,39 +24,39 @@ const BUFFERABLE_EVENT = [
 type BufferableEvent = typeof BUFFERABLE_EVENT[number]
 
 /**
- * A map that contains a list of all events that have been triggered
+ *Un mapa que contiene una lista de todos los eventos que se han activado
  *
- * Note, this can contain different type of events
- * this can make processing events extremely efficient -- since everything
- * can be done in a single transaction
+ * Tenga en cuenta que esto puede contener diferentes tipos de eventos
+ * Esto puede hacer que los eventos de procesamiento sean extremadamente eficientes, ya que todo
+ * se puede hacer en una sola transacción
  */
 type BaileysEventData = Partial<BaileysEventMap>
 
 const BUFFERABLE_EVENT_SET = new Set<BaileysEvent>(BUFFERABLE_EVENT)
 
 type BaileysBufferableEventEmitter = BaileysEventEmitter & {
-	/** Use to process events in a batch */
+	/**Uso para procesar eventos en un lote */
 	process(handler: (events: BaileysEventData) => void | Promise<void>): (() => void)
 	/**
-	 * starts buffering events, call flush() to release them
+	 * comienza a amortiguar eventos, llame a FLUSH () para liberarlos
 	 * */
 	buffer(): void
-	/** buffers all events till the promise completes */
+	/** amortigua todos los eventos hasta que se complete la promesa */
 	createBufferedFunction<A extends any[], T>(work: (...args: A) => Promise<T>): ((...args: A) => Promise<T>)
 	/**
-	 * flushes all buffered events
-	 * @param force if true, will flush all data regardless of any pending buffers
-	 * @returns returns true if the flush actually happened, otherwise false
+	 * Flushes todos los eventos amortiguados
+	 * @param force Si es cierto, enjuagará todos los datos independientemente de cualquier buffers pendiente
+	 * @returns Devuelve verdadero si la descarga realmente sucedió, de lo contrario falso
 	 */
 	flush(force?: boolean): boolean
-	/** is there an ongoing buffer */
+	/** ¿Hay un búfer en curso? */
 	isBuffering(): boolean
 }
 
 /**
- * The event buffer logically consolidates different events into a single event
- * making the data processing more efficient.
- * @param ev the baileys event emitter
+ * El búfer de eventos consolida lógicamente diferentes eventos en un solo evento
+ * Hacer que el procesamiento de datos sea más eficiente.
+ * @param ev el emisor de eventos de Baileys
  */
 export const makeEventBuffer = (logger: Logger): BaileysBufferableEventEmitter => {
 	const ev = new EventEmitter()
@@ -65,7 +65,7 @@ export const makeEventBuffer = (logger: Logger): BaileysBufferableEventEmitter =
 	let data = makeBufferData()
 	let buffersInProgress = 0
 
-	// take the generic event and fire it as a baileys event
+	// Tome el evento genérico y lo dispare como un evento de Baileys
 	ev.on('event', (map: BaileysEventData) => {
 		for(const event in map) {
 			ev.emit(event, map[event])
@@ -77,16 +77,16 @@ export const makeEventBuffer = (logger: Logger): BaileysBufferableEventEmitter =
 	}
 
 	function flush(force = false) {
-		// no buffer going on
+		// No pasa búfer
 		if(!buffersInProgress) {
 			return false
 		}
 
 		if(!force) {
-			// reduce the number of buffers in progress
+			// Reducir el número de buffers en progreso
 			buffersInProgress -= 1
-			// if there are still some buffers going on
-			// then we don't flush now
+			// Si todavía hay algunos amortiguadores
+			// Entonces no nos enjuagamos ahora
 			if(buffersInProgress) {
 				return false
 			}
@@ -94,7 +94,7 @@ export const makeEventBuffer = (logger: Logger): BaileysBufferableEventEmitter =
 
 		const newData = makeBufferData()
 		const chatUpdates = Object.values(data.chatUpdates)
-		// gather the remaining conditional events so we re-queue them
+		// Reúna los eventos condicionales restantes para que los reasemos
 		let conditionalChatUpdatesLeft = 0
 		for(const update of chatUpdates) {
 			if(update.conditional) {
@@ -265,23 +265,23 @@ function append<E extends BufferableEvent>(
 			if(conditionMatches) {
 				delete update.conditional
 
-				// if there is an existing upsert, merge the update into it
+				// Si hay un UPSERT existente, fusione la actualización en él
 				const upsert = data.historySets.chats[chatId] || data.chatUpserts[chatId]
 				if(upsert) {
 					concatChats(upsert, update)
 				} else {
-					// merge the update into the existing update
+					// fusionar la actualización en la actualización existente
 					const chatUpdate = data.chatUpdates[chatId] || { }
 					data.chatUpdates[chatId] = concatChats(chatUpdate, update)
 				}
 			} else if(conditionMatches === undefined) {
-				// condition yet to be fulfilled
+				// condición aún por cumplir
 				data.chatUpdates[chatId] = update
 			}
-			// otherwise -- condition not met, update is invalid
+			// de lo contrario -- condición no cumplida, la actualización no es válida
 
-			// if the chat has been updated
-			// ignore any existing chat delete
+			// Si el chat se ha actualizado
+			// Ignorar cualquier chat de eliminación existente
 			if(data.chatDeletes.has(chatId)) {
 				data.chatDeletes.delete(chatId)
 			}
@@ -294,7 +294,7 @@ function append<E extends BufferableEvent>(
 				data.chatDeletes.add(chatId)
 			}
 
-			// remove any prior updates & upserts
+			// Eliminar cualquier actualización y upserts anteriores
 			if(data.chatUpdates[chatId]) {
 				delete data.chatUpdates[chatId]
 			}
@@ -338,12 +338,12 @@ function append<E extends BufferableEvent>(
 		const contactUpdates = eventData as BaileysEventMap['contacts.update']
 		for(const update of contactUpdates) {
 			const id = update.id!
-			// merge into prior upsert
+			// fusionarse en el upsert anterior
 			const upsert = data.historySets.contacts[id] || data.contactUpserts[id]
 			if(upsert) {
 				Object.assign(upsert, update)
 			} else {
-				// merge into prior update
+				// fusionarse en la actualización previa
 				const contactUpdate = data.contactUpdates[id] || { }
 				data.contactUpdates[id] = Object.assign(contactUpdate, update)
 			}
@@ -392,9 +392,9 @@ function append<E extends BufferableEvent>(
 			const existing = data.historySets.messages[keyStr] || data.messageUpserts[keyStr]?.message
 			if(existing) {
 				Object.assign(existing, update)
-				// if the message was received & read by us
-				// the chat counter must have been incremented
-				// so we need to decrement it
+				// Si el mensaje fue recibido y leído por nosotros
+// El contador de chat debe haber sido incrementado
+// Entonces necesitamos disminuirlo
 				if(update.status === WAMessageStatus.READ && !key.fromMe) {
 					decrementChatReadCounterIfMsgDidUnread(existing)
 				}
@@ -494,8 +494,8 @@ function append<E extends BufferableEvent>(
 	}
 
 	function decrementChatReadCounterIfMsgDidUnread(message: WAMessage) {
-		// decrement chat unread counter
-		// if the message has already been marked read by us
+		// decrement chat no leído contador
+// Si el mensaje ya ha sido marcado por nosotros
 		const chatId = message.key.remoteJid!
 		const chat = data.chatUpdates[chatId] || data.chatUpserts[chatId]
 		if(
@@ -593,7 +593,7 @@ function consolidateEvents(data: BufferedEventData) {
 
 function concatChats<C extends Partial<Chat>>(a: C, b: Partial<Chat>) {
 	if(b.unreadCount === null) {
-		// neutralize unread counter
+		// Neutralizar el contador no leído
 		if(a.unreadCount! < 0) {
 			a.unreadCount = undefined
 			b.unreadCount = undefined

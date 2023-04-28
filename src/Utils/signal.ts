@@ -118,10 +118,10 @@ export const extractDeviceJids = (result: BinaryNode, myJid: string, excludeZero
 					for(const { tag, attrs } of deviceListNode!.content) {
 						const device = +attrs.id
 						if(
-							tag === 'device' && // ensure the "device" tag
-							(!excludeZeroDevices || device !== 0) && // if zero devices are not-excluded, or device is non zero
-							(myUser !== user || myDevice !== device) && // either different user or if me user, not this device
-							(device === 0 || !!attrs['key-index']) // ensure that "key-index" is specified for "non-zero" devices, produces a bad req otherwise
+							tag === 'device' && // Asegúrese de la etiqueta "device"
+							(!excludeZeroDevices || device !== 0) && // Si los dispositivos cero no son excluidos, o el dispositivo no es cero
+							(myUser !== user || myDevice !== device) && // ya sea un usuario diferente o si yo usador, no este dispositivo
+							(device === 0 || !!attrs['key-index']) // asegurarse de que "key-index" se especifica para "non-zero" dispositivos, produce un mal req de lo contrario
 						) {
 							extracted.push({ user, device })
 						}
@@ -135,8 +135,8 @@ export const extractDeviceJids = (result: BinaryNode, myJid: string, excludeZero
 }
 
 /**
- * get the next N keys for upload or processing
- * @param count number of pre-keys to get or generate
+ * Obtenga las siguientes teclas N para cargar o procesar
+ * @param count número de pre-teclas para obtener o generar
  */
 export const getNextPreKeys = async({ creds, keys }: AuthenticationState, count: number) => {
 	const { newPreKeys, lastPreKeyId, preKeysRange } = generateOrGetPreKeys(creds, count)

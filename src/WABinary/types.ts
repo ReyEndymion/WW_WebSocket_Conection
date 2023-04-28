@@ -1,10 +1,10 @@
 import * as constants from './constants'
 /**
- * the binary node WA uses internally for communication
+ * El nodo binario WA usa internamente para la comunicación
  *
- * this is manipulated soley as an object and it does not have any functions.
- * This is done for easy serialization, to prevent running into issues with prototypes &
- * to maintain functional code structure
+ * Esto se manipula Soley como un objeto y no tiene ninguna función.
+ * Esto se hace para una fácil serialización, para evitar que se encuentren con problemas con los prototipos y
+ * Para mantener la estructura de código funcional
  * */
 export type BinaryNode = {
     tag: string

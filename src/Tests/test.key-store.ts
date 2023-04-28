@@ -54,8 +54,8 @@ describe('Key Store w Transaction Tests', () => {
 	})
 
 	it('should handle overlapping transactions', async() => {
-		// promise to let transaction 2
-		// know that transaction 1 has started
+		// Prometo dejar que la transacción 2
+		//saber que la transacción 1 ha comenzado
 		let promiseResolve: () => void
 		const promise = new Promise<void>(resolve => {
 			promiseResolve = resolve
@@ -70,7 +70,7 @@ describe('Key Store w Transaction Tests', () => {
 				})
 				// wait for the other transaction to start
 				await delay(5)
-				// reolve the promise to let the other transaction continue
+				// Resuelva la promesa de dejar que la otra transacción continúe
 				promiseResolve()
 			}
 		)
@@ -85,7 +85,7 @@ describe('Key Store w Transaction Tests', () => {
 		)
 
 		expect(store.isInTransaction()).toBe(false)
-		// ensure that the transaction were committed
+		// asegúrese de que se cometiera la transacción
 		const { ['1']: stored } = await store.get('session', ['1'])
 		expect(stored).toEqual(new Uint8Array(1))
 	})

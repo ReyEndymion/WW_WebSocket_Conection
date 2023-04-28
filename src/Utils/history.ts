@@ -22,7 +22,7 @@ export const downloadHistory = async(
 
 	let buffer = Buffer.concat(bufferArray)
 
-	// decompress buffer
+	// búfer descompresivo
 	buffer = await inflatePromise(buffer)
 
 	const syncData = proto.HistorySync.decode(buffer)
@@ -52,7 +52,7 @@ export const processHistoryMessage = (item: proto.IHistorySync) => {
 				messages.push(message)
 
 				if(!chat.messages?.length) {
-					// keep only the most recent message in the chat array
+					// Mantenga solo el mensaje más reciente en la matriz de chat
 					chat.messages = [{ message }]
 				}
 

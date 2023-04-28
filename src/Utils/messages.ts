@@ -61,9 +61,9 @@ const MessageTypeProto = {
 const ButtonType = proto.Message.ButtonsMessage.HeaderType
 
 /**
- * Uses a regex to test whether the string contains a URL, and returns the URL if it does.
- * @param text eg. hello https://google.com
- * @returns the URL, eg. https://google.com
+ * Utiliza regex para probar si la cadena contiene una URL y devuelve la URL si lo hace.
+ * @param text p.ej.Hola https://google.com
+ * @returns La URL, por ejemplo. https://google.com
  */
 export const extractUrlFromText = (text: string) => (
 	!URL_EXCLUDE_REGEX.test(text) ? text.match(URL_REGEX)?.[0] : undefined
@@ -75,7 +75,7 @@ export const generateLinkPreviewIfRequired = async(text: string, getUrlInfo: Mes
 		try {
 			const urlInfo = await getUrlInfo(url)
 			return urlInfo
-		} catch(error) { // ignore if fails
+		} catch(error) { // ignora si falla
 			logger?.warn({ trace: error.stack }, 'url generation failed')
 		}
 	}
@@ -103,12 +103,12 @@ export const prepareWAMessageMedia = async(
 		media: message[mediaType]
 	}
 	delete uploadData[mediaType]
-	// check if cacheable + generate cache key
+	// Compruebe si se almacena en caché + Generar la clave de caché
 	const cacheableKey = typeof uploadData.media === 'object' &&
 			('url' in uploadData.media) &&
 			!!uploadData.media.url &&
 			!!options.mediaCache && (
-	// generate the key
+	// Generar la clave
 		mediaType + ':' + uploadData.media.url!.toString()
 	)
 
@@ -156,7 +156,7 @@ export const prepareWAMessageMedia = async(
 			opts: options.options
 		}
 	)
-	 // url safe Base64 encode the SHA256 hash of the body
+	 // url segura Base64 codificada del SHA256 hash del conjunto
 	const fileEncSha256B64 = fileEncSha256.toString('base64')
 	const [{ mediaUrl, directPath }] = await Promise.all([
 		(async() => {
@@ -196,7 +196,7 @@ export const prepareWAMessageMedia = async(
 		.finally(
 			async() => {
 				encWriteStream.destroy()
-				// remove tmp files
+				// Eliminar archivos TMP
 				if(didSaveToTmpPath && bodyPath) {
 					await fs.unlink(bodyPath)
 					logger?.debug('removed tmp files')
@@ -244,9 +244,9 @@ export const prepareDisappearingMessageSettingContent = (ephemeralExpiration?: n
 }
 
 /**
- * Generate forwarded message content like WA does
- * @param message the message to forward
- * @param options.forceForward will show the message as forwarded even if it is from you
+ * Generar contenido de mensaje reenviado como WA lo hace
+ * @param message El mensaje a reenviar
+ * @param options.forceForward mostrará el mensaje como se reenvía incluso si es de usted
  */
 export const generateForwardMessageContent = (
 	message: WAMessage,
@@ -496,8 +496,8 @@ export const generateWAMessageFromContent = (
 	message: WAMessageContent,
 	options: MessageGenerationOptionsFromContent
 ) => {
-	// set timestamp to now
-	// if not specified
+	//Establezca la marca de tiempo para ahora
+	// Si no se especifica
 	if(!options.timestamp) {
 		options.timestamp = new Date()
 	}
@@ -511,7 +511,7 @@ export const generateWAMessageFromContent = (
 
 		let quotedMsg = normalizeMessageContent(quoted.message)!
 		const msgType = getContentType(quotedMsg)!
-		// strip any redundant properties
+		// despoja cualquier propiedad redundante
 		quotedMsg = proto.Message.fromObject({ [msgType]: quotedMsg[msgType] })
 
 		const quotedContent = quotedMsg[msgType]
@@ -524,8 +524,8 @@ export const generateWAMessageFromContent = (
 		contextInfo.stanzaId = quoted.key.id
 		contextInfo.quotedMessage = quotedMsg
 
-		// if a participant is quoted, then it must be a group
-		// hence, remoteJid of group must also be entered
+		// Si se cita a un participante, entonces debe ser un grupo
+// por lo tanto, el remoto del grupo también debe ingresarse
 		if(quoted.key.participant || quoted.participant) {
 			contextInfo.remoteJid = quoted.key.remoteJid
 		}
@@ -534,11 +534,11 @@ export const generateWAMessageFromContent = (
 	}
 
 	if(
-		// if we want to send a disappearing message
+		// Si queremos enviar un mensaje de desaparición
 		!!options?.ephemeralExpiration &&
-		// and it's not a protocol message -- delete, toggle disappear message
+		// y no es un mensaje de protocolo: eliminar, alternar el mensaje de desaparición
 		key !== 'protocolMessage' &&
-		// already not converted to disappearing message
+		// ya no se convierte en un mensaje de desaparición
 		key !== 'ephemeralMessage'
 	) {
 		message[key].contextInfo = {
@@ -575,7 +575,7 @@ export const generateWAMessage = async(
 	content: AnyMessageContent,
 	options: MessageGenerationOptions,
 ) => {
-	// ensure msg ID is with every log
+	// Asegúrese de que MSG ID sea con cada registro
 	options.logger = options?.logger?.child({ msgId: options.messageId })
 	return generateWAMessageFromContent(
 		jid,
@@ -587,7 +587,7 @@ export const generateWAMessage = async(
 	)
 }
 
-/** Get the key to access the true type of content */
+/** Obtenga la clave para acceder al tipo de contenido verdadero */
 export const getContentType = (content: WAProto.IMessage | undefined) => {
 	if(content) {
 		const keys = Object.keys(content)
@@ -597,8 +597,8 @@ export const getContentType = (content: WAProto.IMessage | undefined) => {
 }
 
 /**
- * Normalizes ephemeral, view once messages to regular message content
- * Eg. image messages in ephemeral messages, in view once messages etc.
+ * Normaliza efímera, vea una vez los mensajes al contenido regular de mensajes
+ * P.ej.Mensajes de imagen en mensajes efímeros, a la vista una vez mensajes, etc.
  * @param content
  * @returns
  */
@@ -631,8 +631,8 @@ export const normalizeMessageContent = (content: WAMessageContent | null | undef
 }
 
 /**
- * Extract the true message content from a message
- * Eg. extracts the inner message from a disappearing message/view once message
+ * Extraiga el contenido de mensaje verdadero de un mensaje
+ * P.ej.extrae el mensaje interno de un mensaje/vista de desaparición una vez
  */
 export const extractMessageContent = (content: WAMessageContent | undefined | null): WAMessageContent | undefined => {
 	const extractFromTemplateMessage = (msg: proto.Message.TemplateMessage.IHydratedFourRowTemplate | proto.Message.IButtonsMessage) => {
@@ -676,14 +676,14 @@ export const extractMessageContent = (content: WAMessageContent | undefined | nu
 }
 
 /**
- * Returns the device predicted by message ID
+ * Devuelve el dispositivo predicho por ID de mensaje
  */
 export const getDevice = (id: string) => {
 	const deviceType = id.length > 21 ? 'android' : id.substring(0, 2) === '3A' ? 'ios' : 'web'
 	return deviceType
 }
 
-/** Upserts a receipt in the message */
+/** Supera un recibo en el mensaje */
 export const updateMessageWithReceipt = (msg: Pick<WAMessage, 'userReceipt'>, receipt: MessageUserReceipt) => {
 	msg.userReceipt = msg.userReceipt || []
 	const recp = msg.userReceipt.find(m => m.userJid === receipt.userJid)
@@ -694,7 +694,7 @@ export const updateMessageWithReceipt = (msg: Pick<WAMessage, 'userReceipt'>, re
 	}
 }
 
-/** Update the message with a new reaction */
+/** Actualizar el mensaje con una nueva reacción */
 export const updateMessageWithReaction = (msg: Pick<WAMessage, 'reactions'>, reaction: proto.IReaction) => {
 	const authorID = getKeyAuthor(reaction.key)
 
@@ -707,7 +707,7 @@ export const updateMessageWithReaction = (msg: Pick<WAMessage, 'reactions'>, rea
 	msg.reactions = reactions
 }
 
-/** Update the message with a new poll update */
+/** Actualizar el mensaje con una nueva actualización de la encuesta */
 export const updateMessageWithPollUpdate = (
 	msg: Pick<WAMessage, 'pollUpdates'>,
 	update: proto.IPollUpdate
@@ -729,10 +729,10 @@ type VoteAggregation = {
 }
 
 /**
- * Aggregates all poll updates in a poll.
- * @param msg the poll creation message
- * @param meId your jid
- * @returns A list of options & their voters
+ *Agregue todas las actualizaciones de la encuesta en una encuesta.
+ * @param msg el mensaje de creación de encuestas
+ * @param meId Tu Jid
+ * @returns Una lista de opciones y sus votantes
  */
 export function getAggregateVotesInPollMessage(
 	{ message, pollUpdates }: Pick<WAMessage, 'pollUpdates' | 'message'>,
@@ -774,7 +774,7 @@ export function getAggregateVotesInPollMessage(
 	return Object.values(voteHashMap)
 }
 
-/** Given a list of message keys, aggregates them by chat & sender. Useful for sending read receipts in bulk */
+/** Dada una lista de claves de mensajes, las agrega por chat y remitente.Útil para enviar recibos de lectura a granel */
 export const aggregateMessageKeysNotFromMe = (keys: proto.IMessageKey[]) => {
 	const keyMap: { [id: string]: { jid: string, participant: string | undefined, messageIds: string[] } } = { }
 	for(const { remoteJid, id, participant, fromMe } of keys) {
@@ -803,7 +803,7 @@ type DownloadMediaMessageContext = {
 const REUPLOAD_REQUIRED_STATUS = [410, 404]
 
 /**
- * Downloads the given message. Throws an error if it's not a media message
+ * Descarga el mensaje dado.Lanza un error si no es un mensaje de medios
  */
 export const downloadMediaMessage = async(
 	message: WAMessage,
@@ -817,10 +817,10 @@ export const downloadMediaMessage = async(
 	} catch(error) {
 		if(ctx) {
 			if(axios.isAxiosError(error)) {
-				// check if the message requires a reupload
+				// Compruebe si el mensaje requiere una reuplicación
 				if(REUPLOAD_REQUIRED_STATUS.includes(error.response?.status!)) {
 					ctx.logger.info({ key: message.key }, 'sending reupload media request...')
-					// request reupload
+					// Solicitar reuplío
 					message = await ctx.reuploadRequest(message)
 					const result = await downloadMsg()
 					return result
@@ -870,7 +870,7 @@ export const downloadMediaMessage = async(
 	}
 }
 
-/** Checks whether the given message is a media message; if it is returns the inner content */
+/** Comprueba si el mensaje dado es un mensaje de medios;Si se devuelve el contenido interno */
 export const assertMediaContent = (content: proto.IMessage | null | undefined) => {
 	content = extractMessageContent(content)
 	const mediaContent = content?.documentMessage

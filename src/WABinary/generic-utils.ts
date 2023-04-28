@@ -2,7 +2,7 @@ import { Boom } from '@hapi/boom'
 import { proto } from '../../WAProto'
 import { BinaryNode } from './types'
 
-// some extra useful utilities
+// Algunas utilidades más útiles
 
 export const getBinaryNodeChildren = (node: BinaryNode | undefined, childTag: string) => {
 	if(Array.isArray(node?.content)) {

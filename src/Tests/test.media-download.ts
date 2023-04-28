@@ -51,11 +51,11 @@ describe('Media Download Tests', () => {
 
 	it('should download an encrypted media correctly piece', async() => {
 		for(const { type, message, plaintext } of TEST_VECTORS) {
-			// check all edge cases
+			// Verifique todos los casos de borde
 			const ranges = [
-				{ startByte: 51, endByte: plaintext.length - 100 }, // random numbers
-				{ startByte: 1024, endByte: 2038 }, // larger random multiples of 16
-				{ startByte: 1, endByte: plaintext.length - 1 } // borders
+				{ startByte: 51, endByte: plaintext.length - 100 }, // números al azar
+				{ startByte: 1024, endByte: 2038 }, // Múltiples múltiplos aleatorios más grandes de 16
+				{ startByte: 1, endByte: plaintext.length - 1 } // fronteras
 			]
 			for(const range of ranges) {
 				const readPipe = await downloadContentFromMessage(message, type, range)

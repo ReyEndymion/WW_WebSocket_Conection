@@ -6,11 +6,11 @@ import { initAuthCreds } from './auth-utils'
 import { BufferJSON } from './generics'
 
 /**
- * stores the full authentication state in a single folder.
- * Far more efficient than singlefileauthstate
+ * almacena el estado de autenticación completo en una sola carpeta.
+ * Mucho más eficiente que un soloFileAuthState
  *
- * Again, I wouldn't endorse this for any production level use other than perhaps a bot.
- * Would recommend writing an auth state for use with a proper SQL or No-SQL DB
+ * Nuevamente, no respaldaría esto para ningún uso de nivel de producción que no sea quizás un bot.
+ * Recomendaría escribir un estado de autenticación para su uso con un SQL o No-SQL DB
  * */
 export const useMultiFileAuthState = async(folder: string): Promise<{ state: AuthenticationState, saveCreds: () => Promise<void> }> => {
 

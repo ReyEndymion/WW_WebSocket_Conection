@@ -3,16 +3,16 @@
 
 var $protobuf = require("protobufjs/minimal");
 
-// Common aliases
+// Alias comunes
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
 
-// Exported root namespace
+// Espacio de nombres raíz exportado
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
 
 $root.groupproto = (function() {
 
     /**
-     * Namespace groupproto.
+     * Espacio de nombres Groupproto.
      * @exports groupproto
      * @namespace
      */
@@ -21,7 +21,7 @@ $root.groupproto = (function() {
     groupproto.SenderKeyMessage = (function() {
 
         /**
-         * Properties of a SenderKeyMessage.
+         * Propiedades de un SenderKeyMessage.
          * @memberof groupproto
          * @interface ISenderKeyMessage
          * @property {number|null} [id] SenderKeyMessage id
@@ -30,12 +30,12 @@ $root.groupproto = (function() {
          */
 
         /**
-         * Constructs a new SenderKeyMessage.
+         * Construye un nuevo SenderKeyMessage.
          * @memberof groupproto
-         * @classdesc Represents a SenderKeyMessage.
+         * @classdesc Representa un SenderKeyMessage.
          * @implements ISenderKeyMessage
          * @constructor
-         * @param {groupproto.ISenderKeyMessage=} [properties] Properties to set
+         * @param {groupproto.ISenderKeyMessage=} [properties] Propiedades para establecer
          */
         function SenderKeyMessage(properties) {
             if (properties)
@@ -69,11 +69,11 @@ $root.groupproto = (function() {
         SenderKeyMessage.prototype.ciphertext = $util.newBuffer([]);
 
         /**
-         * Creates a new SenderKeyMessage instance using the specified properties.
+         * Crea una nueva instancia de ServKeyMessage utilizando las propiedades especificadas.
          * @function create
          * @memberof groupproto.SenderKeyMessage
          * @static
-         * @param {groupproto.ISenderKeyMessage=} [properties] Properties to set
+         * @param {groupproto.ISenderKeyMessage=} [properties] Propiedades a configurar
          * @returns {groupproto.SenderKeyMessage} SenderKeyMessage instance
          */
         SenderKeyMessage.create = function create(properties) {
@@ -81,12 +81,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderKeyMessage message. Does not implicitly {@link groupproto.SenderKeyMessage.verify|verify} messages.
+         * Codifica el mensaje especificado SenderKeyMessage. No implícitamente mensajes  {@link groupproto.SenderKeyMessage.verify|verify}.
          * @function encode
          * @memberof groupproto.SenderKeyMessage
          * @static
-         * @param {groupproto.ISenderKeyMessage} message SenderKeyMessage message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderKeyMessage} message Mensaje de SenderkeyMessage o objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyMessage.encode = function encode(message, writer) {
@@ -102,12 +102,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderKeyMessage message, length delimited. Does not implicitly {@link groupproto.SenderKeyMessage.verify|verify} messages.
+         * Codifica el mensaje SenderKeyMessage especificado, longitud delimitada.No implícitamente mensajes {@link groupproto.SenderKeyMessage.verify|verify}.
          * @function encodeDelimited
          * @memberof groupproto.SenderKeyMessage
          * @static
-         * @param {groupproto.ISenderKeyMessage} message SenderKeyMessage message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderKeyMessage} message Mensaje de SenderkeyMessage o objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyMessage.encodeDelimited = function encodeDelimited(message, writer) {
@@ -115,15 +115,15 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderKeyMessage message from the specified reader or buffer.
+         * Decodifica un mensaje SenderKeyMessage del lector o búfer especificado.
          * @function decode
          * @memberof groupproto.SenderKeyMessage
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
+         * @param {number} [length] Longitud del mensaje si se conoce de antemano
          * @returns {groupproto.SenderKeyMessage} SenderKeyMessage
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderKeyMessage.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
@@ -150,14 +150,14 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderKeyMessage message from the specified reader or buffer, length delimited.
+         * Decodifica un mensaje SenderKeyMessage del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof groupproto.SenderKeyMessage
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
          * @returns {groupproto.SenderKeyMessage} SenderKeyMessage
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderKeyMessage.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
@@ -166,12 +166,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Verifies a SenderKeyMessage message.
+         * Verifica un mensaje SenderKeyMessage.
          * @function verify
          * @memberof groupproto.SenderKeyMessage
          * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         * @param {Object.<string,*>} message Objeto simple para verificar
+         * @returns {string|null} `null` si es válido, de lo contrario, la razón por la que no lo es
          */
         SenderKeyMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -189,11 +189,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a SenderKeyMessage message from a plain object. Also converts values to their respective internal types.
+         * Crea un mensaje SenderKeyMessage de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof groupproto.SenderKeyMessage
          * @static
-         * @param {Object.<string,*>} object Plain object
+         * @param {Object.<string,*>} object objeto simple
          * @returns {groupproto.SenderKeyMessage} SenderKeyMessage
          */
         SenderKeyMessage.fromObject = function fromObject(object) {
@@ -213,13 +213,13 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a plain object from a SenderKeyMessage message. Also converts values to other types if specified.
+         * Crea un objeto simple a partir de un mensaje SenderKeyMessage. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof groupproto.SenderKeyMessage
          * @static
          * @param {groupproto.SenderKeyMessage} message SenderKeyMessage
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param {$protobuf.IConversionOptions} [options] Opciones de conversión
+         * @returns {Object.<string,*>} objeto simple
          */
         SenderKeyMessage.toObject = function toObject(message, options) {
             if (!options)
@@ -246,11 +246,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Converts this SenderKeyMessage to JSON.
+         * Convierte este SenderKeyMessage a JSON.
          * @function toJSON
          * @memberof groupproto.SenderKeyMessage
          * @instance
-         * @returns {Object.<string,*>} JSON object
+         * @returns {Object.<string,*>} objeto JSON
          */
         SenderKeyMessage.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
@@ -262,7 +262,7 @@ $root.groupproto = (function() {
     groupproto.SenderKeyDistributionMessage = (function() {
 
         /**
-         * Properties of a SenderKeyDistributionMessage.
+         * Propiedades de un SenderKeyDistributionMessage.
          * @memberof groupproto
          * @interface ISenderKeyDistributionMessage
          * @property {number|null} [id] SenderKeyDistributionMessage id
@@ -272,12 +272,12 @@ $root.groupproto = (function() {
          */
 
         /**
-         * Constructs a new SenderKeyDistributionMessage.
+         * Construye un nuevo SenderKeyDistributionMessage.
          * @memberof groupproto
-         * @classdesc Represents a SenderKeyDistributionMessage.
+         * @classdesc Representa un SenderKeyDistributionMessage.
          * @implements ISenderKeyDistributionMessage
          * @constructor
-         * @param {groupproto.ISenderKeyDistributionMessage=} [properties] Properties to set
+         * @param {groupproto.ISenderKeyDistributionMessage=} [properties] Propiedades a configurar
          */
         function SenderKeyDistributionMessage(properties) {
             if (properties)
@@ -319,24 +319,24 @@ $root.groupproto = (function() {
         SenderKeyDistributionMessage.prototype.signingKey = $util.newBuffer([]);
 
         /**
-         * Creates a new SenderKeyDistributionMessage instance using the specified properties.
+         * Crea una nueva Instancia de SenderKeyDistributionMessage utilizando las propiedades especificadas.
          * @function create
          * @memberof groupproto.SenderKeyDistributionMessage
          * @static
-         * @param {groupproto.ISenderKeyDistributionMessage=} [properties] Properties to set
-         * @returns {groupproto.SenderKeyDistributionMessage} SenderKeyDistributionMessage instance
+         * @param {groupproto.ISenderKeyDistributionMessage=} [properties] Propiedades a configurar
+         * @returns {groupproto.SenderKeyDistributionMessage} Instancia de SenderKeyDistributionMessage
          */
         SenderKeyDistributionMessage.create = function create(properties) {
             return new SenderKeyDistributionMessage(properties);
         };
 
         /**
-         * Encodes the specified SenderKeyDistributionMessage message. Does not implicitly {@link groupproto.SenderKeyDistributionMessage.verify|verify} messages.
+         * Codifica el especificado mensaje SenderKeyDistributionMessage. No implícitamente mensajes {@link groupproto.SenderKeyDistributionMessage.verify|verify}.
          * @function encode
          * @memberof groupproto.SenderKeyDistributionMessage
          * @static
-         * @param {groupproto.ISenderKeyDistributionMessage} message SenderKeyDistributionMessage message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderKeyDistributionMessage} message mensaje SenderKeyDistributionMessage u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyDistributionMessage.encode = function encode(message, writer) {
@@ -354,12 +354,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderKeyDistributionMessage message, length delimited. Does not implicitly {@link groupproto.SenderKeyDistributionMessage.verify|verify} messages.
+         * Codifica el especificado mensaje SenderKeyDistributionMessage, delimitado por longitud. No implícitamente mensajes {@link groupproto.SenderKeyDistributionMessage.verify|verify}.
          * @function encodeDelimited
          * @memberof groupproto.SenderKeyDistributionMessage
          * @static
-         * @param {groupproto.ISenderKeyDistributionMessage} message SenderKeyDistributionMessage message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderKeyDistributionMessage} message mensaje SenderKeyDistributionMessage u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyDistributionMessage.encodeDelimited = function encodeDelimited(message, writer) {
@@ -367,15 +367,15 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderKeyDistributionMessage message from the specified reader or buffer.
+         * Decodifica un mensaje SenderKeyDistributionMessage del lector o búfer especificado.
          * @function decode
          * @memberof groupproto.SenderKeyDistributionMessage
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
+         * @param {number} [length] Longitud del mensaje si se conoce de antemano
          * @returns {groupproto.SenderKeyDistributionMessage} SenderKeyDistributionMessage
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderKeyDistributionMessage.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
@@ -405,14 +405,14 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderKeyDistributionMessage message from the specified reader or buffer, length delimited.
+         * Decodifica un mensaje SenderKeyDistributionMessage del lector o búfer especificado, delimitado por la longitud.
          * @function decodeDelimited
          * @memberof groupproto.SenderKeyDistributionMessage
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
          * @returns {groupproto.SenderKeyDistributionMessage} SenderKeyDistributionMessage
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderKeyDistributionMessage.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
@@ -421,12 +421,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Verifies a SenderKeyDistributionMessage message.
+         * Verifica un mensaje SenderKeyDistributionMessage.
          * @function verify
          * @memberof groupproto.SenderKeyDistributionMessage
          * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         * @param {Object.<string,*>} message Objeto simple para verificar
+         * @returns {string|null} `null` si es válido, de lo contrario, la razón por la que no lo es
          */
         SenderKeyDistributionMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -447,11 +447,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a SenderKeyDistributionMessage message from a plain object. Also converts values to their respective internal types.
+         * Crea un mensaje SenderKeyDistributionMessage de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof groupproto.SenderKeyDistributionMessage
          * @static
-         * @param {Object.<string,*>} object Plain object
+         * @param {Object.<string,*>} object objeto simple
          * @returns {groupproto.SenderKeyDistributionMessage} SenderKeyDistributionMessage
          */
         SenderKeyDistributionMessage.fromObject = function fromObject(object) {
@@ -476,13 +476,13 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a plain object from a SenderKeyDistributionMessage message. Also converts values to other types if specified.
+         * Crea un objeto simple a partir de un mensaje SenderKeyDistributionMessage. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof groupproto.SenderKeyDistributionMessage
          * @static
          * @param {groupproto.SenderKeyDistributionMessage} message SenderKeyDistributionMessage
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param {$protobuf.IConversionOptions} [options] Opciones de conversión
+         * @returns {Object.<string,*>} objeto simple
          */
         SenderKeyDistributionMessage.toObject = function toObject(message, options) {
             if (!options)
@@ -518,11 +518,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Converts this SenderKeyDistributionMessage to JSON.
+         * Convierte este SenderKeyDistributionMessage a JSON.
          * @function toJSON
          * @memberof groupproto.SenderKeyDistributionMessage
          * @instance
-         * @returns {Object.<string,*>} JSON object
+         * @returns {Object.<string,*>} objeto JSON
          */
         SenderKeyDistributionMessage.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
@@ -534,7 +534,7 @@ $root.groupproto = (function() {
     groupproto.SenderChainKey = (function() {
 
         /**
-         * Properties of a SenderChainKey.
+         * Propiedades de un SenderChainKey.
          * @memberof groupproto
          * @interface ISenderChainKey
          * @property {number|null} [iteration] SenderChainKey iteration
@@ -542,12 +542,12 @@ $root.groupproto = (function() {
          */
 
         /**
-         * Constructs a new SenderChainKey.
+         * Construye un nuevo SenderChainKey.
          * @memberof groupproto
-         * @classdesc Represents a SenderChainKey.
+         * @classdesc Representa un SenderChainKey.
          * @implements ISenderChainKey
          * @constructor
-         * @param {groupproto.ISenderChainKey=} [properties] Properties to set
+         * @param {groupproto.ISenderChainKey=} [properties] Propiedades a configurar
          */
         function SenderChainKey(properties) {
             if (properties)
@@ -573,11 +573,11 @@ $root.groupproto = (function() {
         SenderChainKey.prototype.seed = $util.newBuffer([]);
 
         /**
-         * Creates a new SenderChainKey instance using the specified properties.
+         * Crea una nueva SenderChainKey instance utilizando las propiedades especificadas.
          * @function create
          * @memberof groupproto.SenderChainKey
          * @static
-         * @param {groupproto.ISenderChainKey=} [properties] Properties to set
+         * @param {groupproto.ISenderChainKey=} [properties] Propiedades a configurar
          * @returns {groupproto.SenderChainKey} SenderChainKey instance
          */
         SenderChainKey.create = function create(properties) {
@@ -585,12 +585,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderChainKey message. Does not implicitly {@link groupproto.SenderChainKey.verify|verify} messages.
+         * Codifica el especificado mensaje SenderChainKey. No implícitamente mensajes {@link groupproto.SenderChainKey.verify|verify}.
          * @function encode
          * @memberof groupproto.SenderChainKey
          * @static
-         * @param {groupproto.ISenderChainKey} message SenderChainKey message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderChainKey} message mensaje SenderChainKey u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderChainKey.encode = function encode(message, writer) {
@@ -604,12 +604,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderChainKey message, length delimited. Does not implicitly {@link groupproto.SenderChainKey.verify|verify} messages.
+         * Codifica el especificado mensaje SenderChainKey, delimitado por longitud. No implícitamente mensajes {@link groupproto.SenderChainKey.verify|verify}.
          * @function encodeDelimited
          * @memberof groupproto.SenderChainKey
          * @static
-         * @param {groupproto.ISenderChainKey} message SenderChainKey message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderChainKey} message mensaje SenderChainKey u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderChainKey.encodeDelimited = function encodeDelimited(message, writer) {
@@ -617,15 +617,15 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderChainKey message from the specified reader or buffer.
+         * Decodifica un mensaje SenderChainKey del lector o búfer especificado.
          * @function decode
          * @memberof groupproto.SenderChainKey
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
+         * @param {number} [length] Longitud del mensaje si se conoce de antemano
          * @returns {groupproto.SenderChainKey} SenderChainKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderChainKey.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
@@ -649,14 +649,14 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderChainKey message from the specified reader or buffer, length delimited.
+         * Decodifica un mensaje SenderChainKey del lector o búfer especificado, delimitado por la longitud.
          * @function decodeDelimited
          * @memberof groupproto.SenderChainKey
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
          * @returns {groupproto.SenderChainKey} SenderChainKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderChainKey.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
@@ -665,12 +665,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Verifies a SenderChainKey message.
+         * Verifica un mensaje SenderChainKey.
          * @function verify
          * @memberof groupproto.SenderChainKey
          * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         * @param {Object.<string,*>} message Objeto simple para verificar
+         * @returns {string|null} `null` si es válido, de lo contrario, la razón por la que no lo es
          */
         SenderChainKey.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -685,11 +685,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a SenderChainKey message from a plain object. Also converts values to their respective internal types.
+         * Crea un mensaje SenderChainKey de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof groupproto.SenderChainKey
          * @static
-         * @param {Object.<string,*>} object Plain object
+         * @param {Object.<string,*>} object objeto simple
          * @returns {groupproto.SenderChainKey} SenderChainKey
          */
         SenderChainKey.fromObject = function fromObject(object) {
@@ -707,13 +707,13 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a plain object from a SenderChainKey message. Also converts values to other types if specified.
+         * Crea un objeto simple a partir de un mensaje SenderChainKey. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof groupproto.SenderChainKey
          * @static
          * @param {groupproto.SenderChainKey} message SenderChainKey
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param {$protobuf.IConversionOptions} [options] Opciones de conversión
+         * @returns {Object.<string,*>} objeto simple
          */
         SenderChainKey.toObject = function toObject(message, options) {
             if (!options)
@@ -737,11 +737,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Converts this SenderChainKey to JSON.
+         * Convierte este SenderChainKey a JSON.
          * @function toJSON
          * @memberof groupproto.SenderChainKey
          * @instance
-         * @returns {Object.<string,*>} JSON object
+         * @returns {Object.<string,*>} objeto JSON
          */
         SenderChainKey.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
@@ -753,7 +753,7 @@ $root.groupproto = (function() {
     groupproto.SenderMessageKey = (function() {
 
         /**
-         * Properties of a SenderMessageKey.
+         * Propiedades de un SenderMessageKey.
          * @memberof groupproto
          * @interface ISenderMessageKey
          * @property {number|null} [iteration] SenderMessageKey iteration
@@ -761,12 +761,12 @@ $root.groupproto = (function() {
          */
 
         /**
-         * Constructs a new SenderMessageKey.
+         * Construye un nuevo SenderMessageKey.
          * @memberof groupproto
-         * @classdesc Represents a SenderMessageKey.
+         * @classdesc Representa un SenderMessageKey.
          * @implements ISenderMessageKey
          * @constructor
-         * @param {groupproto.ISenderMessageKey=} [properties] Properties to set
+         * @param {groupproto.ISenderMessageKey=} [properties] Propiedades a configurar
          */
         function SenderMessageKey(properties) {
             if (properties)
@@ -792,24 +792,24 @@ $root.groupproto = (function() {
         SenderMessageKey.prototype.seed = $util.newBuffer([]);
 
         /**
-         * Creates a new SenderMessageKey instance using the specified properties.
+         * Crea una nueva instancia de SenderMessageKey utilizando las propiedades especificadas.
          * @function create
          * @memberof groupproto.SenderMessageKey
          * @static
-         * @param {groupproto.ISenderMessageKey=} [properties] Properties to set
-         * @returns {groupproto.SenderMessageKey} SenderMessageKey instance
+         * @param {groupproto.ISenderMessageKey=} [properties] Propiedades a configurar
+         * @returns {groupproto.SenderMessageKey} instancia de SenderMessageKey
          */
         SenderMessageKey.create = function create(properties) {
             return new SenderMessageKey(properties);
         };
 
         /**
-         * Encodes the specified SenderMessageKey message. Does not implicitly {@link groupproto.SenderMessageKey.verify|verify} messages.
+         * Codifica el especificado mensaje SenderMessageKey. No implícitamente mensajes {@link groupproto.SenderMessageKey.verify|verify}.
          * @function encode
          * @memberof groupproto.SenderMessageKey
          * @static
-         * @param {groupproto.ISenderMessageKey} message SenderMessageKey message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderMessageKey} message mensaje SenderMessageKey u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderMessageKey.encode = function encode(message, writer) {
@@ -823,12 +823,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderMessageKey message, length delimited. Does not implicitly {@link groupproto.SenderMessageKey.verify|verify} messages.
+         * Codifica el especificado mensaje SenderMessageKey, delimitado por longitud. No implícitamente mensajes {@link groupproto.SenderMessageKey.verify|verify}.
          * @function encodeDelimited
          * @memberof groupproto.SenderMessageKey
          * @static
-         * @param {groupproto.ISenderMessageKey} message SenderMessageKey message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderMessageKey} message mensaje SenderMessageKey u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderMessageKey.encodeDelimited = function encodeDelimited(message, writer) {
@@ -836,15 +836,15 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderMessageKey message from the specified reader or buffer.
+         * Decodifica un mensaje SenderMessageKey del lector o búfer especificado.
          * @function decode
          * @memberof groupproto.SenderMessageKey
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
+         * @param {number} [length] Longitud del mensaje si se conoce de antemano
          * @returns {groupproto.SenderMessageKey} SenderMessageKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderMessageKey.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
@@ -868,14 +868,14 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderMessageKey message from the specified reader or buffer, length delimited.
+         * Decodifica un mensaje SenderMessageKey del lector o búfer especificado, delimitado por la longitud.
          * @function decodeDelimited
          * @memberof groupproto.SenderMessageKey
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
          * @returns {groupproto.SenderMessageKey} SenderMessageKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderMessageKey.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
@@ -884,12 +884,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Verifies a SenderMessageKey message.
+         * Verifica un mensaje SenderMessageKey.
          * @function verify
          * @memberof groupproto.SenderMessageKey
          * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         * @param {Object.<string,*>} message Objeto simple para verificar
+         * @returns {string|null} `null` si es válido, de lo contrario, la razón por la que no lo es
          */
         SenderMessageKey.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -904,11 +904,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a SenderMessageKey message from a plain object. Also converts values to their respective internal types.
+         * Crea un mensaje SenderMessageKey de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof groupproto.SenderMessageKey
          * @static
-         * @param {Object.<string,*>} object Plain object
+         * @param {Object.<string,*>} object objeto simple
          * @returns {groupproto.SenderMessageKey} SenderMessageKey
          */
         SenderMessageKey.fromObject = function fromObject(object) {
@@ -926,13 +926,13 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a plain object from a SenderMessageKey message. Also converts values to other types if specified.
+         * Crea un objeto simple a partir de un mensaje SenderMessageKey. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof groupproto.SenderMessageKey
          * @static
          * @param {groupproto.SenderMessageKey} message SenderMessageKey
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param {$protobuf.IConversionOptions} [options] Opciones de conversión
+         * @returns {Object.<string,*>} objeto simple
          */
         SenderMessageKey.toObject = function toObject(message, options) {
             if (!options)
@@ -956,11 +956,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Converts this SenderMessageKey to JSON.
+         * Convierte este SenderMessageKey a JSON.
          * @function toJSON
          * @memberof groupproto.SenderMessageKey
          * @instance
-         * @returns {Object.<string,*>} JSON object
+         * @returns {Object.<string,*>} objeto JSON
          */
         SenderMessageKey.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
@@ -972,7 +972,7 @@ $root.groupproto = (function() {
     groupproto.SenderSigningKey = (function() {
 
         /**
-         * Properties of a SenderSigningKey.
+         * Propiedades de un SenderSigningKey.
          * @memberof groupproto
          * @interface ISenderSigningKey
          * @property {Uint8Array|null} ["public"] SenderSigningKey public
@@ -980,12 +980,12 @@ $root.groupproto = (function() {
          */
 
         /**
-         * Constructs a new SenderSigningKey.
+         * Construye un nuevo SenderSigningKey.
          * @memberof groupproto
-         * @classdesc Represents a SenderSigningKey.
+         * @classdesc Representa un SenderSigningKey.
          * @implements ISenderSigningKey
          * @constructor
-         * @param {groupproto.ISenderSigningKey=} [properties] Properties to set
+         * @param {groupproto.ISenderSigningKey=} [properties] Propiedades a configurar
          */
         function SenderSigningKey(properties) {
             if (properties)
@@ -1011,11 +1011,11 @@ $root.groupproto = (function() {
         SenderSigningKey.prototype["private"] = $util.newBuffer([]);
 
         /**
-         * Creates a new SenderSigningKey instance using the specified properties.
+         * Crea una nueva SenderSigningKey instance utilizando las propiedades especificadas.
          * @function create
          * @memberof groupproto.SenderSigningKey
          * @static
-         * @param {groupproto.ISenderSigningKey=} [properties] Properties to set
+         * @param {groupproto.ISenderSigningKey=} [properties] Propiedades a configurar
          * @returns {groupproto.SenderSigningKey} SenderSigningKey instance
          */
         SenderSigningKey.create = function create(properties) {
@@ -1023,12 +1023,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderSigningKey message. Does not implicitly {@link groupproto.SenderSigningKey.verify|verify} messages.
+         * Codifica el especificado mensaje SenderSigningKey. No implícitamente mensajes {@link groupproto.SenderSigningKey.verify|verify}.
          * @function encode
          * @memberof groupproto.SenderSigningKey
          * @static
-         * @param {groupproto.ISenderSigningKey} message SenderSigningKey message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderSigningKey} message mensaje SenderSigningKey u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderSigningKey.encode = function encode(message, writer) {
@@ -1042,12 +1042,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderSigningKey message, length delimited. Does not implicitly {@link groupproto.SenderSigningKey.verify|verify} messages.
+         * Codifica el especificado mensaje SenderSigningKey, delimitado por longitud. No implícitamente mensajes {@link groupproto.SenderSigningKey.verify|verify}.
          * @function encodeDelimited
          * @memberof groupproto.SenderSigningKey
          * @static
-         * @param {groupproto.ISenderSigningKey} message SenderSigningKey message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderSigningKey} message mensaje SenderSigningKey u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderSigningKey.encodeDelimited = function encodeDelimited(message, writer) {
@@ -1055,15 +1055,15 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderSigningKey message from the specified reader or buffer.
+         * Decodifica un mensaje SenderSigningKey del lector o búfer especificado.
          * @function decode
          * @memberof groupproto.SenderSigningKey
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
+         * @param {number} [length] Longitud del mensaje si se conoce de antemano
          * @returns {groupproto.SenderSigningKey} SenderSigningKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderSigningKey.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
@@ -1087,14 +1087,14 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderSigningKey message from the specified reader or buffer, length delimited.
+         * Decodifica un mensaje SenderSigningKey del lector o búfer especificado, delimitado por la longitud.
          * @function decodeDelimited
          * @memberof groupproto.SenderSigningKey
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
          * @returns {groupproto.SenderSigningKey} SenderSigningKey
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderSigningKey.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
@@ -1103,12 +1103,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Verifies a SenderSigningKey message.
+         * Verifica un mensaje SenderSigningKey.
          * @function verify
          * @memberof groupproto.SenderSigningKey
          * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         * @param {Object.<string,*>} message Objeto simple para verificar
+         * @returns {string|null} `null` si es válido, de lo contrario, la razón por la que no lo es
          */
         SenderSigningKey.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -1123,11 +1123,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a SenderSigningKey message from a plain object. Also converts values to their respective internal types.
+         * Crea un mensaje SenderSigningKey de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof groupproto.SenderSigningKey
          * @static
-         * @param {Object.<string,*>} object Plain object
+         * @param {Object.<string,*>} object objeto simple
          * @returns {groupproto.SenderSigningKey} SenderSigningKey
          */
         SenderSigningKey.fromObject = function fromObject(object) {
@@ -1148,13 +1148,13 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a plain object from a SenderSigningKey message. Also converts values to other types if specified.
+         * Crea un objeto simple a partir de un mensaje SenderSigningKey. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof groupproto.SenderSigningKey
          * @static
          * @param {groupproto.SenderSigningKey} message SenderSigningKey
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param {$protobuf.IConversionOptions} [options] Opciones de conversión
+         * @returns {Object.<string,*>} objeto simple
          */
         SenderSigningKey.toObject = function toObject(message, options) {
             if (!options)
@@ -1184,11 +1184,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Converts this SenderSigningKey to JSON.
+         * Convierte este SenderSigningKey a JSON.
          * @function toJSON
          * @memberof groupproto.SenderSigningKey
          * @instance
-         * @returns {Object.<string,*>} JSON object
+         * @returns {Object.<string,*>} objeto JSON
          */
         SenderSigningKey.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
@@ -1200,7 +1200,7 @@ $root.groupproto = (function() {
     groupproto.SenderKeyStateStructure = (function() {
 
         /**
-         * Properties of a SenderKeyStateStructure.
+         * Propiedades de un SenderKeyStateStructure.
          * @memberof groupproto
          * @interface ISenderKeyStateStructure
          * @property {number|null} [senderKeyId] SenderKeyStateStructure senderKeyId
@@ -1210,12 +1210,12 @@ $root.groupproto = (function() {
          */
 
         /**
-         * Constructs a new SenderKeyStateStructure.
+         * Construye un nuevo SenderKeyStateStructure.
          * @memberof groupproto
-         * @classdesc Represents a SenderKeyStateStructure.
+         * @classdesc Representa un SenderKeyStateStructure.
          * @implements ISenderKeyStateStructure
          * @constructor
-         * @param {groupproto.ISenderKeyStateStructure=} [properties] Properties to set
+         * @param {groupproto.ISenderKeyStateStructure=} [properties] Propiedades a configurar
          */
         function SenderKeyStateStructure(properties) {
             this.senderMessageKeys = [];
@@ -1258,11 +1258,11 @@ $root.groupproto = (function() {
         SenderKeyStateStructure.prototype.senderMessageKeys = $util.emptyArray;
 
         /**
-         * Creates a new SenderKeyStateStructure instance using the specified properties.
+         * Crea una nueva SenderKeyStateStructure instance utilizando las propiedades especificadas.
          * @function create
          * @memberof groupproto.SenderKeyStateStructure
          * @static
-         * @param {groupproto.ISenderKeyStateStructure=} [properties] Properties to set
+         * @param {groupproto.ISenderKeyStateStructure=} [properties] Propiedades a configurar
          * @returns {groupproto.SenderKeyStateStructure} SenderKeyStateStructure instance
          */
         SenderKeyStateStructure.create = function create(properties) {
@@ -1270,12 +1270,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderKeyStateStructure message. Does not implicitly {@link groupproto.SenderKeyStateStructure.verify|verify} messages.
+         * Codifica el especificado mensaje SenderKeyStateStructure. No implícitamente mensajes {@link groupproto.SenderKeyStateStructure.verify|verify}.
          * @function encode
          * @memberof groupproto.SenderKeyStateStructure
          * @static
-         * @param {groupproto.ISenderKeyStateStructure} message SenderKeyStateStructure message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderKeyStateStructure} message mensaje SenderKeyStateStructure u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyStateStructure.encode = function encode(message, writer) {
@@ -1294,12 +1294,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderKeyStateStructure message, length delimited. Does not implicitly {@link groupproto.SenderKeyStateStructure.verify|verify} messages.
+         * Codifica el especificado mensaje SenderKeyStateStructure, delimitado por longitud. No implícitamente mensajes {@link groupproto.SenderKeyStateStructure.verify|verify}.
          * @function encodeDelimited
          * @memberof groupproto.SenderKeyStateStructure
          * @static
-         * @param {groupproto.ISenderKeyStateStructure} message SenderKeyStateStructure message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderKeyStateStructure} message mensaje SenderKeyStateStructure u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyStateStructure.encodeDelimited = function encodeDelimited(message, writer) {
@@ -1307,15 +1307,15 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderKeyStateStructure message from the specified reader or buffer.
+         * Decodifica un mensaje SenderKeyStateStructure del lector o búfer especificado.
          * @function decode
          * @memberof groupproto.SenderKeyStateStructure
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
+         * @param {number} [length] Longitud del mensaje si se conoce de antemano
          * @returns {groupproto.SenderKeyStateStructure} SenderKeyStateStructure
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderKeyStateStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
@@ -1347,14 +1347,14 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderKeyStateStructure message from the specified reader or buffer, length delimited.
+         * Decodifica un mensaje SenderKeyStateStructure del lector o búfer especificado, delimitado por la longitud.
          * @function decodeDelimited
          * @memberof groupproto.SenderKeyStateStructure
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
          * @returns {groupproto.SenderKeyStateStructure} SenderKeyStateStructure
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderKeyStateStructure.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
@@ -1363,12 +1363,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Verifies a SenderKeyStateStructure message.
+         * Verifica un mensaje SenderKeyStateStructure.
          * @function verify
          * @memberof groupproto.SenderKeyStateStructure
          * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         * @param {Object.<string,*>} message Objeto simple para verificar
+         * @returns {string|null} `null` si es válido, de lo contrario, la razón por la que no lo es
          */
         SenderKeyStateStructure.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -1399,11 +1399,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a SenderKeyStateStructure message from a plain object. Also converts values to their respective internal types.
+         * Crea un mensaje SenderKeyStateStructure de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof groupproto.SenderKeyStateStructure
          * @static
-         * @param {Object.<string,*>} object Plain object
+         * @param {Object.<string,*>} object objeto simple
          * @returns {groupproto.SenderKeyStateStructure} SenderKeyStateStructure
          */
         SenderKeyStateStructure.fromObject = function fromObject(object) {
@@ -1436,13 +1436,13 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a plain object from a SenderKeyStateStructure message. Also converts values to other types if specified.
+         * Crea un objeto simple a partir de un mensaje SenderKeyStateStructure. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof groupproto.SenderKeyStateStructure
          * @static
          * @param {groupproto.SenderKeyStateStructure} message SenderKeyStateStructure
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param {$protobuf.IConversionOptions} [options] Opciones de conversión
+         * @returns {Object.<string,*>} objeto simple
          */
         SenderKeyStateStructure.toObject = function toObject(message, options) {
             if (!options)
@@ -1470,11 +1470,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Converts this SenderKeyStateStructure to JSON.
+         * Convierte este SenderKeyStateStructure a JSON.
          * @function toJSON
          * @memberof groupproto.SenderKeyStateStructure
          * @instance
-         * @returns {Object.<string,*>} JSON object
+         * @returns {Object.<string,*>} objeto JSON
          */
         SenderKeyStateStructure.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
@@ -1486,19 +1486,19 @@ $root.groupproto = (function() {
     groupproto.SenderKeyRecordStructure = (function() {
 
         /**
-         * Properties of a SenderKeyRecordStructure.
+         * Propiedades de un SenderKeyRecordStructure.
          * @memberof groupproto
          * @interface ISenderKeyRecordStructure
          * @property {Array.<groupproto.ISenderKeyStateStructure>|null} [senderKeyStates] SenderKeyRecordStructure senderKeyStates
          */
 
         /**
-         * Constructs a new SenderKeyRecordStructure.
+         * Construye un nuevo SenderKeyRecordStructure.
          * @memberof groupproto
-         * @classdesc Represents a SenderKeyRecordStructure.
+         * @classdesc Representa un SenderKeyRecordStructure.
          * @implements ISenderKeyRecordStructure
          * @constructor
-         * @param {groupproto.ISenderKeyRecordStructure=} [properties] Properties to set
+         * @param {groupproto.ISenderKeyRecordStructure=} [properties] Propiedades a configurar
          */
         function SenderKeyRecordStructure(properties) {
             this.senderKeyStates = [];
@@ -1517,24 +1517,24 @@ $root.groupproto = (function() {
         SenderKeyRecordStructure.prototype.senderKeyStates = $util.emptyArray;
 
         /**
-         * Creates a new SenderKeyRecordStructure instance using the specified properties.
+         * Crea una nueva instancia de SenderKeyRecordStructure utilizando las propiedades especificadas.
          * @function create
          * @memberof groupproto.SenderKeyRecordStructure
          * @static
-         * @param {groupproto.ISenderKeyRecordStructure=} [properties] Properties to set
-         * @returns {groupproto.SenderKeyRecordStructure} SenderKeyRecordStructure instance
+         * @param {groupproto.ISenderKeyRecordStructure=} [properties] Propiedades a configurar
+         * @returns {groupproto.SenderKeyRecordStructure} instancia de SenderKeyRecordStructure
          */
         SenderKeyRecordStructure.create = function create(properties) {
             return new SenderKeyRecordStructure(properties);
         };
 
         /**
-         * Encodes the specified SenderKeyRecordStructure message. Does not implicitly {@link groupproto.SenderKeyRecordStructure.verify|verify} messages.
+         * Codifica el especificado mensaje SenderKeyRecordStructure. No implícitamente mensajes {@link groupproto.SenderKeyRecordStructure.verify|verify}.
          * @function encode
          * @memberof groupproto.SenderKeyRecordStructure
          * @static
-         * @param {groupproto.ISenderKeyRecordStructure} message SenderKeyRecordStructure message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderKeyRecordStructure} message mensaje SenderKeyRecordStructure u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyRecordStructure.encode = function encode(message, writer) {
@@ -1547,12 +1547,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Encodes the specified SenderKeyRecordStructure message, length delimited. Does not implicitly {@link groupproto.SenderKeyRecordStructure.verify|verify} messages.
+         * Codifica el especificado mensaje SenderKeyRecordStructure, delimitado por longitud. No implícitamente mensajes {@link groupproto.SenderKeyRecordStructure.verify|verify}.
          * @function encodeDelimited
          * @memberof groupproto.SenderKeyRecordStructure
          * @static
-         * @param {groupproto.ISenderKeyRecordStructure} message SenderKeyRecordStructure message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @param {groupproto.ISenderKeyRecordStructure} message mensaje SenderKeyRecordStructure u objeto simple para codificar
+         * @param {$protobuf.Writer} [writer] Writer para codificar
          * @returns {$protobuf.Writer} Writer
          */
         SenderKeyRecordStructure.encodeDelimited = function encodeDelimited(message, writer) {
@@ -1560,15 +1560,15 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderKeyRecordStructure message from the specified reader or buffer.
+         * Decodifica un mensaje SenderKeyRecordStructure del lector o búfer especificado.
          * @function decode
          * @memberof groupproto.SenderKeyRecordStructure
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
+         * @param {number} [length] Longitud del mensaje si se conoce de antemano
          * @returns {groupproto.SenderKeyRecordStructure} SenderKeyRecordStructure
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderKeyRecordStructure.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
@@ -1591,14 +1591,14 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Decodes a SenderKeyRecordStructure message from the specified reader or buffer, length delimited.
+         * Decodifica un mensaje SenderKeyRecordStructure del lector o búfer especificado, delimitado por la longitud.
          * @function decodeDelimited
          * @memberof groupproto.SenderKeyRecordStructure
          * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {$protobuf.Reader|Uint8Array} reader Reader o  buffer para decodificar desde
          * @returns {groupproto.SenderKeyRecordStructure} SenderKeyRecordStructure
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         * @throws {Error} Si la carga útil no es un lector o un búfer válido
+         * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
          */
         SenderKeyRecordStructure.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
@@ -1607,12 +1607,12 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Verifies a SenderKeyRecordStructure message.
+         * Verifica un mensaje SenderKeyRecordStructure.
          * @function verify
          * @memberof groupproto.SenderKeyRecordStructure
          * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         * @param {Object.<string,*>} message Objeto simple para verificar
+         * @returns {string|null} `null` si es válido, de lo contrario, la razón por la que no lo es
          */
         SenderKeyRecordStructure.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
@@ -1630,11 +1630,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a SenderKeyRecordStructure message from a plain object. Also converts values to their respective internal types.
+         * Crea un mensaje SenderKeyRecordStructure de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof groupproto.SenderKeyRecordStructure
          * @static
-         * @param {Object.<string,*>} object Plain object
+         * @param {Object.<string,*>} object objeto simple
          * @returns {groupproto.SenderKeyRecordStructure} SenderKeyRecordStructure
          */
         SenderKeyRecordStructure.fromObject = function fromObject(object) {
@@ -1655,13 +1655,13 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Creates a plain object from a SenderKeyRecordStructure message. Also converts values to other types if specified.
+         * Crea un objeto simple a partir de un mensaje SenderKeyRecordStructure. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof groupproto.SenderKeyRecordStructure
          * @static
          * @param {groupproto.SenderKeyRecordStructure} message SenderKeyRecordStructure
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param {$protobuf.IConversionOptions} [options] Opciones de conversión
+         * @returns {Object.<string,*>} objeto simple
          */
         SenderKeyRecordStructure.toObject = function toObject(message, options) {
             if (!options)
@@ -1678,11 +1678,11 @@ $root.groupproto = (function() {
         };
 
         /**
-         * Converts this SenderKeyRecordStructure to JSON.
+         * Convierte este SenderKeyRecordStructure a JSON.
          * @function toJSON
          * @memberof groupproto.SenderKeyRecordStructure
          * @instance
-         * @returns {Object.<string,*>} JSON object
+         * @returns {Object.<string,*>} objeto JSON
          */
         SenderKeyRecordStructure.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);

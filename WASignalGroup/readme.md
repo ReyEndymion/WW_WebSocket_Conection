@@ -1,6 +1,6 @@
 # Signal-Group
 
-This contains the code to decrypt/encrypt WA group messages. 
-Originally from [pokearaujo/libsignal-node](https://github.com/pokearaujo/libsignal-node)
+Este contiene el código para descifrar/cifrar los mensajes del grupo WA.
+Originalmente de [pokearaujo/libsignal-node](https://github.com/pokearaujo/libsignal-node)
 
-The code has been moved outside the signal package as I felt it didn't belong in ths signal package, as it isn't inherently a part of signal but of WA.
+El código se movió fuera del paquete de señales porque sentí que no pertenecía a este paquete de señales, ya que no es inherentemente una parte de la señal sino de WA.

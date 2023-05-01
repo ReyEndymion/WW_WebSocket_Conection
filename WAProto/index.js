@@ -217,7 +217,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a mensaje de ADVDeviceIdentity. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un mensaje de ADVDeviceIdentity. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ADVDeviceIdentity
          * @static
@@ -503,7 +503,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a mensaje ADVKeyIndexList. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un mensaje ADVKeyIndexList. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ADVKeyIndexList
          * @static
@@ -780,7 +780,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a ADVSignedDeviceIdentity message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ADVSignedDeviceIdentity message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ADVSignedDeviceIdentity
          * @static
@@ -1026,7 +1026,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a ADVSignedDeviceIdentityHMAC message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ADVSignedDeviceIdentityHMAC message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ADVSignedDeviceIdentityHMAC
          * @static
@@ -1254,7 +1254,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a ADVSignedKeyIndexList message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ADVSignedKeyIndexList message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ADVSignedKeyIndexList
          * @static
@@ -1306,7 +1306,7 @@ $root.proto = (function() {
     proto.ActionLink = (function() {
 
         /**
-         * Propiedades de unn ActionLink.
+         * Propiedades de un ActionLink.
          * @memberof proto
          * @interface IActionLink
          * @property {string|null} [url] ActionLink url
@@ -1389,7 +1389,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn ActionLink message del lector o búfer especificado.
+         * Decodifica un ActionLink message del lector o búfer especificado.
          * @function decode
          * @memberof proto.ActionLink
          * @static
@@ -1421,7 +1421,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn ActionLink message del lector o búfer especificado, delimitado por longitud.
+         * Decodifica un ActionLink message del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof proto.ActionLink
          * @static
@@ -1437,7 +1437,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Verifica unn ActionLink message.
+         * Verifica un ActionLink message.
          * @function verify
          * @memberof proto.ActionLink
          * @static
@@ -1457,7 +1457,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea unn ActionLink message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un ActionLink message de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof proto.ActionLink
          * @static
@@ -1476,7 +1476,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from an ActionLink message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ActionLink message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ActionLink
          * @static
@@ -1516,7 +1516,7 @@ $root.proto = (function() {
     proto.AutoDownloadSettings = (function() {
 
         /**
-         * Propiedades de unn AutoDownloadSettings.
+         * Propiedades de un AutoDownloadSettings.
          * @memberof proto
          * @interface IAutoDownloadSettings
          * @property {boolean|null} [downloadImages] AutoDownloadSettings downloadImages
@@ -1621,7 +1621,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn AutoDownloadSettings message del lector o búfer especificado.
+         * Decodifica un AutoDownloadSettings message del lector o búfer especificado.
          * @function decode
          * @memberof proto.AutoDownloadSettings
          * @static
@@ -1659,7 +1659,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn AutoDownloadSettings message del lector o búfer especificado, delimitado por longitud.
+         * Decodifica un AutoDownloadSettings message del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof proto.AutoDownloadSettings
          * @static
@@ -1675,7 +1675,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Verifica unn AutoDownloadSettings message.
+         * Verifica un AutoDownloadSettings message.
          * @function verify
          * @memberof proto.AutoDownloadSettings
          * @static
@@ -1701,7 +1701,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea unn AutoDownloadSettings message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un AutoDownloadSettings message de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof proto.AutoDownloadSettings
          * @static
@@ -1724,7 +1724,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from an AutoDownloadSettings message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un AutoDownloadSettings message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.AutoDownloadSettings
          * @static
@@ -1770,7 +1770,7 @@ $root.proto = (function() {
     proto.AvatarUserSettings = (function() {
 
         /**
-         * Propiedades de unn AvatarUserSettings.
+         * Propiedades de un AvatarUserSettings.
          * @memberof proto
          * @interface IAvatarUserSettings
          * @property {string|null} [fbid] AvatarUserSettings fbid
@@ -1853,7 +1853,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn AvatarUserSettings message del lector o búfer especificado.
+         * Decodifica un AvatarUserSettings message del lector o búfer especificado.
          * @function decode
          * @memberof proto.AvatarUserSettings
          * @static
@@ -1885,7 +1885,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn AvatarUserSettings message del lector o búfer especificado, delimitado por longitud.
+         * Decodifica un AvatarUserSettings message del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof proto.AvatarUserSettings
          * @static
@@ -1901,7 +1901,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Verifica unn AvatarUserSettings message.
+         * Verifica un AvatarUserSettings message.
          * @function verify
          * @memberof proto.AvatarUserSettings
          * @static
@@ -1921,7 +1921,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea unn AvatarUserSettings message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un AvatarUserSettings message de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof proto.AvatarUserSettings
          * @static
@@ -1940,7 +1940,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from an AvatarUserSettings message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un AvatarUserSettings message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.AvatarUserSettings
          * @static
@@ -2242,7 +2242,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a BizAccountLinkInfo message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un BizAccountLinkInfo message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.BizAccountLinkInfo
          * @static
@@ -2509,7 +2509,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a BizAccountPayload message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un BizAccountPayload message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.BizAccountPayload
          * @static
@@ -2902,7 +2902,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a BizIdentityInfo message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un BizIdentityInfo message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.BizIdentityInfo
          * @static
@@ -3198,7 +3198,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a CertChain message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un CertChain message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.CertChain
          * @static
@@ -3411,7 +3411,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a NoiseCertificate message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un NoiseCertificate message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.CertChain.NoiseCertificate
              * @static
@@ -3704,7 +3704,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Details message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Details message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.CertChain.NoiseCertificate.Details
                  * @static
@@ -4611,7 +4611,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a ClientPayload message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ClientPayload message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ClientPayload
          * @static
@@ -5022,7 +5022,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a DNSSource message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un DNSSource message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.ClientPayload.DNSSource
              * @static
@@ -5390,7 +5390,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a DevicePairingRegistrationData message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un DevicePairingRegistrationData message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.ClientPayload.DevicePairingRegistrationData
              * @static
@@ -6101,7 +6101,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a UserAgent message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un UserAgent message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.ClientPayload.UserAgent
              * @static
@@ -6171,7 +6171,7 @@ $root.proto = (function() {
             UserAgent.AppVersion = (function() {
 
                 /**
-                 * Propiedades de unn AppVersion.
+                 * Propiedades de un AppVersion.
                  * @memberof proto.ClientPayload.UserAgent
                  * @interface IAppVersion
                  * @property {number|null} [primary] AppVersion primary
@@ -6287,7 +6287,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Decodifica unn AppVersion message del lector o búfer especificado.
+                 * Decodifica un AppVersion message del lector o búfer especificado.
                  * @function decode
                  * @memberof proto.ClientPayload.UserAgent.AppVersion
                  * @static
@@ -6328,7 +6328,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Decodifica unn AppVersion message del lector o búfer especificado, delimitado por longitud.
+                 * Decodifica un AppVersion message del lector o búfer especificado, delimitado por longitud.
                  * @function decodeDelimited
                  * @memberof proto.ClientPayload.UserAgent.AppVersion
                  * @static
@@ -6344,7 +6344,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Verifica unn AppVersion message.
+                 * Verifica un AppVersion message.
                  * @function verify
                  * @memberof proto.ClientPayload.UserAgent.AppVersion
                  * @static
@@ -6373,7 +6373,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea unn AppVersion message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un AppVersion message de un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @function fromObject
                  * @memberof proto.ClientPayload.UserAgent.AppVersion
                  * @static
@@ -6398,7 +6398,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from an AppVersion message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un AppVersion message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.ClientPayload.UserAgent.AppVersion
                  * @static
@@ -6785,7 +6785,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a WebInfo message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un WebInfo message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.ClientPayload.WebInfo
              * @static
@@ -7192,7 +7192,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a WebdPayload message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un WebdPayload message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.ClientPayload.WebInfo.WebdPayload
                  * @static
@@ -8014,7 +8014,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a ContextInfo message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ContextInfo message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ContextInfo
          * @static
@@ -8156,7 +8156,7 @@ $root.proto = (function() {
         ContextInfo.AdReplyInfo = (function() {
 
             /**
-             * Propiedades de unn AdReplyInfo.
+             * Propiedades de un AdReplyInfo.
              * @memberof proto.ContextInfo
              * @interface IAdReplyInfo
              * @property {string|null} [advertiserName] AdReplyInfo advertiserName
@@ -8261,7 +8261,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AdReplyInfo message del lector o búfer especificado.
+             * Decodifica un AdReplyInfo message del lector o búfer especificado.
              * @function decode
              * @memberof proto.ContextInfo.AdReplyInfo
              * @static
@@ -8299,7 +8299,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AdReplyInfo message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AdReplyInfo message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.ContextInfo.AdReplyInfo
              * @static
@@ -8315,7 +8315,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AdReplyInfo message.
+             * Verifica un AdReplyInfo message.
              * @function verify
              * @memberof proto.ContextInfo.AdReplyInfo
              * @static
@@ -8347,7 +8347,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AdReplyInfo message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AdReplyInfo message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.ContextInfo.AdReplyInfo
              * @static
@@ -8385,7 +8385,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AdReplyInfo message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AdReplyInfo message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.ContextInfo.AdReplyInfo
              * @static
@@ -8453,7 +8453,7 @@ $root.proto = (function() {
         ContextInfo.ExternalAdReplyInfo = (function() {
 
             /**
-             * Propiedades de unn ExternalAdReplyInfo.
+             * Propiedades de un ExternalAdReplyInfo.
              * @memberof proto.ContextInfo
              * @interface IExternalAdReplyInfo
              * @property {string|null} [title] ExternalAdReplyInfo title
@@ -8657,7 +8657,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn ExternalAdReplyInfo message del lector o búfer especificado.
+             * Decodifica un ExternalAdReplyInfo message del lector o búfer especificado.
              * @function decode
              * @memberof proto.ContextInfo.ExternalAdReplyInfo
              * @static
@@ -8722,7 +8722,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn ExternalAdReplyInfo message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un ExternalAdReplyInfo message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.ContextInfo.ExternalAdReplyInfo
              * @static
@@ -8738,7 +8738,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn ExternalAdReplyInfo message.
+             * Verifica un ExternalAdReplyInfo message.
              * @function verify
              * @memberof proto.ContextInfo.ExternalAdReplyInfo
              * @static
@@ -8797,7 +8797,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn ExternalAdReplyInfo message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un ExternalAdReplyInfo message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.ContextInfo.ExternalAdReplyInfo
              * @static
@@ -8853,7 +8853,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an ExternalAdReplyInfo message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ExternalAdReplyInfo message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.ContextInfo.ExternalAdReplyInfo
              * @static
@@ -9118,7 +9118,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a UTMInfo message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un UTMInfo message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.ContextInfo.UTMInfo
              * @static
@@ -10223,7 +10223,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a Conversation message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un Conversation message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.Conversation
          * @static
@@ -10774,7 +10774,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a DeviceListMetadata message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un DeviceListMetadata message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.DeviceListMetadata
          * @static
@@ -11190,7 +11190,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a DeviceProps message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un DeviceProps message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.DeviceProps
          * @static
@@ -11236,7 +11236,7 @@ $root.proto = (function() {
         DeviceProps.AppVersion = (function() {
 
             /**
-             * Propiedades de unn AppVersion.
+             * Propiedades de un AppVersion.
              * @memberof proto.DeviceProps
              * @interface IAppVersion
              * @property {number|null} [primary] AppVersion primary
@@ -11352,7 +11352,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppVersion message del lector o búfer especificado.
+             * Decodifica un AppVersion message del lector o búfer especificado.
              * @function decode
              * @memberof proto.DeviceProps.AppVersion
              * @static
@@ -11393,7 +11393,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppVersion message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AppVersion message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.DeviceProps.AppVersion
              * @static
@@ -11409,7 +11409,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AppVersion message.
+             * Verifica un AppVersion message.
              * @function verify
              * @memberof proto.DeviceProps.AppVersion
              * @static
@@ -11438,7 +11438,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AppVersion message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AppVersion message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.DeviceProps.AppVersion
              * @static
@@ -11463,7 +11463,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AppVersion message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AppVersion message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.DeviceProps.AppVersion
              * @static
@@ -11701,7 +11701,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a HistorySyncConfig message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un HistorySyncConfig message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.DeviceProps.HistorySyncConfig
              * @static
@@ -11962,7 +11962,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a DisappearingMode message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un DisappearingMode message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.DisappearingMode
          * @static
@@ -12014,7 +12014,7 @@ $root.proto = (function() {
     proto.EphemeralSetting = (function() {
 
         /**
-         * Propiedades de unn EphemeralSetting.
+         * Propiedades de un EphemeralSetting.
          * @memberof proto
          * @interface IEphemeralSetting
          * @property {number|null} [duration] EphemeralSetting duration
@@ -12097,7 +12097,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn EphemeralSetting message del lector o búfer especificado.
+         * Decodifica un EphemeralSetting message del lector o búfer especificado.
          * @function decode
          * @memberof proto.EphemeralSetting
          * @static
@@ -12129,7 +12129,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn EphemeralSetting message del lector o búfer especificado, delimitado por longitud.
+         * Decodifica un EphemeralSetting message del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof proto.EphemeralSetting
          * @static
@@ -12145,7 +12145,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Verifica unn EphemeralSetting message.
+         * Verifica un EphemeralSetting message.
          * @function verify
          * @memberof proto.EphemeralSetting
          * @static
@@ -12165,7 +12165,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea unn EphemeralSetting message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un EphemeralSetting message de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof proto.EphemeralSetting
          * @static
@@ -12191,7 +12191,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from an EphemeralSetting message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un EphemeralSetting message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.EphemeralSetting
          * @static
@@ -12238,7 +12238,7 @@ $root.proto = (function() {
     proto.ExitCode = (function() {
 
         /**
-         * Propiedades de unn ExitCode.
+         * Propiedades de un ExitCode.
          * @memberof proto
          * @interface IExitCode
          * @property {number|Long|null} [code] ExitCode code
@@ -12321,7 +12321,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn ExitCode message del lector o búfer especificado.
+         * Decodifica un ExitCode message del lector o búfer especificado.
          * @function decode
          * @memberof proto.ExitCode
          * @static
@@ -12353,7 +12353,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn ExitCode message del lector o búfer especificado, delimitado por longitud.
+         * Decodifica un ExitCode message del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof proto.ExitCode
          * @static
@@ -12369,7 +12369,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Verifica unn ExitCode message.
+         * Verifica un ExitCode message.
          * @function verify
          * @memberof proto.ExitCode
          * @static
@@ -12389,7 +12389,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea unn ExitCode message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un ExitCode message de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof proto.ExitCode
          * @static
@@ -12415,7 +12415,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from an ExitCode message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ExitCode message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ExitCode
          * @static
@@ -12462,7 +12462,7 @@ $root.proto = (function() {
     proto.ExternalBlobReference = (function() {
 
         /**
-         * Propiedades de unn ExternalBlobReference.
+         * Propiedades de un ExternalBlobReference.
          * @memberof proto
          * @interface IExternalBlobReference
          * @property {Uint8Array|null} [mediaKey] ExternalBlobReference mediaKey
@@ -12589,7 +12589,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn ExternalBlobReference message del lector o búfer especificado.
+         * Decodifica un ExternalBlobReference message del lector o búfer especificado.
          * @function decode
          * @memberof proto.ExternalBlobReference
          * @static
@@ -12633,7 +12633,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn ExternalBlobReference message del lector o búfer especificado, delimitado por longitud.
+         * Decodifica un ExternalBlobReference message del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof proto.ExternalBlobReference
          * @static
@@ -12649,7 +12649,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Verifica unn ExternalBlobReference message.
+         * Verifica un ExternalBlobReference message.
          * @function verify
          * @memberof proto.ExternalBlobReference
          * @static
@@ -12681,7 +12681,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea unn ExternalBlobReference message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un ExternalBlobReference message de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof proto.ExternalBlobReference
          * @static
@@ -12724,7 +12724,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from an ExternalBlobReference message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ExternalBlobReference message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ExternalBlobReference
          * @static
@@ -13197,7 +13197,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a GlobalSettings message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un GlobalSettings message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.GlobalSettings
          * @static
@@ -13441,7 +13441,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a GroupMention message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un GroupMention message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.GroupMention
          * @static
@@ -13669,7 +13669,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a GroupParticipant message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un GroupParticipant message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.GroupParticipant
          * @static
@@ -13929,7 +13929,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a HandshakeMessage message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un HandshakeMessage message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.HandshakeMessage
          * @static
@@ -14145,7 +14145,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ClientFinish message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ClientFinish message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.HandshakeMessage.ClientFinish
              * @static
@@ -14395,7 +14395,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ClientHello message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ClientHello message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.HandshakeMessage.ClientHello
              * @static
@@ -14654,7 +14654,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ServerHello message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ServerHello message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.HandshakeMessage.ServerHello
              * @static
@@ -15195,7 +15195,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a HistorySync message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un HistorySync message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.HistorySync
          * @static
@@ -15491,7 +15491,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a HistorySyncMsg message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un HistorySyncMsg message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.HistorySyncMsg
          * @static
@@ -15789,7 +15789,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a HydratedTemplateButton message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un HydratedTemplateButton message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.HydratedTemplateButton
          * @static
@@ -16007,7 +16007,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a HydratedCallButton message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un HydratedCallButton message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.HydratedTemplateButton.HydratedCallButton
              * @static
@@ -16217,7 +16217,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a HydratedQuickReplyButton message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un HydratedQuickReplyButton message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.HydratedTemplateButton.HydratedQuickReplyButton
              * @static
@@ -16427,7 +16427,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a HydratedURLButton message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un HydratedURLButton message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.HydratedTemplateButton.HydratedURLButton
              * @static
@@ -16470,7 +16470,7 @@ $root.proto = (function() {
     proto.IdentityKeyPairStructure = (function() {
 
         /**
-         * Propiedades de unn IdentityKeyPairStructure.
+         * Propiedades de un IdentityKeyPairStructure.
          * @memberof proto
          * @interface IIdentityKeyPairStructure
          * @property {Uint8Array|null} [publicKey] IdentityKeyPairStructure publicKey
@@ -16553,7 +16553,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn IdentityKeyPairStructure message del lector o búfer especificado.
+         * Decodifica un IdentityKeyPairStructure message del lector o búfer especificado.
          * @function decode
          * @memberof proto.IdentityKeyPairStructure
          * @static
@@ -16585,7 +16585,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn IdentityKeyPairStructure message del lector o búfer especificado, delimitado por longitud.
+         * Decodifica un IdentityKeyPairStructure message del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof proto.IdentityKeyPairStructure
          * @static
@@ -16601,7 +16601,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Verifica unn IdentityKeyPairStructure message.
+         * Verifica un IdentityKeyPairStructure message.
          * @function verify
          * @memberof proto.IdentityKeyPairStructure
          * @static
@@ -16621,7 +16621,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea unn IdentityKeyPairStructure message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un IdentityKeyPairStructure message de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof proto.IdentityKeyPairStructure
          * @static
@@ -16646,7 +16646,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from an IdentityKeyPairStructure message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un IdentityKeyPairStructure message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.IdentityKeyPairStructure
          * @static
@@ -16698,7 +16698,7 @@ $root.proto = (function() {
     proto.InteractiveAnnotation = (function() {
 
         /**
-         * Propiedades de unn InteractiveAnnotation.
+         * Propiedades de un InteractiveAnnotation.
          * @memberof proto
          * @interface IInteractiveAnnotation
          * @property {Array.<proto.IPoint>|null} [polygonVertices] InteractiveAnnotation polygonVertices
@@ -16797,7 +16797,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn InteractiveAnnotation message del lector o búfer especificado.
+         * Decodifica un InteractiveAnnotation message del lector o búfer especificado.
          * @function decode
          * @memberof proto.InteractiveAnnotation
          * @static
@@ -16831,7 +16831,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Decodifica unn InteractiveAnnotation message del lector o búfer especificado, delimitado por longitud.
+         * Decodifica un InteractiveAnnotation message del lector o búfer especificado, delimitado por longitud.
          * @function decodeDelimited
          * @memberof proto.InteractiveAnnotation
          * @static
@@ -16847,7 +16847,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Verifica unn InteractiveAnnotation message.
+         * Verifica un InteractiveAnnotation message.
          * @function verify
          * @memberof proto.InteractiveAnnotation
          * @static
@@ -16879,7 +16879,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea unn InteractiveAnnotation message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un InteractiveAnnotation message de un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @function fromObject
          * @memberof proto.InteractiveAnnotation
          * @static
@@ -16909,7 +16909,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from an InteractiveAnnotation message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un InteractiveAnnotation message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.InteractiveAnnotation
          * @static
@@ -17243,7 +17243,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a KeepInChat message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un KeepInChat message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.KeepInChat
          * @static
@@ -17486,7 +17486,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a KeyId message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un KeyId message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.KeyId
          * @static
@@ -17717,7 +17717,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a LocalizedName message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un LocalizedName message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.LocalizedName
          * @static
@@ -17949,7 +17949,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a Location message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un Location message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.Location
          * @static
@@ -18143,7 +18143,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a MediaData message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un MediaData message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.MediaData
          * @static
@@ -18391,7 +18391,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a MediaRetryNotification message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un MediaRetryNotification message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.MediaRetryNotification
          * @static
@@ -19939,7 +19939,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a Message message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un Message message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.Message
          * @static
@@ -20138,7 +20138,7 @@ $root.proto = (function() {
         Message.AppStateFatalExceptionNotification = (function() {
 
             /**
-             * Propiedades de unn AppStateFatalExceptionNotification.
+             * Propiedades de un AppStateFatalExceptionNotification.
              * @memberof proto.Message
              * @interface IAppStateFatalExceptionNotification
              * @property {Array.<string>|null} [collectionNames] AppStateFatalExceptionNotification collectionNames
@@ -20223,7 +20223,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateFatalExceptionNotification message del lector o búfer especificado.
+             * Decodifica un AppStateFatalExceptionNotification message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.AppStateFatalExceptionNotification
              * @static
@@ -20257,7 +20257,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateFatalExceptionNotification message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AppStateFatalExceptionNotification message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.AppStateFatalExceptionNotification
              * @static
@@ -20273,7 +20273,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AppStateFatalExceptionNotification message.
+             * Verifica un AppStateFatalExceptionNotification message.
              * @function verify
              * @memberof proto.Message.AppStateFatalExceptionNotification
              * @static
@@ -20297,7 +20297,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AppStateFatalExceptionNotification message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AppStateFatalExceptionNotification message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.AppStateFatalExceptionNotification
              * @static
@@ -20328,7 +20328,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AppStateFatalExceptionNotification message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AppStateFatalExceptionNotification message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.AppStateFatalExceptionNotification
              * @static
@@ -20378,7 +20378,7 @@ $root.proto = (function() {
         Message.AppStateSyncKey = (function() {
 
             /**
-             * Propiedades de unn AppStateSyncKey.
+             * Propiedades de un AppStateSyncKey.
              * @memberof proto.Message
              * @interface IAppStateSyncKey
              * @property {proto.Message.IAppStateSyncKeyId|null} [keyId] AppStateSyncKey keyId
@@ -20461,7 +20461,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKey message del lector o búfer especificado.
+             * Decodifica un AppStateSyncKey message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.AppStateSyncKey
              * @static
@@ -20493,7 +20493,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKey message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AppStateSyncKey message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.AppStateSyncKey
              * @static
@@ -20509,7 +20509,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AppStateSyncKey message.
+             * Verifica un AppStateSyncKey message.
              * @function verify
              * @memberof proto.Message.AppStateSyncKey
              * @static
@@ -20533,7 +20533,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AppStateSyncKey message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AppStateSyncKey message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.AppStateSyncKey
              * @static
@@ -20558,7 +20558,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AppStateSyncKey message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AppStateSyncKey message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.AppStateSyncKey
              * @static
@@ -20598,7 +20598,7 @@ $root.proto = (function() {
         Message.AppStateSyncKeyData = (function() {
 
             /**
-             * Propiedades de unn AppStateSyncKeyData.
+             * Propiedades de un AppStateSyncKeyData.
              * @memberof proto.Message
              * @interface IAppStateSyncKeyData
              * @property {Uint8Array|null} [keyData] AppStateSyncKeyData keyData
@@ -20692,7 +20692,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyData message del lector o búfer especificado.
+             * Decodifica un AppStateSyncKeyData message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.AppStateSyncKeyData
              * @static
@@ -20727,7 +20727,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyData message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AppStateSyncKeyData message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.AppStateSyncKeyData
              * @static
@@ -20743,7 +20743,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AppStateSyncKeyData message.
+             * Verifica un AppStateSyncKeyData message.
              * @function verify
              * @memberof proto.Message.AppStateSyncKeyData
              * @static
@@ -20768,7 +20768,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AppStateSyncKeyData message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AppStateSyncKeyData message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.AppStateSyncKeyData
              * @static
@@ -20802,7 +20802,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AppStateSyncKeyData message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AppStateSyncKeyData message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.AppStateSyncKeyData
              * @static
@@ -20858,7 +20858,7 @@ $root.proto = (function() {
         Message.AppStateSyncKeyFingerprint = (function() {
 
             /**
-             * Propiedades de unn AppStateSyncKeyFingerprint.
+             * Propiedades de un AppStateSyncKeyFingerprint.
              * @memberof proto.Message
              * @interface IAppStateSyncKeyFingerprint
              * @property {number|null} [rawId] AppStateSyncKeyFingerprint rawId
@@ -20957,7 +20957,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyFingerprint message del lector o búfer especificado.
+             * Decodifica un AppStateSyncKeyFingerprint message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.AppStateSyncKeyFingerprint
              * @static
@@ -20999,7 +20999,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyFingerprint message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AppStateSyncKeyFingerprint message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.AppStateSyncKeyFingerprint
              * @static
@@ -21015,7 +21015,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AppStateSyncKeyFingerprint message.
+             * Verifica un AppStateSyncKeyFingerprint message.
              * @function verify
              * @memberof proto.Message.AppStateSyncKeyFingerprint
              * @static
@@ -21042,7 +21042,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AppStateSyncKeyFingerprint message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AppStateSyncKeyFingerprint message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.AppStateSyncKeyFingerprint
              * @static
@@ -21068,7 +21068,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AppStateSyncKeyFingerprint message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AppStateSyncKeyFingerprint message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.AppStateSyncKeyFingerprint
              * @static
@@ -21115,7 +21115,7 @@ $root.proto = (function() {
         Message.AppStateSyncKeyId = (function() {
 
             /**
-             * Propiedades de unn AppStateSyncKeyId.
+             * Propiedades de un AppStateSyncKeyId.
              * @memberof proto.Message
              * @interface IAppStateSyncKeyId
              * @property {Uint8Array|null} [keyId] AppStateSyncKeyId keyId
@@ -21187,7 +21187,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyId message del lector o búfer especificado.
+             * Decodifica un AppStateSyncKeyId message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.AppStateSyncKeyId
              * @static
@@ -21216,7 +21216,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyId message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AppStateSyncKeyId message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.AppStateSyncKeyId
              * @static
@@ -21232,7 +21232,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AppStateSyncKeyId message.
+             * Verifica un AppStateSyncKeyId message.
              * @function verify
              * @memberof proto.Message.AppStateSyncKeyId
              * @static
@@ -21249,7 +21249,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AppStateSyncKeyId message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AppStateSyncKeyId message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.AppStateSyncKeyId
              * @static
@@ -21269,7 +21269,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AppStateSyncKeyId message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AppStateSyncKeyId message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.AppStateSyncKeyId
              * @static
@@ -21311,7 +21311,7 @@ $root.proto = (function() {
         Message.AppStateSyncKeyRequest = (function() {
 
             /**
-             * Propiedades de unn AppStateSyncKeyRequest.
+             * Propiedades de un AppStateSyncKeyRequest.
              * @memberof proto.Message
              * @interface IAppStateSyncKeyRequest
              * @property {Array.<proto.Message.IAppStateSyncKeyId>|null} [keyIds] AppStateSyncKeyRequest keyIds
@@ -21385,7 +21385,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyRequest message del lector o búfer especificado.
+             * Decodifica un AppStateSyncKeyRequest message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.AppStateSyncKeyRequest
              * @static
@@ -21416,7 +21416,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyRequest message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AppStateSyncKeyRequest message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.AppStateSyncKeyRequest
              * @static
@@ -21432,7 +21432,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AppStateSyncKeyRequest message.
+             * Verifica un AppStateSyncKeyRequest message.
              * @function verify
              * @memberof proto.Message.AppStateSyncKeyRequest
              * @static
@@ -21455,7 +21455,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AppStateSyncKeyRequest message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AppStateSyncKeyRequest message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.AppStateSyncKeyRequest
              * @static
@@ -21480,7 +21480,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AppStateSyncKeyRequest message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AppStateSyncKeyRequest message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.AppStateSyncKeyRequest
              * @static
@@ -21519,7 +21519,7 @@ $root.proto = (function() {
         Message.AppStateSyncKeyShare = (function() {
 
             /**
-             * Propiedades de unn AppStateSyncKeyShare.
+             * Propiedades de un AppStateSyncKeyShare.
              * @memberof proto.Message
              * @interface IAppStateSyncKeyShare
              * @property {Array.<proto.Message.IAppStateSyncKey>|null} [keys] AppStateSyncKeyShare keys
@@ -21593,7 +21593,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyShare message del lector o búfer especificado.
+             * Decodifica un AppStateSyncKeyShare message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.AppStateSyncKeyShare
              * @static
@@ -21624,7 +21624,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AppStateSyncKeyShare message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AppStateSyncKeyShare message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.AppStateSyncKeyShare
              * @static
@@ -21640,7 +21640,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AppStateSyncKeyShare message.
+             * Verifica un AppStateSyncKeyShare message.
              * @function verify
              * @memberof proto.Message.AppStateSyncKeyShare
              * @static
@@ -21663,7 +21663,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AppStateSyncKeyShare message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AppStateSyncKeyShare message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.AppStateSyncKeyShare
              * @static
@@ -21688,7 +21688,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AppStateSyncKeyShare message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AppStateSyncKeyShare message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.AppStateSyncKeyShare
              * @static
@@ -21727,7 +21727,7 @@ $root.proto = (function() {
         Message.AudioMessage = (function() {
 
             /**
-             * Propiedades de unn AudioMessage.
+             * Propiedades de un AudioMessage.
              * @memberof proto.Message
              * @interface IAudioMessage
              * @property {string|null} [url] AudioMessage url
@@ -21953,7 +21953,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AudioMessage message del lector o búfer especificado.
+             * Decodifica un AudioMessage message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.AudioMessage
              * @static
@@ -22024,7 +22024,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AudioMessage message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AudioMessage message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.AudioMessage
              * @static
@@ -22040,7 +22040,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AudioMessage message.
+             * Verifica un AudioMessage message.
              * @function verify
              * @memberof proto.Message.AudioMessage
              * @static
@@ -22101,7 +22101,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AudioMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AudioMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.AudioMessage
              * @static
@@ -22178,7 +22178,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AudioMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AudioMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.AudioMessage
              * @static
@@ -22741,7 +22741,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ButtonsMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ButtonsMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ButtonsMessage
              * @static
@@ -23052,7 +23052,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Button message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Button message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ButtonsMessage.Button
                  * @static
@@ -23246,7 +23246,7 @@ $root.proto = (function() {
                     };
 
                     /**
-                     * Crea un objeto simple from a ButtonText message. También convierte valores a otros tipos si se especifica.
+                     * Crea un objeto simple desde un ButtonText message. También convierte valores a otros tipos si se especifica.
                      * @function toObject
                      * @memberof proto.Message.ButtonsMessage.Button.ButtonText
                      * @static
@@ -23452,7 +23452,7 @@ $root.proto = (function() {
                     };
 
                     /**
-                     * Crea un objeto simple from a NativeFlowInfo message. También convierte valores a otros tipos si se especifica.
+                     * Crea un objeto simple desde un NativeFlowInfo message. También convierte valores a otros tipos si se especifica.
                      * @function toObject
                      * @memberof proto.Message.ButtonsMessage.Button.NativeFlowInfo
                      * @static
@@ -23781,7 +23781,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ButtonsResponseMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ButtonsResponseMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ButtonsResponseMessage
              * @static
@@ -24057,7 +24057,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a Call message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un Call message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.Call
              * @static
@@ -24271,7 +24271,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a CancelPaymentRequestMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un CancelPaymentRequestMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.CancelPaymentRequestMessage
              * @static
@@ -24477,7 +24477,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a Chat message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un Chat message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.Chat
              * @static
@@ -24711,7 +24711,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ContactMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ContactMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ContactMessage
              * @static
@@ -24966,7 +24966,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ContactsArrayMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ContactsArrayMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ContactsArrayMessage
              * @static
@@ -25169,7 +25169,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a DeclinePaymentRequestMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un DeclinePaymentRequestMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.DeclinePaymentRequestMessage
              * @static
@@ -25399,7 +25399,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a DeviceSentMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un DeviceSentMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.DeviceSentMessage
              * @static
@@ -25991,7 +25991,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a DocumentMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un DocumentMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.DocumentMessage
              * @static
@@ -26135,7 +26135,7 @@ $root.proto = (function() {
         Message.EncReactionMessage = (function() {
 
             /**
-             * Propiedades de unn EncReactionMessage.
+             * Propiedades de un EncReactionMessage.
              * @memberof proto.Message
              * @interface IEncReactionMessage
              * @property {proto.IMessageKey|null} [targetMessageKey] EncReactionMessage targetMessageKey
@@ -26229,7 +26229,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn EncReactionMessage message del lector o búfer especificado.
+             * Decodifica un EncReactionMessage message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.EncReactionMessage
              * @static
@@ -26264,7 +26264,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn EncReactionMessage message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un EncReactionMessage message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.EncReactionMessage
              * @static
@@ -26280,7 +26280,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn EncReactionMessage message.
+             * Verifica un EncReactionMessage message.
              * @function verify
              * @memberof proto.Message.EncReactionMessage
              * @static
@@ -26305,7 +26305,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn EncReactionMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un EncReactionMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.EncReactionMessage
              * @static
@@ -26335,7 +26335,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an EncReactionMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un EncReactionMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.EncReactionMessage
              * @static
@@ -26390,7 +26390,7 @@ $root.proto = (function() {
         Message.ExtendedTextMessage = (function() {
 
             /**
-             * Propiedades de unn ExtendedTextMessage.
+             * Propiedades de un ExtendedTextMessage.
              * @memberof proto.Message
              * @interface IExtendedTextMessage
              * @property {string|null} [text] ExtendedTextMessage text
@@ -26715,7 +26715,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn ExtendedTextMessage message del lector o búfer especificado.
+             * Decodifica un ExtendedTextMessage message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.ExtendedTextMessage
              * @static
@@ -26813,7 +26813,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn ExtendedTextMessage message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un ExtendedTextMessage message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.ExtendedTextMessage
              * @static
@@ -26829,7 +26829,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn ExtendedTextMessage message.
+             * Verifica un ExtendedTextMessage message.
              * @function verify
              * @memberof proto.Message.ExtendedTextMessage
              * @static
@@ -26950,7 +26950,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn ExtendedTextMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un ExtendedTextMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.ExtendedTextMessage
              * @static
@@ -27122,7 +27122,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an ExtendedTextMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ExtendedTextMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ExtendedTextMessage
              * @static
@@ -27485,7 +27485,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a FutureProofMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un FutureProofMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.FutureProofMessage
              * @static
@@ -27833,7 +27833,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a GroupInviteMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un GroupInviteMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.GroupInviteMessage
              * @static
@@ -28257,7 +28257,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a HighlyStructuredMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un HighlyStructuredMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.HighlyStructuredMessage
              * @static
@@ -28545,7 +28545,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a HSMLocalizableParameter message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un HSMLocalizableParameter message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.HighlyStructuredMessage.HSMLocalizableParameter
                  * @static
@@ -28765,7 +28765,7 @@ $root.proto = (function() {
                     };
 
                     /**
-                     * Crea un objeto simple from a HSMCurrency message. También convierte valores a otros tipos si se especifica.
+                     * Crea un objeto simple desde un HSMCurrency message. También convierte valores a otros tipos si se especifica.
                      * @function toObject
                      * @memberof proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency
                      * @static
@@ -29015,7 +29015,7 @@ $root.proto = (function() {
                     };
 
                     /**
-                     * Crea un objeto simple from a HSMDateTime message. También convierte valores a otros tipos si se especifica.
+                     * Crea un objeto simple desde un HSMDateTime message. También convierte valores a otros tipos si se especifica.
                      * @function toObject
                      * @memberof proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime
                      * @static
@@ -29370,7 +29370,7 @@ $root.proto = (function() {
                         };
 
                         /**
-                         * Crea un objeto simple from a HSMDateTimeComponent message. También convierte valores a otros tipos si se especifica.
+                         * Crea un objeto simple desde un HSMDateTimeComponent message. También convierte valores a otros tipos si se especifica.
                          * @function toObject
                          * @memberof proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
                          * @static
@@ -29621,7 +29621,7 @@ $root.proto = (function() {
                         };
 
                         /**
-                         * Crea un objeto simple from a HSMDateTimeUnixEpoch message. También convierte valores a otros tipos si se especifica.
+                         * Crea un objeto simple desde un HSMDateTimeUnixEpoch message. También convierte valores a otros tipos si se especifica.
                          * @function toObject
                          * @memberof proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch
                          * @static
@@ -30056,7 +30056,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a HistorySyncNotification message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un HistorySyncNotification message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.HistorySyncNotification
              * @static
@@ -30176,7 +30176,7 @@ $root.proto = (function() {
         Message.ImageMessage = (function() {
 
             /**
-             * Propiedades de unn ImageMessage.
+             * Propiedades de un ImageMessage.
              * @memberof proto.Message
              * @interface IImageMessage
              * @property {string|null} [url] ImageMessage url
@@ -30527,7 +30527,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn ImageMessage message del lector o búfer especificado.
+             * Decodifica un ImageMessage message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.ImageMessage
              * @static
@@ -30640,7 +30640,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn ImageMessage message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un ImageMessage message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.ImageMessage
              * @static
@@ -30656,7 +30656,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn ImageMessage message.
+             * Verifica un ImageMessage message.
              * @function verify
              * @memberof proto.Message.ImageMessage
              * @static
@@ -30760,7 +30760,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn ImageMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un ImageMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.ImageMessage
              * @static
@@ -30887,7 +30887,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an ImageMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ImageMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ImageMessage
              * @static
@@ -31081,7 +31081,7 @@ $root.proto = (function() {
         Message.InitialSecurityNotificationSettingSync = (function() {
 
             /**
-             * Propiedades de unn InitialSecurityNotificationSettingSync.
+             * Propiedades de un InitialSecurityNotificationSettingSync.
              * @memberof proto.Message
              * @interface IInitialSecurityNotificationSettingSync
              * @property {boolean|null} [securityNotificationEnabled] InitialSecurityNotificationSettingSync securityNotificationEnabled
@@ -31153,7 +31153,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn InitialSecurityNotificationSettingSync message del lector o búfer especificado.
+             * Decodifica un InitialSecurityNotificationSettingSync message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.InitialSecurityNotificationSettingSync
              * @static
@@ -31182,7 +31182,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn InitialSecurityNotificationSettingSync message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un InitialSecurityNotificationSettingSync message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.InitialSecurityNotificationSettingSync
              * @static
@@ -31198,7 +31198,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn InitialSecurityNotificationSettingSync message.
+             * Verifica un InitialSecurityNotificationSettingSync message.
              * @function verify
              * @memberof proto.Message.InitialSecurityNotificationSettingSync
              * @static
@@ -31215,7 +31215,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn InitialSecurityNotificationSettingSync message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un InitialSecurityNotificationSettingSync message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.InitialSecurityNotificationSettingSync
              * @static
@@ -31232,7 +31232,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an InitialSecurityNotificationSettingSync message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un InitialSecurityNotificationSettingSync message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.InitialSecurityNotificationSettingSync
              * @static
@@ -31268,7 +31268,7 @@ $root.proto = (function() {
         Message.InteractiveMessage = (function() {
 
             /**
-             * Propiedades de unn InteractiveMessage.
+             * Propiedades de un InteractiveMessage.
              * @memberof proto.Message
              * @interface IInteractiveMessage
              * @property {proto.Message.InteractiveMessage.IHeader|null} [header] InteractiveMessage header
@@ -31420,7 +31420,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn InteractiveMessage message del lector o búfer especificado.
+             * Decodifica un InteractiveMessage message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.InteractiveMessage
              * @static
@@ -31467,7 +31467,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn InteractiveMessage message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un InteractiveMessage message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.InteractiveMessage
              * @static
@@ -31483,7 +31483,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn InteractiveMessage message.
+             * Verifica un InteractiveMessage message.
              * @function verify
              * @memberof proto.Message.InteractiveMessage
              * @static
@@ -31546,7 +31546,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn InteractiveMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un InteractiveMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.InteractiveMessage
              * @static
@@ -31596,7 +31596,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an InteractiveMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un InteractiveMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.InteractiveMessage
              * @static
@@ -31805,7 +31805,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Body message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Body message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.InteractiveMessage.Body
                  * @static
@@ -32030,7 +32030,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a CollectionMessage message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un CollectionMessage message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.InteractiveMessage.CollectionMessage
                  * @static
@@ -32224,7 +32224,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Footer message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Footer message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.InteractiveMessage.Footer
                  * @static
@@ -32575,7 +32575,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Header message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Header message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.InteractiveMessage.Header
                  * @static
@@ -32845,7 +32845,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a NativeFlowMessage message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un NativeFlowMessage message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.InteractiveMessage.NativeFlowMessage
                  * @static
@@ -33059,7 +33059,7 @@ $root.proto = (function() {
                     };
 
                     /**
-                     * Crea un objeto simple from a NativeFlowButton message. También convierte valores a otros tipos si se especifica.
+                     * Crea un objeto simple desde un NativeFlowButton message. También convierte valores a otros tipos si se especifica.
                      * @function toObject
                      * @memberof proto.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton
                      * @static
@@ -33314,7 +33314,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a ShopMessage message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un ShopMessage message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.InteractiveMessage.ShopMessage
                  * @static
@@ -33378,7 +33378,7 @@ $root.proto = (function() {
         Message.InteractiveResponseMessage = (function() {
 
             /**
-             * Propiedades de unn InteractiveResponseMessage.
+             * Propiedades de un InteractiveResponseMessage.
              * @memberof proto.Message
              * @interface IInteractiveResponseMessage
              * @property {proto.Message.InteractiveResponseMessage.IBody|null} [body] InteractiveResponseMessage body
@@ -33486,7 +33486,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn InteractiveResponseMessage message del lector o búfer especificado.
+             * Decodifica un InteractiveResponseMessage message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.InteractiveResponseMessage
              * @static
@@ -33521,7 +33521,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn InteractiveResponseMessage message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un InteractiveResponseMessage message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.InteractiveResponseMessage
              * @static
@@ -33537,7 +33537,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn InteractiveResponseMessage message.
+             * Verifica un InteractiveResponseMessage message.
              * @function verify
              * @memberof proto.Message.InteractiveResponseMessage
              * @static
@@ -33570,7 +33570,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn InteractiveResponseMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un InteractiveResponseMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.InteractiveResponseMessage
              * @static
@@ -33600,7 +33600,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an InteractiveResponseMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un InteractiveResponseMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.InteractiveResponseMessage
              * @static
@@ -33793,7 +33793,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Body message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Body message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.InteractiveResponseMessage.Body
                  * @static
@@ -34018,7 +34018,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a NativeFlowResponseMessage message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un NativeFlowResponseMessage message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.InteractiveResponseMessage.NativeFlowResponseMessage
                  * @static
@@ -34064,7 +34064,7 @@ $root.proto = (function() {
         Message.InvoiceMessage = (function() {
 
             /**
-             * Propiedades de unn InvoiceMessage.
+             * Propiedades de un InvoiceMessage.
              * @memberof proto.Message
              * @interface IInvoiceMessage
              * @property {string|null} [note] InvoiceMessage note
@@ -34235,7 +34235,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn InvoiceMessage message del lector o búfer especificado.
+             * Decodifica un InvoiceMessage message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.InvoiceMessage
              * @static
@@ -34291,7 +34291,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn InvoiceMessage message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un InvoiceMessage message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.InvoiceMessage
              * @static
@@ -34307,7 +34307,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn InvoiceMessage message.
+             * Verifica un InvoiceMessage message.
              * @function verify
              * @memberof proto.Message.InvoiceMessage
              * @static
@@ -34356,7 +34356,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn InvoiceMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un InvoiceMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.InvoiceMessage
              * @static
@@ -34418,7 +34418,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an InvoiceMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un InvoiceMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.InvoiceMessage
              * @static
@@ -34746,7 +34746,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a KeepInChatMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un KeepInChatMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.KeepInChatMessage
              * @static
@@ -35126,7 +35126,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ListMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ListMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ListMessage
              * @static
@@ -35352,7 +35352,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Product message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Product message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ListMessage.Product
                  * @static
@@ -35561,7 +35561,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a ProductListHeaderImage message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un ProductListHeaderImage message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ListMessage.ProductListHeaderImage
                  * @static
@@ -35819,7 +35819,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a ProductListInfo message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un ProductListInfo message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ListMessage.ProductListInfo
                  * @static
@@ -36054,7 +36054,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a ProductSection message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un ProductSection message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ListMessage.ProductSection
                  * @static
@@ -36286,7 +36286,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Row message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Row message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ListMessage.Row
                  * @static
@@ -36517,7 +36517,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a Section message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Section message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ListMessage.Section
                  * @static
@@ -36813,7 +36813,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ListResponseMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ListResponseMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ListResponseMessage
              * @static
@@ -37024,7 +37024,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a SingleSelectReply message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un SingleSelectReply message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ListResponseMessage.SingleSelectReply
                  * @static
@@ -37400,7 +37400,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a LiveLocationMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un LiveLocationMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.LiveLocationMessage
              * @static
@@ -37845,7 +37845,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a LocationMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un LocationMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.LocationMessage
              * @static
@@ -37921,7 +37921,7 @@ $root.proto = (function() {
         Message.OrderMessage = (function() {
 
             /**
-             * Propiedades de unn OrderMessage.
+             * Propiedades de un OrderMessage.
              * @memberof proto.Message
              * @interface IOrderMessage
              * @property {string|null} [orderId] OrderMessage orderId
@@ -38114,7 +38114,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn OrderMessage message del lector o búfer especificado.
+             * Decodifica un OrderMessage message del lector o búfer especificado.
              * @function decode
              * @memberof proto.Message.OrderMessage
              * @static
@@ -38176,7 +38176,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn OrderMessage message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un OrderMessage message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.Message.OrderMessage
              * @static
@@ -38192,7 +38192,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn OrderMessage message.
+             * Verifica un OrderMessage message.
              * @function verify
              * @memberof proto.Message.OrderMessage
              * @static
@@ -38252,7 +38252,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn OrderMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un OrderMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.Message.OrderMessage
              * @static
@@ -38312,7 +38312,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an OrderMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un OrderMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.OrderMessage
              * @static
@@ -38619,7 +38619,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PaymentInviteMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PaymentInviteMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PaymentInviteMessage
              * @static
@@ -38956,7 +38956,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PeerDataOperationRequestMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PeerDataOperationRequestMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PeerDataOperationRequestMessage
              * @static
@@ -39241,7 +39241,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a HistorySyncOnDemandRequest message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un HistorySyncOnDemandRequest message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest
                  * @static
@@ -39448,7 +39448,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a RequestStickerReupload message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un RequestStickerReupload message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.PeerDataOperationRequestMessage.RequestStickerReupload
                  * @static
@@ -39635,7 +39635,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a RequestUrlPreview message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un RequestUrlPreview message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.PeerDataOperationRequestMessage.RequestUrlPreview
                  * @static
@@ -39904,7 +39904,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PeerDataOperationRequestResponseMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PeerDataOperationRequestResponseMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PeerDataOperationRequestResponseMessage
              * @static
@@ -40170,7 +40170,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a PeerDataOperationResult message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un PeerDataOperationResult message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult
                  * @static
@@ -40478,7 +40478,7 @@ $root.proto = (function() {
                     };
 
                     /**
-                     * Crea un objeto simple from a LinkPreviewResponse message. También convierte valores a otros tipos si se especifica.
+                     * Crea un objeto simple desde un LinkPreviewResponse message. También convierte valores a otros tipos si se especifica.
                      * @function toObject
                      * @memberof proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse
                      * @static
@@ -40782,7 +40782,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PinMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PinMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PinMessage
              * @static
@@ -41101,7 +41101,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PollCreationMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PollCreationMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PollCreationMessage
              * @static
@@ -41157,7 +41157,7 @@ $root.proto = (function() {
             PollCreationMessage.Option = (function() {
 
                 /**
-                 * Propiedades de unn Option.
+                 * Propiedades de un Option.
                  * @memberof proto.Message.PollCreationMessage
                  * @interface IOption
                  * @property {string|null} [optionName] Option optionName
@@ -41229,7 +41229,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Decodifica unn Option message del lector o búfer especificado.
+                 * Decodifica un Option message del lector o búfer especificado.
                  * @function decode
                  * @memberof proto.Message.PollCreationMessage.Option
                  * @static
@@ -41258,7 +41258,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Decodifica unn Option message del lector o búfer especificado, delimitado por longitud.
+                 * Decodifica un Option message del lector o búfer especificado, delimitado por longitud.
                  * @function decodeDelimited
                  * @memberof proto.Message.PollCreationMessage.Option
                  * @static
@@ -41274,7 +41274,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Verifica unn Option message.
+                 * Verifica un Option message.
                  * @function verify
                  * @memberof proto.Message.PollCreationMessage.Option
                  * @static
@@ -41291,7 +41291,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea unn Option message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un Option message de un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @function fromObject
                  * @memberof proto.Message.PollCreationMessage.Option
                  * @static
@@ -41308,7 +41308,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from an Option message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un Option message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.PollCreationMessage.Option
                  * @static
@@ -41523,7 +41523,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PollEncValue message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PollEncValue message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PollEncValue
              * @static
@@ -41805,7 +41805,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PollUpdateMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PollUpdateMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PollUpdateMessage
              * @static
@@ -41989,7 +41989,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PollUpdateMessageMetadata message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PollUpdateMessageMetadata message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PollUpdateMessageMetadata
              * @static
@@ -42185,7 +42185,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PollVoteMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PollVoteMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.PollVoteMessage
              * @static
@@ -42485,7 +42485,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ProductMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ProductMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ProductMessage
              * @static
@@ -42728,7 +42728,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a CatalogSnapshot message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un CatalogSnapshot message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ProductMessage.CatalogSnapshot
                  * @static
@@ -43131,7 +43131,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a ProductSnapshot message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un ProductSnapshot message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.ProductMessage.ProductSnapshot
                  * @static
@@ -43745,7 +43745,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ProtocolMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ProtocolMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ProtocolMessage
              * @static
@@ -44091,7 +44091,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ReactionMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ReactionMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ReactionMessage
              * @static
@@ -44438,7 +44438,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a RequestPaymentMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un RequestPaymentMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.RequestPaymentMessage
              * @static
@@ -44663,7 +44663,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a RequestPhoneNumberMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un RequestPhoneNumberMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.RequestPhoneNumberMessage
              * @static
@@ -44913,7 +44913,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ScheduledCallCreationMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ScheduledCallCreationMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ScheduledCallCreationMessage
              * @static
@@ -45167,7 +45167,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ScheduledCallEditMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ScheduledCallEditMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.ScheduledCallEditMessage
              * @static
@@ -45425,7 +45425,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SendPaymentMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SendPaymentMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.SendPaymentMessage
              * @static
@@ -45641,7 +45641,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SenderKeyDistributionMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SenderKeyDistributionMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.SenderKeyDistributionMessage
              * @static
@@ -46183,7 +46183,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a StickerMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un StickerMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.StickerMessage
              * @static
@@ -46528,7 +46528,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a StickerSyncRMRMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un StickerSyncRMRMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.StickerSyncRMRMessage
              * @static
@@ -46795,7 +46795,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a TemplateButtonReplyMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un TemplateButtonReplyMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.TemplateButtonReplyMessage
              * @static
@@ -47140,7 +47140,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a TemplateMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un TemplateMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.TemplateMessage
              * @static
@@ -47570,7 +47570,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a FourRowTemplate message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un FourRowTemplate message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.TemplateMessage.FourRowTemplate
                  * @static
@@ -48020,7 +48020,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a HydratedFourRowTemplate message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un HydratedFourRowTemplate message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.Message.TemplateMessage.HydratedFourRowTemplate
                  * @static
@@ -48743,7 +48743,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a VideoMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un VideoMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.Message.VideoMessage
              * @static
@@ -49144,7 +49144,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a MessageContextInfo message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un MessageContextInfo message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.MessageContextInfo
          * @static
@@ -49410,7 +49410,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a MessageKey message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un MessageKey message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.MessageKey
          * @static
@@ -49652,7 +49652,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a Money message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un Money message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.Money
          * @static
@@ -50370,7 +50370,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a MsgOpaqueData message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un MsgOpaqueData message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.MsgOpaqueData
          * @static
@@ -50665,7 +50665,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PollOption message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PollOption message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.MsgOpaqueData.PollOption
              * @static
@@ -50884,7 +50884,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a MsgRowOpaqueData message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un MsgRowOpaqueData message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.MsgRowOpaqueData
          * @static
@@ -51100,7 +51100,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a NoiseCertificate message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un NoiseCertificate message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.NoiseCertificate
          * @static
@@ -51386,7 +51386,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a Details message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un Details message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.NoiseCertificate.Details
              * @static
@@ -51676,7 +51676,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a NotificationMessageInfo message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un NotificationMessageInfo message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.NotificationMessageInfo
          * @static
@@ -51938,7 +51938,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PastParticipant message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PastParticipant message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PastParticipant
          * @static
@@ -52190,7 +52190,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PastParticipants message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PastParticipants message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PastParticipants
          * @static
@@ -52580,7 +52580,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PaymentBackground message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PaymentBackground message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PaymentBackground
          * @static
@@ -52891,7 +52891,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a MediaData message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un MediaData message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.PaymentBackground.MediaData
              * @static
@@ -53636,7 +53636,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PaymentInfo message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PaymentInfo message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PaymentInfo
          * @static
@@ -54047,7 +54047,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PhotoChange message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PhotoChange message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PhotoChange
          * @static
@@ -54310,7 +54310,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a Point message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un Point message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.Point
          * @static
@@ -54507,7 +54507,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PollAdditionalMetadata message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PollAdditionalMetadata message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PollAdditionalMetadata
          * @static
@@ -54719,7 +54719,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PollEncValue message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PollEncValue message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PollEncValue
          * @static
@@ -55022,7 +55022,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PollUpdate message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PollUpdate message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PollUpdate
          * @static
@@ -55280,7 +55280,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a PreKeyRecordStructure message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un PreKeyRecordStructure message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.PreKeyRecordStructure
          * @static
@@ -55505,7 +55505,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a Pushname message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un Pushname message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.Pushname
          * @static
@@ -55784,7 +55784,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a Reaction message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un Reaction message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.Reaction
          * @static
@@ -56010,7 +56010,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a RecentEmojiWeight message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un RecentEmojiWeight message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.RecentEmojiWeight
          * @static
@@ -56243,7 +56243,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a RecordStructure message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un RecordStructure message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.RecordStructure
          * @static
@@ -56455,7 +56455,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SenderKeyRecordStructure message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SenderKeyRecordStructure message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SenderKeyRecordStructure
          * @static
@@ -56730,7 +56730,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SenderKeyStateStructure message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SenderKeyStateStructure message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SenderKeyStateStructure
          * @static
@@ -56950,7 +56950,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SenderChainKey message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SenderChainKey message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SenderKeyStateStructure.SenderChainKey
              * @static
@@ -57169,7 +57169,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SenderMessageKey message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SenderMessageKey message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SenderKeyStateStructure.SenderMessageKey
              * @static
@@ -57391,7 +57391,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SenderSigningKey message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SenderSigningKey message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SenderKeyStateStructure.SenderSigningKey
              * @static
@@ -57597,7 +57597,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a ServerErrorReceipt message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un ServerErrorReceipt message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.ServerErrorReceipt
          * @static
@@ -58057,7 +58057,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SessionStructure message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SessionStructure message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SessionStructure
          * @static
@@ -58392,7 +58392,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a Chain message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un Chain message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SessionStructure.Chain
              * @static
@@ -58624,7 +58624,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a ChainKey message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un ChainKey message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.SessionStructure.Chain.ChainKey
                  * @static
@@ -58887,7 +58887,7 @@ $root.proto = (function() {
                 };
 
                 /**
-                 * Crea un objeto simple from a MessageKey message. También convierte valores a otros tipos si se especifica.
+                 * Crea un objeto simple desde un MessageKey message. También convierte valores a otros tipos si se especifica.
                  * @function toObject
                  * @memberof proto.SessionStructure.Chain.MessageKey
                  * @static
@@ -59237,7 +59237,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PendingKeyExchange message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PendingKeyExchange message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SessionStructure.PendingKeyExchange
              * @static
@@ -59520,7 +59520,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PendingPreKey message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PendingPreKey message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SessionStructure.PendingPreKey
              * @static
@@ -59815,7 +59815,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SignedPreKeyRecordStructure message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SignedPreKeyRecordStructure message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SignedPreKeyRecordStructure
          * @static
@@ -60073,7 +60073,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a StatusPSA message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un StatusPSA message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.StatusPSA
          * @static
@@ -60491,7 +60491,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a StickerMetadata message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un StickerMetadata message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.StickerMetadata
          * @static
@@ -60809,7 +60809,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncActionData message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncActionData message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncActionData
          * @static
@@ -61769,7 +61769,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncActionValue message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncActionValue message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncActionValue
          * @static
@@ -61903,7 +61903,7 @@ $root.proto = (function() {
         SyncActionValue.AgentAction = (function() {
 
             /**
-             * Propiedades de unn AgentAction.
+             * Propiedades de un AgentAction.
              * @memberof proto.SyncActionValue
              * @interface IAgentAction
              * @property {string|null} [name] AgentAction name
@@ -61997,7 +61997,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AgentAction message del lector o búfer especificado.
+             * Decodifica un AgentAction message del lector o búfer especificado.
              * @function decode
              * @memberof proto.SyncActionValue.AgentAction
              * @static
@@ -62032,7 +62032,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AgentAction message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AgentAction message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.SyncActionValue.AgentAction
              * @static
@@ -62048,7 +62048,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AgentAction message.
+             * Verifica un AgentAction message.
              * @function verify
              * @memberof proto.SyncActionValue.AgentAction
              * @static
@@ -62071,7 +62071,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AgentAction message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AgentAction message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.SyncActionValue.AgentAction
              * @static
@@ -62092,7 +62092,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AgentAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AgentAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.AgentAction
              * @static
@@ -62135,7 +62135,7 @@ $root.proto = (function() {
         SyncActionValue.AndroidUnsupportedActions = (function() {
 
             /**
-             * Propiedades de unn AndroidUnsupportedActions.
+             * Propiedades de un AndroidUnsupportedActions.
              * @memberof proto.SyncActionValue
              * @interface IAndroidUnsupportedActions
              * @property {boolean|null} [allowed] AndroidUnsupportedActions allowed
@@ -62207,7 +62207,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AndroidUnsupportedActions message del lector o búfer especificado.
+             * Decodifica un AndroidUnsupportedActions message del lector o búfer especificado.
              * @function decode
              * @memberof proto.SyncActionValue.AndroidUnsupportedActions
              * @static
@@ -62236,7 +62236,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn AndroidUnsupportedActions message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un AndroidUnsupportedActions message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.SyncActionValue.AndroidUnsupportedActions
              * @static
@@ -62252,7 +62252,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn AndroidUnsupportedActions message.
+             * Verifica un AndroidUnsupportedActions message.
              * @function verify
              * @memberof proto.SyncActionValue.AndroidUnsupportedActions
              * @static
@@ -62269,7 +62269,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn AndroidUnsupportedActions message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un AndroidUnsupportedActions message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.SyncActionValue.AndroidUnsupportedActions
              * @static
@@ -62286,7 +62286,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an AndroidUnsupportedActions message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un AndroidUnsupportedActions message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.AndroidUnsupportedActions
              * @static
@@ -62322,7 +62322,7 @@ $root.proto = (function() {
         SyncActionValue.ArchiveChatAction = (function() {
 
             /**
-             * Propiedades de unn ArchiveChatAction.
+             * Propiedades de un ArchiveChatAction.
              * @memberof proto.SyncActionValue
              * @interface IArchiveChatAction
              * @property {boolean|null} [archived] ArchiveChatAction archived
@@ -62405,7 +62405,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn ArchiveChatAction message del lector o búfer especificado.
+             * Decodifica un ArchiveChatAction message del lector o búfer especificado.
              * @function decode
              * @memberof proto.SyncActionValue.ArchiveChatAction
              * @static
@@ -62437,7 +62437,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn ArchiveChatAction message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un ArchiveChatAction message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.SyncActionValue.ArchiveChatAction
              * @static
@@ -62453,7 +62453,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn ArchiveChatAction message.
+             * Verifica un ArchiveChatAction message.
              * @function verify
              * @memberof proto.SyncActionValue.ArchiveChatAction
              * @static
@@ -62475,7 +62475,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn ArchiveChatAction message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un ArchiveChatAction message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.SyncActionValue.ArchiveChatAction
              * @static
@@ -62497,7 +62497,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an ArchiveChatAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ArchiveChatAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.ArchiveChatAction
              * @static
@@ -62688,7 +62688,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ChatAssignmentAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ChatAssignmentAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.ChatAssignmentAction
              * @static
@@ -62875,7 +62875,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ChatAssignmentOpenedStatusAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ChatAssignmentOpenedStatusAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.ChatAssignmentOpenedStatusAction
              * @static
@@ -63067,7 +63067,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ClearChatAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ClearChatAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.ClearChatAction
              * @static
@@ -63292,7 +63292,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a ContactAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un ContactAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.ContactAction
              * @static
@@ -63491,7 +63491,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a DeleteChatAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un DeleteChatAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.DeleteChatAction
              * @static
@@ -63704,7 +63704,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a DeleteMessageForMeAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un DeleteMessageForMeAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.DeleteMessageForMeAction
              * @static
@@ -63902,7 +63902,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a KeyExpiration message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un KeyExpiration message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.KeyExpiration
              * @static
@@ -64089,7 +64089,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a LabelAssociationAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un LabelAssociationAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.LabelAssociationAction
              * @static
@@ -64333,7 +64333,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a LabelEditAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un LabelEditAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.LabelEditAction
              * @static
@@ -64530,7 +64530,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a LocaleSetting message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un LocaleSetting message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.LocaleSetting
              * @static
@@ -64741,7 +64741,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a MarkChatAsReadAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un MarkChatAsReadAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.MarkChatAsReadAction
              * @static
@@ -64977,7 +64977,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a MuteAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un MuteAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.MuteAction
              * @static
@@ -65178,7 +65178,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a NuxAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un NuxAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.NuxAction
              * @static
@@ -65365,7 +65365,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PinAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PinAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.PinAction
              * @static
@@ -65552,7 +65552,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PnForLidChatAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PnForLidChatAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.PnForLidChatAction
              * @static
@@ -65752,7 +65752,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PrimaryFeature message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PrimaryFeature message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.PrimaryFeature
              * @static
@@ -65942,7 +65942,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PrimaryVersionAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PrimaryVersionAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.PrimaryVersionAction
              * @static
@@ -66129,7 +66129,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a PushNameSetting message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un PushNameSetting message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.PushNameSetting
              * @static
@@ -66405,7 +66405,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a QuickReplyAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un QuickReplyAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.QuickReplyAction
              * @static
@@ -66627,7 +66627,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a RecentEmojiWeightsAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un RecentEmojiWeightsAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.RecentEmojiWeightsAction
              * @static
@@ -66824,7 +66824,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a RemoveRecentStickerAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un RemoveRecentStickerAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.RemoveRecentStickerAction
              * @static
@@ -67018,7 +67018,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SecurityNotificationSetting message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SecurityNotificationSetting message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.SecurityNotificationSetting
              * @static
@@ -67205,7 +67205,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a StarAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un StarAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.StarAction
              * @static
@@ -67576,7 +67576,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a StickerAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un StickerAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.StickerAction
              * @static
@@ -67855,7 +67855,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SubscriptionAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SubscriptionAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.SubscriptionAction
              * @static
@@ -68087,7 +68087,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SyncActionMessage message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SyncActionMessage message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.SyncActionMessage
              * @static
@@ -68355,7 +68355,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a SyncActionMessageRange message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un SyncActionMessageRange message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.SyncActionMessageRange
              * @static
@@ -68567,7 +68567,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a TimeFormatAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un TimeFormatAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.TimeFormatAction
              * @static
@@ -68603,7 +68603,7 @@ $root.proto = (function() {
         SyncActionValue.UnarchiveChatsSetting = (function() {
 
             /**
-             * Propiedades de unn UnarchiveChatsSetting.
+             * Propiedades de un UnarchiveChatsSetting.
              * @memberof proto.SyncActionValue
              * @interface IUnarchiveChatsSetting
              * @property {boolean|null} [unarchiveChats] UnarchiveChatsSetting unarchiveChats
@@ -68675,7 +68675,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn UnarchiveChatsSetting message del lector o búfer especificado.
+             * Decodifica un UnarchiveChatsSetting message del lector o búfer especificado.
              * @function decode
              * @memberof proto.SyncActionValue.UnarchiveChatsSetting
              * @static
@@ -68704,7 +68704,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Decodifica unn UnarchiveChatsSetting message del lector o búfer especificado, delimitado por longitud.
+             * Decodifica un UnarchiveChatsSetting message del lector o búfer especificado, delimitado por longitud.
              * @function decodeDelimited
              * @memberof proto.SyncActionValue.UnarchiveChatsSetting
              * @static
@@ -68720,7 +68720,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Verifica unn UnarchiveChatsSetting message.
+             * Verifica un UnarchiveChatsSetting message.
              * @function verify
              * @memberof proto.SyncActionValue.UnarchiveChatsSetting
              * @static
@@ -68737,7 +68737,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea unn UnarchiveChatsSetting message de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un UnarchiveChatsSetting message de un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @function fromObject
              * @memberof proto.SyncActionValue.UnarchiveChatsSetting
              * @static
@@ -68754,7 +68754,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from an UnarchiveChatsSetting message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un UnarchiveChatsSetting message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.UnarchiveChatsSetting
              * @static
@@ -68941,7 +68941,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a UserStatusMuteAction message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un UserStatusMuteAction message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.SyncActionValue.UserStatusMuteAction
              * @static
@@ -69134,7 +69134,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncdIndex message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncdIndex message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncdIndex
          * @static
@@ -69364,7 +69364,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncdMutation message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncdMutation message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncdMutation
          * @static
@@ -69587,7 +69587,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncdMutations message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncdMutations message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncdMutations
          * @static
@@ -69954,7 +69954,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncdPatch message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncdPatch message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncdPatch
          * @static
@@ -70232,7 +70232,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncdRecord message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncdRecord message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncdRecord
          * @static
@@ -70514,7 +70514,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncdSnapshot message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncdSnapshot message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncdSnapshot
          * @static
@@ -70724,7 +70724,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncdValue message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncdValue message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncdValue
          * @static
@@ -70924,7 +70924,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a SyncdVersion message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un SyncdVersion message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.SyncdVersion
          * @static
@@ -71218,7 +71218,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a TemplateButton message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un TemplateButton message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.TemplateButton
          * @static
@@ -71446,7 +71446,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a CallButton message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un CallButton message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.TemplateButton.CallButton
              * @static
@@ -71661,7 +71661,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a QuickReplyButton message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un QuickReplyButton message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.TemplateButton.QuickReplyButton
              * @static
@@ -71881,7 +71881,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a URLButton message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un URLButton message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.TemplateButton.URLButton
              * @static
@@ -72217,7 +72217,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a UserReceipt message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un UserReceipt message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.UserReceipt
          * @static
@@ -72496,7 +72496,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a VerifiedNameCertificate message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un VerifiedNameCertificate message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.VerifiedNameCertificate
          * @static
@@ -72813,7 +72813,7 @@ $root.proto = (function() {
             };
 
             /**
-             * Crea un objeto simple from a Details message. También convierte valores a otros tipos si se especifica.
+             * Crea un objeto simple desde un Details message. También convierte valores a otros tipos si se especifica.
              * @function toObject
              * @memberof proto.VerifiedNameCertificate.Details
              * @static
@@ -73053,7 +73053,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a WallpaperSettings message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un WallpaperSettings message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.WallpaperSettings
          * @static
@@ -75115,7 +75115,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a WebFeatures message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un WebFeatures message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.WebFeatures
          * @static
@@ -77293,7 +77293,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a WebMessageInfo message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un WebMessageInfo message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.WebMessageInfo
          * @static
@@ -78126,7 +78126,7 @@ $root.proto = (function() {
         };
 
         /**
-         * Crea un objeto simple from a WebNotificationsInfo message. También convierte valores a otros tipos si se especifica.
+         * Crea un objeto simple desde un WebNotificationsInfo message. También convierte valores a otros tipos si se especifica.
          * @function toObject
          * @memberof proto.WebNotificationsInfo
          * @static

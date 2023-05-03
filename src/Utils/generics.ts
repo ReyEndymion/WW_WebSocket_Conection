@@ -226,7 +226,7 @@ export const printQRIfNecessaryListener = (ev: BaileysEventEmitter, logger: Logg
  * Usar para asegurarse de que su conexión WA esté siempre en la última versión
  */
 export const fetchLatestBaileysVersion = async(options: AxiosRequestConfig<any> = { }) => {
-	const URL = 'https://raw.githubusercontent.com/adiwajshing/Baileys/master/src/Defaults/baileys-version.json'
+	const URL = 'https://raw.githubusercontent.com/ReyEndymion/WW_WebSocket_Conection/master/src/Defaults/baileys-version.json'
 	try {
 		const result = await axios.get<{ version: WAVersion }>(
 			URL,

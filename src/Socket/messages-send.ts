@@ -505,7 +505,7 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 				}
 
 				const buttonType = getButtonType(message)
-				if(buttonType){
+				if(buttonType) {
 					(stanza.content as BinaryNode[]).push({
 						tag: 'biz',
 						attrs: { },
@@ -546,8 +546,10 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 			return 'livelocation'
 		} else if(message.stickerMessage) {
 			return 'sticker'
-		} else if(message.listMessage || message.listResponseMessage) {
-			return 'list' // Se incluye 'list' para mensajes de grupo
+		} else if(message.listMessage) {
+			return 'list'
+		} else if(message.listResponseMessage) {
+			return 'list_response'
 		} else if(message.buttonsResponseMessage) {
 			return 'buttons_response'
 		} else if(message.orderMessage) {
@@ -559,26 +561,33 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 		}
 	}
 
-const getButtonType = (message: proto.IMessage) => {
-		if(message.buttonsMessage || message.buttonsResponseMessage || message.interactiveResponseMessage) {
-			return 'buttons' // Se incluye 'buttons' y 'interactive_response' para mensajes de grupo
-		} else if(message.listMessage || message.listResponseMessage) {
-			return 'list' // Se incluye 'list' para mensajes de grupo
+	const getButtonType = (message: proto.IMessage) => {
+		if(message.buttonsMessage) {
+			return 'buttons'
+		} else if(message.buttonsResponseMessage) {
+			return 'buttons_response'
+		} else if(message.interactiveResponseMessage) {
+			return 'interactive_response'
+		} else if(message.listMessage) {
+			return 'list'
+		} else if(message.listResponseMessage) {
+			return 'list_response'
 		}
-}
+	}
 
-const getButtonArgs = (message: proto.IMessage): BinaryNode['attrs'] => {
+	const getButtonArgs = (message: proto.IMessage): BinaryNode['attrs'] => {
 		if(message.templateMessage) {
 			// TODO: Add attributes
 			return {}
 		} else if(message.listMessage) {
-				const type = message.listMessage.listType
-				if(!type) {
-						throw new Boom("Expected list type inside message")
-				}
-				return { v: '2', type: ListType[type].toLowerCase() }
+			const type = message.listMessage.listType
+			if(!type) {
+				throw new Boom('Expected list type inside message')
+			}
+
+			return { v: '2', type: ListType[type].toLowerCase() }
 		} else {
-				return {}
+			return {}
 		}
 	}
 

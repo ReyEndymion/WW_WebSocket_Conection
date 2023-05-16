@@ -1,5 +1,5 @@
 {
-    "extends": "@reyendymion"
+    "extends": "@reyendymion",
     "rules": {
         "@typescript-eslint/no-explicit-any": [
             "warn",

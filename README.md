@@ -520,7 +520,7 @@ const sendMsg = await sock.sendMessage(id, templateMessage)
      - Para las listas de difusión, es `[marca de tiempo de creación]@emisión`.
      - Para las historias, el ID es `status@broadcast`.
 - Para los mensajes multimedia, la miniatura se puede generar automáticamente para las imágenes y los adhesivos, siempre que agregue `jimp` o `sharp` como una dependencia en su proyecto utilizando `yarn add jimp` o `yarn add sharp`. Las miniaturas de los videos también se pueden generar automáticamente, sin embargo, debe tener `ffmpeg` instalado en su sistema.
-- **MiscGenerationOptions**: información adicional sobre el mensaje. Puede tener los siguientes valores __opcional__:
+- **MiscGenerationOptions**: información adicional sobre el mensaje. Puede tener los siguientes valores __opcionales__:
      ``` ts
      const info: MessageOptions = {
          quoted: mensajecitado, // el mensaje que desea citar
@@ -838,6 +838,47 @@ Por supuesto, reemplace ``` xyz ``` con una ID real.
      ```
    Por supuesto, reemplaza ``` xxx ``` con el código de invitación.
   
+## Privacidad
+- Para obtener la configuración de privacidad
+     ``` ts
+    const privacySettings = await sock.fetchPrivacySettings(true)
+    console.log("configuración de privacidad: " + privacySettings)
+    ```
+- Para actualizar la privacidad LastSeen
+     ``` ts
+    const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
+    await sock.updateLastSeenPrivacy(value)
+     ```
+- Para actualizar la privacidad en línea
+     ``` ts
+    const value = 'all' // 'match_last_seen'
+    await sock.updateOnlinePrivacy(value)
+     ```
+- Para actualizar la privacidad de la imagen de perfil
+     ``` ts
+    const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
+    await sock.updateProfilePicturePrivacy(value)
+     ```
+- Para actualizar el estado de privacidad
+     ``` ts
+    const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
+    await sock.updateStatusPrivacy(value)
+     ```
+- Para actualizar la privacidad de los recibos de lectura
+     ``` ts
+    const value = 'all' // 'none'
+    await sock.updateReadReceiptsPrivacy(value)
+     ```
+- Para actualizar los Grupos Añadir privacidad
+     ``` ts
+    const value = 'all' // 'contacts' | 'contact_blacklist' | 'none'
+    await sock.updateGroupsAddPrivacy(value)
+     ```
+- Para actualizar el modo de desaparición predeterminado
+     ``` ts
+    const duration = 86400 // 604800 | 7776000 | 0 
+    await sock.updateDefaultDisappearingMode(duration)
+     ```
 ## Listas de difusión e historias
 
 **Nota:** actualmente no se pueden enviar mensajes a listas de difusión desde la versión MD.

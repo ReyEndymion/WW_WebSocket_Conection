@@ -1,7 +1,7 @@
 import { Boom } from '@hapi/boom'
 import { proto } from '../../WAProto'
 import { PROCESSABLE_HISTORY_TYPES } from '../Defaults'
-import { ALL_WA_PATCH_NAMES, ChatModification, ChatMutation, LTHashState, MessageUpsertType, PresenceData, SocketConfig, WABusinessHoursConfig, WABusinessProfile, WAMediaUpload, WAMessage, WAPatchCreate, WAPatchName, WAPresence } from '../Types'
+import { ALL_WA_PATCH_NAMES, ChatModification, ChatMutation, LTHashState, MessageUpsertType, PresenceData, SocketConfig, WABusinessHoursConfig, WABusinessProfile, WAMediaUpload, WAMessage, WAPatchCreate, WAPatchName, WAPresence, WAPrivacyOnlineValue, WAPrivacyValue, WAReadReceiptsValue } from '../Types'
 import { chatModificationToAppPatch, ChatMutationMap, decodePatches, decodeSyncdSnapshot, encodeSyncdPatch, extractSyncdPatches, generateProfilePicture, getHistoryMsg, newLTHashState, processSyncAction } from '../Utils'
 import { makeMutex } from '../Utils/make-mutex'
 import processMessage from '../Utils/process-message'
@@ -61,7 +61,70 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		return privacySettings
 	}
 
-	/** Función auxiliar para ejecutar una consulta genérica de IQ */
+	/** función auxiliar para ejecutar una consulta de IQ de privacidad */
+	const privacyQuery = async(name: string, value: string) => {
+		await query({
+			tag: 'iq',
+			attrs: {
+				xmlns: 'privacy',
+				to: S_WHATSAPP_NET,
+				type: 'set'
+			},
+			content: [{
+				tag: 'privacy',
+				attrs: {},
+				content: [
+					{
+						tag: 'category',
+						attrs: { name, value }
+					}
+				]
+			}]
+		})
+	}
+
+	const updateLastSeenPrivacy = async(value: WAPrivacyValue) => {
+		await privacyQuery('last', value)
+	}
+
+	const updateOnlinePrivacy = async(value: WAPrivacyOnlineValue) => {
+		await privacyQuery('online', value)
+	}
+
+	const updateProfilePicturePrivacy = async(value: WAPrivacyValue) => {
+		await privacyQuery('profile', value)
+	}
+
+	const updateStatusPrivacy = async(value: WAPrivacyValue) => {
+		await privacyQuery('status', value)
+	}
+
+	const updateReadReceiptsPrivacy = async(value: WAReadReceiptsValue) => {
+		await privacyQuery('readreceipts', value)
+	}
+
+	const updateGroupsAddPrivacy = async(value: WAPrivacyValue) => {
+		await privacyQuery('groupadd', value)
+	}
+
+	const updateDefaultDisappearingMode = async(duration: number) => {
+		await query({
+			tag: 'iq',
+			attrs: {
+				xmlns: 'disappearing_mode',
+				to: S_WHATSAPP_NET,
+				type: 'set'
+			},
+			content: [{
+				tag: 'disappearing_mode',
+				attrs: {
+					duration : duration.toString()
+				}
+			}]
+		})
+	}
+
+	/** función auxiliar para ejecutar una consulta genérica de IQ */
 	const interactiveQuery = async(userNodes: BinaryNode[], queryNode: BinaryNode) => {
 		const result = await query({
 			tag: 'iq',
@@ -161,7 +224,19 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		})
 	}
 
-	/** Actualice el estado del perfil para usted */
+	/** eliminar la imagen de perfil para usted o un grupo */
+	const removeProfilePicture = async(jid: string) => {
+		await query({
+			tag: 'iq',
+			attrs: {
+				to: jidNormalizedUser(jid),
+				type: 'set',
+				xmlns: 'w:profile:picture'
+			}
+		})
+	}
+
+	/** update the profile status for yourself */
 	const updateProfileStatus = async(status: string) => {
 		await query({
 			tag: 'iq',
@@ -302,7 +377,8 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	}
 
 	const resyncAppState = ev.createBufferedFunction(async(collections: readonly WAPatchName[], isInitialSync: boolean) => {
-		// Usamos esto para determinar qué eventos disparar, de lo contrario, cuando resincremos desde cero, todas las notificaciones dispararán
+// usamos esto para determinar qué eventos disparar
+// de lo contrario, cuando resincronicemos desde cero, todas las notificaciones se activarán
 		const initialVersionMap: { [T in WAPatchName]?: number } = { }
 		const globalMutationMap: ChatMutationMap = { }
 
@@ -856,9 +932,17 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		fetchBlocklist,
 		fetchStatus,
 		updateProfilePicture,
+		removeProfilePicture,
 		updateProfileStatus,
 		updateProfileName,
 		updateBlockStatus,
+		updateLastSeenPrivacy,
+		updateOnlinePrivacy,
+		updateProfilePicturePrivacy,
+		updateStatusPrivacy,
+		updateReadReceiptsPrivacy,
+		updateGroupsAddPrivacy,
+		updateDefaultDisappearingMode,
 		getBusinessProfile,
 		resyncAppState,
 		chatModify

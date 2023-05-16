@@ -192,9 +192,9 @@ export const decodeSyncdMutations = async(
 	validateMacs: boolean
 ) => {
 	const ltGenerator = makeLtHashGenerator(initialState)
-	// indexKey Solado para firmar HMAC record.index.blob
-	// valueEncryptionKey Se usa para encrypt AES-256-CBC record.value.blob[0:-32]
-	// el restanterecord.value.blob[0:-32] es la mac, es el signo HMAC de key.keyId + Datos de Proto decodificados + Longitud de bytes en Keyid
+// indexKey utilizada para firmar HMAC record.index.blob
+// valueEncryptionKey utilizada para cifrar AES-256-CBC record.value.blob[0:-32]
+// el record.value.blob restante[0:-32] es el mac, es el signo HMAC de key.keyId + protodatos decodificados + longitud de bytes en keyId
 	for(const msgMutation of msgMutations!) {
 		// Si es una sincronización, obtenga la propiedad de operación
 // de lo contrario, si es solo un registro, será una mutación establecida

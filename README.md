@@ -30,7 +30,7 @@ Para ejecutar el script de ejemplo, descargue o clone el repositorio y luego esc
 
 Usa la versión estable:
 ```
-yarn add @ReyEndymion/WW_WebSocket_Conection
+yarn add @reyendymion/ww_websocket_conection
 ```
 
 Use la versión de borde (sin garantía de estabilidad, pero con las últimas correcciones y características)
@@ -40,7 +40,7 @@ yarn add github:ReyEndymion/WW_WebSocket_Conection
 
 Luego importa tu código usando:
 ``` ts
-import makeWASocket from '@ReyEndymion/WW_WebSocket_Conection'
+import makeWASocket from '@reyendymion/ww_websocket_conection'
 ```
 
 ## Pruebas unitarias
@@ -50,7 +50,7 @@ TODO
 ## Conectando
 
 ``` ts
-import makeWASocket, { DisconnectReason } from '@ReyEndymion/WW_WebSocket_Conection'
+import makeWASocket, { DisconnectReason } from '@reyendymion/ww_websocket_conection'
 import { Boom } from '@hapi/boom'
 
 async function connectToW () {
@@ -180,7 +180,7 @@ Obviamente, no desea seguir escaneando el código QR cada vez que desea conectar
 
 Entonces, puede cargar las credenciales para volver a iniciar sesión:
 ``` ts
-import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@ReyEndymion/WW_WebSocket_Conection'
+import makeWASocket, { BufferJSON, useMultiFileAuthState } from '@reyendymion/ww_websocket_conection'
 import * as fs from 'fs'
 
 // función de utilidad para ayudar a guardar el estado de autenticación en una sola carpeta
@@ -293,7 +293,7 @@ WW_WebSocket_Conection no viene con un almacenamiento de facto para chats, conta
 Se puede utilizar de la siguiente manera:
 
 ``` ts
-import makeWASocket, { makeInMemoryStore } from '@ReyEndymion/WW_WebSocket_Conection'
+import makeWASocket, { makeInMemoryStore } from '@reyendymion/ww_websocket_conection'
 // la store mantiene los datos de la conexión WA en memoria
 // se puede escribir en un archivo y leer de él
 const store = makeInMemoryStore({ })
@@ -332,7 +332,7 @@ La store también proporciona algunas funciones simples como `loadMessages` que 
 ### Mensajes no multimedia
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from '@ReyEndymion/WW_WebSocket_Conection'
+import { MessageType, MessageOptions, Mimetype } from '@reyendymion/ww_websocket_conection'
 
 const id = 'abcd@s.W.net' // el ID de W
 // enviar un mensaje de texto simple!
@@ -450,7 +450,7 @@ Enviar medios (video, pegatinas, imágenes) es más fácil y eficiente que nunca
 - Al especificar una URL de medios, WW_WebSocket_Conection nunca carga todo el búfer en la memoria; incluso encripta los medios como un flujo legible.
 
 ``` ts
-import { MessageType, MessageOptions, Mimetype } from '@ReyEndymion/WW_WebSocket_Conection'
+import { MessageType, MessageOptions, Mimetype } from '@reyendymion/ww_websocket_conection'
 // Enviando gifs
 await sock.sendMessage(
     id, 
@@ -532,7 +532,7 @@ const sendMsg = await sock.sendMessage(id, templateMessage)
                                      No ingrese este campo si desea generar automáticamente un pulgar
                                  */
          mimetype: Mimetype.pdf, /* (para mensajes de medios) especifica el tipo de medios (opcional para todos los tipos de medios excepto documentos),
-                                     import {Mimetype} from '@ReyEndymion/WW_WebSocket_Conection'
+                                     import {Mimetype} from '@reyendymion/ww_websocket_conection'
                                  */
          fileName: 'somefile.pdf', // (para mensajes de medios) nombre de archivo para los medios
          /* enviará mensajes de audio como notas de voz, si se establece en true */
@@ -591,7 +591,7 @@ La presencia expira después de unos 10 segundos.
 Si desea guardar los medios que recibió
 ``` ts
 import { writeFile } from 'fs/promises'
-import { downloadMediaMessage } from  '@ReyEndymion/WW_WebSocket_Conection'
+import { downloadMediaMessage } from  '@reyendymion/ww_websocket_conection'
 
 sock.ev.on('messages.upsert', async ({ messages }) => {
     const m = messages[0]

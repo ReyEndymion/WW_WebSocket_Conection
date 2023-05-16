@@ -3,6 +3,13 @@ import type { AccountSettings } from './Auth'
 import type { BufferedEventData } from './Events'
 import type { MinimalMessage } from './Message'
 
+/** Configuración de privacidad en WhatsApp Web */
+export type WAPrivacyValue = 'all' | 'contacts' | 'contact_blacklist' | 'none'
+
+export type WAPrivacyOnlineValue = 'all' | 'match_last_seen'
+
+export type WAReadReceiptsValue = 'all' | 'none'
+
 /** conjunto de estados visibles para otras personas; ver updatePresence() en WhatsAppWeb.Send */
 export type WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'
 

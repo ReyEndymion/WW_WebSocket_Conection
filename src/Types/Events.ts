@@ -5,6 +5,8 @@ import { WACallEvent } from './Call'
 import { Chat, ChatUpdate, PresenceData } from './Chat'
 import { Contact } from './Contact'
 import { GroupMetadata, ParticipantAction } from './GroupMetadata'
+import { Label } from './Label'
+import { LabelAssociation } from './LabelAssociation'
 import { MessageUpsertType, MessageUserReceiptUpdate, WAMessage, WAMessageKey, WAMessageUpdate } from './Message'
 import { ConnectionState } from './State'
 
@@ -51,9 +53,11 @@ export type BaileysEventMap = {
     'group-participants.update': { id: string, participants: string[], action: ParticipantAction }
 
     'blocklist.set': { blocklist: string[] }
-    'blocklist.update': { blocklist: string[], type: 'add' | 'remove' | 'leave'}
+    'blocklist.update': { blocklist: string[], type: 'add' | 'remove' }
     /** Recibir una actualización de una llamada, incluso cuando se recibió, rechazó, aceptó la llamada*/
     'call': WACallEvent[]
+    'labels.edit': Label
+    'labels.association': { association: LabelAssociation, type: 'add' | 'remove' }
 }
 
 export type BufferedEventData = {

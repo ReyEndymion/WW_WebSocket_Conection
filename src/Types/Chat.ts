@@ -1,6 +1,8 @@
 import type { proto } from '../../WAProto'
 import type { AccountSettings } from './Auth'
 import type { BufferedEventData } from './Events'
+import type { ChatLabelAssociationActionBody } from './LabelAssociation'
+import type { MessageLabelAssociationActionBody } from './LabelAssociation'
 import type { MinimalMessage } from './Message'
 
 /** Configuración de privacidad en WhatsApp Web */
@@ -13,13 +15,7 @@ export type WAReadReceiptsValue = 'all' | 'none'
 /** conjunto de estados visibles para otras personas; ver updatePresence() en WhatsAppWeb.Send */
 export type WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'
 
-export const ALL_WA_PATCH_NAMES = [
-	'critical_block',
-	'critical_unblock_low',
-	'regular_high',
-	'regular_low',
-	'regular'
-] as const
+export const ALL_WA_PATCH_NAMES = ['critical_block', 'critical_unblock_low', 'regular_high', 'regular_low', 'regular'] as const
 
 export type WAPatchName = typeof ALL_WA_PATCH_NAMES[number]
 
@@ -90,6 +86,11 @@ export type ChatModification =
         lastMessages: LastMessageList
     }
     | { delete: true, lastMessages: LastMessageList }
+    // Etiquetas de asociación
+    | { addChatLabel: ChatLabelAssociationActionBody }
+    | { removeChatLabel: ChatLabelAssociationActionBody }
+    | { addMessageLabel: MessageLabelAssociationActionBody }
+    | { removeMessageLabel: MessageLabelAssociationActionBody }
 
 export type InitialReceivedChatsState = {
     [jid: string]: {

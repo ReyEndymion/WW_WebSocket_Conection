@@ -146,12 +146,12 @@ export const makeChatsSocket = (config: SocketConfig) => {
 					content: [
 						{
 							tag: 'query',
-							attrs: { },
-							content: [ queryNode ]
+							attrs: {},
+							content: [queryNode]
 						},
 						{
 							tag: 'list',
-							attrs: { },
+							attrs: {},
 							content: userNodes
 						}
 					]
@@ -167,22 +167,17 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	}
 
 	const onWhatsApp = async(...jids: string[]) => {
-		const results = await interactiveQuery(
-			[
-				{
-					tag: 'user',
-					attrs: { },
-					content: jids.map(
-						jid => ({
-							tag: 'contact',
-							attrs: { },
-							content: `+${jid}`
-						})
-					)
-				}
-			],
-			{ tag: 'contact', attrs: { } }
-		)
+		const query = { tag: 'contact', attrs: {} }
+		const list = jids.map((jid) => ({
+			tag: 'user',
+			attrs: {},
+			content: [{
+				tag: 'contact',
+				attrs: {},
+				content: jid,
+			}],
+		}))
+		const results = await interactiveQuery(list, query)
 
 		return results.map(user => {
 			const contact = getBinaryNodeChild(user, 'contact')
@@ -193,7 +188,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	const fetchStatus = async(jid: string) => {
 		const [result] = await interactiveQuery(
 			[{ tag: 'user', attrs: { jid } }],
-			{ tag: 'status', attrs: { } }
+			{ tag: 'status', attrs: {} }
 		)
 		if(result) {
 			const status = getBinaryNodeChild(result, 'status')
@@ -248,7 +243,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 			content: [
 				{
 					tag: 'status',
-					attrs: { },
+					attrs: {},
 					content: Buffer.from(status, 'utf-8')
 				}
 			]
@@ -379,8 +374,8 @@ export const makeChatsSocket = (config: SocketConfig) => {
 	const resyncAppState = ev.createBufferedFunction(async(collections: readonly WAPatchName[], isInitialSync: boolean) => {
 // usamos esto para determinar qué eventos disparar
 // de lo contrario, cuando resincronicemos desde cero, todas las notificaciones se activarán
-		const initialVersionMap: { [T in WAPatchName]?: number } = { }
-		const globalMutationMap: ChatMutationMap = { }
+		const initialVersionMap: { [T in WAPatchName]?: number } = {}
+		const globalMutationMap: ChatMutationMap = {}
 
 		await authState.keys.transaction(
 			async() => {
@@ -391,7 +386,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 				// A veces, una solicitud de parche no devolverá todos los parches (Dios sabe por qué)
 				// Así que buscamos hasta que todos hayan terminado (esto está determinado por el indicador "Has_More_Patches")
 				while(collectionsToHandle.size) {
-					const states = { } as { [T in WAPatchName]: LTHashState }
+					const states = {} as { [T in WAPatchName]: LTHashState }
 					const nodes: BinaryNode[] = []
 
 					for(const name of collectionsToHandle) {
@@ -412,7 +407,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 
 						nodes.push({
 							tag: 'collection',
-							attrs:  {
+							attrs: {
 								name,
 								version: state.version.toString(),
 								// Devuelva la instantánea si se sincroniza desde cero
@@ -431,7 +426,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 						content: [
 							{
 								tag: 'sync',
-								attrs: { },
+								attrs: {},
 								content: nodes
 							}
 						]
@@ -564,7 +559,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 				content: [
 					{
 						tag: type === 'recording' ? 'composing' : type,
-						attrs: type === 'recording' ? { media : 'audio' } : {}
+						attrs: type === 'recording' ? { media: 'audio' } : {}
 					}
 				]
 			})
@@ -587,7 +582,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 				? [
 					{
 						tag: 'tctoken',
-						attrs: { },
+						attrs: {},
 						content: tcToken
 					}
 				]
@@ -669,7 +664,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 							content: [
 								{
 									tag: 'sync',
-									attrs: { },
+									attrs: {},
 									content: [
 										{
 											tag: 'collection',
@@ -681,7 +676,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 											content: [
 												{
 													tag: 'patch',
-													attrs: { },
+													attrs: {},
 													content: proto.SyncdPatch.encode(patch).finish()
 												}
 											]
@@ -731,7 +726,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 
 		const propsNode = getBinaryNodeChild(abtNode, 'props')
 
-		let props: { [_: string]: string } = { }
+		let props: { [_: string]: string } = {}
 		if(propsNode) {
 			props = reduceBinaryNodeToDictionary(propsNode, 'prop')
 		}
@@ -751,13 +746,13 @@ export const makeChatsSocket = (config: SocketConfig) => {
 				type: 'get',
 			},
 			content: [
-				{ tag: 'props', attrs: { } }
+				{ tag: 'props', attrs: {} }
 			]
 		})
 
 		const propsNode = getBinaryNodeChild(resultNode, 'props')
 
-		let props: { [_: string]: string } = { }
+		let props: { [_: string]: string } = {}
 		if(propsNode) {
 			props = reduceBinaryNodeToDictionary(propsNode, 'prop')
 		}
@@ -777,6 +772,51 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		return appPatch(patch)
 	}
 
+	/**
+	 * Agrega etiqueta para los chats.
+	 */
+	const addChatLabel = (jid: string, labelId: string) => {
+		return chatModify({
+			addChatLabel: {
+				labelId
+			}
+		}, jid)
+	}
+
+	/**
+	 * Elimina la etiqueta para el chat.
+	 */
+	const removeChatLabel = (jid: string, labelId: string) => {
+		return chatModify({
+			removeChatLabel: {
+				labelId
+			}
+		}, jid)
+	}
+
+	/**
+	 * Agrega una etiqueta para el mensaje.
+	 */
+	const addMessageLabel = (jid: string, messageId: string, labelId: string) => {
+		return chatModify({
+			addMessageLabel: {
+				messageId,
+				labelId
+			}
+		}, jid)
+	}
+
+	/**
+	 * Elimina la etiqueta del mensaje.
+	 */
+	const removeMessageLabel = (jid: string, messageId: string, labelId: string) => {
+		return chatModify({
+			removeMessageLabel: {
+				messageId,
+				labelId
+			}
+		}, jid)
+	}
 	/**
 	 * Las consultas deben ser disparadas en la conexión abierta
 	 * Ayuda a garantizar la paridad con WA Web
@@ -801,7 +841,7 @@ export const makeChatsSocket = (config: SocketConfig) => {
 				ev.emit('contacts.update', [{ id: jid, notify: msg.pushName, verifiedName: msg.verifiedBizName! }])
 			}
 
-			// Actualizar nuestro nombre de empuje también
+			// Actualice nuestro pushname también
 			if(msg.key.fromMe && msg.pushName && authState.creds.me?.name !== msg.pushName) {
 				ev.emit('creds.update', { me: { ...authState.creds.me!, name: msg.pushName! } })
 			}
@@ -945,6 +985,10 @@ export const makeChatsSocket = (config: SocketConfig) => {
 		updateDefaultDisappearingMode,
 		getBusinessProfile,
 		resyncAppState,
-		chatModify
+		chatModify,
+		addChatLabel,
+		removeChatLabel,
+		addMessageLabel,
+		removeMessageLabel
 	}
 }

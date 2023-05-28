@@ -13,6 +13,12 @@ export namespace proto {
 
         /** ADVDeviceIdentity keyIndex */
         keyIndex?: (number|null);
+
+        /** ADVDeviceIdentity accountType */
+        accountType?: (proto.ADVEncryptionType|null);
+
+        /** ADVDeviceIdentity deviceType */
+        deviceType?: (proto.ADVEncryptionType|null);
     }
 
     /** Representa un ADVDeviceIdentity. */
@@ -32,6 +38,12 @@ export namespace proto {
 
         /** ADVDeviceIdentity keyIndex. */
         public keyIndex: number;
+
+        /** ADVDeviceIdentity accountType. */
+        public accountType: proto.ADVEncryptionType;
+
+        /** ADVDeviceIdentity deviceType. */
+        public deviceType: proto.ADVEncryptionType;
 
         /**
          * Crea una nueva instancia ADVDeviceIdentity utilizando las propiedades especificadas.
@@ -104,6 +116,12 @@ export namespace proto {
         public toJSON(): { [k: string]: any };
     }
 
+    /** ADVEncryptionType enum. */
+    enum ADVEncryptionType {
+        E2EE = 0,
+        HOSTED = 1
+    }
+
     /** Propiedades de un ADVKeyIndexList. */
     interface IADVKeyIndexList {
 
@@ -118,6 +136,9 @@ export namespace proto {
 
         /** ADVKeyIndexList validIndexes */
         validIndexes?: (number[]|null);
+
+        /** ADVKeyIndexList accountType */
+        accountType?: (proto.ADVEncryptionType|null);
     }
 
     /** Representa un ADVKeyIndexList. */
@@ -140,6 +161,9 @@ export namespace proto {
 
         /** ADVKeyIndexList validIndexes. */
         public validIndexes: number[];
+
+        /** ADVKeyIndexList accountType. */
+        public accountType: proto.ADVEncryptionType;
 
         /**
          * Crea una nueva instancia ADVKeyIndexList utilizando las propiedades especificadas.
@@ -165,7 +189,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IADVKeyIndexList, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a ADVKeyIndexList message from the specified reader or buffer.
+         * Decodifica un mensaje ADVKeyIndexList desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ADVKeyIndexList
@@ -175,7 +199,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ADVKeyIndexList;
 
         /**
-         * Decodes a ADVKeyIndexList message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje ADVKeyIndexList message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ADVKeyIndexList
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -184,14 +208,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ADVKeyIndexList;
 
         /**
-         * Verifies a ADVKeyIndexList message.
+         * Verifica un mensaje ADVKeyIndexList message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a ADVKeyIndexList message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje ADVKeyIndexList message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns ADVKeyIndexList
          */
@@ -273,7 +297,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IADVSignedDeviceIdentity, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a ADVSignedDeviceIdentity message from the specified reader or buffer.
+         * Decodifica un mensaje ADVSignedDeviceIdentity desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ADVSignedDeviceIdentity
@@ -283,7 +307,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ADVSignedDeviceIdentity;
 
         /**
-         * Decodes a ADVSignedDeviceIdentity message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje ADVSignedDeviceIdentity message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ADVSignedDeviceIdentity
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -292,14 +316,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ADVSignedDeviceIdentity;
 
         /**
-         * Verifies a ADVSignedDeviceIdentity message.
+         * Verifica un mensaje ADVSignedDeviceIdentity message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a ADVSignedDeviceIdentity message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje ADVSignedDeviceIdentity message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns ADVSignedDeviceIdentity
          */
@@ -369,7 +393,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IADVSignedDeviceIdentityHMAC, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a ADVSignedDeviceIdentityHMAC message from the specified reader or buffer.
+         * Decodifica un mensaje ADVSignedDeviceIdentityHMAC desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ADVSignedDeviceIdentityHMAC
@@ -379,7 +403,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ADVSignedDeviceIdentityHMAC;
 
         /**
-         * Decodes a ADVSignedDeviceIdentityHMAC message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje ADVSignedDeviceIdentityHMAC message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ADVSignedDeviceIdentityHMAC
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -388,14 +412,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ADVSignedDeviceIdentityHMAC;
 
         /**
-         * Verifies a ADVSignedDeviceIdentityHMAC message.
+         * Verifica un mensaje ADVSignedDeviceIdentityHMAC message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a ADVSignedDeviceIdentityHMAC message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje ADVSignedDeviceIdentityHMAC message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns ADVSignedDeviceIdentityHMAC
          */
@@ -465,7 +489,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IADVSignedKeyIndexList, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a ADVSignedKeyIndexList message from the specified reader or buffer.
+         * Decodifica un mensaje ADVSignedKeyIndexList desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ADVSignedKeyIndexList
@@ -475,7 +499,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ADVSignedKeyIndexList;
 
         /**
-         * Decodes a ADVSignedKeyIndexList message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje ADVSignedKeyIndexList message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ADVSignedKeyIndexList
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -484,14 +508,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ADVSignedKeyIndexList;
 
         /**
-         * Verifies a ADVSignedKeyIndexList message.
+         * Verifica un mensaje ADVSignedKeyIndexList message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a ADVSignedKeyIndexList message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje ADVSignedKeyIndexList message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns ADVSignedKeyIndexList
          */
@@ -561,7 +585,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IActionLink, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an ActionLink message from the specified reader or buffer.
+         * Decodifica un mensajen ActionLink desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ActionLink
@@ -571,7 +595,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ActionLink;
 
         /**
-         * Decodes an ActionLink message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensajen ActionLink message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ActionLink
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -669,7 +693,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IAutoDownloadSettings, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an AutoDownloadSettings message from the specified reader or buffer.
+         * Decodifica un mensajen AutoDownloadSettings desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns AutoDownloadSettings
@@ -679,7 +703,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.AutoDownloadSettings;
 
         /**
-         * Decodes an AutoDownloadSettings message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensajen AutoDownloadSettings message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns AutoDownloadSettings
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -765,7 +789,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IAvatarUserSettings, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an AvatarUserSettings message from the specified reader or buffer.
+         * Decodifica un mensajen AvatarUserSettings desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns AvatarUserSettings
@@ -775,7 +799,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.AvatarUserSettings;
 
         /**
-         * Decodes an AvatarUserSettings message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensajen AvatarUserSettings message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns AvatarUserSettings
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -879,7 +903,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IBizAccountLinkInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a BizAccountLinkInfo message from the specified reader or buffer.
+         * Decodifica un mensaje BizAccountLinkInfo desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns BizAccountLinkInfo
@@ -889,7 +913,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.BizAccountLinkInfo;
 
         /**
-         * Decodes a BizAccountLinkInfo message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje BizAccountLinkInfo message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns BizAccountLinkInfo
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -898,14 +922,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.BizAccountLinkInfo;
 
         /**
-         * Verifies a BizAccountLinkInfo message.
+         * Verifica un mensaje BizAccountLinkInfo message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a BizAccountLinkInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje BizAccountLinkInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns BizAccountLinkInfo
          */
@@ -989,7 +1013,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IBizAccountPayload, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a BizAccountPayload message from the specified reader or buffer.
+         * Decodifica un mensaje BizAccountPayload desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns BizAccountPayload
@@ -999,7 +1023,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.BizAccountPayload;
 
         /**
-         * Decodes a BizAccountPayload message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje BizAccountPayload message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns BizAccountPayload
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -1008,14 +1032,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.BizAccountPayload;
 
         /**
-         * Verifies a BizAccountPayload message.
+         * Verifica un mensaje BizAccountPayload message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a BizAccountPayload message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje BizAccountPayload message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns BizAccountPayload
          */
@@ -1121,7 +1145,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IBizIdentityInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a BizIdentityInfo message from the specified reader or buffer.
+         * Decodifica un mensaje BizIdentityInfo desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns BizIdentityInfo
@@ -1131,7 +1155,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.BizIdentityInfo;
 
         /**
-         * Decodes a BizIdentityInfo message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje BizIdentityInfo message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns BizIdentityInfo
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -1140,14 +1164,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.BizIdentityInfo;
 
         /**
-         * Verifies a BizIdentityInfo message.
+         * Verifica un mensaje BizIdentityInfo message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a BizIdentityInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje BizIdentityInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns BizIdentityInfo
          */
@@ -1239,7 +1263,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ICertChain, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a CertChain message from the specified reader or buffer.
+         * Decodifica un mensaje CertChain desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns CertChain
@@ -1249,7 +1273,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.CertChain;
 
         /**
-         * Decodes a CertChain message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje CertChain message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns CertChain
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -1258,14 +1282,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.CertChain;
 
         /**
-         * Verifies a CertChain message.
+         * Verifica un mensaje CertChain message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a CertChain message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje CertChain message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns CertChain
          */
@@ -1337,7 +1361,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.CertChain.INoiseCertificate, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a NoiseCertificate message from the specified reader or buffer.
+             * Decodifica un mensaje NoiseCertificate desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns NoiseCertificate
@@ -1347,7 +1371,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.CertChain.NoiseCertificate;
 
             /**
-             * Decodes a NoiseCertificate message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje NoiseCertificate message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns NoiseCertificate
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -1356,14 +1380,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.CertChain.NoiseCertificate;
 
             /**
-             * Verifies a NoiseCertificate message.
+             * Verifica un mensaje NoiseCertificate message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a NoiseCertificate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje NoiseCertificate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns NoiseCertificate
              */
@@ -1453,7 +1477,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.CertChain.NoiseCertificate.IDetails, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Details message from the specified reader or buffer.
+                 * Decodifica un mensaje Details desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Details
@@ -1463,7 +1487,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.CertChain.NoiseCertificate.Details;
 
                 /**
-                 * Decodes a Details message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Details message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Details
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -1472,14 +1496,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.CertChain.NoiseCertificate.Details;
 
                 /**
-                 * Verifies a Details message.
+                 * Verifica un mensaje Details message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Details message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Details message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Details
                  */
@@ -1582,6 +1606,9 @@ export namespace proto {
 
         /** ClientPayload memClass */
         memClass?: (number|null);
+
+        /** ClientPayload interopData */
+        interopData?: (proto.ClientPayload.IInteropData|null);
     }
 
     /** Representa un ClientPayload. */
@@ -1671,6 +1698,9 @@ export namespace proto {
         /** ClientPayload memClass. */
         public memClass: number;
 
+        /** ClientPayload interopData. */
+        public interopData?: (proto.ClientPayload.IInteropData|null);
+
         /**
          * Crea una nueva instancia ClientPayload utilizando las propiedades especificadas.
          * @param [properties] para establecer propiedades
@@ -1695,7 +1725,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IClientPayload, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a ClientPayload message from the specified reader or buffer.
+         * Decodifica un mensaje ClientPayload desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ClientPayload
@@ -1705,7 +1735,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ClientPayload;
 
         /**
-         * Decodes a ClientPayload message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje ClientPayload message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ClientPayload
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -1714,14 +1744,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ClientPayload;
 
         /**
-         * Verifies a ClientPayload message.
+         * Verifica un mensaje ClientPayload message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a ClientPayload message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje ClientPayload message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns ClientPayload
          */
@@ -1751,7 +1781,8 @@ export namespace proto {
             SCHEDULED = 2,
             ERROR_RECONNECT = 3,
             NETWORK_SWITCH = 4,
-            PING_RECONNECT = 5
+            PING_RECONNECT = 5,
+            UNKNOWN = 6
         }
 
         /** ConnectType enum. */
@@ -1822,7 +1853,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.ClientPayload.IDNSSource, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a DNSSource message from the specified reader or buffer.
+             * Decodifica un mensaje DNSSource desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns DNSSource
@@ -1832,7 +1863,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ClientPayload.DNSSource;
 
             /**
-             * Decodes a DNSSource message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje DNSSource message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns DNSSource
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -1841,14 +1872,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ClientPayload.DNSSource;
 
             /**
-             * Verifies a DNSSource message.
+             * Verifica un mensaje DNSSource message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a DNSSource message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje DNSSource message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns DNSSource
              */
@@ -1966,7 +1997,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.ClientPayload.IDevicePairingRegistrationData, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a DevicePairingRegistrationData message from the specified reader or buffer.
+             * Decodifica un mensaje DevicePairingRegistrationData desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns DevicePairingRegistrationData
@@ -1976,7 +2007,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ClientPayload.DevicePairingRegistrationData;
 
             /**
-             * Decodes a DevicePairingRegistrationData message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje DevicePairingRegistrationData message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns DevicePairingRegistrationData
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -1985,14 +2016,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ClientPayload.DevicePairingRegistrationData;
 
             /**
-             * Verifies a DevicePairingRegistrationData message.
+             * Verifica un mensaje DevicePairingRegistrationData message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a DevicePairingRegistrationData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje DevicePairingRegistrationData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns DevicePairingRegistrationData
              */
@@ -2020,10 +2051,113 @@ export namespace proto {
             INTENTS_EXTENSION = 2
         }
 
-        /** Product enum. */
+        /** Propiedades de un InteropData. */
+        interface IInteropData {
+
+            /** InteropData accountId */
+            accountId?: (number|Long|null);
+
+            /** InteropData integratorId */
+            integratorId?: (number|null);
+
+            /** InteropData token */
+            token?: (Uint8Array|null);
+        }
+
+        /** Representa un InteropData. */
+        class InteropData implements IInteropData {
+
+            /**
+             * Construye un nuevo InteropData.
+             * @param [properties] Propiedades a configurar
+             */
+            constructor(properties?: proto.ClientPayload.IInteropData);
+
+            /** InteropData accountId. */
+            public accountId: (number|Long);
+
+            /** InteropData integratorId. */
+            public integratorId: number;
+
+            /** InteropData token. */
+            public token: Uint8Array;
+
+            /**
+             * Crea una nueva instancia de InteropData usando las propiedades especificadas.
+             * @param [properties] Propiedades a configurar
+             * @returns Instancia de InteropData
+             */
+            public static create(properties?: proto.ClientPayload.IInteropData): proto.ClientPayload.InteropData;
+
+            /**
+             * Codifica el mensaje InteropData especificado. No implícitamente mensajes {@link proto.ClientPayload.InteropData.verify|verify}.
+             * @param message Mensaje de InteropData u objeto sin formato para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encode(message: proto.ClientPayload.IInteropData, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Codifica el mensaje InteropData especificado, delimitado por longitud. No implícitamente mensajes {@link proto.ClientPayload.InteropData.verify|verify}.
+             * @param message Mensaje de InteropData u objeto sin formato para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.ClientPayload.IInteropData, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodifica un mensaje InteropData del lector o búfer especificado.
+             * @param reader Lector o búfer para decodificar
+             * @param [length] Longitud del mensaje si se conoce de antemano
+             * @returns InteropData
+             * @throws {Error} si la carga útil no es un lector o un búfer válido
+             * @throws {$protobuf.util.ProtocolError} si faltan campos obligatorios
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ClientPayload.InteropData;
+
+            /**
+             * Decodifica un mensaje InteropData del lector o búfer especificado, delimitado por longitud.
+             * @param reader Lector o búfer para decodificar
+             * @returns InteropData
+             * @throws {Error} si la carga útil no es un lector o un búfer válido
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ClientPayload.InteropData;
+
+            /**
+             *Verifica un mensaje de InteropData..
+             * @param message Objeto simple para verificar
+             * @returns `null` si es válido, de lo contrario, la razón por la que no lo es
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Crea un mensaje InteropData a partir de un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * @param object Objeto simple
+             * @returns InteropData
+             */
+            public static fromObject(object: { [k: string]: any }): proto.ClientPayload.InteropData;
+
+            /**
+             * Crea un objeto plano a partir de un mensaje InteropData. También convierte valores a otros tipos si se especifica.
+             * @param message InteropData
+             * @param [options] Opciones de conversión
+             * @returns Objeto simple
+             */
+            public static toObject(message: proto.ClientPayload.InteropData, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Convierte este InteropData a JSON.
+             * @returns objeto JSON
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** enumeración del producto */
         enum Product {
             WHATSAPP = 0,
-            MESSENGER = 1
+            MESSENGER = 1,
+            INTEROP = 2
         }
 
         /** Propiedades de un UserAgent. */
@@ -2067,6 +2201,9 @@ export namespace proto {
 
             /** UserAgent deviceBoard */
             deviceBoard?: (string|null);
+
+            /** UserAgent deviceExpId */
+            deviceExpId?: (string|null);
         }
 
         /** Representa un UserAgent. */
@@ -2117,6 +2254,9 @@ export namespace proto {
             /** UserAgent deviceBoard. */
             public deviceBoard: string;
 
+            /** UserAgent deviceExpId. */
+            public deviceExpId: string;
+
             /**
              * Crea una nueva instancia UserAgent utilizando las propiedades especificadas.
              * @param [properties] para establecer propiedades
@@ -2141,7 +2281,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.ClientPayload.IUserAgent, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a UserAgent message from the specified reader or buffer.
+             * Decodifica un mensaje UserAgent desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns UserAgent
@@ -2151,7 +2291,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ClientPayload.UserAgent;
 
             /**
-             * Decodes a UserAgent message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje UserAgent message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns UserAgent
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -2160,14 +2300,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ClientPayload.UserAgent;
 
             /**
-             * Verifies a UserAgent message.
+             * Verifica un mensaje UserAgent message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a UserAgent message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje UserAgent message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns UserAgent
              */
@@ -2257,7 +2397,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.ClientPayload.UserAgent.IAppVersion, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes an AppVersion message from the specified reader or buffer.
+                 * Decodifica un mensajen AppVersion desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns AppVersion
@@ -2267,7 +2407,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ClientPayload.UserAgent.AppVersion;
 
                 /**
-                 * Decodes an AppVersion message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensajen AppVersion message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns AppVersion
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -2338,7 +2478,8 @@ export namespace proto {
                 WEAROS = 29,
                 ARDEVICE = 30,
                 VRDEVICE = 31,
-                BLUE_WEB = 32
+                BLUE_WEB = 32,
+                IPAD = 33
             }
 
             /** ReleaseChannel enum. */
@@ -2411,7 +2552,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.ClientPayload.IWebInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a WebInfo message from the specified reader or buffer.
+             * Decodifica un mensaje WebInfo desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns WebInfo
@@ -2421,7 +2562,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ClientPayload.WebInfo;
 
             /**
-             * Decodes a WebInfo message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje WebInfo message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns WebInfo
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -2430,14 +2571,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ClientPayload.WebInfo;
 
             /**
-             * Verifies a WebInfo message.
+             * Verifica un mensaje WebInfo message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a WebInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje WebInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns WebInfo
              */
@@ -2572,7 +2713,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.ClientPayload.WebInfo.IWebdPayload, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a WebdPayload message from the specified reader or buffer.
+                 * Decodifica un mensaje WebdPayload desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns WebdPayload
@@ -2582,7 +2723,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ClientPayload.WebInfo.WebdPayload;
 
                 /**
-                 * Decodes a WebdPayload message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje WebdPayload message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns WebdPayload
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -2591,14 +2732,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ClientPayload.WebInfo.WebdPayload;
 
                 /**
-                 * Verifies a WebdPayload message.
+                 * Verifica un mensaje WebdPayload message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a WebdPayload message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje WebdPayload message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns WebdPayload
                  */
@@ -2826,7 +2967,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IContextInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a ContextInfo message from the specified reader or buffer.
+         * Decodifica un mensaje ContextInfo desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ContextInfo
@@ -2836,7 +2977,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ContextInfo;
 
         /**
-         * Decodes a ContextInfo message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje ContextInfo message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ContextInfo
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -2845,14 +2986,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ContextInfo;
 
         /**
-         * Verifies a ContextInfo message.
+         * Verifica un mensaje ContextInfo message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a ContextInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje ContextInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns ContextInfo
          */
@@ -2936,7 +3077,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.ContextInfo.IAdReplyInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AdReplyInfo message from the specified reader or buffer.
+             * Decodifica un mensajen AdReplyInfo desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AdReplyInfo
@@ -2946,7 +3087,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ContextInfo.AdReplyInfo;
 
             /**
-             * Decodes an AdReplyInfo message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AdReplyInfo message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AdReplyInfo
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -3034,6 +3175,9 @@ export namespace proto {
 
             /** ExternalAdReplyInfo ctwaClid */
             ctwaClid?: (string|null);
+
+            /** ExternalAdReplyInfo ref */
+            ref?: (string|null);
         }
 
         /** Representa unn ExternalAdReplyInfo. */
@@ -3084,6 +3228,9 @@ export namespace proto {
             /** ExternalAdReplyInfo ctwaClid. */
             public ctwaClid: string;
 
+            /** ExternalAdReplyInfo ref. */
+            public ref: string;
+
             /**
              * Crea una nueva instancia ExternalAdReplyInfo utilizando las propiedades especificadas.
              * @param [properties] para establecer propiedades
@@ -3108,7 +3255,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.ContextInfo.IExternalAdReplyInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an ExternalAdReplyInfo message from the specified reader or buffer.
+             * Decodifica un mensajen ExternalAdReplyInfo desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ExternalAdReplyInfo
@@ -3118,7 +3265,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ContextInfo.ExternalAdReplyInfo;
 
             /**
-             * Decodes an ExternalAdReplyInfo message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen ExternalAdReplyInfo message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ExternalAdReplyInfo
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -3214,7 +3361,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.ContextInfo.IUTMInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a UTMInfo message from the specified reader or buffer.
+             * Decodifica un mensaje UTMInfo desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns UTMInfo
@@ -3224,7 +3371,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ContextInfo.UTMInfo;
 
             /**
-             * Decodes a UTMInfo message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje UTMInfo message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns UTMInfo
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -3233,14 +3380,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ContextInfo.UTMInfo;
 
             /**
-             * Verifies a UTMInfo message.
+             * Verifica un mensaje UTMInfo message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a UTMInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje UTMInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns UTMInfo
              */
@@ -3551,7 +3698,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IConversation, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a Conversation message from the specified reader or buffer.
+         * Decodifica un mensaje Conversation desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns Conversation
@@ -3561,7 +3708,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Conversation;
 
         /**
-         * Decodes a Conversation message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje Conversation message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns Conversation
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -3570,14 +3717,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Conversation;
 
         /**
-         * Verifies a Conversation message.
+         * Verifica un mensaje Conversation message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a Conversation message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje Conversation message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns Conversation
          */
@@ -3603,8 +3750,105 @@ export namespace proto {
         /** EndOfHistoryTransferType enum. */
         enum EndOfHistoryTransferType {
             COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY = 0,
-            COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY = 1
+            COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY = 1,
+            COMPLETE_ON_DEMAND_SYNC_BUT_MORE_MSG_REMAIN_ON_PRIMARY = 2
         }
+    }
+
+    /** Propiedades de un DeviceConsistencyCodeMessage. */
+    interface IDeviceConsistencyCodeMessage {
+
+        /** DeviceConsistencyCodeMessage generation */
+        generation?: (number|null);
+
+        /** DeviceConsistencyCodeMessage signature */
+        signature?: (Uint8Array|null);
+    }
+
+    /** representa un DeviceConsistencyCodeMessage. */
+    class DeviceConsistencyCodeMessage implements IDeviceConsistencyCodeMessage {
+
+        /**
+         * Construye un nuevo DeviceConsistencyCodeMessage.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.IDeviceConsistencyCodeMessage);
+
+        /** DeviceConsistencyCodeMessage generation. */
+        public generation: number;
+
+        /** DeviceConsistencyCodeMessage signature. */
+        public signature: Uint8Array;
+
+        /**
+         * Crea una nueva DeviceConsistencyCodeMessage instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns DeviceConsistencyCodeMessage instance
+         */
+        public static create(properties?: proto.IDeviceConsistencyCodeMessage): proto.DeviceConsistencyCodeMessage;
+
+        /**
+         * Codifica el especificado DeviceConsistencyCodeMessage message. No implícitamente mensajes {@link proto.DeviceConsistencyCodeMessage.verify|verify}.
+         * @param message DeviceConsistencyCodeMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.IDeviceConsistencyCodeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado DeviceConsistencyCodeMessage message, length delimited. No implícitamente mensajes {@link proto.DeviceConsistencyCodeMessage.verify|verify}.
+         * @param message DeviceConsistencyCodeMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IDeviceConsistencyCodeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje DeviceConsistencyCodeMessage desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeviceConsistencyCodeMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.DeviceConsistencyCodeMessage;
+
+        /**
+         * Decodifica un mensaje DeviceConsistencyCodeMessage desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeviceConsistencyCodeMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.DeviceConsistencyCodeMessage;
+
+        /**
+         * Verifica un mensaje DeviceConsistencyCodeMessage message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje DeviceConsistencyCodeMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns DeviceConsistencyCodeMessage
+         */
+        public static fromObject(object: { [k: string]: any }): proto.DeviceConsistencyCodeMessage;
+
+        /**
+         * Crea un objeto simple de un DeviceConsistencyCodeMessage message. Also converts values to other types if specified.
+         * @param message DeviceConsistencyCodeMessage
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.DeviceConsistencyCodeMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte esteDeviceConsistencyCodeMessage to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
     }
 
     /** Propiedades de un DeviceListMetadata. */
@@ -3680,7 +3924,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IDeviceListMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a DeviceListMetadata message from the specified reader or buffer.
+         * Decodifica un mensaje DeviceListMetadata desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns DeviceListMetadata
@@ -3690,7 +3934,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.DeviceListMetadata;
 
         /**
-         * Decodes a DeviceListMetadata message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje DeviceListMetadata message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns DeviceListMetadata
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -3699,14 +3943,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.DeviceListMetadata;
 
         /**
-         * Verifies a DeviceListMetadata message.
+         * Verifica un mensaje DeviceListMetadata message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a DeviceListMetadata message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje DeviceListMetadata message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns DeviceListMetadata
          */
@@ -3794,7 +4038,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IDeviceProps, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a DeviceProps message from the specified reader or buffer.
+         * Decodifica un mensaje DeviceProps desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns DeviceProps
@@ -3804,7 +4048,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.DeviceProps;
 
         /**
-         * Decodes a DeviceProps message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje DeviceProps message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns DeviceProps
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -3813,14 +4057,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.DeviceProps;
 
         /**
-         * Verifies a DeviceProps message.
+         * Verifica un mensaje DeviceProps message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a DeviceProps message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje DeviceProps message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns DeviceProps
          */
@@ -3910,7 +4154,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.DeviceProps.IAppVersion, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AppVersion message from the specified reader or buffer.
+             * Decodifica un mensajen AppVersion desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AppVersion
@@ -3920,7 +4164,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.DeviceProps.AppVersion;
 
             /**
-             * Decodes an AppVersion message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AppVersion message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AppVersion
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -3968,6 +4212,12 @@ export namespace proto {
 
             /** HistorySyncConfig storageQuotaMb */
             storageQuotaMb?: (number|null);
+
+            /** HistorySyncConfig inlineInitialPayloadInE2EeMsg */
+            inlineInitialPayloadInE2EeMsg?: (boolean|null);
+
+            /** HistorySyncConfig recentSyncDaysLimit */
+            recentSyncDaysLimit?: (number|null);
         }
 
         /** Representa un HistorySyncConfig. */
@@ -3987,6 +4237,12 @@ export namespace proto {
 
             /** HistorySyncConfig storageQuotaMb. */
             public storageQuotaMb: number;
+
+            /** HistorySyncConfig inlineInitialPayloadInE2EeMsg. */
+            public inlineInitialPayloadInE2EeMsg: boolean;
+
+            /** HistorySyncConfig recentSyncDaysLimit. */
+            public recentSyncDaysLimit: number;
 
             /**
              * Crea una nueva instancia HistorySyncConfig utilizando las propiedades especificadas.
@@ -4012,7 +4268,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.DeviceProps.IHistorySyncConfig, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a HistorySyncConfig message from the specified reader or buffer.
+             * Decodifica un mensaje HistorySyncConfig desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns HistorySyncConfig
@@ -4022,7 +4278,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.DeviceProps.HistorySyncConfig;
 
             /**
-             * Decodes a HistorySyncConfig message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje HistorySyncConfig message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns HistorySyncConfig
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4031,14 +4287,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.DeviceProps.HistorySyncConfig;
 
             /**
-             * Verifies a HistorySyncConfig message.
+             * Verifica un mensaje HistorySyncConfig message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a HistorySyncConfig message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje HistorySyncConfig message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns HistorySyncConfig
              */
@@ -4078,7 +4334,10 @@ export namespace proto {
             IOS_PHONE = 14,
             IOS_CATALYST = 15,
             ANDROID_PHONE = 16,
-            ANDROID_AMBIGUOUS = 17
+            ANDROID_AMBIGUOUS = 17,
+            WEAR_OS = 18,
+            AR_WRIST = 19,
+            AR_DEVICE = 20
         }
     }
 
@@ -4125,7 +4384,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IDisappearingMode, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a DisappearingMode message from the specified reader or buffer.
+         * Decodifica un mensaje DisappearingMode desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns DisappearingMode
@@ -4135,7 +4394,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.DisappearingMode;
 
         /**
-         * Decodes a DisappearingMode message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje DisappearingMode message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns DisappearingMode
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4144,14 +4403,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.DisappearingMode;
 
         /**
-         * Verifies a DisappearingMode message.
+         * Verifica un mensaje DisappearingMode message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a DisappearingMode message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje DisappearingMode message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns DisappearingMode
          */
@@ -4231,7 +4490,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IEphemeralSetting, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an EphemeralSetting message from the specified reader or buffer.
+         * Decodifica un mensajen EphemeralSetting desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns EphemeralSetting
@@ -4241,7 +4500,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.EphemeralSetting;
 
         /**
-         * Decodes an EphemeralSetting message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensajen EphemeralSetting message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns EphemeralSetting
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4327,7 +4586,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IExitCode, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an ExitCode message from the specified reader or buffer.
+         * Decodifica un mensajen ExitCode desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ExitCode
@@ -4337,7 +4596,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ExitCode;
 
         /**
-         * Decodes an ExitCode message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensajen ExitCode message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ExitCode
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4447,7 +4706,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IExternalBlobReference, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an ExternalBlobReference message from the specified reader or buffer.
+         * Decodifica un mensajen ExternalBlobReference desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ExternalBlobReference
@@ -4457,7 +4716,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ExternalBlobReference;
 
         /**
-         * Decodes an ExternalBlobReference message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensajen ExternalBlobReference message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ExternalBlobReference
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4529,6 +4788,27 @@ export namespace proto {
 
         /** GlobalSettings avatarUserSettings */
         avatarUserSettings?: (proto.IAvatarUserSettings|null);
+
+        /** GlobalSettings fontSize */
+        fontSize?: (number|null);
+
+        /** GlobalSettings securityNotifications */
+        securityNotifications?: (boolean|null);
+
+        /** GlobalSettings autoUnarchiveChats */
+        autoUnarchiveChats?: (boolean|null);
+
+        /** GlobalSettings videoQualityMode */
+        videoQualityMode?: (number|null);
+
+        /** GlobalSettings photoQualityMode */
+        photoQualityMode?: (number|null);
+
+        /** GlobalSettings individualNotificationSettings */
+        individualNotificationSettings?: (proto.INotificationSettings|null);
+
+        /** GlobalSettings groupNotificationSettings */
+        groupNotificationSettings?: (proto.INotificationSettings|null);
     }
 
     /** Representa un GlobalSettings. */
@@ -4573,6 +4853,27 @@ export namespace proto {
         /** GlobalSettings avatarUserSettings. */
         public avatarUserSettings?: (proto.IAvatarUserSettings|null);
 
+        /** GlobalSettings fontSize. */
+        public fontSize: number;
+
+        /** GlobalSettings securityNotifications. */
+        public securityNotifications: boolean;
+
+        /** GlobalSettings autoUnarchiveChats. */
+        public autoUnarchiveChats: boolean;
+
+        /** GlobalSettings videoQualityMode. */
+        public videoQualityMode: number;
+
+        /** GlobalSettings photoQualityMode. */
+        public photoQualityMode: number;
+
+        /** GlobalSettings individualNotificationSettings. */
+        public individualNotificationSettings?: (proto.INotificationSettings|null);
+
+        /** GlobalSettings groupNotificationSettings. */
+        public groupNotificationSettings?: (proto.INotificationSettings|null);
+
         /**
          * Crea una nueva instancia GlobalSettings utilizando las propiedades especificadas.
          * @param [properties] para establecer propiedades
@@ -4597,7 +4898,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GlobalSettings message from the specified reader or buffer.
+         * Decodifica un mensaje GlobalSettings desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns GlobalSettings
@@ -4607,7 +4908,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.GlobalSettings;
 
         /**
-         * Decodes a GlobalSettings message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje GlobalSettings message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns GlobalSettings
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4616,14 +4917,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.GlobalSettings;
 
         /**
-         * Verifies a GlobalSettings message.
+         * Verifica un mensaje GlobalSettings message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GlobalSettings message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje GlobalSettings message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns GlobalSettings
          */
@@ -4693,7 +4994,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IGroupMention, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GroupMention message from the specified reader or buffer.
+         * Decodifica un mensaje GroupMention desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns GroupMention
@@ -4703,7 +5004,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.GroupMention;
 
         /**
-         * Decodes a GroupMention message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje GroupMention message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns GroupMention
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4712,14 +5013,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.GroupMention;
 
         /**
-         * Verifies a GroupMention message.
+         * Verifica un mensaje GroupMention message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GroupMention message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje GroupMention message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns GroupMention
          */
@@ -4789,7 +5090,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IGroupParticipant, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GroupParticipant message from the specified reader or buffer.
+         * Decodifica un mensaje GroupParticipant desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns GroupParticipant
@@ -4799,7 +5100,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.GroupParticipant;
 
         /**
-         * Decodes a GroupParticipant message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje GroupParticipant message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns GroupParticipant
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4808,14 +5109,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.GroupParticipant;
 
         /**
-         * Verifies a GroupParticipant message.
+         * Verifica un mensaje GroupParticipant message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GroupParticipant message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje GroupParticipant message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns GroupParticipant
          */
@@ -4901,7 +5202,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IHandshakeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a HandshakeMessage message from the specified reader or buffer.
+         * Decodifica un mensaje HandshakeMessage desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns HandshakeMessage
@@ -4911,7 +5212,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HandshakeMessage;
 
         /**
-         * Decodes a HandshakeMessage message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje HandshakeMessage message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns HandshakeMessage
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -4920,14 +5221,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HandshakeMessage;
 
         /**
-         * Verifies a HandshakeMessage message.
+         * Verifica un mensaje HandshakeMessage message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a HandshakeMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje HandshakeMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns HandshakeMessage
          */
@@ -4999,7 +5300,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.HandshakeMessage.IClientFinish, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ClientFinish message from the specified reader or buffer.
+             * Decodifica un mensaje ClientFinish desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ClientFinish
@@ -5009,7 +5310,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HandshakeMessage.ClientFinish;
 
             /**
-             * Decodes a ClientFinish message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ClientFinish message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ClientFinish
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5018,14 +5319,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HandshakeMessage.ClientFinish;
 
             /**
-             * Verifies a ClientFinish message.
+             * Verifica un mensaje ClientFinish message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ClientFinish message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ClientFinish message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ClientFinish
              */
@@ -5101,7 +5402,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.HandshakeMessage.IClientHello, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ClientHello message from the specified reader or buffer.
+             * Decodifica un mensaje ClientHello desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ClientHello
@@ -5111,7 +5412,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HandshakeMessage.ClientHello;
 
             /**
-             * Decodes a ClientHello message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ClientHello message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ClientHello
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5120,14 +5421,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HandshakeMessage.ClientHello;
 
             /**
-             * Verifies a ClientHello message.
+             * Verifica un mensaje ClientHello message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ClientHello message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ClientHello message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ClientHello
              */
@@ -5203,7 +5504,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.HandshakeMessage.IServerHello, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ServerHello message from the specified reader or buffer.
+             * Decodifica un mensaje ServerHello desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ServerHello
@@ -5213,7 +5514,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HandshakeMessage.ServerHello;
 
             /**
-             * Decodes a ServerHello message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ServerHello message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ServerHello
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5222,14 +5523,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HandshakeMessage.ServerHello;
 
             /**
-             * Verifies a ServerHello message.
+             * Verifica un mensaje ServerHello message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ServerHello message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ServerHello message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ServerHello
              */
@@ -5354,7 +5655,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IHistorySync, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a HistorySync message from the specified reader or buffer.
+         * Decodifica un mensaje HistorySync desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns HistorySync
@@ -5364,7 +5665,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HistorySync;
 
         /**
-         * Decodes a HistorySync message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje HistorySync message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns HistorySync
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5373,14 +5674,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HistorySync;
 
         /**
-         * Verifies a HistorySync message.
+         * Verifica un mensaje HistorySync message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a HistorySync message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje HistorySync message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns HistorySync
          */
@@ -5464,7 +5765,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IHistorySyncMsg, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a HistorySyncMsg message from the specified reader or buffer.
+         * Decodifica un mensaje HistorySyncMsg desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns HistorySyncMsg
@@ -5474,7 +5775,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HistorySyncMsg;
 
         /**
-         * Decodes a HistorySyncMsg message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje HistorySyncMsg message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns HistorySyncMsg
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5483,14 +5784,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HistorySyncMsg;
 
         /**
-         * Verifies a HistorySyncMsg message.
+         * Verifica un mensaje HistorySyncMsg message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a HistorySyncMsg message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje HistorySyncMsg message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns HistorySyncMsg
          */
@@ -5575,7 +5876,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IHydratedTemplateButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a HydratedTemplateButton message from the specified reader or buffer.
+         * Decodifica un mensaje HydratedTemplateButton desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns HydratedTemplateButton
@@ -5585,7 +5886,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HydratedTemplateButton;
 
         /**
-         * Decodes a HydratedTemplateButton message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje HydratedTemplateButton message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns HydratedTemplateButton
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5594,14 +5895,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HydratedTemplateButton;
 
         /**
-         * Verifies a HydratedTemplateButton message.
+         * Verifica un mensaje HydratedTemplateButton message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a HydratedTemplateButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje HydratedTemplateButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns HydratedTemplateButton
          */
@@ -5673,7 +5974,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.HydratedTemplateButton.IHydratedCallButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a HydratedCallButton message from the specified reader or buffer.
+             * Decodifica un mensaje HydratedCallButton desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns HydratedCallButton
@@ -5683,7 +5984,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HydratedTemplateButton.HydratedCallButton;
 
             /**
-             * Decodes a HydratedCallButton message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje HydratedCallButton message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns HydratedCallButton
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5692,14 +5993,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HydratedTemplateButton.HydratedCallButton;
 
             /**
-             * Verifies a HydratedCallButton message.
+             * Verifica un mensaje HydratedCallButton message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a HydratedCallButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje HydratedCallButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns HydratedCallButton
              */
@@ -5769,7 +6070,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.HydratedTemplateButton.IHydratedQuickReplyButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a HydratedQuickReplyButton message from the specified reader or buffer.
+             * Decodifica un mensaje HydratedQuickReplyButton desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns HydratedQuickReplyButton
@@ -5779,7 +6080,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HydratedTemplateButton.HydratedQuickReplyButton;
 
             /**
-             * Decodes a HydratedQuickReplyButton message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje HydratedQuickReplyButton message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns HydratedQuickReplyButton
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5788,14 +6089,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HydratedTemplateButton.HydratedQuickReplyButton;
 
             /**
-             * Verifies a HydratedQuickReplyButton message.
+             * Verifica un mensaje HydratedQuickReplyButton message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a HydratedQuickReplyButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje HydratedQuickReplyButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns HydratedQuickReplyButton
              */
@@ -5865,7 +6166,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.HydratedTemplateButton.IHydratedURLButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a HydratedURLButton message from the specified reader or buffer.
+             * Decodifica un mensaje HydratedURLButton desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns HydratedURLButton
@@ -5875,7 +6176,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HydratedTemplateButton.HydratedURLButton;
 
             /**
-             * Decodes a HydratedURLButton message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje HydratedURLButton message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns HydratedURLButton
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -5884,14 +6185,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HydratedTemplateButton.HydratedURLButton;
 
             /**
-             * Verifies a HydratedURLButton message.
+             * Verifica un mensaje HydratedURLButton message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a HydratedURLButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje HydratedURLButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns HydratedURLButton
              */
@@ -5962,7 +6263,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IIdentityKeyPairStructure, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an IdentityKeyPairStructure message from the specified reader or buffer.
+         * Decodifica un mensajen IdentityKeyPairStructure desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns IdentityKeyPairStructure
@@ -5972,7 +6273,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.IdentityKeyPairStructure;
 
         /**
-         * Decodes an IdentityKeyPairStructure message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensajen IdentityKeyPairStructure message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns IdentityKeyPairStructure
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -6061,7 +6362,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IInteractiveAnnotation, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes an InteractiveAnnotation message from the specified reader or buffer.
+         * Decodifica un mensajen InteractiveAnnotation desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns InteractiveAnnotation
@@ -6071,7 +6372,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.InteractiveAnnotation;
 
         /**
-         * Decodes an InteractiveAnnotation message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensajen InteractiveAnnotation message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns InteractiveAnnotation
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -6181,7 +6482,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IKeepInChat, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a KeepInChat message from the specified reader or buffer.
+         * Decodifica un mensaje KeepInChat desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns KeepInChat
@@ -6191,7 +6492,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.KeepInChat;
 
         /**
-         * Decodes a KeepInChat message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje KeepInChat message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns KeepInChat
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -6200,14 +6501,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.KeepInChat;
 
         /**
-         * Verifies a KeepInChat message.
+         * Verifica un mensaje KeepInChat message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a KeepInChat message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje KeepInChat message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns KeepInChat
          */
@@ -6233,6 +6534,120 @@ export namespace proto {
         UNKNOWN = 0,
         KEEP_FOR_ALL = 1,
         UNDO_KEEP_FOR_ALL = 2
+    }
+
+    /** Propiedades de un KeyExchangeMessage. */
+    interface IKeyExchangeMessage {
+
+        /** KeyExchangeMessage id */
+        id?: (number|null);
+
+        /** KeyExchangeMessage baseKey */
+        baseKey?: (Uint8Array|null);
+
+        /** KeyExchangeMessage ratchetKey */
+        ratchetKey?: (Uint8Array|null);
+
+        /** KeyExchangeMessage identityKey */
+        identityKey?: (Uint8Array|null);
+
+        /** KeyExchangeMessage baseKeySignature */
+        baseKeySignature?: (Uint8Array|null);
+    }
+
+    /** representa un KeyExchangeMessage. */
+    class KeyExchangeMessage implements IKeyExchangeMessage {
+
+        /**
+         * Construye un nuevo KeyExchangeMessage.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.IKeyExchangeMessage);
+
+        /** KeyExchangeMessage id. */
+        public id: number;
+
+        /** KeyExchangeMessage baseKey. */
+        public baseKey: Uint8Array;
+
+        /** KeyExchangeMessage ratchetKey. */
+        public ratchetKey: Uint8Array;
+
+        /** KeyExchangeMessage identityKey. */
+        public identityKey: Uint8Array;
+
+        /** KeyExchangeMessage baseKeySignature. */
+        public baseKeySignature: Uint8Array;
+
+        /**
+         * Crea una nueva KeyExchangeMessage instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns KeyExchangeMessage instance
+         */
+        public static create(properties?: proto.IKeyExchangeMessage): proto.KeyExchangeMessage;
+
+        /**
+         * Codifica el especificado KeyExchangeMessage message. No implícitamente mensajes {@link proto.KeyExchangeMessage.verify|verify}.
+         * @param message KeyExchangeMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.IKeyExchangeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado KeyExchangeMessage message, length delimited. No implícitamente mensajes {@link proto.KeyExchangeMessage.verify|verify}.
+         * @param message KeyExchangeMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IKeyExchangeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje KeyExchangeMessage desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns KeyExchangeMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.KeyExchangeMessage;
+
+        /**
+         * Decodifica un mensaje KeyExchangeMessage desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns KeyExchangeMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.KeyExchangeMessage;
+
+        /**
+         * Verifica un mensaje KeyExchangeMessage message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje KeyExchangeMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns KeyExchangeMessage
+         */
+        public static fromObject(object: { [k: string]: any }): proto.KeyExchangeMessage;
+
+        /**
+         * Crea un objeto simple de un KeyExchangeMessage message. Also converts values to other types if specified.
+         * @param message KeyExchangeMessage
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.KeyExchangeMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte esteKeyExchangeMessage to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
     }
 
     /** Propiedades de un KeyId. */
@@ -6278,7 +6693,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IKeyId, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a KeyId message from the specified reader or buffer.
+         * Decodifica un mensaje KeyId desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns KeyId
@@ -6288,7 +6703,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.KeyId;
 
         /**
-         * Decodes a KeyId message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje KeyId message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns KeyId
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -6297,14 +6712,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.KeyId;
 
         /**
-         * Verifies a KeyId message.
+         * Verifica un mensaje KeyId message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a KeyId message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje KeyId message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns KeyId
          */
@@ -6380,7 +6795,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ILocalizedName, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a LocalizedName message from the specified reader or buffer.
+         * Decodifica un mensaje LocalizedName desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns LocalizedName
@@ -6390,7 +6805,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.LocalizedName;
 
         /**
-         * Decodes a LocalizedName message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje LocalizedName message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns LocalizedName
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -6399,14 +6814,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.LocalizedName;
 
         /**
-         * Verifies a LocalizedName message.
+         * Verifica un mensaje LocalizedName message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a LocalizedName message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje LocalizedName message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns LocalizedName
          */
@@ -6482,7 +6897,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ILocation, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a Location message from the specified reader or buffer.
+         * Decodifica un mensaje Location desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns Location
@@ -6492,7 +6907,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Location;
 
         /**
-         * Decodes a Location message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje Location message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns Location
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -6501,14 +6916,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Location;
 
         /**
-         * Verifies a Location message.
+         * Verifica un mensaje Location message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a Location message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje Location message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns Location
          */
@@ -6572,7 +6987,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IMediaData, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a MediaData message from the specified reader or buffer.
+         * Decodifica un mensaje MediaData desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns MediaData
@@ -6582,7 +6997,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.MediaData;
 
         /**
-         * Decodes a MediaData message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje MediaData message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns MediaData
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -6591,14 +7006,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.MediaData;
 
         /**
-         * Verifies a MediaData message.
+         * Verifica un mensaje MediaData message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a MediaData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje MediaData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns MediaData
          */
@@ -6674,7 +7089,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IMediaRetryNotification, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a MediaRetryNotification message from the specified reader or buffer.
+         * Decodifica un mensaje MediaRetryNotification desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns MediaRetryNotification
@@ -6684,7 +7099,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.MediaRetryNotification;
 
         /**
-         * Decodes a MediaRetryNotification message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje MediaRetryNotification message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns MediaRetryNotification
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -6693,14 +7108,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.MediaRetryNotification;
 
         /**
-         * Verifies a MediaRetryNotification message.
+         * Verifica un mensaje MediaRetryNotification message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a MediaRetryNotification message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje MediaRetryNotification message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns MediaRetryNotification
          */
@@ -6898,8 +7313,8 @@ export namespace proto {
         /** Message groupMentionedMessage */
         groupMentionedMessage?: (proto.Message.IFutureProofMessage|null);
 
-        /** Message pinMessage */
-        pinMessage?: (proto.Message.IPinMessage|null);
+        /** Message PinInChatMessage */
+        PinInChatMessage?: (proto.Message.IPinInChatMessage|null);
 
         /** Message pollCreationMessageV3 */
         pollCreationMessageV3?: (proto.Message.IPollCreationMessage|null);
@@ -7076,8 +7491,8 @@ export namespace proto {
         /** Message groupMentionedMessage. */
         public groupMentionedMessage?: (proto.Message.IFutureProofMessage|null);
 
-        /** Message pinMessage. */
-        public pinMessage?: (proto.Message.IPinMessage|null);
+        /** Message PinInChatMessage. */
+        public PinInChatMessage?: (proto.Message.IPinInChatMessage|null);
 
         /** Message pollCreationMessageV3. */
         public pollCreationMessageV3?: (proto.Message.IPollCreationMessage|null);
@@ -7112,7 +7527,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a Message message from the specified reader or buffer.
+         * Decodifica un mensaje Message desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns Message
@@ -7122,7 +7537,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message;
 
         /**
-         * Decodes a Message message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje Message message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns Message
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -7131,14 +7546,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message;
 
         /**
-         * Verifies a Message message.
+         * Verifica un mensaje Message message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a Message message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje Message message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns Message
          */
@@ -7210,7 +7625,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IAppStateFatalExceptionNotification, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AppStateFatalExceptionNotification message from the specified reader or buffer.
+             * Decodifica un mensajen AppStateFatalExceptionNotification desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AppStateFatalExceptionNotification
@@ -7220,7 +7635,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.AppStateFatalExceptionNotification;
 
             /**
-             * Decodes an AppStateFatalExceptionNotification message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AppStateFatalExceptionNotification message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AppStateFatalExceptionNotification
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -7306,7 +7721,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IAppStateSyncKey, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AppStateSyncKey message from the specified reader or buffer.
+             * Decodifica un mensajen AppStateSyncKey desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AppStateSyncKey
@@ -7316,7 +7731,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.AppStateSyncKey;
 
             /**
-             * Decodes an AppStateSyncKey message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AppStateSyncKey message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AppStateSyncKey
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -7408,7 +7823,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IAppStateSyncKeyData, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AppStateSyncKeyData message from the specified reader or buffer.
+             * Decodifica un mensajen AppStateSyncKeyData desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AppStateSyncKeyData
@@ -7418,7 +7833,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.AppStateSyncKeyData;
 
             /**
-             * Decodes an AppStateSyncKeyData message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AppStateSyncKeyData message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AppStateSyncKeyData
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -7510,7 +7925,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IAppStateSyncKeyFingerprint, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AppStateSyncKeyFingerprint message from the specified reader or buffer.
+             * Decodifica un mensajen AppStateSyncKeyFingerprint desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AppStateSyncKeyFingerprint
@@ -7520,7 +7935,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.AppStateSyncKeyFingerprint;
 
             /**
-             * Decodes an AppStateSyncKeyFingerprint message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AppStateSyncKeyFingerprint message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AppStateSyncKeyFingerprint
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -7600,7 +8015,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IAppStateSyncKeyId, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AppStateSyncKeyId message from the specified reader or buffer.
+             * Decodifica un mensajen AppStateSyncKeyId desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AppStateSyncKeyId
@@ -7610,7 +8025,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.AppStateSyncKeyId;
 
             /**
-             * Decodes an AppStateSyncKeyId message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AppStateSyncKeyId message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AppStateSyncKeyId
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -7690,7 +8105,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IAppStateSyncKeyRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AppStateSyncKeyRequest message from the specified reader or buffer.
+             * Decodifica un mensajen AppStateSyncKeyRequest desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AppStateSyncKeyRequest
@@ -7700,7 +8115,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.AppStateSyncKeyRequest;
 
             /**
-             * Decodes an AppStateSyncKeyRequest message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AppStateSyncKeyRequest message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AppStateSyncKeyRequest
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -7780,7 +8195,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IAppStateSyncKeyShare, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AppStateSyncKeyShare message from the specified reader or buffer.
+             * Decodifica un mensajen AppStateSyncKeyShare desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AppStateSyncKeyShare
@@ -7790,7 +8205,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.AppStateSyncKeyShare;
 
             /**
-             * Decodes an AppStateSyncKeyShare message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AppStateSyncKeyShare message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AppStateSyncKeyShare
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -7954,7 +8369,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IAudioMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AudioMessage message from the specified reader or buffer.
+             * Decodifica un mensajen AudioMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AudioMessage
@@ -7964,7 +8379,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.AudioMessage;
 
             /**
-             * Decodes an AudioMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AudioMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AudioMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8101,7 +8516,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IButtonsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ButtonsMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ButtonsMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ButtonsMessage
@@ -8111,7 +8526,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ButtonsMessage;
 
             /**
-             * Decodes a ButtonsMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ButtonsMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ButtonsMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8120,14 +8535,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ButtonsMessage;
 
             /**
-             * Verifies a ButtonsMessage message.
+             * Verifica un mensaje ButtonsMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ButtonsMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ButtonsMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ButtonsMessage
              */
@@ -8211,7 +8626,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ButtonsMessage.IButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Button message from the specified reader or buffer.
+                 * Decodifica un mensaje Button desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Button
@@ -8221,7 +8636,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ButtonsMessage.Button;
 
                 /**
-                 * Decodes a Button message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Button message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Button
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8230,14 +8645,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ButtonsMessage.Button;
 
                 /**
-                 * Verifies a Button message.
+                 * Verifica un mensaje Button message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Button message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Button message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Button
                  */
@@ -8303,7 +8718,7 @@ export namespace proto {
                     public static encodeDelimited(message: proto.Message.ButtonsMessage.Button.IButtonText, writer?: $protobuf.Writer): $protobuf.Writer;
 
                     /**
-                     * Decodes a ButtonText message from the specified reader or buffer.
+                     * Decodifica un mensaje ButtonText desde el lector o búfer especificado.
                      * @param reader Reader o búfer para decodificar desde
                      * @param [length] Longitud del mensaje si se conoce de antemano
                      * @returns ButtonText
@@ -8313,7 +8728,7 @@ export namespace proto {
                     public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ButtonsMessage.Button.ButtonText;
 
                     /**
-                     * Decodes a ButtonText message desde el especifico lector o búfer, longitud delimitada.
+                     * Decodifica un mensaje ButtonText message desde el especifico lector o búfer, longitud delimitada.
                      * @param reader Reader o búfer para decodificar desde
                      * @returns ButtonText
                      * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8322,14 +8737,14 @@ export namespace proto {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ButtonsMessage.Button.ButtonText;
 
                     /**
-                     * Verifies a ButtonText message.
+                     * Verifica un mensaje ButtonText message.
                      * @param message Objeto simple para verificar
                      * @returns `null` Si es válido, de lo contrario la razón por la que no es
                      */
                     public static verify(message: { [k: string]: any }): (string|null);
 
                     /**
-                     * Creates a ButtonText message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                     * Crea un mensaje ButtonText message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                      * @param object Objeto simple
                      * @returns ButtonText
                      */
@@ -8399,7 +8814,7 @@ export namespace proto {
                     public static encodeDelimited(message: proto.Message.ButtonsMessage.Button.INativeFlowInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
                     /**
-                     * Decodes a NativeFlowInfo message from the specified reader or buffer.
+                     * Decodifica un mensaje NativeFlowInfo desde el lector o búfer especificado.
                      * @param reader Reader o búfer para decodificar desde
                      * @param [length] Longitud del mensaje si se conoce de antemano
                      * @returns NativeFlowInfo
@@ -8409,7 +8824,7 @@ export namespace proto {
                     public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ButtonsMessage.Button.NativeFlowInfo;
 
                     /**
-                     * Decodes a NativeFlowInfo message desde el especifico lector o búfer, longitud delimitada.
+                     * Decodifica un mensaje NativeFlowInfo message desde el especifico lector o búfer, longitud delimitada.
                      * @param reader Reader o búfer para decodificar desde
                      * @returns NativeFlowInfo
                      * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8418,14 +8833,14 @@ export namespace proto {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ButtonsMessage.Button.NativeFlowInfo;
 
                     /**
-                     * Verifies a NativeFlowInfo message.
+                     * Verifica un mensaje NativeFlowInfo message.
                      * @param message Objeto simple para verificar
                      * @returns `null` Si es válido, de lo contrario la razón por la que no es
                      */
                     public static verify(message: { [k: string]: any }): (string|null);
 
                     /**
-                     * Creates a NativeFlowInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                     * Crea un mensaje NativeFlowInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                      * @param object Objeto simple
                      * @returns NativeFlowInfo
                      */
@@ -8530,7 +8945,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IButtonsResponseMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ButtonsResponseMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ButtonsResponseMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ButtonsResponseMessage
@@ -8540,7 +8955,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ButtonsResponseMessage;
 
             /**
-             * Decodes a ButtonsResponseMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ButtonsResponseMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ButtonsResponseMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8549,14 +8964,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ButtonsResponseMessage;
 
             /**
-             * Verifies a ButtonsResponseMessage message.
+             * Verifica un mensaje ButtonsResponseMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ButtonsResponseMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ButtonsResponseMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ButtonsResponseMessage
              */
@@ -8647,7 +9062,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.ICall, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a Call message from the specified reader or buffer.
+             * Decodifica un mensaje Call desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns Call
@@ -8657,7 +9072,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.Call;
 
             /**
-             * Decodes a Call message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje Call message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns Call
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8666,14 +9081,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.Call;
 
             /**
-             * Verifies a Call message.
+             * Verifica un mensaje Call message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a Call message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje Call message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns Call
              */
@@ -8737,7 +9152,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.ICancelPaymentRequestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a CancelPaymentRequestMessage message from the specified reader or buffer.
+             * Decodifica un mensaje CancelPaymentRequestMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns CancelPaymentRequestMessage
@@ -8747,7 +9162,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.CancelPaymentRequestMessage;
 
             /**
-             * Decodes a CancelPaymentRequestMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje CancelPaymentRequestMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns CancelPaymentRequestMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8756,14 +9171,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.CancelPaymentRequestMessage;
 
             /**
-             * Verifies a CancelPaymentRequestMessage message.
+             * Verifica un mensaje CancelPaymentRequestMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a CancelPaymentRequestMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje CancelPaymentRequestMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns CancelPaymentRequestMessage
              */
@@ -8833,7 +9248,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IChat, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a Chat message from the specified reader or buffer.
+             * Decodifica un mensaje Chat desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns Chat
@@ -8843,7 +9258,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.Chat;
 
             /**
-             * Decodes a Chat message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje Chat message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns Chat
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8852,14 +9267,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.Chat;
 
             /**
-             * Verifies a Chat message.
+             * Verifica un mensaje Chat message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a Chat message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje Chat message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns Chat
              */
@@ -8935,7 +9350,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IContactMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ContactMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ContactMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ContactMessage
@@ -8945,7 +9360,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ContactMessage;
 
             /**
-             * Decodes a ContactMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ContactMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ContactMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -8954,14 +9369,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ContactMessage;
 
             /**
-             * Verifies a ContactMessage message.
+             * Verifica un mensaje ContactMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ContactMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ContactMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ContactMessage
              */
@@ -9037,7 +9452,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IContactsArrayMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ContactsArrayMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ContactsArrayMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ContactsArrayMessage
@@ -9047,7 +9462,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ContactsArrayMessage;
 
             /**
-             * Decodes a ContactsArrayMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ContactsArrayMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ContactsArrayMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -9056,14 +9471,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ContactsArrayMessage;
 
             /**
-             * Verifies a ContactsArrayMessage message.
+             * Verifica un mensaje ContactsArrayMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ContactsArrayMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ContactsArrayMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ContactsArrayMessage
              */
@@ -9127,7 +9542,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IDeclinePaymentRequestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a DeclinePaymentRequestMessage message from the specified reader or buffer.
+             * Decodifica un mensaje DeclinePaymentRequestMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns DeclinePaymentRequestMessage
@@ -9137,7 +9552,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.DeclinePaymentRequestMessage;
 
             /**
-             * Decodes a DeclinePaymentRequestMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje DeclinePaymentRequestMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns DeclinePaymentRequestMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -9146,14 +9561,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.DeclinePaymentRequestMessage;
 
             /**
-             * Verifies a DeclinePaymentRequestMessage message.
+             * Verifica un mensaje DeclinePaymentRequestMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a DeclinePaymentRequestMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje DeclinePaymentRequestMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns DeclinePaymentRequestMessage
              */
@@ -9229,7 +9644,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IDeviceSentMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a DeviceSentMessage message from the specified reader or buffer.
+             * Decodifica un mensaje DeviceSentMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns DeviceSentMessage
@@ -9239,7 +9654,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.DeviceSentMessage;
 
             /**
-             * Decodes a DeviceSentMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje DeviceSentMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns DeviceSentMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -9248,14 +9663,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.DeviceSentMessage;
 
             /**
-             * Verifies a DeviceSentMessage message.
+             * Verifica un mensaje DeviceSentMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a DeviceSentMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje DeviceSentMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns DeviceSentMessage
              */
@@ -9433,7 +9848,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IDocumentMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a DocumentMessage message from the specified reader or buffer.
+             * Decodifica un mensaje DocumentMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns DocumentMessage
@@ -9443,7 +9858,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.DocumentMessage;
 
             /**
-             * Decodes a DocumentMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje DocumentMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns DocumentMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -9452,14 +9867,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.DocumentMessage;
 
             /**
-             * Verifies a DocumentMessage message.
+             * Verifica un mensaje DocumentMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a DocumentMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje DocumentMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns DocumentMessage
              */
@@ -9535,7 +9950,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IEncReactionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an EncReactionMessage message from the specified reader or buffer.
+             * Decodifica un mensajen EncReactionMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns EncReactionMessage
@@ -9545,7 +9960,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.EncReactionMessage;
 
             /**
-             * Decodes an EncReactionMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen EncReactionMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns EncReactionMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -9763,7 +10178,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IExtendedTextMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an ExtendedTextMessage message from the specified reader or buffer.
+             * Decodifica un mensajen ExtendedTextMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ExtendedTextMessage
@@ -9773,7 +10188,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ExtendedTextMessage;
 
             /**
-             * Decodes an ExtendedTextMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen ExtendedTextMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ExtendedTextMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -9885,7 +10300,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IFutureProofMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a FutureProofMessage message from the specified reader or buffer.
+             * Decodifica un mensaje FutureProofMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns FutureProofMessage
@@ -9895,7 +10310,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.FutureProofMessage;
 
             /**
-             * Decodes a FutureProofMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje FutureProofMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns FutureProofMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -9904,14 +10319,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.FutureProofMessage;
 
             /**
-             * Verifies a FutureProofMessage message.
+             * Verifica un mensaje FutureProofMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a FutureProofMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje FutureProofMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns FutureProofMessage
              */
@@ -10017,7 +10432,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IGroupInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a GroupInviteMessage message from the specified reader or buffer.
+             * Decodifica un mensaje GroupInviteMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns GroupInviteMessage
@@ -10027,7 +10442,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.GroupInviteMessage;
 
             /**
-             * Decodes a GroupInviteMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje GroupInviteMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns GroupInviteMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -10036,14 +10451,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.GroupInviteMessage;
 
             /**
-             * Verifies a GroupInviteMessage message.
+             * Verifica un mensaje GroupInviteMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a GroupInviteMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje GroupInviteMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns GroupInviteMessage
              */
@@ -10164,7 +10579,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IHighlyStructuredMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a HighlyStructuredMessage message from the specified reader or buffer.
+             * Decodifica un mensaje HighlyStructuredMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns HighlyStructuredMessage
@@ -10174,7 +10589,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.HighlyStructuredMessage;
 
             /**
-             * Decodes a HighlyStructuredMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje HighlyStructuredMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns HighlyStructuredMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -10183,14 +10598,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.HighlyStructuredMessage;
 
             /**
-             * Verifies a HighlyStructuredMessage message.
+             * Verifica un mensaje HighlyStructuredMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a HighlyStructuredMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje HighlyStructuredMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns HighlyStructuredMessage
              */
@@ -10271,7 +10686,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.HighlyStructuredMessage.IHSMLocalizableParameter, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a HSMLocalizableParameter message from the specified reader or buffer.
+                 * Decodifica un mensaje HSMLocalizableParameter desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns HSMLocalizableParameter
@@ -10281,7 +10696,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter;
 
                 /**
-                 * Decodes a HSMLocalizableParameter message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje HSMLocalizableParameter message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns HSMLocalizableParameter
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -10290,14 +10705,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter;
 
                 /**
-                 * Verifies a HSMLocalizableParameter message.
+                 * Verifica un mensaje HSMLocalizableParameter message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a HSMLocalizableParameter message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje HSMLocalizableParameter message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns HSMLocalizableParameter
                  */
@@ -10369,7 +10784,7 @@ export namespace proto {
                     public static encodeDelimited(message: proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.IHSMCurrency, writer?: $protobuf.Writer): $protobuf.Writer;
 
                     /**
-                     * Decodes a HSMCurrency message from the specified reader or buffer.
+                     * Decodifica un mensaje HSMCurrency desde el lector o búfer especificado.
                      * @param reader Reader o búfer para decodificar desde
                      * @param [length] Longitud del mensaje si se conoce de antemano
                      * @returns HSMCurrency
@@ -10379,7 +10794,7 @@ export namespace proto {
                     public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency;
 
                     /**
-                     * Decodes a HSMCurrency message desde el especifico lector o búfer, longitud delimitada.
+                     * Decodifica un mensaje HSMCurrency message desde el especifico lector o búfer, longitud delimitada.
                      * @param reader Reader o búfer para decodificar desde
                      * @returns HSMCurrency
                      * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -10388,14 +10803,14 @@ export namespace proto {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMCurrency;
 
                     /**
-                     * Verifies a HSMCurrency message.
+                     * Verifica un mensaje HSMCurrency message.
                      * @param message Objeto simple para verificar
                      * @returns `null` Si es válido, de lo contrario la razón por la que no es
                      */
                     public static verify(message: { [k: string]: any }): (string|null);
 
                     /**
-                     * Creates a HSMCurrency message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                     * Crea un mensaje HSMCurrency message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                      * @param object Objeto simple
                      * @returns HSMCurrency
                      */
@@ -10468,7 +10883,7 @@ export namespace proto {
                     public static encodeDelimited(message: proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.IHSMDateTime, writer?: $protobuf.Writer): $protobuf.Writer;
 
                     /**
-                     * Decodes a HSMDateTime message from the specified reader or buffer.
+                     * Decodifica un mensaje HSMDateTime desde el lector o búfer especificado.
                      * @param reader Reader o búfer para decodificar desde
                      * @param [length] Longitud del mensaje si se conoce de antemano
                      * @returns HSMDateTime
@@ -10478,7 +10893,7 @@ export namespace proto {
                     public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime;
 
                     /**
-                     * Decodes a HSMDateTime message desde el especifico lector o búfer, longitud delimitada.
+                     * Decodifica un mensaje HSMDateTime message desde el especifico lector o búfer, longitud delimitada.
                      * @param reader Reader o búfer para decodificar desde
                      * @returns HSMDateTime
                      * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -10487,14 +10902,14 @@ export namespace proto {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime;
 
                     /**
-                     * Verifies a HSMDateTime message.
+                     * Verifica un mensaje HSMDateTime message.
                      * @param message Objeto simple para verificar
                      * @returns `null` Si es válido, de lo contrario la razón por la que no es
                      */
                     public static verify(message: { [k: string]: any }): (string|null);
 
                     /**
-                     * Creates a HSMDateTime message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                     * Crea un mensaje HSMDateTime message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                      * @param object Objeto simple
                      * @returns HSMDateTime
                      */
@@ -10596,7 +11011,7 @@ export namespace proto {
                         public static encodeDelimited(message: proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.IHSMDateTimeComponent, writer?: $protobuf.Writer): $protobuf.Writer;
 
                         /**
-                         * Decodes a HSMDateTimeComponent message from the specified reader or buffer.
+                         * Decodifica un mensaje HSMDateTimeComponent desde el lector o búfer especificado.
                          * @param reader Reader o búfer para decodificar desde
                          * @param [length] Longitud del mensaje si se conoce de antemano
                          * @returns HSMDateTimeComponent
@@ -10606,7 +11021,7 @@ export namespace proto {
                         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent;
 
                         /**
-                         * Decodes a HSMDateTimeComponent message desde el especifico lector o búfer, longitud delimitada.
+                         * Decodifica un mensaje HSMDateTimeComponent message desde el especifico lector o búfer, longitud delimitada.
                          * @param reader Reader o búfer para decodificar desde
                          * @returns HSMDateTimeComponent
                          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -10615,14 +11030,14 @@ export namespace proto {
                         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent;
 
                         /**
-                         * Verifies a HSMDateTimeComponent message.
+                         * Verifica un mensaje HSMDateTimeComponent message.
                          * @param message Objeto simple para verificar
                          * @returns `null` Si es válido, de lo contrario la razón por la que no es
                          */
                         public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
-                         * Creates a HSMDateTimeComponent message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                         * Crea un mensaje HSMDateTimeComponent message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                          * @param object Objeto simple
                          * @returns HSMDateTimeComponent
                          */
@@ -10706,7 +11121,7 @@ export namespace proto {
                         public static encodeDelimited(message: proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.IHSMDateTimeUnixEpoch, writer?: $protobuf.Writer): $protobuf.Writer;
 
                         /**
-                         * Decodes a HSMDateTimeUnixEpoch message from the specified reader or buffer.
+                         * Decodifica un mensaje HSMDateTimeUnixEpoch desde el lector o búfer especificado.
                          * @param reader Reader o búfer para decodificar desde
                          * @param [length] Longitud del mensaje si se conoce de antemano
                          * @returns HSMDateTimeUnixEpoch
@@ -10716,7 +11131,7 @@ export namespace proto {
                         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch;
 
                         /**
-                         * Decodes a HSMDateTimeUnixEpoch message desde el especifico lector o búfer, longitud delimitada.
+                         * Decodifica un mensaje HSMDateTimeUnixEpoch message desde el especifico lector o búfer, longitud delimitada.
                          * @param reader Reader o búfer para decodificar desde
                          * @returns HSMDateTimeUnixEpoch
                          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -10725,14 +11140,14 @@ export namespace proto {
                         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeUnixEpoch;
 
                         /**
-                         * Verifies a HSMDateTimeUnixEpoch message.
+                         * Verifica un mensaje HSMDateTimeUnixEpoch message.
                          * @param message Objeto simple para verificar
                          * @returns `null` Si es válido, de lo contrario la razón por la que no es
                          */
                         public static verify(message: { [k: string]: any }): (string|null);
 
                         /**
-                         * Creates a HSMDateTimeUnixEpoch message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                         * Crea un mensaje HSMDateTimeUnixEpoch message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                          * @param object Objeto simple
                          * @returns HSMDateTimeUnixEpoch
                          */
@@ -10788,6 +11203,12 @@ export namespace proto {
 
             /** HistorySyncNotification oldestMsgInChunkTimestampSec */
             oldestMsgInChunkTimestampSec?: (number|Long|null);
+
+            /** HistorySyncNotification initialHistBootstrapInlinePayload */
+            initialHistBootstrapInlinePayload?: (Uint8Array|null);
+
+            /** HistorySyncNotification peerDataRequestSessionId */
+            peerDataRequestSessionId?: (string|null);
         }
 
         /** Representa un HistorySyncNotification. */
@@ -10829,6 +11250,12 @@ export namespace proto {
             /** HistorySyncNotification oldestMsgInChunkTimestampSec. */
             public oldestMsgInChunkTimestampSec: (number|Long);
 
+            /** HistorySyncNotification initialHistBootstrapInlinePayload. */
+            public initialHistBootstrapInlinePayload: Uint8Array;
+
+            /** HistorySyncNotification peerDataRequestSessionId. */
+            public peerDataRequestSessionId: string;
+
             /**
              * Crea una nueva instancia HistorySyncNotification utilizando las propiedades especificadas.
              * @param [properties] para establecer propiedades
@@ -10853,7 +11280,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IHistorySyncNotification, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a HistorySyncNotification message from the specified reader or buffer.
+             * Decodifica un mensaje HistorySyncNotification desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns HistorySyncNotification
@@ -10863,7 +11290,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.HistorySyncNotification;
 
             /**
-             * Decodes a HistorySyncNotification message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje HistorySyncNotification message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns HistorySyncNotification
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -10872,14 +11299,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.HistorySyncNotification;
 
             /**
-             * Verifies a HistorySyncNotification message.
+             * Verifica un mensaje HistorySyncNotification message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a HistorySyncNotification message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje HistorySyncNotification message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns HistorySyncNotification
              */
@@ -11107,7 +11534,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IImageMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an ImageMessage message from the specified reader or buffer.
+             * Decodifica un mensajen ImageMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ImageMessage
@@ -11117,7 +11544,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ImageMessage;
 
             /**
-             * Decodes an ImageMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen ImageMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ImageMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11197,7 +11624,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IInitialSecurityNotificationSettingSync, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an InitialSecurityNotificationSettingSync message from the specified reader or buffer.
+             * Decodifica un mensajen InitialSecurityNotificationSettingSync desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns InitialSecurityNotificationSettingSync
@@ -11207,7 +11634,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InitialSecurityNotificationSettingSync;
 
             /**
-             * Decodes an InitialSecurityNotificationSettingSync message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen InitialSecurityNotificationSettingSync message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns InitialSecurityNotificationSettingSync
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11326,7 +11753,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IInteractiveMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an InteractiveMessage message from the specified reader or buffer.
+             * Decodifica un mensajen InteractiveMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns InteractiveMessage
@@ -11336,7 +11763,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveMessage;
 
             /**
-             * Decodes an InteractiveMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen InteractiveMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns InteractiveMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11418,7 +11845,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.InteractiveMessage.IBody, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Body message from the specified reader or buffer.
+                 * Decodifica un mensaje Body desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Body
@@ -11428,7 +11855,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveMessage.Body;
 
                 /**
-                 * Decodes a Body message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Body message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Body
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11437,14 +11864,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveMessage.Body;
 
                 /**
-                 * Verifies a Body message.
+                 * Verifica un mensaje Body message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Body message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Body message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Body
                  */
@@ -11520,7 +11947,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.InteractiveMessage.ICollectionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a CollectionMessage message from the specified reader or buffer.
+                 * Decodifica un mensaje CollectionMessage desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns CollectionMessage
@@ -11530,7 +11957,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveMessage.CollectionMessage;
 
                 /**
-                 * Decodes a CollectionMessage message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje CollectionMessage message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns CollectionMessage
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11539,14 +11966,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveMessage.CollectionMessage;
 
                 /**
-                 * Verifies a CollectionMessage message.
+                 * Verifica un mensaje CollectionMessage message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a CollectionMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje CollectionMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns CollectionMessage
                  */
@@ -11602,7 +12029,7 @@ export namespace proto {
                 public static encode(message: proto.Message.InteractiveMessage.IFooter, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Codifica el mensaje Footer message, delimitado por longitud. No implícitamente mensajes {@link proto.Message.InteractiveMessage.Footer.verify|verify}.
+                 * Codifica el mensaje Footer, delimitado por longitud. No implícitamente mensajes {@link proto.Message.InteractiveMessage.Footer.verify|verify}.
                  * @param message Footer mensaje o objeto simple para codificar
                  * @param [writer] Writer para codificar a
                  * @returns Writer
@@ -11610,7 +12037,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.InteractiveMessage.IFooter, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Footer message from the specified reader or buffer.
+                 * Decodifica un mensaje Footer desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Footer
@@ -11620,7 +12047,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveMessage.Footer;
 
                 /**
-                 * Decodes a Footer message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Footer desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Footer
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11629,14 +12056,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveMessage.Footer;
 
                 /**
-                 * Verifies a Footer message.
+                 * Verifica un mensaje Footer.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Footer message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Footer desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Footer
                  */
@@ -11680,6 +12107,9 @@ export namespace proto {
 
                 /** Header videoMessage */
                 videoMessage?: (proto.Message.IVideoMessage|null);
+
+                /** Header locationMessage */
+                locationMessage?: (proto.Message.ILocationMessage|null);
             }
 
             /** Representa un Header. */
@@ -11712,6 +12142,9 @@ export namespace proto {
                 /** Header videoMessage. */
                 public videoMessage?: (proto.Message.IVideoMessage|null);
 
+                /** Header locationMessage. */
+                public locationMessage?: (proto.Message.ILocationMessage|null);
+
                 /** Header media. */
                 public media?: ("documentMessage"|"imageMessage"|"jpegThumbnail"|"videoMessage");
 
@@ -11739,7 +12172,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.InteractiveMessage.IHeader, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Header message from the specified reader or buffer.
+                 * Decodifica un mensaje Header desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Header
@@ -11749,7 +12182,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveMessage.Header;
 
                 /**
-                 * Decodes a Header message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Header message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Header
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11758,14 +12191,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveMessage.Header;
 
                 /**
-                 * Verifies a Header message.
+                 * Verifica un mensaje Header message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Header message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Header message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Header
                  */
@@ -11841,7 +12274,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.InteractiveMessage.INativeFlowMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a NativeFlowMessage message from the specified reader or buffer.
+                 * Decodifica un mensaje NativeFlowMessage desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns NativeFlowMessage
@@ -11851,7 +12284,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveMessage.NativeFlowMessage;
 
                 /**
-                 * Decodes a NativeFlowMessage message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje NativeFlowMessage message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns NativeFlowMessage
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11860,14 +12293,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveMessage.NativeFlowMessage;
 
                 /**
-                 * Verifies a NativeFlowMessage message.
+                 * Verifica un mensaje NativeFlowMessage message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a NativeFlowMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje NativeFlowMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns NativeFlowMessage
                  */
@@ -11939,7 +12372,7 @@ export namespace proto {
                     public static encodeDelimited(message: proto.Message.InteractiveMessage.NativeFlowMessage.INativeFlowButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
                     /**
-                     * Decodes a NativeFlowButton message from the specified reader or buffer.
+                     * Decodifica un mensaje NativeFlowButton desde el lector o búfer especificado.
                      * @param reader Reader o búfer para decodificar desde
                      * @param [length] Longitud del mensaje si se conoce de antemano
                      * @returns NativeFlowButton
@@ -11949,7 +12382,7 @@ export namespace proto {
                     public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton;
 
                     /**
-                     * Decodes a NativeFlowButton message desde el especifico lector o búfer, longitud delimitada.
+                     * Decodifica un mensaje NativeFlowButton message desde el especifico lector o búfer, longitud delimitada.
                      * @param reader Reader o búfer para decodificar desde
                      * @returns NativeFlowButton
                      * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -11958,14 +12391,14 @@ export namespace proto {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveMessage.NativeFlowMessage.NativeFlowButton;
 
                     /**
-                     * Verifies a NativeFlowButton message.
+                     * Verifica un mensaje NativeFlowButton message.
                      * @param message Objeto simple para verificar
                      * @returns `null` Si es válido, de lo contrario la razón por la que no es
                      */
                     public static verify(message: { [k: string]: any }): (string|null);
 
                     /**
-                     * Creates a NativeFlowButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                     * Crea un mensaje NativeFlowButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                      * @param object Objeto simple
                      * @returns NativeFlowButton
                      */
@@ -12042,7 +12475,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.InteractiveMessage.IShopMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a ShopMessage message from the specified reader or buffer.
+                 * Decodifica un mensaje ShopMessage desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns ShopMessage
@@ -12052,7 +12485,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveMessage.ShopMessage;
 
                 /**
-                 * Decodes a ShopMessage message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje ShopMessage message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns ShopMessage
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12061,14 +12494,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveMessage.ShopMessage;
 
                 /**
-                 * Verifies a ShopMessage message.
+                 * Verifica un mensaje ShopMessage message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a ShopMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje ShopMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns ShopMessage
                  */
@@ -12159,7 +12592,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IInteractiveResponseMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an InteractiveResponseMessage message from the specified reader or buffer.
+             * Decodifica un mensajen InteractiveResponseMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns InteractiveResponseMessage
@@ -12169,7 +12602,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveResponseMessage;
 
             /**
-             * Decodes an InteractiveResponseMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen InteractiveResponseMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns InteractiveResponseMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12213,6 +12646,9 @@ export namespace proto {
 
                 /** Body text */
                 text?: (string|null);
+
+                /** Body format */
+                format?: (proto.Message.InteractiveResponseMessage.Body.Format|null);
             }
 
             /** Representa un Body. */
@@ -12226,6 +12662,9 @@ export namespace proto {
 
                 /** Body text. */
                 public text: string;
+
+                /** Body format. */
+                public format: proto.Message.InteractiveResponseMessage.Body.Format;
 
                 /**
                  * Crea una nueva instancia Body utilizando las propiedades especificadas.
@@ -12251,7 +12690,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.InteractiveResponseMessage.IBody, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Body message from the specified reader or buffer.
+                 * Decodifica un mensaje Body desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Body
@@ -12261,7 +12700,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveResponseMessage.Body;
 
                 /**
-                 * Decodes a Body message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Body message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Body
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12270,14 +12709,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveResponseMessage.Body;
 
                 /**
-                 * Verifies a Body message.
+                 * Verifica un mensaje Body message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Body message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Body message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Body
                  */
@@ -12296,6 +12735,15 @@ export namespace proto {
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
+            }
+
+            namespace Body {
+
+                /** Format enum. */
+                enum Format {
+                    DEFAULT = 0,
+                    EXTENSIONS_1 = 1
+                }
             }
 
             /** Propiedades de un NativeFlowResponseMessage. */
@@ -12353,7 +12801,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.InteractiveResponseMessage.INativeFlowResponseMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a NativeFlowResponseMessage message from the specified reader or buffer.
+                 * Decodifica un mensaje NativeFlowResponseMessage desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns NativeFlowResponseMessage
@@ -12363,7 +12811,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InteractiveResponseMessage.NativeFlowResponseMessage;
 
                 /**
-                 * Decodes a NativeFlowResponseMessage message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje NativeFlowResponseMessage message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns NativeFlowResponseMessage
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12372,14 +12820,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.InteractiveResponseMessage.NativeFlowResponseMessage;
 
                 /**
-                 * Verifies a NativeFlowResponseMessage message.
+                 * Verifica un mensaje NativeFlowResponseMessage message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a NativeFlowResponseMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje NativeFlowResponseMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns NativeFlowResponseMessage
                  */
@@ -12498,7 +12946,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IInvoiceMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an InvoiceMessage message from the specified reader or buffer.
+             * Decodifica un mensajen InvoiceMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns InvoiceMessage
@@ -12508,7 +12956,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.InvoiceMessage;
 
             /**
-             * Decodes an InvoiceMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen InvoiceMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns InvoiceMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12609,7 +13057,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IKeepInChatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a KeepInChatMessage message from the specified reader or buffer.
+             * Decodifica un mensaje KeepInChatMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns KeepInChatMessage
@@ -12619,7 +13067,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.KeepInChatMessage;
 
             /**
-             * Decodes a KeepInChatMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje KeepInChatMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns KeepInChatMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12628,14 +13076,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.KeepInChatMessage;
 
             /**
-             * Verifies a KeepInChatMessage message.
+             * Verifica un mensaje KeepInChatMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a KeepInChatMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje KeepInChatMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns KeepInChatMessage
              */
@@ -12741,7 +13189,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IListMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ListMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ListMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ListMessage
@@ -12751,7 +13199,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListMessage;
 
             /**
-             * Decodes a ListMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ListMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ListMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12760,14 +13208,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListMessage;
 
             /**
-             * Verifies a ListMessage message.
+             * Verifica un mensaje ListMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ListMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ListMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ListMessage
              */
@@ -12840,7 +13288,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ListMessage.IProduct, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Product message from the specified reader or buffer.
+                 * Decodifica un mensaje Product desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Product
@@ -12850,7 +13298,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListMessage.Product;
 
                 /**
-                 * Decodes a Product message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Product message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Product
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12859,14 +13307,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListMessage.Product;
 
                 /**
-                 * Verifies a Product message.
+                 * Verifica un mensaje Product message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Product message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Product message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Product
                  */
@@ -12936,7 +13384,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ListMessage.IProductListHeaderImage, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a ProductListHeaderImage message from the specified reader or buffer.
+                 * Decodifica un mensaje ProductListHeaderImage desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns ProductListHeaderImage
@@ -12946,7 +13394,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListMessage.ProductListHeaderImage;
 
                 /**
-                 * Decodes a ProductListHeaderImage message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje ProductListHeaderImage message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns ProductListHeaderImage
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -12955,14 +13403,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListMessage.ProductListHeaderImage;
 
                 /**
-                 * Verifies a ProductListHeaderImage message.
+                 * Verifica un mensaje ProductListHeaderImage message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a ProductListHeaderImage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje ProductListHeaderImage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns ProductListHeaderImage
                  */
@@ -13038,7 +13486,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ListMessage.IProductListInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a ProductListInfo message from the specified reader or buffer.
+                 * Decodifica un mensaje ProductListInfo desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns ProductListInfo
@@ -13048,7 +13496,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListMessage.ProductListInfo;
 
                 /**
-                 * Decodes a ProductListInfo message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje ProductListInfo message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns ProductListInfo
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -13057,14 +13505,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListMessage.ProductListInfo;
 
                 /**
-                 * Verifies a ProductListInfo message.
+                 * Verifica un mensaje ProductListInfo message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a ProductListInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje ProductListInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns ProductListInfo
                  */
@@ -13134,7 +13582,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ListMessage.IProductSection, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a ProductSection message from the specified reader or buffer.
+                 * Decodifica un mensaje ProductSection desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns ProductSection
@@ -13144,7 +13592,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListMessage.ProductSection;
 
                 /**
-                 * Decodes a ProductSection message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje ProductSection message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns ProductSection
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -13153,14 +13601,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListMessage.ProductSection;
 
                 /**
-                 * Verifies a ProductSection message.
+                 * Verifica un mensaje ProductSection message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a ProductSection message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje ProductSection message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns ProductSection
                  */
@@ -13236,7 +13684,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ListMessage.IRow, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Row message from the specified reader or buffer.
+                 * Decodifica un mensaje Row desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Row
@@ -13246,7 +13694,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListMessage.Row;
 
                 /**
-                 * Decodes a Row message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Row message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Row
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -13255,14 +13703,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListMessage.Row;
 
                 /**
-                 * Verifies a Row message.
+                 * Verifica un mensaje Row message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Row message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Row message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Row
                  */
@@ -13332,7 +13780,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ListMessage.ISection, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a Section message from the specified reader or buffer.
+                 * Decodifica un mensaje Section desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Section
@@ -13342,7 +13790,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListMessage.Section;
 
                 /**
-                 * Decodes a Section message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje Section message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Section
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -13351,14 +13799,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListMessage.Section;
 
                 /**
-                 * Verifies a Section message.
+                 * Verifica un mensaje Section message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a Section message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje Section message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns Section
                  */
@@ -13447,7 +13895,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IListResponseMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ListResponseMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ListResponseMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ListResponseMessage
@@ -13457,7 +13905,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListResponseMessage;
 
             /**
-             * Decodes a ListResponseMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ListResponseMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ListResponseMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -13466,14 +13914,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListResponseMessage;
 
             /**
-             * Verifies a ListResponseMessage message.
+             * Verifica un mensaje ListResponseMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ListResponseMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ListResponseMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ListResponseMessage
              */
@@ -13545,7 +13993,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ListResponseMessage.ISingleSelectReply, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a SingleSelectReply message from the specified reader or buffer.
+                 * Decodifica un mensaje SingleSelectReply desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns SingleSelectReply
@@ -13555,7 +14003,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ListResponseMessage.SingleSelectReply;
 
                 /**
-                 * Decodes a SingleSelectReply message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje SingleSelectReply message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns SingleSelectReply
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -13564,14 +14012,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ListResponseMessage.SingleSelectReply;
 
                 /**
-                 * Verifies a SingleSelectReply message.
+                 * Verifica un mensaje SingleSelectReply message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a SingleSelectReply message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje SingleSelectReply message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns SingleSelectReply
                  */
@@ -13690,7 +14138,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.ILiveLocationMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a LiveLocationMessage message from the specified reader or buffer.
+             * Decodifica un mensaje LiveLocationMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns LiveLocationMessage
@@ -13700,7 +14148,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.LiveLocationMessage;
 
             /**
-             * Decodes a LiveLocationMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje LiveLocationMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns LiveLocationMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -13709,14 +14157,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.LiveLocationMessage;
 
             /**
-             * Verifies a LiveLocationMessage message.
+             * Verifica un mensaje LiveLocationMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a LiveLocationMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje LiveLocationMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns LiveLocationMessage
              */
@@ -13846,7 +14294,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.ILocationMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a LocationMessage message from the specified reader or buffer.
+             * Decodifica un mensaje LocationMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns LocationMessage
@@ -13856,7 +14304,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.LocationMessage;
 
             /**
-             * Decodes a LocationMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje LocationMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns LocationMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -13865,14 +14313,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.LocationMessage;
 
             /**
-             * Verifies a LocationMessage message.
+             * Verifica un mensaje LocationMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a LocationMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje LocationMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns LocationMessage
              */
@@ -14002,7 +14450,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IOrderMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an OrderMessage message from the specified reader or buffer.
+             * Decodifica un mensajen OrderMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns OrderMessage
@@ -14012,7 +14460,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.OrderMessage;
 
             /**
-             * Decodes an OrderMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen OrderMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns OrderMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14111,7 +14559,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IPaymentInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PaymentInviteMessage message from the specified reader or buffer.
+             * Decodifica un mensaje PaymentInviteMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PaymentInviteMessage
@@ -14121,7 +14569,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PaymentInviteMessage;
 
             /**
-             * Decodes a PaymentInviteMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PaymentInviteMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PaymentInviteMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14130,14 +14578,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PaymentInviteMessage;
 
             /**
-             * Verifies a PaymentInviteMessage message.
+             * Verifica un mensaje PaymentInviteMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PaymentInviteMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PaymentInviteMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PaymentInviteMessage
              */
@@ -14183,6 +14631,9 @@ export namespace proto {
 
             /** PeerDataOperationRequestMessage historySyncOnDemandRequest */
             historySyncOnDemandRequest?: (proto.Message.PeerDataOperationRequestMessage.IHistorySyncOnDemandRequest|null);
+
+            /** PeerDataOperationRequestMessage placeholderMessageResendRequest */
+            placeholderMessageResendRequest?: (proto.Message.PeerDataOperationRequestMessage.IPlaceholderMessageResendRequest[]|null);
         }
 
         /** Representa un PeerDataOperationRequestMessage. */
@@ -14205,6 +14656,9 @@ export namespace proto {
 
             /** PeerDataOperationRequestMessage historySyncOnDemandRequest. */
             public historySyncOnDemandRequest?: (proto.Message.PeerDataOperationRequestMessage.IHistorySyncOnDemandRequest|null);
+
+            /** PeerDataOperationRequestMessage placeholderMessageResendRequest. */
+            public placeholderMessageResendRequest: proto.Message.PeerDataOperationRequestMessage.IPlaceholderMessageResendRequest[];
 
             /**
              * Crea una nueva instancia PeerDataOperationRequestMessage utilizando las propiedades especificadas.
@@ -14230,7 +14684,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IPeerDataOperationRequestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PeerDataOperationRequestMessage message from the specified reader or buffer.
+             * Decodifica un mensaje PeerDataOperationRequestMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PeerDataOperationRequestMessage
@@ -14240,7 +14694,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestMessage;
 
             /**
-             * Decodes a PeerDataOperationRequestMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PeerDataOperationRequestMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PeerDataOperationRequestMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14249,14 +14703,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestMessage;
 
             /**
-             * Verifies a PeerDataOperationRequestMessage message.
+             * Verifica un mensaje PeerDataOperationRequestMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PeerDataOperationRequestMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PeerDataOperationRequestMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PeerDataOperationRequestMessage
              */
@@ -14346,7 +14800,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.PeerDataOperationRequestMessage.IHistorySyncOnDemandRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a HistorySyncOnDemandRequest message from the specified reader or buffer.
+                 * Decodifica un mensaje HistorySyncOnDemandRequest desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns HistorySyncOnDemandRequest
@@ -14356,7 +14810,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest;
 
                 /**
-                 * Decodes a HistorySyncOnDemandRequest message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje HistorySyncOnDemandRequest message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns HistorySyncOnDemandRequest
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14365,14 +14819,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestMessage.HistorySyncOnDemandRequest;
 
                 /**
-                 * Verifies a HistorySyncOnDemandRequest message.
+                 * Verifica un mensaje HistorySyncOnDemandRequest message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a HistorySyncOnDemandRequest message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje HistorySyncOnDemandRequest message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns HistorySyncOnDemandRequest
                  */
@@ -14388,6 +14842,96 @@ export namespace proto {
 
                 /**
                  * Convierte este  HistorySyncOnDemandRequest a JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+            }
+
+            /** Propiedades de un PlaceholderMessageResendRequest. */
+            interface IPlaceholderMessageResendRequest {
+
+                /** PlaceholderMessageResendRequest messageKey */
+                messageKey?: (proto.IMessageKey|null);
+            }
+
+            /** representa un PlaceholderMessageResendRequest. */
+            class PlaceholderMessageResendRequest implements IPlaceholderMessageResendRequest {
+
+                /**
+                 * Construye un nuevo PlaceholderMessageResendRequest.
+                 * @param [properties] Propiedades a configurar
+                 */
+                constructor(properties?: proto.Message.PeerDataOperationRequestMessage.IPlaceholderMessageResendRequest);
+
+                /** PlaceholderMessageResendRequest messageKey. */
+                public messageKey?: (proto.IMessageKey|null);
+
+                /**
+                 * Crea una nueva PlaceholderMessageResendRequest instance usando las propiedades especificadas.
+                 * @param [properties] Propiedades a configurar
+                 * @returns PlaceholderMessageResendRequest instance
+                 */
+                public static create(properties?: proto.Message.PeerDataOperationRequestMessage.IPlaceholderMessageResendRequest): proto.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest;
+
+                /**
+                 * Codifica el especificado PlaceholderMessageResendRequest message. No implícitamente mensajes {@link proto.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.verify|verify}.
+                 * @param message PlaceholderMessageResendRequest message u objeto simple para codificar
+                 * @param [writer] Writer para codificar
+                 * @returns Writer
+                 */
+                public static encode(message: proto.Message.PeerDataOperationRequestMessage.IPlaceholderMessageResendRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Codifica el especificado PlaceholderMessageResendRequest message, length delimited. No implícitamente mensajes {@link proto.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest.verify|verify}.
+                 * @param message PlaceholderMessageResendRequest message u objeto simple para codificar
+                 * @param [writer] Writer para codificar
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: proto.Message.PeerDataOperationRequestMessage.IPlaceholderMessageResendRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodifica un mensaje PlaceholderMessageResendRequest desde el lector o búfer especificado.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns PlaceholderMessageResendRequest
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest;
+
+                /**
+                 * Decodifica un mensaje PlaceholderMessageResendRequest desde el lector o búfer especificado, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns PlaceholderMessageResendRequest
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest;
+
+                /**
+                 * Verifica un mensaje PlaceholderMessageResendRequest message.
+                 * @param message objeto simple para verificar
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Crea un mensaje PlaceholderMessageResendRequest message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+                 * @param object objeto simple
+                 * @returns PlaceholderMessageResendRequest
+                 */
+                public static fromObject(object: { [k: string]: any }): proto.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest;
+
+                /**
+                 * Crea un objeto simple de un PlaceholderMessageResendRequest message. Also converts values to other types if specified.
+                 * @param message PlaceholderMessageResendRequest
+                 * @param [options] Opciones de conversión
+                 * @returns objeto simple
+                 */
+                public static toObject(message: proto.Message.PeerDataOperationRequestMessage.PlaceholderMessageResendRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * convierte estePlaceholderMessageResendRequest to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
@@ -14436,7 +14980,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.PeerDataOperationRequestMessage.IRequestStickerReupload, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RequestStickerReupload message from the specified reader or buffer.
+                 * Decodifica un mensaje RequestStickerReupload desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns RequestStickerReupload
@@ -14446,7 +14990,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestMessage.RequestStickerReupload;
 
                 /**
-                 * Decodes a RequestStickerReupload message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje RequestStickerReupload message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns RequestStickerReupload
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14455,14 +14999,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestMessage.RequestStickerReupload;
 
                 /**
-                 * Verifies a RequestStickerReupload message.
+                 * Verifica un mensaje RequestStickerReupload message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RequestStickerReupload message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje RequestStickerReupload message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns RequestStickerReupload
                  */
@@ -14488,6 +15032,9 @@ export namespace proto {
 
                 /** RequestUrlPreview url */
                 url?: (string|null);
+
+                /** RequestUrlPreview includeHqThumbnail */
+                includeHqThumbnail?: (boolean|null);
             }
 
             /** Representa un RequestUrlPreview. */
@@ -14501,6 +15048,9 @@ export namespace proto {
 
                 /** RequestUrlPreview url. */
                 public url: string;
+
+                /** RequestUrlPreview includeHqThumbnail. */
+                public includeHqThumbnail: boolean;
 
                 /**
                  * Crea una nueva instancia RequestUrlPreview utilizando las propiedades especificadas.
@@ -14526,7 +15076,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.PeerDataOperationRequestMessage.IRequestUrlPreview, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RequestUrlPreview message from the specified reader or buffer.
+                 * Decodifica un mensaje RequestUrlPreview desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns RequestUrlPreview
@@ -14536,7 +15086,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestMessage.RequestUrlPreview;
 
                 /**
-                 * Decodes a RequestUrlPreview message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje RequestUrlPreview message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns RequestUrlPreview
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14545,14 +15095,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestMessage.RequestUrlPreview;
 
                 /**
-                 * Verifies a RequestUrlPreview message.
+                 * Verifica un mensaje RequestUrlPreview message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RequestUrlPreview message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje RequestUrlPreview message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns RequestUrlPreview
                  */
@@ -14629,7 +15179,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IPeerDataOperationRequestResponseMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PeerDataOperationRequestResponseMessage message from the specified reader or buffer.
+             * Decodifica un mensaje PeerDataOperationRequestResponseMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PeerDataOperationRequestResponseMessage
@@ -14639,7 +15189,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestResponseMessage;
 
             /**
-             * Decodes a PeerDataOperationRequestResponseMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PeerDataOperationRequestResponseMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PeerDataOperationRequestResponseMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14648,14 +15198,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestResponseMessage;
 
             /**
-             * Verifies a PeerDataOperationRequestResponseMessage message.
+             * Verifica un mensaje PeerDataOperationRequestResponseMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PeerDataOperationRequestResponseMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PeerDataOperationRequestResponseMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PeerDataOperationRequestResponseMessage
              */
@@ -14689,6 +15239,9 @@ export namespace proto {
 
                 /** PeerDataOperationResult linkPreviewResponse */
                 linkPreviewResponse?: (proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ILinkPreviewResponse|null);
+
+                /** PeerDataOperationResult placeholderMessageResendResponse */
+                placeholderMessageResendResponse?: (proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IPlaceholderMessageResendResponse|null);
             }
 
             /** Representa un PeerDataOperationResult. */
@@ -14708,6 +15261,9 @@ export namespace proto {
 
                 /** PeerDataOperationResult linkPreviewResponse. */
                 public linkPreviewResponse?: (proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ILinkPreviewResponse|null);
+
+                /** PeerDataOperationResult placeholderMessageResendResponse. */
+                public placeholderMessageResendResponse?: (proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IPlaceholderMessageResendResponse|null);
 
                 /**
                  * Crea una nueva instancia PeerDataOperationResult utilizando las propiedades especificadas.
@@ -14733,7 +15289,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.PeerDataOperationRequestResponseMessage.IPeerDataOperationResult, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a PeerDataOperationResult message from the specified reader or buffer.
+                 * Decodifica un mensaje PeerDataOperationResult desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns PeerDataOperationResult
@@ -14743,7 +15299,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult;
 
                 /**
-                 * Decodes a PeerDataOperationResult message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje PeerDataOperationResult message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns PeerDataOperationResult
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14752,14 +15308,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult;
 
                 /**
-                 * Verifies a PeerDataOperationResult message.
+                 * Verifica un mensaje PeerDataOperationResult message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a PeerDataOperationResult message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje PeerDataOperationResult message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns PeerDataOperationResult
                  */
@@ -14805,6 +15361,9 @@ export namespace proto {
 
                     /** LinkPreviewResponse previewType */
                     previewType?: (string|null);
+
+                    /** LinkPreviewResponse hqThumbnail */
+                    hqThumbnail?: (proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail|null);
                 }
 
                 /** Representa un LinkPreviewResponse. */
@@ -14837,6 +15396,9 @@ export namespace proto {
                     /** LinkPreviewResponse previewType. */
                     public previewType: string;
 
+                    /** LinkPreviewResponse hqThumbnail. */
+                    public hqThumbnail?: (proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail|null);
+
                     /**
                      * Crea una nueva instancia LinkPreviewResponse utilizando las propiedades especificadas.
                      * @param [properties] para establecer propiedades
@@ -14861,7 +15423,7 @@ export namespace proto {
                     public static encodeDelimited(message: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.ILinkPreviewResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
                     /**
-                     * Decodes a LinkPreviewResponse message from the specified reader or buffer.
+                     * Decodifica un mensaje LinkPreviewResponse desde el lector o búfer especificado.
                      * @param reader Reader o búfer para decodificar desde
                      * @param [length] Longitud del mensaje si se conoce de antemano
                      * @returns LinkPreviewResponse
@@ -14871,7 +15433,7 @@ export namespace proto {
                     public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse;
 
                     /**
-                     * Decodes a LinkPreviewResponse message desde el especifico lector o búfer, longitud delimitada.
+                     * Decodifica un mensaje LinkPreviewResponse message desde el especifico lector o búfer, longitud delimitada.
                      * @param reader Reader o búfer para decodificar desde
                      * @returns LinkPreviewResponse
                      * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -14880,14 +15442,14 @@ export namespace proto {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse;
 
                     /**
-                     * Verifies a LinkPreviewResponse message.
+                     * Verifica un mensaje LinkPreviewResponse message.
                      * @param message Objeto simple para verificar
                      * @returns `null` Si es válido, de lo contrario la razón por la que no es
                      */
                     public static verify(message: { [k: string]: any }): (string|null);
 
                     /**
-                     * Creates a LinkPreviewResponse message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                     * Crea un mensaje LinkPreviewResponse message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                      * @param object Objeto simple
                      * @returns LinkPreviewResponse
                      */
@@ -14907,6 +15469,225 @@ export namespace proto {
                      */
                     public toJSON(): { [k: string]: any };
                 }
+
+                namespace LinkPreviewResponse {
+
+                    /** Propiedades de un LinkPreviewHighQualityThumbnail. */
+                    interface ILinkPreviewHighQualityThumbnail {
+
+                        /** LinkPreviewHighQualityThumbnail directPath */
+                        directPath?: (string|null);
+
+                        /** LinkPreviewHighQualityThumbnail thumbHash */
+                        thumbHash?: (string|null);
+
+                        /** LinkPreviewHighQualityThumbnail encThumbHash */
+                        encThumbHash?: (string|null);
+
+                        /** LinkPreviewHighQualityThumbnail mediaKey */
+                        mediaKey?: (Uint8Array|null);
+
+                        /** LinkPreviewHighQualityThumbnail mediaKeyTimestampMs */
+                        mediaKeyTimestampMs?: (number|Long|null);
+
+                        /** LinkPreviewHighQualityThumbnail thumbWidth */
+                        thumbWidth?: (number|null);
+
+                        /** LinkPreviewHighQualityThumbnail thumbHeight */
+                        thumbHeight?: (number|null);
+                    }
+
+                    /** representa un LinkPreviewHighQualityThumbnail. */
+                    class LinkPreviewHighQualityThumbnail implements ILinkPreviewHighQualityThumbnail {
+
+                        /**
+                         * Construye un nuevo LinkPreviewHighQualityThumbnail.
+                         * @param [properties] Propiedades a configurar
+                         */
+                        constructor(properties?: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail);
+
+                        /** LinkPreviewHighQualityThumbnail directPath. */
+                        public directPath: string;
+
+                        /** LinkPreviewHighQualityThumbnail thumbHash. */
+                        public thumbHash: string;
+
+                        /** LinkPreviewHighQualityThumbnail encThumbHash. */
+                        public encThumbHash: string;
+
+                        /** LinkPreviewHighQualityThumbnail mediaKey. */
+                        public mediaKey: Uint8Array;
+
+                        /** LinkPreviewHighQualityThumbnail mediaKeyTimestampMs. */
+                        public mediaKeyTimestampMs: (number|Long);
+
+                        /** LinkPreviewHighQualityThumbnail thumbWidth. */
+                        public thumbWidth: number;
+
+                        /** LinkPreviewHighQualityThumbnail thumbHeight. */
+                        public thumbHeight: number;
+
+                        /**
+                         * Crea una nueva instancia LinkPreviewHighQualityThumbnail usando las propiedades especificadas.
+                         * @param [properties] Propiedades a configurar
+                         * @returns instancia LinkPreviewHighQualityThumbnail
+                         */
+                        public static create(properties?: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail;
+
+                        /**
+                         * Codifica el especificado mensaje LinkPreviewHighQualityThumbnail. No implícitamente mensajes {@link proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail.verify|verify}.
+                         * @param message mensaje LinkPreviewHighQualityThumbnail u objeto simple para codificar
+                         * @param [writer] Writer para codificar
+                         * @returns Writer
+                         */
+                        public static encode(message: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Codifica el especificado mensaje LinkPreviewHighQualityThumbnail, length delimited. No implícitamente mensajes {@link proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail.verify|verify}.
+                         * @param message mensaje LinkPreviewHighQualityThumbnail u objeto simple para codificar
+                         * @param [writer] Writer para codificar
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.ILinkPreviewHighQualityThumbnail, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodifica un mensaje LinkPreviewHighQualityThumbnail desde el lector o búfer especificado.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns LinkPreviewHighQualityThumbnail
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail;
+
+                        /**
+                         * Decodifica un mensaje LinkPreviewHighQualityThumbnail desde el lector o búfer especificado, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns LinkPreviewHighQualityThumbnail
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail;
+
+                        /**
+                         * Verifica un mensaje LinkPreviewHighQualityThumbnail.
+                         * @param message objeto simple para verificar
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Crea un mensaje LinkPreviewHighQualityThumbnail de un objeto simple. También convierte valores a sus respectivos tipos internos..
+                         * @param object objeto simple
+                         * @returns LinkPreviewHighQualityThumbnail
+                         */
+                        public static fromObject(object: { [k: string]: any }): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail;
+
+                        /**
+                         * Crea un objeto simple de un mensaje LinkPreviewHighQualityThumbnail. Also converts values to other types if specified.
+                         * @param message LinkPreviewHighQualityThumbnail
+                         * @param [options] Opciones de conversión
+                         * @returns objeto simple
+                         */
+                        public static toObject(message: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.LinkPreviewResponse.LinkPreviewHighQualityThumbnail, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * convierte esteLinkPreviewHighQualityThumbnail to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+                    }
+                }
+
+                /** Propiedades de un PlaceholderMessageResendResponse. */
+                interface IPlaceholderMessageResendResponse {
+
+                    /** PlaceholderMessageResendResponse webMessageInfoBytes */
+                    webMessageInfoBytes?: (Uint8Array|null);
+                }
+
+                /** representa un PlaceholderMessageResendResponse. */
+                class PlaceholderMessageResendResponse implements IPlaceholderMessageResendResponse {
+
+                    /**
+                     * Construye un nuevo PlaceholderMessageResendResponse.
+                     * @param [properties] Propiedades a configurar
+                     */
+                    constructor(properties?: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IPlaceholderMessageResendResponse);
+
+                    /** PlaceholderMessageResendResponse webMessageInfoBytes. */
+                    public webMessageInfoBytes: Uint8Array;
+
+                    /**
+                     * Crea una nueva instancia PlaceholderMessageResendResponse  usando las propiedades especificadas.
+                     * @param [properties] Propiedades a configurar
+                     * @returns instancia PlaceholderMessageResendResponse 
+                     */
+                    public static create(properties?: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IPlaceholderMessageResendResponse): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse;
+
+                    /**
+                     * Codifica el especificado mensaje PlaceholderMessageResendResponse. No implícitamente mensajes {@link proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse.verify|verify}.
+                     * @param message mensaje PlaceholderMessageResendResponse u objeto simple para codificar
+                     * @param [writer] Writer para codificar
+                     * @returns Writer
+                     */
+                    public static encode(message: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IPlaceholderMessageResendResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Codifica el especificado mensaje PlaceholderMessageResendResponse, length delimited. No implícitamente mensajes {@link proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse.verify|verify}.
+                     * @param message mensaje PlaceholderMessageResendResponse u objeto simple para codificar
+                     * @param [writer] Writer para codificar
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.IPlaceholderMessageResendResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodifica un mensaje PlaceholderMessageResendResponse desde el lector o búfer especificado.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns PlaceholderMessageResendResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse;
+
+                    /**
+                     * Decodifica un mensaje PlaceholderMessageResendResponse desde el lector o búfer especificado, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns PlaceholderMessageResendResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse;
+
+                    /**
+                     * Verifica un mensaje PlaceholderMessageResendResponse.
+                     * @param message objeto simple para verificar
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Crea un mensaje PlaceholderMessageResendResponse de un objeto simple. También convierte valores a sus respectivos tipos internos..
+                     * @param object objeto simple
+                     * @returns PlaceholderMessageResendResponse
+                     */
+                    public static fromObject(object: { [k: string]: any }): proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse;
+
+                    /**
+                     * Crea un objeto simple de un mensaje PlaceholderMessageResendResponse. Also converts values to other types if specified.
+                     * @param message PlaceholderMessageResendResponse
+                     * @param [options] Opciones de conversión
+                     * @returns objeto simple
+                     */
+                    public static toObject(message: proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.PlaceholderMessageResendResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * convierte estePlaceholderMessageResendResponse to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
             }
         }
 
@@ -14915,116 +15696,117 @@ export namespace proto {
             UPLOAD_STICKER = 0,
             SEND_RECENT_STICKER_BOOTSTRAP = 1,
             GENERATE_LINK_PREVIEW = 2,
-            HISTORY_SYNC_ON_DEMAND = 3
+            HISTORY_SYNC_ON_DEMAND = 3,
+            PLACEHOLDER_MESSAGE_RESEND = 4
         }
 
-        /** Propiedades de un PinMessage. */
-        interface IPinMessage {
+        /** Propiedades de un PinInChatMessage. */
+        interface IPinInChatMessage {
 
-            /** PinMessage key */
+            /** PinInChatMessage key */
             key?: (proto.IMessageKey|null);
 
-            /** PinMessage pinMessageType */
-            pinMessageType?: (proto.Message.PinMessage.PinMessageType|null);
+            /** PinInChatMessage type */
+            type?: (proto.Message.PinInChatMessage.Type|null);
 
-            /** PinMessage senderTimestampMs */
+            /** PinInChatMessage senderTimestampMs */
             senderTimestampMs?: (number|Long|null);
         }
 
-        /** Representa un PinMessage. */
-        class PinMessage implements IPinMessage {
+        /** Representa un PinInChatMessage. */
+        class PinInChatMessage implements IPinInChatMessage {
 
             /**
-             * Construya un nuevo PinMessage.
+             * Construya un nuevo PinInChatMessage.
              * @param [properties] para establecer propiedades
              */
-            constructor(properties?: proto.Message.IPinMessage);
+            constructor(properties?: proto.Message.IPinInChatMessage);
 
-            /** PinMessage key. */
+            /** PinInChatMessage key. */
             public key?: (proto.IMessageKey|null);
 
-            /** PinMessage pinMessageType. */
-            public pinMessageType: proto.Message.PinMessage.PinMessageType;
+            /** PinInChatMessage type. */
+            public type: proto.Message.PinInChatMessage.Type;
 
-            /** PinMessage senderTimestampMs. */
+            /** PinInChatMessage senderTimestampMs. */
             public senderTimestampMs: (number|Long);
 
             /**
-             * Crea una nueva instancia PinMessage utilizando las propiedades especificadas.
+             * Crea una nueva instancia PinInChatMessage utilizando las propiedades especificadas.
              * @param [properties] para establecer propiedades
-             * @returns PinMessage instance
+             * @returns PinInChatMessage instance
              */
-            public static create(properties?: proto.Message.IPinMessage): proto.Message.PinMessage;
+            public static create(properties?: proto.Message.IPinInChatMessage): proto.Message.PinInChatMessage;
 
             /**
-             * Codifica el mensaje PinMessage. No implícitamente mensajes {@link proto.Message.PinMessage.verify|verify}.
-             * @param message PinMessage mensaje o objeto simple para codificar
+             * Codifica el mensaje PinInChatMessage. No implícitamente mensajes {@link proto.Message.PinInChatMessage.verify|verify}.
+             * @param message PinInChatMessage mensaje o objeto simple para codificar
              * @param [writer] Writer para codificar a
              * @returns Writer
              */
-            public static encode(message: proto.Message.IPinMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: proto.Message.IPinInChatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Codifica el mensaje PinMessage message, delimitado por longitud. No implícitamente mensajes {@link proto.Message.PinMessage.verify|verify}.
-             * @param message PinMessage mensaje o objeto simple para codificar
+             * Codifica el mensaje PinInChatMessage message, delimitado por longitud. No implícitamente mensajes {@link proto.Message.PinInChatMessage.verify|verify}.
+             * @param message PinInChatMessage mensaje o objeto simple para codificar
              * @param [writer] Writer para codificar a
              * @returns Writer
              */
-            public static encodeDelimited(message: proto.Message.IPinMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: proto.Message.IPinInChatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PinMessage message from the specified reader or buffer.
+             * Decodifica un mensaje PinInChatMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
-             * @returns PinMessage
+             * @returns PinInChatMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
              * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PinMessage;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PinInChatMessage;
 
             /**
-             * Decodes a PinMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PinInChatMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
-             * @returns PinMessage
+             * @returns PinInChatMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
              * @throws {$protobuf.util.ProtocolError} Si faltan campos requeridos
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PinMessage;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PinInChatMessage;
 
             /**
-             * Verifies a PinMessage message.
+             * Verifica un mensaje PinInChatMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PinMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PinInChatMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
-             * @returns PinMessage
+             * @returns PinInChatMessage
              */
-            public static fromObject(object: { [k: string]: any }): proto.Message.PinMessage;
+            public static fromObject(object: { [k: string]: any }): proto.Message.PinInChatMessage;
 
             /**
-             * Crea un objeto simple desde PinMessage. También convierte valores a otros tipos si se especifica.
-             * @param message PinMessage
+             * Crea un objeto simple desde PinInChatMessage. También convierte valores a otros tipos si se especifica.
+             * @param message PinInChatMessage
              * @param [options] Opciones de conversión
              * @returns Objeto simple
              */
-            public static toObject(message: proto.Message.PinMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: proto.Message.PinInChatMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
-             * Convierte este  PinMessage a JSON.
+             * Convierte este  PinInChatMessage a JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
         }
 
-        namespace PinMessage {
+        namespace PinInChatMessage {
 
-            /** PinMessageType enum. */
-            enum PinMessageType {
-                UNKNOWN_PIN_MESSAGE_TYPE = 0,
+            /** Type enum. */
+            enum Type {
+                UNKNOWN_TYPE = 0,
                 PIN_FOR_ALL = 1,
                 UNPIN_FOR_ALL = 2
             }
@@ -15097,7 +15879,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IPollCreationMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PollCreationMessage message from the specified reader or buffer.
+             * Decodifica un mensaje PollCreationMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PollCreationMessage
@@ -15107,7 +15889,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PollCreationMessage;
 
             /**
-             * Decodes a PollCreationMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PollCreationMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PollCreationMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15116,14 +15898,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PollCreationMessage;
 
             /**
-             * Verifies a PollCreationMessage message.
+             * Verifica un mensaje PollCreationMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PollCreationMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PollCreationMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PollCreationMessage
              */
@@ -15189,7 +15971,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.PollCreationMessage.IOption, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes an Option message from the specified reader or buffer.
+                 * Decodifica un mensajen Option desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns Option
@@ -15199,7 +15981,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PollCreationMessage.Option;
 
                 /**
-                 * Decodes an Option message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensajen Option message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns Option
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15286,7 +16068,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IPollEncValue, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PollEncValue message from the specified reader or buffer.
+             * Decodifica un mensaje PollEncValue desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PollEncValue
@@ -15296,7 +16078,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PollEncValue;
 
             /**
-             * Decodes a PollEncValue message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PollEncValue message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PollEncValue
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15305,14 +16087,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PollEncValue;
 
             /**
-             * Verifies a PollEncValue message.
+             * Verifica un mensaje PollEncValue message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PollEncValue message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PollEncValue message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PollEncValue
              */
@@ -15394,7 +16176,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IPollUpdateMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PollUpdateMessage message from the specified reader or buffer.
+             * Decodifica un mensaje PollUpdateMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PollUpdateMessage
@@ -15404,7 +16186,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PollUpdateMessage;
 
             /**
-             * Decodes a PollUpdateMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PollUpdateMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PollUpdateMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15413,14 +16195,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PollUpdateMessage;
 
             /**
-             * Verifies a PollUpdateMessage message.
+             * Verifica un mensaje PollUpdateMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PollUpdateMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PollUpdateMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PollUpdateMessage
              */
@@ -15478,7 +16260,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IPollUpdateMessageMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PollUpdateMessageMetadata message from the specified reader or buffer.
+             * Decodifica un mensaje PollUpdateMessageMetadata desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PollUpdateMessageMetadata
@@ -15488,7 +16270,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PollUpdateMessageMetadata;
 
             /**
-             * Decodes a PollUpdateMessageMetadata message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PollUpdateMessageMetadata message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PollUpdateMessageMetadata
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15497,14 +16279,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PollUpdateMessageMetadata;
 
             /**
-             * Verifies a PollUpdateMessageMetadata message.
+             * Verifica un mensaje PollUpdateMessageMetadata message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PollUpdateMessageMetadata message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PollUpdateMessageMetadata message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PollUpdateMessageMetadata
              */
@@ -15568,7 +16350,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IPollVoteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PollVoteMessage message from the specified reader or buffer.
+             * Decodifica un mensaje PollVoteMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PollVoteMessage
@@ -15578,7 +16360,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PollVoteMessage;
 
             /**
-             * Decodes a PollVoteMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PollVoteMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PollVoteMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15587,14 +16369,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PollVoteMessage;
 
             /**
-             * Verifies a PollVoteMessage message.
+             * Verifica un mensaje PollVoteMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PollVoteMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PollVoteMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PollVoteMessage
              */
@@ -15688,7 +16470,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IProductMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ProductMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ProductMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ProductMessage
@@ -15698,7 +16480,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ProductMessage;
 
             /**
-             * Decodes a ProductMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ProductMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ProductMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15707,14 +16489,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ProductMessage;
 
             /**
-             * Verifies a ProductMessage message.
+             * Verifica un mensaje ProductMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ProductMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ProductMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ProductMessage
              */
@@ -15792,7 +16574,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ProductMessage.ICatalogSnapshot, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a CatalogSnapshot message from the specified reader or buffer.
+                 * Decodifica un mensaje CatalogSnapshot desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns CatalogSnapshot
@@ -15802,7 +16584,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ProductMessage.CatalogSnapshot;
 
                 /**
-                 * Decodes a CatalogSnapshot message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje CatalogSnapshot message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns CatalogSnapshot
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15811,14 +16593,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ProductMessage.CatalogSnapshot;
 
                 /**
-                 * Verifies a CatalogSnapshot message.
+                 * Verifica un mensaje CatalogSnapshot message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a CatalogSnapshot message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje CatalogSnapshot message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns CatalogSnapshot
                  */
@@ -15942,7 +16724,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.ProductMessage.IProductSnapshot, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a ProductSnapshot message from the specified reader or buffer.
+                 * Decodifica un mensaje ProductSnapshot desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns ProductSnapshot
@@ -15952,7 +16734,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ProductMessage.ProductSnapshot;
 
                 /**
-                 * Decodes a ProductSnapshot message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje ProductSnapshot message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns ProductSnapshot
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -15961,14 +16743,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ProductMessage.ProductSnapshot;
 
                 /**
-                 * Verifies a ProductSnapshot message.
+                 * Verifica un mensaje ProductSnapshot message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a ProductSnapshot message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje ProductSnapshot message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns ProductSnapshot
                  */
@@ -16111,7 +16893,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IProtocolMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ProtocolMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ProtocolMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ProtocolMessage
@@ -16121,7 +16903,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ProtocolMessage;
 
             /**
-             * Decodes a ProtocolMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ProtocolMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ProtocolMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -16130,14 +16912,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ProtocolMessage;
 
             /**
-             * Verifies a ProtocolMessage message.
+             * Verifica un mensaje ProtocolMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ProtocolMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ProtocolMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ProtocolMessage
              */
@@ -16239,7 +17021,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IReactionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ReactionMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ReactionMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ReactionMessage
@@ -16249,7 +17031,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ReactionMessage;
 
             /**
-             * Decodes a ReactionMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ReactionMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ReactionMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -16258,14 +17040,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ReactionMessage;
 
             /**
-             * Verifies a ReactionMessage message.
+             * Verifica un mensaje ReactionMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ReactionMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ReactionMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ReactionMessage
              */
@@ -16365,7 +17147,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IRequestPaymentMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a RequestPaymentMessage message from the specified reader or buffer.
+             * Decodifica un mensaje RequestPaymentMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns RequestPaymentMessage
@@ -16375,7 +17157,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.RequestPaymentMessage;
 
             /**
-             * Decodes a RequestPaymentMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje RequestPaymentMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns RequestPaymentMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -16384,14 +17166,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.RequestPaymentMessage;
 
             /**
-             * Verifies a RequestPaymentMessage message.
+             * Verifica un mensaje RequestPaymentMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a RequestPaymentMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje RequestPaymentMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns RequestPaymentMessage
              */
@@ -16455,7 +17237,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IRequestPhoneNumberMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a RequestPhoneNumberMessage message from the specified reader or buffer.
+             * Decodifica un mensaje RequestPhoneNumberMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns RequestPhoneNumberMessage
@@ -16465,7 +17247,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.RequestPhoneNumberMessage;
 
             /**
-             * Decodes a RequestPhoneNumberMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje RequestPhoneNumberMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns RequestPhoneNumberMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -16474,14 +17256,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.RequestPhoneNumberMessage;
 
             /**
-             * Verifies a RequestPhoneNumberMessage message.
+             * Verifica un mensaje RequestPhoneNumberMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a RequestPhoneNumberMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje RequestPhoneNumberMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns RequestPhoneNumberMessage
              */
@@ -16557,7 +17339,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IScheduledCallCreationMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ScheduledCallCreationMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ScheduledCallCreationMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ScheduledCallCreationMessage
@@ -16567,7 +17349,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ScheduledCallCreationMessage;
 
             /**
-             * Decodes a ScheduledCallCreationMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ScheduledCallCreationMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ScheduledCallCreationMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -16576,14 +17358,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ScheduledCallCreationMessage;
 
             /**
-             * Verifies a ScheduledCallCreationMessage message.
+             * Verifica un mensaje ScheduledCallCreationMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ScheduledCallCreationMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ScheduledCallCreationMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ScheduledCallCreationMessage
              */
@@ -16663,7 +17445,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IScheduledCallEditMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ScheduledCallEditMessage message from the specified reader or buffer.
+             * Decodifica un mensaje ScheduledCallEditMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ScheduledCallEditMessage
@@ -16673,7 +17455,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.ScheduledCallEditMessage;
 
             /**
-             * Decodes a ScheduledCallEditMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ScheduledCallEditMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ScheduledCallEditMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -16682,14 +17464,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.ScheduledCallEditMessage;
 
             /**
-             * Verifies a ScheduledCallEditMessage message.
+             * Verifica un mensaje ScheduledCallEditMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ScheduledCallEditMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ScheduledCallEditMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ScheduledCallEditMessage
              */
@@ -16774,7 +17556,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.ISendPaymentMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SendPaymentMessage message from the specified reader or buffer.
+             * Decodifica un mensaje SendPaymentMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SendPaymentMessage
@@ -16784,7 +17566,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.SendPaymentMessage;
 
             /**
-             * Decodes a SendPaymentMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SendPaymentMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SendPaymentMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -16793,14 +17575,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.SendPaymentMessage;
 
             /**
-             * Verifies a SendPaymentMessage message.
+             * Verifica un mensaje SendPaymentMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SendPaymentMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SendPaymentMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SendPaymentMessage
              */
@@ -16870,7 +17652,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.ISenderKeyDistributionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SenderKeyDistributionMessage message from the specified reader or buffer.
+             * Decodifica un mensaje SenderKeyDistributionMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SenderKeyDistributionMessage
@@ -16880,7 +17662,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.SenderKeyDistributionMessage;
 
             /**
-             * Decodes a SenderKeyDistributionMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SenderKeyDistributionMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SenderKeyDistributionMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -16889,14 +17671,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.SenderKeyDistributionMessage;
 
             /**
-             * Verifies a SenderKeyDistributionMessage message.
+             * Verifica un mensaje SenderKeyDistributionMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SenderKeyDistributionMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SenderKeyDistributionMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SenderKeyDistributionMessage
              */
@@ -17056,7 +17838,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IStickerMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a StickerMessage message from the specified reader or buffer.
+             * Decodifica un mensaje StickerMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns StickerMessage
@@ -17066,7 +17848,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.StickerMessage;
 
             /**
-             * Decodes a StickerMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje StickerMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns StickerMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -17075,14 +17857,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.StickerMessage;
 
             /**
-             * Verifies a StickerMessage message.
+             * Verifica un mensaje StickerMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a StickerMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje StickerMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns StickerMessage
              */
@@ -17158,7 +17940,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IStickerSyncRMRMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a StickerSyncRMRMessage message from the specified reader or buffer.
+             * Decodifica un mensaje StickerSyncRMRMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns StickerSyncRMRMessage
@@ -17168,7 +17950,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.StickerSyncRMRMessage;
 
             /**
-             * Decodes a StickerSyncRMRMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje StickerSyncRMRMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns StickerSyncRMRMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -17177,14 +17959,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.StickerSyncRMRMessage;
 
             /**
-             * Verifies a StickerSyncRMRMessage message.
+             * Verifica un mensaje StickerSyncRMRMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a StickerSyncRMRMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje StickerSyncRMRMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns StickerSyncRMRMessage
              */
@@ -17266,7 +18048,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.ITemplateButtonReplyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a TemplateButtonReplyMessage message from the specified reader or buffer.
+             * Decodifica un mensaje TemplateButtonReplyMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns TemplateButtonReplyMessage
@@ -17276,7 +18058,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.TemplateButtonReplyMessage;
 
             /**
-             * Decodes a TemplateButtonReplyMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje TemplateButtonReplyMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns TemplateButtonReplyMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -17285,14 +18067,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.TemplateButtonReplyMessage;
 
             /**
-             * Verifies a TemplateButtonReplyMessage message.
+             * Verifica un mensaje TemplateButtonReplyMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a TemplateButtonReplyMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje TemplateButtonReplyMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns TemplateButtonReplyMessage
              */
@@ -17389,7 +18171,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.ITemplateMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a TemplateMessage message from the specified reader or buffer.
+             * Decodifica un mensaje TemplateMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns TemplateMessage
@@ -17399,7 +18181,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.TemplateMessage;
 
             /**
-             * Decodes a TemplateMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje TemplateMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns TemplateMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -17408,14 +18190,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.TemplateMessage;
 
             /**
-             * Verifies a TemplateMessage message.
+             * Verifica un mensaje TemplateMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a TemplateMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje TemplateMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns TemplateMessage
              */
@@ -17526,7 +18308,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.TemplateMessage.IFourRowTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a FourRowTemplate message from the specified reader or buffer.
+                 * Decodifica un mensaje FourRowTemplate desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns FourRowTemplate
@@ -17536,7 +18318,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.TemplateMessage.FourRowTemplate;
 
                 /**
-                 * Decodes a FourRowTemplate message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje FourRowTemplate message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns FourRowTemplate
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -17545,14 +18327,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.TemplateMessage.FourRowTemplate;
 
                 /**
-                 * Verifies a FourRowTemplate message.
+                 * Verifica un mensaje FourRowTemplate message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a FourRowTemplate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje FourRowTemplate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns FourRowTemplate
                  */
@@ -17667,7 +18449,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.Message.TemplateMessage.IHydratedFourRowTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a HydratedFourRowTemplate message from the specified reader or buffer.
+                 * Decodifica un mensaje HydratedFourRowTemplate desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns HydratedFourRowTemplate
@@ -17677,7 +18459,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.TemplateMessage.HydratedFourRowTemplate;
 
                 /**
-                 * Decodes a HydratedFourRowTemplate message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje HydratedFourRowTemplate message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns HydratedFourRowTemplate
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -17686,14 +18468,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.TemplateMessage.HydratedFourRowTemplate;
 
                 /**
-                 * Verifies a HydratedFourRowTemplate message.
+                 * Verifica un mensaje HydratedFourRowTemplate message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a HydratedFourRowTemplate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje HydratedFourRowTemplate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns HydratedFourRowTemplate
                  */
@@ -17890,7 +18672,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.Message.IVideoMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a VideoMessage message from the specified reader or buffer.
+             * Decodifica un mensaje VideoMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns VideoMessage
@@ -17900,7 +18682,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.VideoMessage;
 
             /**
-             * Decodes a VideoMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje VideoMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns VideoMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -17909,14 +18691,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.VideoMessage;
 
             /**
-             * Verifies a VideoMessage message.
+             * Verifica un mensaje VideoMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a VideoMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje VideoMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns VideoMessage
              */
@@ -17948,6 +18730,96 @@ export namespace proto {
         }
     }
 
+    /** Propiedades de un MessageAddOnContextInfo. */
+    interface IMessageAddOnContextInfo {
+
+        /** MessageAddOnContextInfo messageAddOnDurationInSecs */
+        messageAddOnDurationInSecs?: (number|null);
+    }
+
+    /** representa un MessageAddOnContextInfo. */
+    class MessageAddOnContextInfo implements IMessageAddOnContextInfo {
+
+        /**
+         * Construye un nuevo MessageAddOnContextInfo.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.IMessageAddOnContextInfo);
+
+        /** MessageAddOnContextInfo messageAddOnDurationInSecs. */
+        public messageAddOnDurationInSecs: number;
+
+        /**
+         * Crea una nueva MessageAddOnContextInfo instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns MessageAddOnContextInfo instance
+         */
+        public static create(properties?: proto.IMessageAddOnContextInfo): proto.MessageAddOnContextInfo;
+
+        /**
+         * Codifica el especificado MessageAddOnContextInfo message. No implícitamente mensajes {@link proto.MessageAddOnContextInfo.verify|verify}.
+         * @param message MessageAddOnContextInfo message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.IMessageAddOnContextInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado MessageAddOnContextInfo message, length delimited. No implícitamente mensajes {@link proto.MessageAddOnContextInfo.verify|verify}.
+         * @param message MessageAddOnContextInfo message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IMessageAddOnContextInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje MessageAddOnContextInfo desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MessageAddOnContextInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.MessageAddOnContextInfo;
+
+        /**
+         * Decodifica un mensaje MessageAddOnContextInfo desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MessageAddOnContextInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.MessageAddOnContextInfo;
+
+        /**
+         * Verifica un mensaje MessageAddOnContextInfo message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje MessageAddOnContextInfo message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns MessageAddOnContextInfo
+         */
+        public static fromObject(object: { [k: string]: any }): proto.MessageAddOnContextInfo;
+
+        /**
+         * Crea un objeto simple de un MessageAddOnContextInfo message. Also converts values to other types if specified.
+         * @param message MessageAddOnContextInfo
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.MessageAddOnContextInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte esteMessageAddOnContextInfo to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Propiedades de un MessageContextInfo. */
     interface IMessageContextInfo {
 
@@ -17962,6 +18834,9 @@ export namespace proto {
 
         /** MessageContextInfo paddingBytes */
         paddingBytes?: (Uint8Array|null);
+
+        /** MessageContextInfo messageAddOnDurationInSecs */
+        messageAddOnDurationInSecs?: (number|null);
     }
 
     /** Representa un MessageContextInfo. */
@@ -17984,6 +18859,9 @@ export namespace proto {
 
         /** MessageContextInfo paddingBytes. */
         public paddingBytes: Uint8Array;
+
+        /** MessageContextInfo messageAddOnDurationInSecs. */
+        public messageAddOnDurationInSecs: number;
 
         /**
          * Crea una nueva instancia MessageContextInfo utilizando las propiedades especificadas.
@@ -18009,7 +18887,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IMessageContextInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a MessageContextInfo message from the specified reader or buffer.
+         * Decodifica un mensaje MessageContextInfo desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns MessageContextInfo
@@ -18019,7 +18897,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.MessageContextInfo;
 
         /**
-         * Decodes a MessageContextInfo message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje MessageContextInfo message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns MessageContextInfo
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18028,14 +18906,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.MessageContextInfo;
 
         /**
-         * Verifies a MessageContextInfo message.
+         * Verifica un mensaje MessageContextInfo message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a MessageContextInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje MessageContextInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns MessageContextInfo
          */
@@ -18117,7 +18995,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IMessageKey, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a MessageKey message from the specified reader or buffer.
+         * Decodifica un mensaje MessageKey desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns MessageKey
@@ -18127,7 +19005,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.MessageKey;
 
         /**
-         * Decodes a MessageKey message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje MessageKey message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns MessageKey
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18136,14 +19014,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.MessageKey;
 
         /**
-         * Verifies a MessageKey message.
+         * Verifica un mensaje MessageKey message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a MessageKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje MessageKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns MessageKey
          */
@@ -18219,7 +19097,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IMoney, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a Money message from the specified reader or buffer.
+         * Decodifica un mensaje Money desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns Money
@@ -18229,7 +19107,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Money;
 
         /**
-         * Decodes a Money message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje Money message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns Money
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18238,14 +19116,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Money;
 
         /**
-         * Verifies a Money message.
+         * Verifica un mensaje Money message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a Money message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje Money message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns Money
          */
@@ -18459,7 +19337,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IMsgOpaqueData, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a MsgOpaqueData message from the specified reader or buffer.
+         * Decodifica un mensaje MsgOpaqueData desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns MsgOpaqueData
@@ -18469,7 +19347,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.MsgOpaqueData;
 
         /**
-         * Decodes a MsgOpaqueData message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje MsgOpaqueData message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns MsgOpaqueData
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18478,14 +19356,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.MsgOpaqueData;
 
         /**
-         * Verifies a MsgOpaqueData message.
+         * Verifica un mensaje MsgOpaqueData message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a MsgOpaqueData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje MsgOpaqueData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns MsgOpaqueData
          */
@@ -18551,7 +19429,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.MsgOpaqueData.IPollOption, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PollOption message from the specified reader or buffer.
+             * Decodifica un mensaje PollOption desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PollOption
@@ -18561,7 +19439,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.MsgOpaqueData.PollOption;
 
             /**
-             * Decodes a PollOption message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PollOption message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PollOption
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18570,14 +19448,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.MsgOpaqueData.PollOption;
 
             /**
-             * Verifies a PollOption message.
+             * Verifica un mensaje PollOption message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PollOption message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PollOption message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PollOption
              */
@@ -18648,7 +19526,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IMsgRowOpaqueData, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a MsgRowOpaqueData message from the specified reader or buffer.
+         * Decodifica un mensaje MsgRowOpaqueData desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns MsgRowOpaqueData
@@ -18658,7 +19536,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.MsgRowOpaqueData;
 
         /**
-         * Decodes a MsgRowOpaqueData message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje MsgRowOpaqueData message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns MsgRowOpaqueData
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18667,14 +19545,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.MsgRowOpaqueData;
 
         /**
-         * Verifies a MsgRowOpaqueData message.
+         * Verifica un mensaje MsgRowOpaqueData message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a MsgRowOpaqueData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje MsgRowOpaqueData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns MsgRowOpaqueData
          */
@@ -18744,7 +19622,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.INoiseCertificate, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a NoiseCertificate message from the specified reader or buffer.
+         * Decodifica un mensaje NoiseCertificate desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns NoiseCertificate
@@ -18754,7 +19632,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.NoiseCertificate;
 
         /**
-         * Decodes a NoiseCertificate message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje NoiseCertificate message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns NoiseCertificate
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18763,14 +19641,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.NoiseCertificate;
 
         /**
-         * Verifies a NoiseCertificate message.
+         * Verifica un mensaje NoiseCertificate message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a NoiseCertificate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje NoiseCertificate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns NoiseCertificate
          */
@@ -18860,7 +19738,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.NoiseCertificate.IDetails, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a Details message from the specified reader or buffer.
+             * Decodifica un mensaje Details desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns Details
@@ -18870,7 +19748,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.NoiseCertificate.Details;
 
             /**
-             * Decodes a Details message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje Details message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns Details
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18879,14 +19757,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.NoiseCertificate.Details;
 
             /**
-             * Verifies a Details message.
+             * Verifica un mensaje Details message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a Details message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje Details message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns Details
              */
@@ -18969,7 +19847,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.INotificationMessageInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a NotificationMessageInfo message from the specified reader or buffer.
+         * Decodifica un mensaje NotificationMessageInfo desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns NotificationMessageInfo
@@ -18979,7 +19857,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.NotificationMessageInfo;
 
         /**
-         * Decodes a NotificationMessageInfo message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje NotificationMessageInfo message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns NotificationMessageInfo
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -18988,14 +19866,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.NotificationMessageInfo;
 
         /**
-         * Verifies a NotificationMessageInfo message.
+         * Verifica un mensaje NotificationMessageInfo message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a NotificationMessageInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje NotificationMessageInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns NotificationMessageInfo
          */
@@ -19011,6 +19889,126 @@ export namespace proto {
 
         /**
          * Convierte este  NotificationMessageInfo a JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Propiedades de un NotificationSettings. */
+    interface INotificationSettings {
+
+        /** NotificationSettings messageVibrate */
+        messageVibrate?: (string|null);
+
+        /** NotificationSettings messagePopup */
+        messagePopup?: (string|null);
+
+        /** NotificationSettings messageLight */
+        messageLight?: (string|null);
+
+        /** NotificationSettings lowPriorityNotifications */
+        lowPriorityNotifications?: (boolean|null);
+
+        /** NotificationSettings reactionsMuted */
+        reactionsMuted?: (boolean|null);
+
+        /** NotificationSettings callVibrate */
+        callVibrate?: (string|null);
+    }
+
+    /** representa un NotificationSettings. */
+    class NotificationSettings implements INotificationSettings {
+
+        /**
+         * Construye un nuevo NotificationSettings.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.INotificationSettings);
+
+        /** NotificationSettings messageVibrate. */
+        public messageVibrate: string;
+
+        /** NotificationSettings messagePopup. */
+        public messagePopup: string;
+
+        /** NotificationSettings messageLight. */
+        public messageLight: string;
+
+        /** NotificationSettings lowPriorityNotifications. */
+        public lowPriorityNotifications: boolean;
+
+        /** NotificationSettings reactionsMuted. */
+        public reactionsMuted: boolean;
+
+        /** NotificationSettings callVibrate. */
+        public callVibrate: string;
+
+        /**
+         * Crea una nueva NotificationSettings instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns NotificationSettings instance
+         */
+        public static create(properties?: proto.INotificationSettings): proto.NotificationSettings;
+
+        /**
+         * Codifica el especificado NotificationSettings message. No implícitamente mensajes {@link proto.NotificationSettings.verify|verify}.
+         * @param message NotificationSettings message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.INotificationSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado NotificationSettings message, length delimited. No implícitamente mensajes {@link proto.NotificationSettings.verify|verify}.
+         * @param message NotificationSettings message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.INotificationSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje NotificationSettings desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns NotificationSettings
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.NotificationSettings;
+
+        /**
+         * Decodifica un mensaje NotificationSettings desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns NotificationSettings
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.NotificationSettings;
+
+        /**
+         * Verifica un mensaje NotificationSettings message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje NotificationSettings message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns NotificationSettings
+         */
+        public static fromObject(object: { [k: string]: any }): proto.NotificationSettings;
+
+        /**
+         * Crea un objeto simple de un NotificationSettings message. Also converts values to other types if specified.
+         * @param message NotificationSettings
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.NotificationSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte esteNotificationSettings to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -19071,7 +20069,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPastParticipant, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PastParticipant message from the specified reader or buffer.
+         * Decodifica un mensaje PastParticipant desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PastParticipant
@@ -19081,7 +20079,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PastParticipant;
 
         /**
-         * Decodes a PastParticipant message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PastParticipant message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PastParticipant
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -19090,14 +20088,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PastParticipant;
 
         /**
-         * Verifies a PastParticipant message.
+         * Verifica un mensaje PastParticipant message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PastParticipant message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PastParticipant message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PastParticipant
          */
@@ -19176,7 +20174,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPastParticipants, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PastParticipants message from the specified reader or buffer.
+         * Decodifica un mensaje PastParticipants desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PastParticipants
@@ -19186,7 +20184,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PastParticipants;
 
         /**
-         * Decodes a PastParticipants message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PastParticipants message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PastParticipants
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -19195,14 +20193,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PastParticipants;
 
         /**
-         * Verifies a PastParticipants message.
+         * Verifica un mensaje PastParticipants message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PastParticipants message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PastParticipants message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PastParticipants
          */
@@ -19320,7 +20318,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPaymentBackground, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PaymentBackground message from the specified reader or buffer.
+         * Decodifica un mensaje PaymentBackground desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PaymentBackground
@@ -19330,7 +20328,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PaymentBackground;
 
         /**
-         * Decodes a PaymentBackground message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PaymentBackground message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PaymentBackground
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -19339,14 +20337,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PaymentBackground;
 
         /**
-         * Verifies a PaymentBackground message.
+         * Verifica un mensaje PaymentBackground message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PaymentBackground message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PaymentBackground message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PaymentBackground
          */
@@ -19436,7 +20434,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.PaymentBackground.IMediaData, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a MediaData message from the specified reader or buffer.
+             * Decodifica un mensaje MediaData desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns MediaData
@@ -19446,7 +20444,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PaymentBackground.MediaData;
 
             /**
-             * Decodes a MediaData message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje MediaData message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns MediaData
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -19455,14 +20453,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PaymentBackground.MediaData;
 
             /**
-             * Verifies a MediaData message.
+             * Verifica un mensaje MediaData message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a MediaData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje MediaData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns MediaData
              */
@@ -19605,7 +20603,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPaymentInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PaymentInfo message from the specified reader or buffer.
+         * Decodifica un mensaje PaymentInfo desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PaymentInfo
@@ -19615,7 +20613,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PaymentInfo;
 
         /**
-         * Decodes a PaymentInfo message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PaymentInfo message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PaymentInfo
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -19624,14 +20622,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PaymentInfo;
 
         /**
-         * Verifies a PaymentInfo message.
+         * Verifica un mensaje PaymentInfo message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PaymentInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PaymentInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PaymentInfo
          */
@@ -19768,7 +20766,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPhotoChange, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PhotoChange message from the specified reader or buffer.
+         * Decodifica un mensaje PhotoChange desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PhotoChange
@@ -19778,7 +20776,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PhotoChange;
 
         /**
-         * Decodes a PhotoChange message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PhotoChange message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PhotoChange
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -19787,14 +20785,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PhotoChange;
 
         /**
-         * Verifies a PhotoChange message.
+         * Verifica un mensaje PhotoChange message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PhotoChange message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PhotoChange message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PhotoChange
          */
@@ -19813,6 +20811,130 @@ export namespace proto {
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
+    }
+
+    /** Propiedades de un PinInChat. */
+    interface IPinInChat {
+
+        /** PinInChat type */
+        type?: (proto.PinInChat.Type|null);
+
+        /** PinInChat key */
+        key?: (proto.IMessageKey|null);
+
+        /** PinInChat senderTimestampMs */
+        senderTimestampMs?: (number|Long|null);
+
+        /** PinInChat serverTimestampMs */
+        serverTimestampMs?: (number|Long|null);
+
+        /** PinInChat messageAddOnContextInfo */
+        messageAddOnContextInfo?: (proto.IMessageAddOnContextInfo|null);
+    }
+
+    /** representa un PinInChat. */
+    class PinInChat implements IPinInChat {
+
+        /**
+         * Construye un nuevo PinInChat.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.IPinInChat);
+
+        /** PinInChat type. */
+        public type: proto.PinInChat.Type;
+
+        /** PinInChat key. */
+        public key?: (proto.IMessageKey|null);
+
+        /** PinInChat senderTimestampMs. */
+        public senderTimestampMs: (number|Long);
+
+        /** PinInChat serverTimestampMs. */
+        public serverTimestampMs: (number|Long);
+
+        /** PinInChat messageAddOnContextInfo. */
+        public messageAddOnContextInfo?: (proto.IMessageAddOnContextInfo|null);
+
+        /**
+         * Crea una nueva PinInChat instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns PinInChat instance
+         */
+        public static create(properties?: proto.IPinInChat): proto.PinInChat;
+
+        /**
+         * Codifica el especificado PinInChat message. No implícitamente mensajes {@link proto.PinInChat.verify|verify}.
+         * @param message PinInChat message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.IPinInChat, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado PinInChat message, length delimited. No implícitamente mensajes {@link proto.PinInChat.verify|verify}.
+         * @param message PinInChat message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IPinInChat, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje PinInChat desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PinInChat
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PinInChat;
+
+        /**
+         * Decodifica un mensaje PinInChat desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PinInChat
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PinInChat;
+
+        /**
+         * Verifica un mensaje PinInChat message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje PinInChat message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns PinInChat
+         */
+        public static fromObject(object: { [k: string]: any }): proto.PinInChat;
+
+        /**
+         * Crea un objeto simple de un PinInChat message. Also converts values to other types if specified.
+         * @param message PinInChat
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.PinInChat, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte estePinInChat to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    namespace PinInChat {
+
+        /** Type enum. */
+        enum Type {
+            UNKNOWN_TYPE = 0,
+            PIN_FOR_ALL = 1,
+            UNPIN_FOR_ALL = 2
+        }
     }
 
     /** Propiedades de un Point. */
@@ -19876,7 +20998,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPoint, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a Point message from the specified reader or buffer.
+         * Decodifica un mensaje Point desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns Point
@@ -19886,7 +21008,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Point;
 
         /**
-         * Decodes a Point message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje Point message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns Point
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -19895,14 +21017,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Point;
 
         /**
-         * Verifies a Point message.
+         * Verifica un mensaje Point message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a Point message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje Point message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns Point
          */
@@ -19966,7 +21088,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPollAdditionalMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PollAdditionalMetadata message from the specified reader or buffer.
+         * Decodifica un mensaje PollAdditionalMetadata desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PollAdditionalMetadata
@@ -19976,7 +21098,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PollAdditionalMetadata;
 
         /**
-         * Decodes a PollAdditionalMetadata message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PollAdditionalMetadata message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PollAdditionalMetadata
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -19985,14 +21107,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PollAdditionalMetadata;
 
         /**
-         * Verifies a PollAdditionalMetadata message.
+         * Verifica un mensaje PollAdditionalMetadata message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PollAdditionalMetadata message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PollAdditionalMetadata message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PollAdditionalMetadata
          */
@@ -20062,7 +21184,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPollEncValue, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PollEncValue message from the specified reader or buffer.
+         * Decodifica un mensaje PollEncValue desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PollEncValue
@@ -20072,7 +21194,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PollEncValue;
 
         /**
-         * Decodes a PollEncValue message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PollEncValue message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PollEncValue
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20081,14 +21203,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PollEncValue;
 
         /**
-         * Verifies a PollEncValue message.
+         * Verifica un mensaje PollEncValue message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PollEncValue message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PollEncValue message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PollEncValue
          */
@@ -20176,7 +21298,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPollUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PollUpdate message from the specified reader or buffer.
+         * Decodifica un mensaje PollUpdate desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PollUpdate
@@ -20186,7 +21308,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PollUpdate;
 
         /**
-         * Decodes a PollUpdate message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PollUpdate message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PollUpdate
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20195,14 +21317,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PollUpdate;
 
         /**
-         * Verifies a PollUpdate message.
+         * Verifica un mensaje PollUpdate message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PollUpdate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PollUpdate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PollUpdate
          */
@@ -20278,7 +21400,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPreKeyRecordStructure, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a PreKeyRecordStructure message from the specified reader or buffer.
+         * Decodifica un mensaje PreKeyRecordStructure desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns PreKeyRecordStructure
@@ -20288,7 +21410,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PreKeyRecordStructure;
 
         /**
-         * Decodes a PreKeyRecordStructure message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje PreKeyRecordStructure message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns PreKeyRecordStructure
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20297,14 +21419,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PreKeyRecordStructure;
 
         /**
-         * Verifies a PreKeyRecordStructure message.
+         * Verifica un mensaje PreKeyRecordStructure message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a PreKeyRecordStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje PreKeyRecordStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns PreKeyRecordStructure
          */
@@ -20320,6 +21442,126 @@ export namespace proto {
 
         /**
          * Convierte este  PreKeyRecordStructure a JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Propiedades de un PreKeySignalMessage. */
+    interface IPreKeySignalMessage {
+
+        /** PreKeySignalMessage registrationId */
+        registrationId?: (number|null);
+
+        /** PreKeySignalMessage preKeyId */
+        preKeyId?: (number|null);
+
+        /** PreKeySignalMessage signedPreKeyId */
+        signedPreKeyId?: (number|null);
+
+        /** PreKeySignalMessage baseKey */
+        baseKey?: (Uint8Array|null);
+
+        /** PreKeySignalMessage identityKey */
+        identityKey?: (Uint8Array|null);
+
+        /** PreKeySignalMessage message */
+        message?: (Uint8Array|null);
+    }
+
+    /** representa un PreKeySignalMessage. */
+    class PreKeySignalMessage implements IPreKeySignalMessage {
+
+        /**
+         * Construye un nuevo PreKeySignalMessage.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.IPreKeySignalMessage);
+
+        /** PreKeySignalMessage registrationId. */
+        public registrationId: number;
+
+        /** PreKeySignalMessage preKeyId. */
+        public preKeyId: number;
+
+        /** PreKeySignalMessage signedPreKeyId. */
+        public signedPreKeyId: number;
+
+        /** PreKeySignalMessage baseKey. */
+        public baseKey: Uint8Array;
+
+        /** PreKeySignalMessage identityKey. */
+        public identityKey: Uint8Array;
+
+        /** PreKeySignalMessage message. */
+        public message: Uint8Array;
+
+        /**
+         * Crea una nueva PreKeySignalMessage instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns PreKeySignalMessage instance
+         */
+        public static create(properties?: proto.IPreKeySignalMessage): proto.PreKeySignalMessage;
+
+        /**
+         * Codifica el especificado PreKeySignalMessage message. No implícitamente mensajes {@link proto.PreKeySignalMessage.verify|verify}.
+         * @param message PreKeySignalMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.IPreKeySignalMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado PreKeySignalMessage message, length delimited. No implícitamente mensajes {@link proto.PreKeySignalMessage.verify|verify}.
+         * @param message PreKeySignalMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IPreKeySignalMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje PreKeySignalMessage desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PreKeySignalMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.PreKeySignalMessage;
+
+        /**
+         * Decodifica un mensaje PreKeySignalMessage desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PreKeySignalMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.PreKeySignalMessage;
+
+        /**
+         * Verifica un mensaje PreKeySignalMessage message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje PreKeySignalMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns PreKeySignalMessage
+         */
+        public static fromObject(object: { [k: string]: any }): proto.PreKeySignalMessage;
+
+        /**
+         * Crea un objeto simple de un PreKeySignalMessage message. Also converts values to other types if specified.
+         * @param message PreKeySignalMessage
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.PreKeySignalMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte estePreKeySignalMessage to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -20374,7 +21616,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IPushname, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a Pushname message from the specified reader or buffer.
+         * Decodifica un mensaje Pushname desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns Pushname
@@ -20384,7 +21626,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Pushname;
 
         /**
-         * Decodes a Pushname message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje Pushname message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns Pushname
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20393,14 +21635,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Pushname;
 
         /**
-         * Verifies a Pushname message.
+         * Verifica un mensaje Pushname message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a Pushname message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje Pushname message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns Pushname
          */
@@ -20488,7 +21730,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IReaction, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a Reaction message from the specified reader or buffer.
+         * Decodifica un mensaje Reaction desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns Reaction
@@ -20498,7 +21740,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Reaction;
 
         /**
-         * Decodes a Reaction message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje Reaction message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns Reaction
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20507,14 +21749,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Reaction;
 
         /**
-         * Verifies a Reaction message.
+         * Verifica un mensaje Reaction message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a Reaction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje Reaction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns Reaction
          */
@@ -20584,7 +21826,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IRecentEmojiWeight, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a RecentEmojiWeight message from the specified reader or buffer.
+         * Decodifica un mensaje RecentEmojiWeight desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns RecentEmojiWeight
@@ -20594,7 +21836,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.RecentEmojiWeight;
 
         /**
-         * Decodes a RecentEmojiWeight message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje RecentEmojiWeight message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns RecentEmojiWeight
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20603,14 +21845,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.RecentEmojiWeight;
 
         /**
-         * Verifies a RecentEmojiWeight message.
+         * Verifica un mensaje RecentEmojiWeight message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a RecentEmojiWeight message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje RecentEmojiWeight message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns RecentEmojiWeight
          */
@@ -20680,7 +21922,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IRecordStructure, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a RecordStructure message from the specified reader or buffer.
+         * Decodifica un mensaje RecordStructure desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns RecordStructure
@@ -20690,7 +21932,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.RecordStructure;
 
         /**
-         * Decodes a RecordStructure message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje RecordStructure message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns RecordStructure
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20699,14 +21941,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.RecordStructure;
 
         /**
-         * Verifies a RecordStructure message.
+         * Verifica un mensaje RecordStructure message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a RecordStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje RecordStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns RecordStructure
          */
@@ -20722,6 +21964,216 @@ export namespace proto {
 
         /**
          * Convierte este  RecordStructure a JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Propiedades de un SenderKeyDistributionMessage. */
+    interface ISenderKeyDistributionMessage {
+
+        /** SenderKeyDistributionMessage id */
+        id?: (number|null);
+
+        /** SenderKeyDistributionMessage iteration */
+        iteration?: (number|null);
+
+        /** SenderKeyDistributionMessage chainKey */
+        chainKey?: (Uint8Array|null);
+
+        /** SenderKeyDistributionMessage signingKey */
+        signingKey?: (Uint8Array|null);
+    }
+
+    /** representa un SenderKeyDistributionMessage. */
+    class SenderKeyDistributionMessage implements ISenderKeyDistributionMessage {
+
+        /**
+         * Construye un nuevo SenderKeyDistributionMessage.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.ISenderKeyDistributionMessage);
+
+        /** SenderKeyDistributionMessage id. */
+        public id: number;
+
+        /** SenderKeyDistributionMessage iteration. */
+        public iteration: number;
+
+        /** SenderKeyDistributionMessage chainKey. */
+        public chainKey: Uint8Array;
+
+        /** SenderKeyDistributionMessage signingKey. */
+        public signingKey: Uint8Array;
+
+        /**
+         * Crea una nueva SenderKeyDistributionMessage instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns SenderKeyDistributionMessage instance
+         */
+        public static create(properties?: proto.ISenderKeyDistributionMessage): proto.SenderKeyDistributionMessage;
+
+        /**
+         * Codifica el especificado SenderKeyDistributionMessage message. No implícitamente mensajes {@link proto.SenderKeyDistributionMessage.verify|verify}.
+         * @param message SenderKeyDistributionMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.ISenderKeyDistributionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado SenderKeyDistributionMessage message, length delimited. No implícitamente mensajes {@link proto.SenderKeyDistributionMessage.verify|verify}.
+         * @param message SenderKeyDistributionMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.ISenderKeyDistributionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje SenderKeyDistributionMessage desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SenderKeyDistributionMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SenderKeyDistributionMessage;
+
+        /**
+         * Decodifica un mensaje SenderKeyDistributionMessage desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SenderKeyDistributionMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SenderKeyDistributionMessage;
+
+        /**
+         * Verifica un mensaje SenderKeyDistributionMessage message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje SenderKeyDistributionMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns SenderKeyDistributionMessage
+         */
+        public static fromObject(object: { [k: string]: any }): proto.SenderKeyDistributionMessage;
+
+        /**
+         * Crea un objeto simple de un SenderKeyDistributionMessage message. Also converts values to other types if specified.
+         * @param message SenderKeyDistributionMessage
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.SenderKeyDistributionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte esteSenderKeyDistributionMessage to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Propiedades de un SenderKeyMessage. */
+    interface ISenderKeyMessage {
+
+        /** SenderKeyMessage id */
+        id?: (number|null);
+
+        /** SenderKeyMessage iteration */
+        iteration?: (number|null);
+
+        /** SenderKeyMessage ciphertext */
+        ciphertext?: (Uint8Array|null);
+    }
+
+    /** representa un SenderKeyMessage. */
+    class SenderKeyMessage implements ISenderKeyMessage {
+
+        /**
+         * Construye un nuevo SenderKeyMessage.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.ISenderKeyMessage);
+
+        /** SenderKeyMessage id. */
+        public id: number;
+
+        /** SenderKeyMessage iteration. */
+        public iteration: number;
+
+        /** SenderKeyMessage ciphertext. */
+        public ciphertext: Uint8Array;
+
+        /**
+         * Crea una nueva SenderKeyMessage instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns SenderKeyMessage instance
+         */
+        public static create(properties?: proto.ISenderKeyMessage): proto.SenderKeyMessage;
+
+        /**
+         * Codifica el especificado SenderKeyMessage message. No implícitamente mensajes {@link proto.SenderKeyMessage.verify|verify}.
+         * @param message SenderKeyMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.ISenderKeyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado SenderKeyMessage message, length delimited. No implícitamente mensajes {@link proto.SenderKeyMessage.verify|verify}.
+         * @param message SenderKeyMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.ISenderKeyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje SenderKeyMessage desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SenderKeyMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SenderKeyMessage;
+
+        /**
+         * Decodifica un mensaje SenderKeyMessage desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SenderKeyMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SenderKeyMessage;
+
+        /**
+         * Verifica un mensaje SenderKeyMessage message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje SenderKeyMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns SenderKeyMessage
+         */
+        public static fromObject(object: { [k: string]: any }): proto.SenderKeyMessage;
+
+        /**
+         * Crea un objeto simple de un SenderKeyMessage message. Also converts values to other types if specified.
+         * @param message SenderKeyMessage
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.SenderKeyMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte esteSenderKeyMessage to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -20770,7 +22222,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISenderKeyRecordStructure, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SenderKeyRecordStructure message from the specified reader or buffer.
+         * Decodifica un mensaje SenderKeyRecordStructure desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SenderKeyRecordStructure
@@ -20780,7 +22232,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SenderKeyRecordStructure;
 
         /**
-         * Decodes a SenderKeyRecordStructure message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SenderKeyRecordStructure message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SenderKeyRecordStructure
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20789,14 +22241,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SenderKeyRecordStructure;
 
         /**
-         * Verifies a SenderKeyRecordStructure message.
+         * Verifica un mensaje SenderKeyRecordStructure message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SenderKeyRecordStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SenderKeyRecordStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SenderKeyRecordStructure
          */
@@ -20878,7 +22330,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISenderKeyStateStructure, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SenderKeyStateStructure message from the specified reader or buffer.
+         * Decodifica un mensaje SenderKeyStateStructure desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SenderKeyStateStructure
@@ -20888,7 +22340,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SenderKeyStateStructure;
 
         /**
-         * Decodes a SenderKeyStateStructure message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SenderKeyStateStructure message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SenderKeyStateStructure
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20897,14 +22349,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SenderKeyStateStructure;
 
         /**
-         * Verifies a SenderKeyStateStructure message.
+         * Verifica un mensaje SenderKeyStateStructure message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SenderKeyStateStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SenderKeyStateStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SenderKeyStateStructure
          */
@@ -20976,7 +22428,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SenderKeyStateStructure.ISenderChainKey, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SenderChainKey message from the specified reader or buffer.
+             * Decodifica un mensaje SenderChainKey desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SenderChainKey
@@ -20986,7 +22438,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SenderKeyStateStructure.SenderChainKey;
 
             /**
-             * Decodes a SenderChainKey message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SenderChainKey message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SenderChainKey
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -20995,14 +22447,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SenderKeyStateStructure.SenderChainKey;
 
             /**
-             * Verifies a SenderChainKey message.
+             * Verifica un mensaje SenderChainKey message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SenderChainKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SenderChainKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SenderChainKey
              */
@@ -21072,7 +22524,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SenderKeyStateStructure.ISenderMessageKey, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SenderMessageKey message from the specified reader or buffer.
+             * Decodifica un mensaje SenderMessageKey desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SenderMessageKey
@@ -21082,7 +22534,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SenderKeyStateStructure.SenderMessageKey;
 
             /**
-             * Decodes a SenderMessageKey message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SenderMessageKey message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SenderMessageKey
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21091,14 +22543,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SenderKeyStateStructure.SenderMessageKey;
 
             /**
-             * Verifies a SenderMessageKey message.
+             * Verifica un mensaje SenderMessageKey message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SenderMessageKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SenderMessageKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SenderMessageKey
              */
@@ -21168,7 +22620,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SenderKeyStateStructure.ISenderSigningKey, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SenderSigningKey message from the specified reader or buffer.
+             * Decodifica un mensaje SenderSigningKey desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SenderSigningKey
@@ -21178,7 +22630,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SenderKeyStateStructure.SenderSigningKey;
 
             /**
-             * Decodes a SenderSigningKey message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SenderSigningKey message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SenderSigningKey
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21187,14 +22639,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SenderKeyStateStructure.SenderSigningKey;
 
             /**
-             * Verifies a SenderSigningKey message.
+             * Verifica un mensaje SenderSigningKey message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SenderSigningKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SenderSigningKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SenderSigningKey
              */
@@ -21259,7 +22711,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IServerErrorReceipt, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a ServerErrorReceipt message from the specified reader or buffer.
+         * Decodifica un mensaje ServerErrorReceipt desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns ServerErrorReceipt
@@ -21269,7 +22721,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.ServerErrorReceipt;
 
         /**
-         * Decodes a ServerErrorReceipt message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje ServerErrorReceipt message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns ServerErrorReceipt
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21278,14 +22730,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.ServerErrorReceipt;
 
         /**
-         * Verifies a ServerErrorReceipt message.
+         * Verifica un mensaje ServerErrorReceipt message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a ServerErrorReceipt message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje ServerErrorReceipt message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns ServerErrorReceipt
          */
@@ -21421,7 +22873,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISessionStructure, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SessionStructure message from the specified reader or buffer.
+         * Decodifica un mensaje SessionStructure desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SessionStructure
@@ -21431,7 +22883,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SessionStructure;
 
         /**
-         * Decodes a SessionStructure message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SessionStructure message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SessionStructure
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21440,14 +22892,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SessionStructure;
 
         /**
-         * Verifies a SessionStructure message.
+         * Verifica un mensaje SessionStructure message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SessionStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SessionStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SessionStructure
          */
@@ -21531,7 +22983,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SessionStructure.IChain, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a Chain message from the specified reader or buffer.
+             * Decodifica un mensaje Chain desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns Chain
@@ -21541,7 +22993,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SessionStructure.Chain;
 
             /**
-             * Decodes a Chain message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje Chain message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns Chain
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21550,14 +23002,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SessionStructure.Chain;
 
             /**
-             * Verifies a Chain message.
+             * Verifica un mensaje Chain message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a Chain message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje Chain message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns Chain
              */
@@ -21629,7 +23081,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.SessionStructure.Chain.IChainKey, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a ChainKey message from the specified reader or buffer.
+                 * Decodifica un mensaje ChainKey desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns ChainKey
@@ -21639,7 +23091,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SessionStructure.Chain.ChainKey;
 
                 /**
-                 * Decodes a ChainKey message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje ChainKey message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns ChainKey
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21648,14 +23100,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SessionStructure.Chain.ChainKey;
 
                 /**
-                 * Verifies a ChainKey message.
+                 * Verifica un mensaje ChainKey message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a ChainKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje ChainKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns ChainKey
                  */
@@ -21737,7 +23189,7 @@ export namespace proto {
                 public static encodeDelimited(message: proto.SessionStructure.Chain.IMessageKey, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a MessageKey message from the specified reader or buffer.
+                 * Decodifica un mensaje MessageKey desde el lector o búfer especificado.
                  * @param reader Reader o búfer para decodificar desde
                  * @param [length] Longitud del mensaje si se conoce de antemano
                  * @returns MessageKey
@@ -21747,7 +23199,7 @@ export namespace proto {
                 public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SessionStructure.Chain.MessageKey;
 
                 /**
-                 * Decodes a MessageKey message desde el especifico lector o búfer, longitud delimitada.
+                 * Decodifica un mensaje MessageKey message desde el especifico lector o búfer, longitud delimitada.
                  * @param reader Reader o búfer para decodificar desde
                  * @returns MessageKey
                  * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21756,14 +23208,14 @@ export namespace proto {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SessionStructure.Chain.MessageKey;
 
                 /**
-                 * Verifies a MessageKey message.
+                 * Verifica un mensaje MessageKey message.
                  * @param message Objeto simple para verificar
                  * @returns `null` Si es válido, de lo contrario la razón por la que no es
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a MessageKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+                 * Crea un mensaje MessageKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
                  * @param object Objeto simple
                  * @returns MessageKey
                  */
@@ -21864,7 +23316,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SessionStructure.IPendingKeyExchange, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PendingKeyExchange message from the specified reader or buffer.
+             * Decodifica un mensaje PendingKeyExchange desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PendingKeyExchange
@@ -21874,7 +23326,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SessionStructure.PendingKeyExchange;
 
             /**
-             * Decodes a PendingKeyExchange message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PendingKeyExchange message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PendingKeyExchange
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21883,14 +23335,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SessionStructure.PendingKeyExchange;
 
             /**
-             * Verifies a PendingKeyExchange message.
+             * Verifica un mensaje PendingKeyExchange message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PendingKeyExchange message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PendingKeyExchange message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PendingKeyExchange
              */
@@ -21966,7 +23418,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SessionStructure.IPendingPreKey, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PendingPreKey message from the specified reader or buffer.
+             * Decodifica un mensaje PendingPreKey desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PendingPreKey
@@ -21976,7 +23428,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SessionStructure.PendingPreKey;
 
             /**
-             * Decodes a PendingPreKey message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PendingPreKey message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PendingPreKey
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -21985,14 +23437,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SessionStructure.PendingPreKey;
 
             /**
-             * Verifies a PendingPreKey message.
+             * Verifica un mensaje PendingPreKey message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PendingPreKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PendingPreKey message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PendingPreKey
              */
@@ -22012,6 +23464,114 @@ export namespace proto {
              */
             public toJSON(): { [k: string]: any };
         }
+    }
+
+    /** Propiedades de un SignalMessage. */
+    interface ISignalMessage {
+
+        /** SignalMessage ratchetKey */
+        ratchetKey?: (Uint8Array|null);
+
+        /** SignalMessage counter */
+        counter?: (number|null);
+
+        /** SignalMessage previousCounter */
+        previousCounter?: (number|null);
+
+        /** SignalMessage ciphertext */
+        ciphertext?: (Uint8Array|null);
+    }
+
+    /** representa un SignalMessage. */
+    class SignalMessage implements ISignalMessage {
+
+        /**
+         * Construye un nuevo SignalMessage.
+         * @param [properties] Propiedades a configurar
+         */
+        constructor(properties?: proto.ISignalMessage);
+
+        /** SignalMessage ratchetKey. */
+        public ratchetKey: Uint8Array;
+
+        /** SignalMessage counter. */
+        public counter: number;
+
+        /** SignalMessage previousCounter. */
+        public previousCounter: number;
+
+        /** SignalMessage ciphertext. */
+        public ciphertext: Uint8Array;
+
+        /**
+         * Crea una nueva SignalMessage instance usando las propiedades especificadas.
+         * @param [properties] Propiedades a configurar
+         * @returns SignalMessage instance
+         */
+        public static create(properties?: proto.ISignalMessage): proto.SignalMessage;
+
+        /**
+         * Codifica el especificado SignalMessage message. No implícitamente mensajes {@link proto.SignalMessage.verify|verify}.
+         * @param message SignalMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encode(message: proto.ISignalMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Codifica el especificado SignalMessage message, length delimited. No implícitamente mensajes {@link proto.SignalMessage.verify|verify}.
+         * @param message SignalMessage message u objeto simple para codificar
+         * @param [writer] Writer para codificar
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.ISignalMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodifica un mensaje SignalMessage desde el lector o búfer especificado.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SignalMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SignalMessage;
+
+        /**
+         * Decodifica un mensaje SignalMessage desde el lector o búfer especificado, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SignalMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SignalMessage;
+
+        /**
+         * Verifica un mensaje SignalMessage message.
+         * @param message objeto simple para verificar
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Crea un mensaje SignalMessage message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+         * @param object objeto simple
+         * @returns SignalMessage
+         */
+        public static fromObject(object: { [k: string]: any }): proto.SignalMessage;
+
+        /**
+         * Crea un objeto simple de un SignalMessage message. Also converts values to other types if specified.
+         * @param message SignalMessage
+         * @param [options] Opciones de conversión
+         * @returns objeto simple
+         */
+        public static toObject(message: proto.SignalMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * convierte esteSignalMessage to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
     }
 
     /** Propiedades de un SignedPreKeyRecordStructure. */
@@ -22081,7 +23641,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISignedPreKeyRecordStructure, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SignedPreKeyRecordStructure message from the specified reader or buffer.
+         * Decodifica un mensaje SignedPreKeyRecordStructure desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SignedPreKeyRecordStructure
@@ -22091,7 +23651,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SignedPreKeyRecordStructure;
 
         /**
-         * Decodes a SignedPreKeyRecordStructure message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SignedPreKeyRecordStructure message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SignedPreKeyRecordStructure
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -22100,14 +23660,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SignedPreKeyRecordStructure;
 
         /**
-         * Verifies a SignedPreKeyRecordStructure message.
+         * Verifica un mensaje SignedPreKeyRecordStructure message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SignedPreKeyRecordStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SignedPreKeyRecordStructure message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SignedPreKeyRecordStructure
          */
@@ -22177,7 +23737,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IStatusPSA, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a StatusPSA message from the specified reader or buffer.
+         * Decodifica un mensaje StatusPSA desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns StatusPSA
@@ -22187,7 +23747,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.StatusPSA;
 
         /**
-         * Decodes a StatusPSA message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje StatusPSA message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns StatusPSA
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -22196,14 +23756,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.StatusPSA;
 
         /**
-         * Verifies a StatusPSA message.
+         * Verifica un mensaje StatusPSA message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a StatusPSA message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje StatusPSA message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns StatusPSA
          */
@@ -22327,7 +23887,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IStickerMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a StickerMetadata message from the specified reader or buffer.
+         * Decodifica un mensaje StickerMetadata desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns StickerMetadata
@@ -22337,7 +23897,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.StickerMetadata;
 
         /**
-         * Decodes a StickerMetadata message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje StickerMetadata message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns StickerMetadata
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -22346,14 +23906,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.StickerMetadata;
 
         /**
-         * Verifies a StickerMetadata message.
+         * Verifica un mensaje StickerMetadata message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a StickerMetadata message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje StickerMetadata message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns StickerMetadata
          */
@@ -22435,7 +23995,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncActionData, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncActionData message from the specified reader or buffer.
+         * Decodifica un mensaje SyncActionData desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncActionData
@@ -22445,7 +24005,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionData;
 
         /**
-         * Decodes a SyncActionData message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncActionData message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncActionData
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -22454,14 +24014,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionData;
 
         /**
-         * Verifies a SyncActionData message.
+         * Verifica un mensaje SyncActionData message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncActionData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncActionData message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncActionData
          */
@@ -22580,6 +24140,18 @@ export namespace proto {
 
         /** SyncActionValue pnForLidChatAction */
         pnForLidChatAction?: (proto.SyncActionValue.IPnForLidChatAction|null);
+
+        /** SyncActionValue marketingMessageAction */
+        marketingMessageAction?: (proto.SyncActionValue.IMarketingMessageAction|null);
+
+        /** SyncActionValue marketingMessageBroadcastAction */
+        marketingMessageBroadcastAction?: (proto.SyncActionValue.IMarketingMessageBroadcastAction|null);
+
+        /** SyncActionValue externalWebBetaAction */
+        externalWebBetaAction?: (proto.SyncActionValue.IExternalWebBetaAction|null);
+
+        /** SyncActionValue privacySettingRelayAllCalls */
+        privacySettingRelayAllCalls?: (proto.SyncActionValue.IPrivacySettingRelayAllCalls|null);
     }
 
     /** Representa un SyncActionValue. */
@@ -22687,6 +24259,18 @@ export namespace proto {
         /** SyncActionValue pnForLidChatAction. */
         public pnForLidChatAction?: (proto.SyncActionValue.IPnForLidChatAction|null);
 
+        /** SyncActionValue marketingMessageAction. */
+        public marketingMessageAction?: (proto.SyncActionValue.IMarketingMessageAction|null);
+
+        /** SyncActionValue marketingMessageBroadcastAction. */
+        public marketingMessageBroadcastAction?: (proto.SyncActionValue.IMarketingMessageBroadcastAction|null);
+
+        /** SyncActionValue externalWebBetaAction. */
+        public externalWebBetaAction?: (proto.SyncActionValue.IExternalWebBetaAction|null);
+
+        /** SyncActionValue privacySettingRelayAllCalls. */
+        public privacySettingRelayAllCalls?: (proto.SyncActionValue.IPrivacySettingRelayAllCalls|null);
+
         /**
          * Crea una nueva instancia SyncActionValue utilizando las propiedades especificadas.
          * @param [properties] para establecer propiedades
@@ -22711,7 +24295,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncActionValue, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncActionValue message from the specified reader or buffer.
+         * Decodifica un mensaje SyncActionValue desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncActionValue
@@ -22721,7 +24305,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue;
 
         /**
-         * Decodes a SyncActionValue message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncActionValue message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncActionValue
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -22730,14 +24314,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue;
 
         /**
-         * Verifies a SyncActionValue message.
+         * Verifica un mensaje SyncActionValue message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncActionValue message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncActionValue message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncActionValue
          */
@@ -22815,7 +24399,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IAgentAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AgentAction message from the specified reader or buffer.
+             * Decodifica un mensajen AgentAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AgentAction
@@ -22825,7 +24409,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.AgentAction;
 
             /**
-             * Decodes an AgentAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AgentAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AgentAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -22905,7 +24489,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IAndroidUnsupportedActions, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an AndroidUnsupportedActions message from the specified reader or buffer.
+             * Decodifica un mensajen AndroidUnsupportedActions desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns AndroidUnsupportedActions
@@ -22915,7 +24499,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.AndroidUnsupportedActions;
 
             /**
-             * Decodes an AndroidUnsupportedActions message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen AndroidUnsupportedActions message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns AndroidUnsupportedActions
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23001,7 +24585,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IArchiveChatAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an ArchiveChatAction message from the specified reader or buffer.
+             * Decodifica un mensajen ArchiveChatAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ArchiveChatAction
@@ -23011,7 +24595,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.ArchiveChatAction;
 
             /**
-             * Decodes an ArchiveChatAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen ArchiveChatAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ArchiveChatAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23091,7 +24675,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IChatAssignmentAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ChatAssignmentAction message from the specified reader or buffer.
+             * Decodifica un mensaje ChatAssignmentAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ChatAssignmentAction
@@ -23101,7 +24685,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.ChatAssignmentAction;
 
             /**
-             * Decodes a ChatAssignmentAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ChatAssignmentAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ChatAssignmentAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23110,14 +24694,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.ChatAssignmentAction;
 
             /**
-             * Verifies a ChatAssignmentAction message.
+             * Verifica un mensaje ChatAssignmentAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ChatAssignmentAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ChatAssignmentAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ChatAssignmentAction
              */
@@ -23181,7 +24765,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IChatAssignmentOpenedStatusAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ChatAssignmentOpenedStatusAction message from the specified reader or buffer.
+             * Decodifica un mensaje ChatAssignmentOpenedStatusAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ChatAssignmentOpenedStatusAction
@@ -23191,7 +24775,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.ChatAssignmentOpenedStatusAction;
 
             /**
-             * Decodes a ChatAssignmentOpenedStatusAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ChatAssignmentOpenedStatusAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ChatAssignmentOpenedStatusAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23200,14 +24784,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.ChatAssignmentOpenedStatusAction;
 
             /**
-             * Verifies a ChatAssignmentOpenedStatusAction message.
+             * Verifica un mensaje ChatAssignmentOpenedStatusAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ChatAssignmentOpenedStatusAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ChatAssignmentOpenedStatusAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ChatAssignmentOpenedStatusAction
              */
@@ -23271,7 +24855,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IClearChatAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ClearChatAction message from the specified reader or buffer.
+             * Decodifica un mensaje ClearChatAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ClearChatAction
@@ -23281,7 +24865,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.ClearChatAction;
 
             /**
-             * Decodes a ClearChatAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ClearChatAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ClearChatAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23290,14 +24874,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.ClearChatAction;
 
             /**
-             * Verifies a ClearChatAction message.
+             * Verifica un mensaje ClearChatAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ClearChatAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ClearChatAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ClearChatAction
              */
@@ -23373,7 +24957,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IContactAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a ContactAction message from the specified reader or buffer.
+             * Decodifica un mensaje ContactAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns ContactAction
@@ -23383,7 +24967,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.ContactAction;
 
             /**
-             * Decodes a ContactAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje ContactAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns ContactAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23392,14 +24976,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.ContactAction;
 
             /**
-             * Verifies a ContactAction message.
+             * Verifica un mensaje ContactAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a ContactAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje ContactAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns ContactAction
              */
@@ -23463,7 +25047,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IDeleteChatAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a DeleteChatAction message from the specified reader or buffer.
+             * Decodifica un mensaje DeleteChatAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns DeleteChatAction
@@ -23473,7 +25057,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.DeleteChatAction;
 
             /**
-             * Decodes a DeleteChatAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje DeleteChatAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns DeleteChatAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23482,14 +25066,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.DeleteChatAction;
 
             /**
-             * Verifies a DeleteChatAction message.
+             * Verifica un mensaje DeleteChatAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a DeleteChatAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje DeleteChatAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns DeleteChatAction
              */
@@ -23559,7 +25143,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IDeleteMessageForMeAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a DeleteMessageForMeAction message from the specified reader or buffer.
+             * Decodifica un mensaje DeleteMessageForMeAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns DeleteMessageForMeAction
@@ -23569,7 +25153,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.DeleteMessageForMeAction;
 
             /**
-             * Decodes a DeleteMessageForMeAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje DeleteMessageForMeAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns DeleteMessageForMeAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23578,14 +25162,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.DeleteMessageForMeAction;
 
             /**
-             * Verifies a DeleteMessageForMeAction message.
+             * Verifica un mensaje DeleteMessageForMeAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a DeleteMessageForMeAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje DeleteMessageForMeAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns DeleteMessageForMeAction
              */
@@ -23601,6 +25185,96 @@ export namespace proto {
 
             /**
              * Convierte este  DeleteMessageForMeAction a JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Propiedades de unn ExternalWebBetaAction. */
+        interface IExternalWebBetaAction {
+
+            /** ExternalWebBetaAction isOptIn */
+            isOptIn?: (boolean|null);
+        }
+
+        /** representa unn ExternalWebBetaAction. */
+        class ExternalWebBetaAction implements IExternalWebBetaAction {
+
+            /**
+             * Construye un nuevo ExternalWebBetaAction.
+             * @param [properties] Propiedades a configurar
+             */
+            constructor(properties?: proto.SyncActionValue.IExternalWebBetaAction);
+
+            /** ExternalWebBetaAction isOptIn. */
+            public isOptIn: boolean;
+
+            /**
+             * Crea una nueva ExternalWebBetaAction instance usando las propiedades especificadas.
+             * @param [properties] Propiedades a configurar
+             * @returns ExternalWebBetaAction instance
+             */
+            public static create(properties?: proto.SyncActionValue.IExternalWebBetaAction): proto.SyncActionValue.ExternalWebBetaAction;
+
+            /**
+             * Codifica el especificado ExternalWebBetaAction message. No implícitamente mensajes {@link proto.SyncActionValue.ExternalWebBetaAction.verify|verify}.
+             * @param message ExternalWebBetaAction message u objeto simple para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encode(message: proto.SyncActionValue.IExternalWebBetaAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Codifica el especificado ExternalWebBetaAction message, length delimited. No implícitamente mensajes {@link proto.SyncActionValue.ExternalWebBetaAction.verify|verify}.
+             * @param message ExternalWebBetaAction message u objeto simple para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.SyncActionValue.IExternalWebBetaAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodifica un mensajen ExternalWebBetaAction desde el lector o búfer especificado.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ExternalWebBetaAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.ExternalWebBetaAction;
+
+            /**
+             * Decodifica un mensajen ExternalWebBetaAction desde el lector o búfer especificado, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ExternalWebBetaAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.ExternalWebBetaAction;
+
+            /**
+             * Verifies an ExternalWebBetaAction message.
+             * @param message objeto simple para verificar
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an ExternalWebBetaAction message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+             * @param object objeto simple
+             * @returns ExternalWebBetaAction
+             */
+            public static fromObject(object: { [k: string]: any }): proto.SyncActionValue.ExternalWebBetaAction;
+
+            /**
+             * Crea un objeto simple de unn ExternalWebBetaAction message. Also converts values to other types if specified.
+             * @param message ExternalWebBetaAction
+             * @param [options] Opciones de conversión
+             * @returns objeto simple
+             */
+            public static toObject(message: proto.SyncActionValue.ExternalWebBetaAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * convierte esteExternalWebBetaAction to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -23649,7 +25323,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IKeyExpiration, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a KeyExpiration message from the specified reader or buffer.
+             * Decodifica un mensaje KeyExpiration desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns KeyExpiration
@@ -23659,7 +25333,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.KeyExpiration;
 
             /**
-             * Decodes a KeyExpiration message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje KeyExpiration message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns KeyExpiration
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23668,14 +25342,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.KeyExpiration;
 
             /**
-             * Verifies a KeyExpiration message.
+             * Verifica un mensaje KeyExpiration message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a KeyExpiration message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje KeyExpiration message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns KeyExpiration
              */
@@ -23739,7 +25413,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.ILabelAssociationAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a LabelAssociationAction message from the specified reader or buffer.
+             * Decodifica un mensaje LabelAssociationAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns LabelAssociationAction
@@ -23749,7 +25423,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.LabelAssociationAction;
 
             /**
-             * Decodes a LabelAssociationAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje LabelAssociationAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns LabelAssociationAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23758,14 +25432,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.LabelAssociationAction;
 
             /**
-             * Verifies a LabelAssociationAction message.
+             * Verifica un mensaje LabelAssociationAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a LabelAssociationAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje LabelAssociationAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns LabelAssociationAction
              */
@@ -23847,7 +25521,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.ILabelEditAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a LabelEditAction message from the specified reader or buffer.
+             * Decodifica un mensaje LabelEditAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns LabelEditAction
@@ -23857,7 +25531,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.LabelEditAction;
 
             /**
-             * Decodes a LabelEditAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje LabelEditAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns LabelEditAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23866,14 +25540,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.LabelEditAction;
 
             /**
-             * Verifies a LabelEditAction message.
+             * Verifica un mensaje LabelEditAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a LabelEditAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje LabelEditAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns LabelEditAction
              */
@@ -23937,7 +25611,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.ILocaleSetting, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a LocaleSetting message from the specified reader or buffer.
+             * Decodifica un mensaje LocaleSetting desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns LocaleSetting
@@ -23947,7 +25621,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.LocaleSetting;
 
             /**
-             * Decodes a LocaleSetting message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje LocaleSetting message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns LocaleSetting
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -23956,14 +25630,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.LocaleSetting;
 
             /**
-             * Verifies a LocaleSetting message.
+             * Verifica un mensaje LocaleSetting message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a LocaleSetting message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje LocaleSetting message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns LocaleSetting
              */
@@ -24033,7 +25707,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IMarkChatAsReadAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a MarkChatAsReadAction message from the specified reader or buffer.
+             * Decodifica un mensaje MarkChatAsReadAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns MarkChatAsReadAction
@@ -24043,7 +25717,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.MarkChatAsReadAction;
 
             /**
-             * Decodes a MarkChatAsReadAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje MarkChatAsReadAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns MarkChatAsReadAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24052,14 +25726,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.MarkChatAsReadAction;
 
             /**
-             * Verifies a MarkChatAsReadAction message.
+             * Verifica un mensaje MarkChatAsReadAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a MarkChatAsReadAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje MarkChatAsReadAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns MarkChatAsReadAction
              */
@@ -24075,6 +25749,230 @@ export namespace proto {
 
             /**
              * Convierte este  MarkChatAsReadAction a JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Propiedades de un MarketingMessageAction. */
+        interface IMarketingMessageAction {
+
+            /** MarketingMessageAction name */
+            name?: (string|null);
+
+            /** MarketingMessageAction message */
+            message?: (string|null);
+
+            /** MarketingMessageAction type */
+            type?: (proto.SyncActionValue.MarketingMessageAction.MarketingMessagePrototypeType|null);
+
+            /** MarketingMessageAction createdAt */
+            createdAt?: (number|Long|null);
+
+            /** MarketingMessageAction lastSentAt */
+            lastSentAt?: (number|Long|null);
+
+            /** MarketingMessageAction isDeleted */
+            isDeleted?: (boolean|null);
+
+            /** MarketingMessageAction mediaId */
+            mediaId?: (string|null);
+        }
+
+        /** representa un MarketingMessageAction. */
+        class MarketingMessageAction implements IMarketingMessageAction {
+
+            /**
+             * Construye un nuevo MarketingMessageAction.
+             * @param [properties] Propiedades a configurar
+             */
+            constructor(properties?: proto.SyncActionValue.IMarketingMessageAction);
+
+            /** MarketingMessageAction name. */
+            public name: string;
+
+            /** MarketingMessageAction message. */
+            public message: string;
+
+            /** MarketingMessageAction type. */
+            public type: proto.SyncActionValue.MarketingMessageAction.MarketingMessagePrototypeType;
+
+            /** MarketingMessageAction createdAt. */
+            public createdAt: (number|Long);
+
+            /** MarketingMessageAction lastSentAt. */
+            public lastSentAt: (number|Long);
+
+            /** MarketingMessageAction isDeleted. */
+            public isDeleted: boolean;
+
+            /** MarketingMessageAction mediaId. */
+            public mediaId: string;
+
+            /**
+             * Crea una nueva MarketingMessageAction instance usando las propiedades especificadas.
+             * @param [properties] Propiedades a configurar
+             * @returns MarketingMessageAction instance
+             */
+            public static create(properties?: proto.SyncActionValue.IMarketingMessageAction): proto.SyncActionValue.MarketingMessageAction;
+
+            /**
+             * Codifica el especificado MarketingMessageAction message. No implícitamente mensajes {@link proto.SyncActionValue.MarketingMessageAction.verify|verify}.
+             * @param message MarketingMessageAction message u objeto simple para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encode(message: proto.SyncActionValue.IMarketingMessageAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Codifica el especificado MarketingMessageAction message, length delimited. No implícitamente mensajes {@link proto.SyncActionValue.MarketingMessageAction.verify|verify}.
+             * @param message MarketingMessageAction message u objeto simple para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.SyncActionValue.IMarketingMessageAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodifica un mensaje MarketingMessageAction desde el lector o búfer especificado.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MarketingMessageAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.MarketingMessageAction;
+
+            /**
+             * Decodifica un mensaje MarketingMessageAction desde el lector o búfer especificado, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MarketingMessageAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.MarketingMessageAction;
+
+            /**
+             * Verifica un mensaje MarketingMessageAction message.
+             * @param message objeto simple para verificar
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Crea un mensaje MarketingMessageAction message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+             * @param object objeto simple
+             * @returns MarketingMessageAction
+             */
+            public static fromObject(object: { [k: string]: any }): proto.SyncActionValue.MarketingMessageAction;
+
+            /**
+             * Crea un objeto simple de un MarketingMessageAction message. Also converts values to other types if specified.
+             * @param message MarketingMessageAction
+             * @param [options] Opciones de conversión
+             * @returns objeto simple
+             */
+            public static toObject(message: proto.SyncActionValue.MarketingMessageAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * convierte esteMarketingMessageAction to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        namespace MarketingMessageAction {
+
+            /** MarketingMessagePrototypeType enum. */
+            enum MarketingMessagePrototypeType {
+                PERSONALIZED = 0
+            }
+        }
+
+        /** Propiedades de un MarketingMessageBroadcastAction. */
+        interface IMarketingMessageBroadcastAction {
+
+            /** MarketingMessageBroadcastAction repliedCount */
+            repliedCount?: (number|null);
+        }
+
+        /** representa un MarketingMessageBroadcastAction. */
+        class MarketingMessageBroadcastAction implements IMarketingMessageBroadcastAction {
+
+            /**
+             * Construye un nuevo MarketingMessageBroadcastAction.
+             * @param [properties] Propiedades a configurar
+             */
+            constructor(properties?: proto.SyncActionValue.IMarketingMessageBroadcastAction);
+
+            /** MarketingMessageBroadcastAction repliedCount. */
+            public repliedCount: number;
+
+            /**
+             * Crea una nueva MarketingMessageBroadcastAction instance usando las propiedades especificadas.
+             * @param [properties] Propiedades a configurar
+             * @returns MarketingMessageBroadcastAction instance
+             */
+            public static create(properties?: proto.SyncActionValue.IMarketingMessageBroadcastAction): proto.SyncActionValue.MarketingMessageBroadcastAction;
+
+            /**
+             * Codifica el especificado MarketingMessageBroadcastAction message. No implícitamente mensajes {@link proto.SyncActionValue.MarketingMessageBroadcastAction.verify|verify}.
+             * @param message MarketingMessageBroadcastAction message u objeto simple para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encode(message: proto.SyncActionValue.IMarketingMessageBroadcastAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Codifica el especificado MarketingMessageBroadcastAction message, length delimited. No implícitamente mensajes {@link proto.SyncActionValue.MarketingMessageBroadcastAction.verify|verify}.
+             * @param message MarketingMessageBroadcastAction message u objeto simple para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.SyncActionValue.IMarketingMessageBroadcastAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodifica un mensaje MarketingMessageBroadcastAction desde el lector o búfer especificado.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns MarketingMessageBroadcastAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.MarketingMessageBroadcastAction;
+
+            /**
+             * Decodifica un mensaje MarketingMessageBroadcastAction desde el lector o búfer especificado, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns MarketingMessageBroadcastAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.MarketingMessageBroadcastAction;
+
+            /**
+             * Verifica un mensaje MarketingMessageBroadcastAction message.
+             * @param message objeto simple para verificar
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Crea un mensaje MarketingMessageBroadcastAction message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+             * @param object objeto simple
+             * @returns MarketingMessageBroadcastAction
+             */
+            public static fromObject(object: { [k: string]: any }): proto.SyncActionValue.MarketingMessageBroadcastAction;
+
+            /**
+             * Crea un objeto simple de un MarketingMessageBroadcastAction message. Also converts values to other types if specified.
+             * @param message MarketingMessageBroadcastAction
+             * @param [options] Opciones de conversión
+             * @returns objeto simple
+             */
+            public static toObject(message: proto.SyncActionValue.MarketingMessageBroadcastAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * convierte esteMarketingMessageBroadcastAction to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -24135,7 +26033,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IMuteAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a MuteAction message from the specified reader or buffer.
+             * Decodifica un mensaje MuteAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns MuteAction
@@ -24145,7 +26043,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.MuteAction;
 
             /**
-             * Decodes a MuteAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje MuteAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns MuteAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24154,14 +26052,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.MuteAction;
 
             /**
-             * Verifies a MuteAction message.
+             * Verifica un mensaje MuteAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a MuteAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje MuteAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns MuteAction
              */
@@ -24225,7 +26123,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.INuxAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a NuxAction message from the specified reader or buffer.
+             * Decodifica un mensaje NuxAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns NuxAction
@@ -24235,7 +26133,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.NuxAction;
 
             /**
-             * Decodes a NuxAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje NuxAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns NuxAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24244,14 +26142,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.NuxAction;
 
             /**
-             * Verifies a NuxAction message.
+             * Verifica un mensaje NuxAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a NuxAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje NuxAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns NuxAction
              */
@@ -24315,7 +26213,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IPinAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PinAction message from the specified reader or buffer.
+             * Decodifica un mensaje PinAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PinAction
@@ -24325,7 +26223,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.PinAction;
 
             /**
-             * Decodes a PinAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PinAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PinAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24334,14 +26232,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.PinAction;
 
             /**
-             * Verifies a PinAction message.
+             * Verifica un mensaje PinAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PinAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PinAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PinAction
              */
@@ -24405,7 +26303,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IPnForLidChatAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PnForLidChatAction message from the specified reader or buffer.
+             * Decodifica un mensaje PnForLidChatAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PnForLidChatAction
@@ -24415,7 +26313,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.PnForLidChatAction;
 
             /**
-             * Decodes a PnForLidChatAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PnForLidChatAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PnForLidChatAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24424,14 +26322,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.PnForLidChatAction;
 
             /**
-             * Verifies a PnForLidChatAction message.
+             * Verifica un mensaje PnForLidChatAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PnForLidChatAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PnForLidChatAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PnForLidChatAction
              */
@@ -24495,7 +26393,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IPrimaryFeature, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PrimaryFeature message from the specified reader or buffer.
+             * Decodifica un mensaje PrimaryFeature desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PrimaryFeature
@@ -24505,7 +26403,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.PrimaryFeature;
 
             /**
-             * Decodes a PrimaryFeature message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PrimaryFeature message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PrimaryFeature
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24514,14 +26412,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.PrimaryFeature;
 
             /**
-             * Verifies a PrimaryFeature message.
+             * Verifica un mensaje PrimaryFeature message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PrimaryFeature message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PrimaryFeature message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PrimaryFeature
              */
@@ -24585,7 +26483,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IPrimaryVersionAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PrimaryVersionAction message from the specified reader or buffer.
+             * Decodifica un mensaje PrimaryVersionAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PrimaryVersionAction
@@ -24595,7 +26493,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.PrimaryVersionAction;
 
             /**
-             * Decodes a PrimaryVersionAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PrimaryVersionAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PrimaryVersionAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24604,14 +26502,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.PrimaryVersionAction;
 
             /**
-             * Verifies a PrimaryVersionAction message.
+             * Verifica un mensaje PrimaryVersionAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PrimaryVersionAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PrimaryVersionAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PrimaryVersionAction
              */
@@ -24627,6 +26525,96 @@ export namespace proto {
 
             /**
              * Convierte este  PrimaryVersionAction a JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Propiedades de un PrivacySettingRelayAllCalls. */
+        interface IPrivacySettingRelayAllCalls {
+
+            /** PrivacySettingRelayAllCalls isEnabled */
+            isEnabled?: (boolean|null);
+        }
+
+        /** representa un PrivacySettingRelayAllCalls. */
+        class PrivacySettingRelayAllCalls implements IPrivacySettingRelayAllCalls {
+
+            /**
+             * Construye un nuevo PrivacySettingRelayAllCalls.
+             * @param [properties] Propiedades a configurar
+             */
+            constructor(properties?: proto.SyncActionValue.IPrivacySettingRelayAllCalls);
+
+            /** PrivacySettingRelayAllCalls isEnabled. */
+            public isEnabled: boolean;
+
+            /**
+             * Crea una nueva PrivacySettingRelayAllCalls instance usando las propiedades especificadas.
+             * @param [properties] Propiedades a configurar
+             * @returns PrivacySettingRelayAllCalls instance
+             */
+            public static create(properties?: proto.SyncActionValue.IPrivacySettingRelayAllCalls): proto.SyncActionValue.PrivacySettingRelayAllCalls;
+
+            /**
+             * Codifica el especificado PrivacySettingRelayAllCalls message. No implícitamente mensajes {@link proto.SyncActionValue.PrivacySettingRelayAllCalls.verify|verify}.
+             * @param message PrivacySettingRelayAllCalls message u objeto simple para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encode(message: proto.SyncActionValue.IPrivacySettingRelayAllCalls, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Codifica el especificado PrivacySettingRelayAllCalls message, length delimited. No implícitamente mensajes {@link proto.SyncActionValue.PrivacySettingRelayAllCalls.verify|verify}.
+             * @param message PrivacySettingRelayAllCalls message u objeto simple para codificar
+             * @param [writer] Writer para codificar
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.SyncActionValue.IPrivacySettingRelayAllCalls, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodifica un mensaje PrivacySettingRelayAllCalls desde el lector o búfer especificado.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns PrivacySettingRelayAllCalls
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.PrivacySettingRelayAllCalls;
+
+            /**
+             * Decodifica un mensaje PrivacySettingRelayAllCalls desde el lector o búfer especificado, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns PrivacySettingRelayAllCalls
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.PrivacySettingRelayAllCalls;
+
+            /**
+             * Verifica un mensaje PrivacySettingRelayAllCalls message.
+             * @param message objeto simple para verificar
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Crea un mensaje PrivacySettingRelayAllCalls message de un objeto simple. También convierte valores a sus respectivos tipos internos..
+             * @param object objeto simple
+             * @returns PrivacySettingRelayAllCalls
+             */
+            public static fromObject(object: { [k: string]: any }): proto.SyncActionValue.PrivacySettingRelayAllCalls;
+
+            /**
+             * Crea un objeto simple de un PrivacySettingRelayAllCalls message. Also converts values to other types if specified.
+             * @param message PrivacySettingRelayAllCalls
+             * @param [options] Opciones de conversión
+             * @returns objeto simple
+             */
+            public static toObject(message: proto.SyncActionValue.PrivacySettingRelayAllCalls, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * convierte estePrivacySettingRelayAllCalls to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -24675,7 +26663,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IPushNameSetting, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a PushNameSetting message from the specified reader or buffer.
+             * Decodifica un mensaje PushNameSetting desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns PushNameSetting
@@ -24685,7 +26673,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.PushNameSetting;
 
             /**
-             * Decodes a PushNameSetting message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje PushNameSetting message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns PushNameSetting
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24694,14 +26682,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.PushNameSetting;
 
             /**
-             * Verifies a PushNameSetting message.
+             * Verifica un mensaje PushNameSetting message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a PushNameSetting message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje PushNameSetting message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns PushNameSetting
              */
@@ -24789,7 +26777,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IQuickReplyAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a QuickReplyAction message from the specified reader or buffer.
+             * Decodifica un mensaje QuickReplyAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns QuickReplyAction
@@ -24799,7 +26787,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.QuickReplyAction;
 
             /**
-             * Decodes a QuickReplyAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje QuickReplyAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns QuickReplyAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24808,14 +26796,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.QuickReplyAction;
 
             /**
-             * Verifies a QuickReplyAction message.
+             * Verifica un mensaje QuickReplyAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a QuickReplyAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje QuickReplyAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns QuickReplyAction
              */
@@ -24879,7 +26867,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IRecentEmojiWeightsAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a RecentEmojiWeightsAction message from the specified reader or buffer.
+             * Decodifica un mensaje RecentEmojiWeightsAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns RecentEmojiWeightsAction
@@ -24889,7 +26877,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.RecentEmojiWeightsAction;
 
             /**
-             * Decodes a RecentEmojiWeightsAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje RecentEmojiWeightsAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns RecentEmojiWeightsAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24898,14 +26886,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.RecentEmojiWeightsAction;
 
             /**
-             * Verifies a RecentEmojiWeightsAction message.
+             * Verifica un mensaje RecentEmojiWeightsAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a RecentEmojiWeightsAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje RecentEmojiWeightsAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns RecentEmojiWeightsAction
              */
@@ -24969,7 +26957,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IRemoveRecentStickerAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a RemoveRecentStickerAction message from the specified reader or buffer.
+             * Decodifica un mensaje RemoveRecentStickerAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns RemoveRecentStickerAction
@@ -24979,7 +26967,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.RemoveRecentStickerAction;
 
             /**
-             * Decodes a RemoveRecentStickerAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje RemoveRecentStickerAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns RemoveRecentStickerAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -24988,14 +26976,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.RemoveRecentStickerAction;
 
             /**
-             * Verifies a RemoveRecentStickerAction message.
+             * Verifica un mensaje RemoveRecentStickerAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a RemoveRecentStickerAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje RemoveRecentStickerAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns RemoveRecentStickerAction
              */
@@ -25051,7 +27039,7 @@ export namespace proto {
             public static encode(message: proto.SyncActionValue.ISecurityNotificationSetting, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Codifica el mensaje SecurityNotificationSetting message, delimitado por longitud. No implícitamente mensajes {@link proto.SyncActionValue.SecurityNotificationSetting.verify|verify}.
+             * Codifica el mensaje SecurityNotificationSetting, delimitado por longitud. No implícitamente mensajes {@link proto.SyncActionValue.SecurityNotificationSetting.verify|verify}.
              * @param message SecurityNotificationSetting mensaje o objeto simple para codificar
              * @param [writer] Writer para codificar a
              * @returns Writer
@@ -25059,7 +27047,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.ISecurityNotificationSetting, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SecurityNotificationSetting message from the specified reader or buffer.
+             * Decodifica un mensaje SecurityNotificationSetting desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SecurityNotificationSetting
@@ -25069,7 +27057,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.SecurityNotificationSetting;
 
             /**
-             * Decodes a SecurityNotificationSetting message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SecurityNotificationSetting desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SecurityNotificationSetting
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25078,14 +27066,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.SecurityNotificationSetting;
 
             /**
-             * Verifies a SecurityNotificationSetting message.
+             * Verifica un mensaje SecurityNotificationSetting.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SecurityNotificationSetting message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SecurityNotificationSetting desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SecurityNotificationSetting
              */
@@ -25141,7 +27129,7 @@ export namespace proto {
             public static encode(message: proto.SyncActionValue.IStarAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Codifica el mensaje StarAction message, delimitado por longitud. No implícitamente mensajes {@link proto.SyncActionValue.StarAction.verify|verify}.
+             * Codifica el mensaje StarAction, delimitado por longitud. No implícitamente mensajes {@link proto.SyncActionValue.StarAction.verify|verify}.
              * @param message StarAction mensaje o objeto simple para codificar
              * @param [writer] Writer para codificar a
              * @returns Writer
@@ -25149,7 +27137,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IStarAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a StarAction message from the specified reader or buffer.
+             * Decodifica un mensaje StarAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns StarAction
@@ -25159,7 +27147,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.StarAction;
 
             /**
-             * Decodes a StarAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje StarAction desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns StarAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25168,14 +27156,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.StarAction;
 
             /**
-             * Verifies a StarAction message.
+             * Verifica un mensaje StarAction.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a StarAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje StarAction desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns StarAction
              */
@@ -25293,7 +27281,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IStickerAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a StickerAction message from the specified reader or buffer.
+             * Decodifica un mensaje StickerAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns StickerAction
@@ -25303,7 +27291,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.StickerAction;
 
             /**
-             * Decodes a StickerAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje StickerAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns StickerAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25312,14 +27300,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.StickerAction;
 
             /**
-             * Verifies a StickerAction message.
+             * Verifica un mensaje StickerAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a StickerAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje StickerAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns StickerAction
              */
@@ -25395,7 +27383,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.ISubscriptionAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SubscriptionAction message from the specified reader or buffer.
+             * Decodifica un mensaje SubscriptionAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SubscriptionAction
@@ -25405,7 +27393,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.SubscriptionAction;
 
             /**
-             * Decodes a SubscriptionAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SubscriptionAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SubscriptionAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25414,14 +27402,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.SubscriptionAction;
 
             /**
-             * Verifies a SubscriptionAction message.
+             * Verifica un mensaje SubscriptionAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SubscriptionAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SubscriptionAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SubscriptionAction
              */
@@ -25491,7 +27479,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.ISyncActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SyncActionMessage message from the specified reader or buffer.
+             * Decodifica un mensaje SyncActionMessage desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SyncActionMessage
@@ -25501,7 +27489,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.SyncActionMessage;
 
             /**
-             * Decodes a SyncActionMessage message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SyncActionMessage message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SyncActionMessage
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25510,14 +27498,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.SyncActionMessage;
 
             /**
-             * Verifies a SyncActionMessage message.
+             * Verifica un mensaje SyncActionMessage message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SyncActionMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SyncActionMessage message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SyncActionMessage
              */
@@ -25593,7 +27581,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.ISyncActionMessageRange, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a SyncActionMessageRange message from the specified reader or buffer.
+             * Decodifica un mensaje SyncActionMessageRange desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns SyncActionMessageRange
@@ -25603,7 +27591,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.SyncActionMessageRange;
 
             /**
-             * Decodes a SyncActionMessageRange message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje SyncActionMessageRange message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns SyncActionMessageRange
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25612,14 +27600,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.SyncActionMessageRange;
 
             /**
-             * Verifies a SyncActionMessageRange message.
+             * Verifica un mensaje SyncActionMessageRange message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a SyncActionMessageRange message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje SyncActionMessageRange message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns SyncActionMessageRange
              */
@@ -25683,7 +27671,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.ITimeFormatAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a TimeFormatAction message from the specified reader or buffer.
+             * Decodifica un mensaje TimeFormatAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns TimeFormatAction
@@ -25693,7 +27681,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.TimeFormatAction;
 
             /**
-             * Decodes a TimeFormatAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje TimeFormatAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns TimeFormatAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25702,14 +27690,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.TimeFormatAction;
 
             /**
-             * Verifies a TimeFormatAction message.
+             * Verifica un mensaje TimeFormatAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a TimeFormatAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje TimeFormatAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns TimeFormatAction
              */
@@ -25773,7 +27761,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IUnarchiveChatsSetting, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes an UnarchiveChatsSetting message from the specified reader or buffer.
+             * Decodifica un mensajen UnarchiveChatsSetting desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns UnarchiveChatsSetting
@@ -25783,7 +27771,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.UnarchiveChatsSetting;
 
             /**
-             * Decodes an UnarchiveChatsSetting message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensajen UnarchiveChatsSetting message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns UnarchiveChatsSetting
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25863,7 +27851,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.SyncActionValue.IUserStatusMuteAction, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a UserStatusMuteAction message from the specified reader or buffer.
+             * Decodifica un mensaje UserStatusMuteAction desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns UserStatusMuteAction
@@ -25873,7 +27861,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.UserStatusMuteAction;
 
             /**
-             * Decodes a UserStatusMuteAction message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje UserStatusMuteAction message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns UserStatusMuteAction
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25882,14 +27870,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.UserStatusMuteAction;
 
             /**
-             * Verifies a UserStatusMuteAction message.
+             * Verifica un mensaje UserStatusMuteAction message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a UserStatusMuteAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje UserStatusMuteAction message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns UserStatusMuteAction
              */
@@ -25954,7 +27942,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncdIndex, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncdIndex message from the specified reader or buffer.
+         * Decodifica un mensaje SyncdIndex desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncdIndex
@@ -25964,7 +27952,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncdIndex;
 
         /**
-         * Decodes a SyncdIndex message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncdIndex message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncdIndex
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -25973,14 +27961,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncdIndex;
 
         /**
-         * Verifies a SyncdIndex message.
+         * Verifica un mensaje SyncdIndex message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncdIndex message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncdIndex message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncdIndex
          */
@@ -26050,7 +28038,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncdMutation, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncdMutation message from the specified reader or buffer.
+         * Decodifica un mensaje SyncdMutation desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncdMutation
@@ -26060,7 +28048,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncdMutation;
 
         /**
-         * Decodes a SyncdMutation message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncdMutation message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncdMutation
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26069,14 +28057,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncdMutation;
 
         /**
-         * Verifies a SyncdMutation message.
+         * Verifica un mensaje SyncdMutation message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncdMutation message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncdMutation message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncdMutation
          */
@@ -26149,7 +28137,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncdMutations, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncdMutations message from the specified reader or buffer.
+         * Decodifica un mensaje SyncdMutations desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncdMutations
@@ -26159,7 +28147,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncdMutations;
 
         /**
-         * Decodes a SyncdMutations message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncdMutations message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncdMutations
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26168,14 +28156,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncdMutations;
 
         /**
-         * Verifies a SyncdMutations message.
+         * Verifica un mensaje SyncdMutations message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncdMutations message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncdMutations message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncdMutations
          */
@@ -26281,7 +28269,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncdPatch, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncdPatch message from the specified reader or buffer.
+         * Decodifica un mensaje SyncdPatch desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncdPatch
@@ -26291,7 +28279,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncdPatch;
 
         /**
-         * Decodes a SyncdPatch message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncdPatch message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncdPatch
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26300,14 +28288,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncdPatch;
 
         /**
-         * Verifies a SyncdPatch message.
+         * Verifica un mensaje SyncdPatch message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncdPatch message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncdPatch message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncdPatch
          */
@@ -26383,7 +28371,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncdRecord, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncdRecord message from the specified reader or buffer.
+         * Decodifica un mensaje SyncdRecord desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncdRecord
@@ -26393,7 +28381,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncdRecord;
 
         /**
-         * Decodes a SyncdRecord message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncdRecord message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncdRecord
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26402,14 +28390,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncdRecord;
 
         /**
-         * Verifies a SyncdRecord message.
+         * Verifica un mensaje SyncdRecord message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncdRecord message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncdRecord message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncdRecord
          */
@@ -26491,7 +28479,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncdSnapshot, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncdSnapshot message from the specified reader or buffer.
+         * Decodifica un mensaje SyncdSnapshot desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncdSnapshot
@@ -26501,7 +28489,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncdSnapshot;
 
         /**
-         * Decodes a SyncdSnapshot message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncdSnapshot message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncdSnapshot
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26510,14 +28498,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncdSnapshot;
 
         /**
-         * Verifies a SyncdSnapshot message.
+         * Verifica un mensaje SyncdSnapshot message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncdSnapshot message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncdSnapshot message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncdSnapshot
          */
@@ -26581,7 +28569,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncdValue, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncdValue message from the specified reader or buffer.
+         * Decodifica un mensaje SyncdValue desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncdValue
@@ -26591,7 +28579,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncdValue;
 
         /**
-         * Decodes a SyncdValue message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncdValue message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncdValue
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26600,14 +28588,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncdValue;
 
         /**
-         * Verifies a SyncdValue message.
+         * Verifica un mensaje SyncdValue message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncdValue message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncdValue message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncdValue
          */
@@ -26671,7 +28659,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ISyncdVersion, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a SyncdVersion message from the specified reader or buffer.
+         * Decodifica un mensaje SyncdVersion desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns SyncdVersion
@@ -26681,7 +28669,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncdVersion;
 
         /**
-         * Decodes a SyncdVersion message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje SyncdVersion message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns SyncdVersion
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26690,14 +28678,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncdVersion;
 
         /**
-         * Verifies a SyncdVersion message.
+         * Verifica un mensaje SyncdVersion message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a SyncdVersion message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje SyncdVersion message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns SyncdVersion
          */
@@ -26782,7 +28770,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.ITemplateButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a TemplateButton message from the specified reader or buffer.
+         * Decodifica un mensaje TemplateButton desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns TemplateButton
@@ -26792,7 +28780,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.TemplateButton;
 
         /**
-         * Decodes a TemplateButton message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje TemplateButton message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns TemplateButton
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26801,14 +28789,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.TemplateButton;
 
         /**
-         * Verifies a TemplateButton message.
+         * Verifica un mensaje TemplateButton message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a TemplateButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje TemplateButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns TemplateButton
          */
@@ -26880,7 +28868,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.TemplateButton.ICallButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a CallButton message from the specified reader or buffer.
+             * Decodifica un mensaje CallButton desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns CallButton
@@ -26890,7 +28878,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.TemplateButton.CallButton;
 
             /**
-             * Decodes a CallButton message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje CallButton message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns CallButton
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26899,14 +28887,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.TemplateButton.CallButton;
 
             /**
-             * Verifies a CallButton message.
+             * Verifica un mensaje CallButton message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a CallButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje CallButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns CallButton
              */
@@ -26976,7 +28964,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.TemplateButton.IQuickReplyButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a QuickReplyButton message from the specified reader or buffer.
+             * Decodifica un mensaje QuickReplyButton desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns QuickReplyButton
@@ -26986,7 +28974,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.TemplateButton.QuickReplyButton;
 
             /**
-             * Decodes a QuickReplyButton message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje QuickReplyButton message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns QuickReplyButton
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -26995,14 +28983,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.TemplateButton.QuickReplyButton;
 
             /**
-             * Verifies a QuickReplyButton message.
+             * Verifica un mensaje QuickReplyButton message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a QuickReplyButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje QuickReplyButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns QuickReplyButton
              */
@@ -27072,7 +29060,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.TemplateButton.IURLButton, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a URLButton message from the specified reader or buffer.
+             * Decodifica un mensaje URLButton desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns URLButton
@@ -27082,7 +29070,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.TemplateButton.URLButton;
 
             /**
-             * Decodes a URLButton message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje URLButton message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns URLButton
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -27091,14 +29079,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.TemplateButton.URLButton;
 
             /**
-             * Verifies a URLButton message.
+             * Verifica un mensaje URLButton message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a URLButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje URLButton message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns URLButton
              */
@@ -27193,7 +29181,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IUserReceipt, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a UserReceipt message from the specified reader or buffer.
+         * Decodifica un mensaje UserReceipt desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns UserReceipt
@@ -27203,7 +29191,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.UserReceipt;
 
         /**
-         * Decodes a UserReceipt message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje UserReceipt message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns UserReceipt
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -27212,14 +29200,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.UserReceipt;
 
         /**
-         * Verifies a UserReceipt message.
+         * Verifica un mensaje UserReceipt message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a UserReceipt message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje UserReceipt message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns UserReceipt
          */
@@ -27295,7 +29283,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IVerifiedNameCertificate, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a VerifiedNameCertificate message from the specified reader or buffer.
+         * Decodifica un mensaje VerifiedNameCertificate desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns VerifiedNameCertificate
@@ -27305,7 +29293,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.VerifiedNameCertificate;
 
         /**
-         * Decodes a VerifiedNameCertificate message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje VerifiedNameCertificate message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns VerifiedNameCertificate
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -27314,14 +29302,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.VerifiedNameCertificate;
 
         /**
-         * Verifies a VerifiedNameCertificate message.
+         * Verifica un mensaje VerifiedNameCertificate message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a VerifiedNameCertificate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje VerifiedNameCertificate message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns VerifiedNameCertificate
          */
@@ -27411,7 +29399,7 @@ export namespace proto {
             public static encodeDelimited(message: proto.VerifiedNameCertificate.IDetails, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Decodes a Details message from the specified reader or buffer.
+             * Decodifica un mensaje Details desde el lector o búfer especificado.
              * @param reader Reader o búfer para decodificar desde
              * @param [length] Longitud del mensaje si se conoce de antemano
              * @returns Details
@@ -27421,7 +29409,7 @@ export namespace proto {
             public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.VerifiedNameCertificate.Details;
 
             /**
-             * Decodes a Details message desde el especifico lector o búfer, longitud delimitada.
+             * Decodifica un mensaje Details message desde el especifico lector o búfer, longitud delimitada.
              * @param reader Reader o búfer para decodificar desde
              * @returns Details
              * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -27430,14 +29418,14 @@ export namespace proto {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.VerifiedNameCertificate.Details;
 
             /**
-             * Verifies a Details message.
+             * Verifica un mensaje Details message.
              * @param message Objeto simple para verificar
              * @returns `null` Si es válido, de lo contrario la razón por la que no es
              */
             public static verify(message: { [k: string]: any }): (string|null);
 
             /**
-             * Creates a Details message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+             * Crea un mensaje Details message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
              * @param object Objeto simple
              * @returns Details
              */
@@ -27508,7 +29496,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IWallpaperSettings, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a WallpaperSettings message from the specified reader or buffer.
+         * Decodifica un mensaje WallpaperSettings desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns WallpaperSettings
@@ -27518,7 +29506,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.WallpaperSettings;
 
         /**
-         * Decodes a WallpaperSettings message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje WallpaperSettings message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns WallpaperSettings
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -27527,14 +29515,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.WallpaperSettings;
 
         /**
-         * Verifies a WallpaperSettings message.
+         * Verifica un mensaje WallpaperSettings message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a WallpaperSettings message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje WallpaperSettings message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns WallpaperSettings
          */
@@ -27862,7 +29850,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IWebFeatures, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a WebFeatures message from the specified reader or buffer.
+         * Decodifica un mensaje WebFeatures desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns WebFeatures
@@ -27872,7 +29860,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.WebFeatures;
 
         /**
-         * Decodes a WebFeatures message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje WebFeatures message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns WebFeatures
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -27881,14 +29869,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.WebFeatures;
 
         /**
-         * Verifies a WebFeatures message.
+         * Verifica un mensaje WebFeatures message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a WebFeatures message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje WebFeatures message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns WebFeatures
          */
@@ -28051,6 +30039,9 @@ export namespace proto {
 
         /** WebMessageInfo revokeMessageTimestamp */
         revokeMessageTimestamp?: (number|Long|null);
+
+        /** WebMessageInfo pinInChat */
+        pinInChat?: (proto.IPinInChat|null);
     }
 
     /** Representa un WebMessageInfo. */
@@ -28191,6 +30182,9 @@ export namespace proto {
         /** WebMessageInfo revokeMessageTimestamp. */
         public revokeMessageTimestamp: (number|Long);
 
+        /** WebMessageInfo pinInChat. */
+        public pinInChat?: (proto.IPinInChat|null);
+
         /**
          * Crea una nueva instancia WebMessageInfo utilizando las propiedades especificadas.
          * @param [properties] para establecer propiedades
@@ -28215,7 +30209,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IWebMessageInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a WebMessageInfo message from the specified reader or buffer.
+         * Decodifica un mensaje WebMessageInfo desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns WebMessageInfo
@@ -28225,7 +30219,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.WebMessageInfo;
 
         /**
-         * Decodes a WebMessageInfo message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje WebMessageInfo message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns WebMessageInfo
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -28234,14 +30228,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.WebMessageInfo;
 
         /**
-         * Verifies a WebMessageInfo message.
+         * Verifica un mensaje WebMessageInfo message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a WebMessageInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje WebMessageInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns WebMessageInfo
          */
@@ -28445,7 +30439,28 @@ export namespace proto {
             COMMUNITY_PARENT_GROUP_SUBJECT_CHANGED = 158,
             CAG_INVITE_AUTO_ADD = 159,
             BIZ_CHAT_ASSIGNMENT_UNASSIGN = 160,
-            CAG_INVITE_AUTO_JOINED = 161
+            CAG_INVITE_AUTO_JOINED = 161,
+            SCHEDULED_CALL_START_MESSAGE = 162,
+            COMMUNITY_INVITE_RICH = 163,
+            COMMUNITY_INVITE_AUTO_ADD_RICH = 164,
+            SUB_GROUP_INVITE_RICH = 165,
+            SUB_GROUP_PARTICIPANT_ADD_RICH = 166,
+            COMMUNITY_LINK_PARENT_GROUP_RICH = 167,
+            COMMUNITY_PARTICIPANT_ADD_RICH = 168,
+            SILENCED_UNKNOWN_CALLER_AUDIO = 169,
+            SILENCED_UNKNOWN_CALLER_VIDEO = 170,
+            GROUP_MEMBER_ADD_MODE = 171,
+            GROUP_MEMBERSHIP_JOIN_APPROVAL_REQUEST_NON_ADMIN_ADD = 172,
+            COMMUNITY_CHANGE_DESCRIPTION = 173,
+            SENDER_INVITE = 174,
+            RECEIVER_INVITE = 175,
+            COMMUNITY_ALLOW_MEMBER_ADDED_GROUPS = 176,
+            PINNED_MESSAGE_IN_CHAT = 177,
+            PAYMENT_INVITE_SETUP_INVITER = 178,
+            PAYMENT_INVITE_SETUP_INVITEE_RECEIVE_ONLY = 179,
+            PAYMENT_INVITE_SETUP_INVITEE_SEND_AND_RECEIVE = 180,
+            LINKED_GROUP_CALL_START = 181,
+            REPORT_TO_ADMIN_ENABLED_STATUS = 182
         }
     }
 
@@ -28510,7 +30525,7 @@ export namespace proto {
         public static encodeDelimited(message: proto.IWebNotificationsInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a WebNotificationsInfo message from the specified reader or buffer.
+         * Decodifica un mensaje WebNotificationsInfo desde el lector o búfer especificado.
          * @param reader Reader o búfer para decodificar desde
          * @param [length] Longitud del mensaje si se conoce de antemano
          * @returns WebNotificationsInfo
@@ -28520,7 +30535,7 @@ export namespace proto {
         public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.WebNotificationsInfo;
 
         /**
-         * Decodes a WebNotificationsInfo message desde el especifico lector o búfer, longitud delimitada.
+         * Decodifica un mensaje WebNotificationsInfo message desde el especifico lector o búfer, longitud delimitada.
          * @param reader Reader o búfer para decodificar desde
          * @returns WebNotificationsInfo
          * @throws {Error} Si la carga útil no es un lector o un búfer válido
@@ -28529,14 +30544,14 @@ export namespace proto {
         public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.WebNotificationsInfo;
 
         /**
-         * Verifies a WebNotificationsInfo message.
+         * Verifica un mensaje WebNotificationsInfo message.
          * @param message Objeto simple para verificar
          * @returns `null` Si es válido, de lo contrario la razón por la que no es
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a WebNotificationsInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
+         * Crea un mensaje WebNotificationsInfo message desde un objeto simple. También convierte valores a sus respectivos tipos internos.
          * @param object Objeto simple
          * @returns WebNotificationsInfo
          */

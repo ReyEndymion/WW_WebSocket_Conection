@@ -76,7 +76,7 @@ type Listable = {
     /** Título de un mensaje de lista solamente*/
     title?: string
 
-    /** Texto del Bnutton en la lista (requerido) */
+    /** Texto del Boton en la lista (requerido) */
     buttonText?: string
 }
 type WithDimensions = {

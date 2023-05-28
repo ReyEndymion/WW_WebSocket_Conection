@@ -75,7 +75,8 @@ export function makeCacheableSignalKeyStore(
 }
 
 /**
- * Agrega DB como capacidad de transacción (https://en.wikipedia.org/wiki/Database_transaction) al almacén de claves de señal, * Esto permite operaciones de lectura y escritura de lotes y mejora el rendimiento del lib
+ * Agrega DB como capacidad de transacción (https://en.wikipedia.org/wiki/Database_transaction) en la SignalKeyStore, 
+ * Esto permite operaciones de lectura y escritura de lotes y mejora el rendimiento de las lib
  * @param state la clave store para aplicar esta capacidad a
  * @param logger Logger para registrar eventos
  * @returns SignalKeyStore con capacidad de transacción

@@ -9,15 +9,15 @@ logger.level = 'trace'
 const useStore = !process.argv.includes('--no-store')
 const doReplies = !process.argv.includes('--no-reply')
 
-// Mapa externo para almacenar recuentos de mensajes cuando falla el descifrado/cifrado
-// Mantenga esto fuera del zócalo en sí, para evitar un bucle de descifrado/cifrado de mensaje a través de los reinicio del socket
+//mapa externo para almacenar recuentos de reintentos de mensajes cuando falla el descifrado/cifrado
+// mantener esto fuera del socket en sí, para evitar un ciclo de descifrado/cifrado de mensajes en los reinicios del socket
 const msgRetryCounterCache = new NodeCache()
 
-// La tienda mantiene los datos de la conexión WA en la memoria
-// se puede escribir en un archivo y leerlo
+// el almacén mantiene los datos de la conexión WA en la memoria
+// puede escribirse en un archivo y leerse desde él
 const store = useStore ? makeInMemoryStore({ logger }) : undefined
 store?.readFromFile('./baileys_store_multi.json')
-// Ahorre cada 10s
+// guarde cada 10s
 setInterval(() => {
 	store?.writeToFile('./baileys_store_multi.json')
 }, 10_000)
@@ -35,7 +35,7 @@ const startSock = async() => {
 		printQRInTerminal: true,
 		auth: {
 			creds: state.creds,
-			/** El almacenamiento en caché hace que la tienda sea más rápido para enviar/enviar mensajes */
+			/** el almacenamiento en caché hace que el almacén sea más rápido para enviar/recibir mensajes */
 			keys: makeCacheableSignalKeyStore(state.keys, logger),
 		},
 		msgRetryCounterCache,
@@ -86,6 +86,15 @@ const startSock = async() => {
 			// Credenciales actualizadas: guárdelas
 			if(events['creds.update']) {
 				await saveCreds()
+			}
+
+			if(events['labels.association']) {
+				console.log(events['labels.association'])
+			}
+
+
+			if(events['labels.edit']) {
+				console.log(events['labels.edit'])
 			}
 
 			if(events.call) {

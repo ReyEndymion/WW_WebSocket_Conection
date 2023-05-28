@@ -245,6 +245,8 @@ export type WW_WebSocket_ConectionEventMap = {
      'chats.update': Partial<Chat>[]
      /** eliminar chats con ID dado */
      'chats.delete': string[]
+    'labels.association': LabelAssociation
+    'labels.edit': Label
      /** presencia de contacto en un chat actualizado */
     'presence.update': { id: string, presences: { [participant: string]: PresenceData } }
 
@@ -746,6 +748,11 @@ await sock.sendMessage(
      const jid = '111234567890-1594482450@g.us' // también puede ser tuyo
      await sock.updateProfilePicture(jid, { url: './nueva-imagen-de-perfil.jpeg' })
      ```
+- Para eliminar su imagen para mostrar o la de un grupo
+    ``` ts
+    const jid = '111234567890-1594482450@g.us' // Puede ser la tuya también
+    await sock.removeProfilePicture(jid)
+    ```
 - Para obtener la presencia de alguien (si está escribiendo o en línea)
      ``` ts
      // la actualización de presencia se busca y llama aquí

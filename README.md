@@ -786,7 +786,7 @@ Por supuesto, reemplace ``` xyz ``` con una ID real.
      const response = await sock.groupParticipantsUpdate(
         "abcd-xyz@g.us", 
         ["abcd@s.whatsapp.net", "efgh@s.whatsapp.net"],
-        "add" // replace this parameter with "remove", "demote" or "promote"
+        "add" // reemplace este parámetro con "remove", "demote" o "promote"
      )
      ```
 - Para cambiar el tema del grupo
